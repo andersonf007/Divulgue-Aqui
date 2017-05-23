@@ -1,0 +1,11 @@
+com\github\izaquias\divulgueaquiweb\testes\TesteConexaoBD.class
+com\github\izaquias\divulgueaquiweb\dao\Usuarios.class
+com\github\izaquias\divulgueaquiweb\model\Usuario.class
+com\github\izaquias\divulgueaquiweb\model\Usuario_.class
+com\github\izaquias\divulgueaquiweb\model\Orgao.class
+com\github\izaquias\divulgueaquiweb\model\Problema_.class
+com\github\izaquias\divulgueaquiweb\dao\DaoGenerico.class
+com\github\izaquias\divulgueaquiweb\hibernate\HibernateUtil.class
+com\github\izaquias\divulgueaquiweb\model\Problema.class
+com\github\izaquias\divulgueaquiweb\model\Orgao_.class
+com\github\izaquias\divulgueaquiweb\model\Pessoa.class
