@@ -1,0 +1,8 @@
+<LinearLayout id="layoutLinear"  orientation="vertical" align="center">
+    <Text id="txtField" text="Login" class="alterandoCores"/>
+    <TextField model="login" validation="required" width="300" id="login"/>
+    <Text id="txtFields" text="Password" class="alterandoCores"/>
+    <TextField model="password" class="campoTexto" validation="required" />
+    <BlankSpace height="30" width="100"/>
+    <Button touch="doLogin" type="submit" label="Login"/>
+</LinearLayout>

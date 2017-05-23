@@ -71,8 +71,12 @@ function scene:show(event)
 
 	if event.phase == "did" then
 		TxtUserName = native.newTextField(display.contentWidth/2, display.contentHeight/2, 150, 25 )
+		TxtUserName.isEditable = true
+		TxtUserName.size = 14
 		TxtPassword = native.newTextField(display.contentWidth/2, display.contentHeight/2 + 50, 150, 25 )
 		TxtPassword.isSecure = true
+		TxtPassword.isEditable = true
+		TxtPassword.size = 14
 	end
 end
 

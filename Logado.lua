@@ -16,8 +16,8 @@ function scene:create(event)
 
 	local grupoCena = self.view 
 
-	ButtonScheduling = widget.newButton( {label="Agenda", x = display.contentWidth/2 + 5, y =display.contentHeight/2 - 150, shape = "roundedRect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = realizarAgendamento } )
-	grupoCena:insert(ButtonScheduling)
+	--ButtonScheduling = widget.newButton( {label="Agenda", x = display.contentWidth/2 + 5, y =display.contentHeight/2 - 150, shape = "roundedRect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = realizarAgendamento } )
+	--grupoCena:insert(ButtonScheduling)
 
 	ButtonProfile = widget.newButton( {label="Perfil", x = display.contentWidth/2 + 5, y =display.contentHeight/2 - 50, shape = "roundedRect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = visualizarPerfil } )
 	grupoCena:insert(ButtonProfile)

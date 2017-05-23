@@ -15,21 +15,24 @@ local db = sqlite3.open( path )
 local campoDescricao
 local textoDescricao
 
-local campoDia
-local textoDia
+local campoCategoria
+local textoCategoria
 
 local campoLocalidade
 local textoLocalidade
 
+local titulo
+
 local botaoPublicar
 local texto 
 local campoPublicar
+-- Se for necessário usar ainda, adicione a "categoria"!  
 local publicacao = 
 {
   {
   id,
   descricao,
-  dia,
+  categoria,
   localidade
   }
 }
@@ -50,7 +53,7 @@ end
 ]]--
 
  function scene:create(event)
-
+  -- Se quiser ajustar um pouco para baixo os campos e os nomes, estar a dispor!
 	local grupoCena = self.view 
 
 	 --texto = display.newText({mensagem = "VC chegou aqui!" ,30, 100, 240, 300, native.systemFont, 16})
@@ -59,20 +62,26 @@ end
 
      --grupoCena:insert(texto)
      
+     titulo = display.newText({text = "Problema", x=display.contentWidth/2, y=display.contentHeight/2 - 200, native.systemFont, 80})    
+     titulo:setFillColor( 1,1,0)
+     titulo.isEditable = true
+     titulo.size = 30
+     grupoCena:insert(titulo)
 
-     campoDescricao = display.newText({text = "Descricao", x=display.contentWidth/2, y=display.contentHeight/2 - 70, native.systemFont, 16})
+
+     campoDescricao = display.newText({text = "Descrição", x=display.contentWidth/2, y=display.contentHeight/2 - 70, native.systemFont, 16})
      campoDescricao:setFillColor(0,1,0)
      grupoCena:insert( campoDescricao )
 
-     campoDia = display.newText({text = "Data", x=display.contentWidth/2, y=display.contentHeight/2 - 170, native.systemFont, 16})
-     campoDia:setFillColor(0,1,0)
-     grupoCena:insert( campoDia )
+     campoCategoria = display.newText({text = "Categoria", x=display.contentWidth/2, y=display.contentHeight/2 - 170, native.systemFont, 16})
+     campoCategoria:setFillColor(0,1,0)
+     grupoCena:insert( campoCategoria )
 
      campoLocalidade = display.newText({text = "Local", x=display.contentWidth/2,y=display.contentHeight/2 - 120, native.systemFont, 16})
      campoLocalidade:setFillColor(0,1,0)
      grupoCena:insert( campoLocalidade )
 
-     botaoPublicar = widget.newButton( {label = "Publicar", x = display.contentWidth/2 - 50,
+     botaoPublicar = widget.newButton( {label = "Publicar", x = display.contentWidth/2,
                                      y = display.contentHeight/2 + 60, native.systemFont, 20} )
                                      --onPress = registrarPublicacao
      grupoCena:insert( botaoPublicar )
@@ -89,11 +98,6 @@ function registrarPublicacao( ... )
 	end
 end
 ]]--
---local function redirecionaTelaCadastro(event)
---	composer.gotoScene("telaCadastro")
---end
-
-
 
 function scene:show( event )
  
@@ -104,13 +108,16 @@ function scene:show( event )
         -- Code here runs when the scene is entirely on screen
        
 		
-		textoDia = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 150, 200, 25 ) 
-	    textoDia.inputType = "number" --ver tipo para data no CoronaSDK
-		textoLocalidade = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 100 , 200, 25 ) 
-		textoDescricao = native.newTextBox( display.contentWidth/2, display.contentHeight/2 - 10, 200, 100, native.systemFont, 200)
-     	textoDescricao.isEditable = true
-     	--textoDescricao.isFontSizeScaled = true
-     	textoDescricao.size  = 14
+		textoCategoria = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 150, 200, 25 ) 
+		textoCategoria.isEditable = true
+    textoCategoria.size = 14
+    textoLocalidade = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 100 , 200, 25 ) 
+		textoLocalidade.isEditable = true
+    textoLocalidade.size = 14
+    textoDescricao = native.newTextBox( display.contentWidth/2, display.contentHeight/2 - 10, 200, 100, native.systemFont, 200)
+    textoDescricao.isEditable = true
+    --textoDescricao.isFontSizeScaled = true
+    textoDescricao.size  = 14
 		 			
     end
 
@@ -123,7 +130,8 @@ function scene:hide( event )
  
     if ( phase == "will" ) then
         -- Code here runs when the scene is on screen (but is about to go off screen)
-        display.remove(textoDescricao)
+      display.remove(textoCategoria)
+      display.remove(textoDescricao)
 	    display.remove(textoDia)
 	    display.remove(textoLocalidade)
 	    
