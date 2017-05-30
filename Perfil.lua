@@ -1,7 +1,7 @@
 local widget =  require ("widget")
 local composer = require ("composer")
 local scene = composer.newScene()
-local login = require ("Login")
+
 
 local LabelNome
 local LabelEmail
@@ -76,8 +76,8 @@ function scene:show(event)
 		TxtTelefone = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 20, 200, 25 ) 
 		TxtTelefone.inputType = "number"
 		TxtSenha = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 + 40, 200, 25 ) 
-	    TxtSenha.isEditable = true
-	    TxtSenha.size = 14
+                TxtSenha.isEditable = true
+                TxtSenha.size = 14
 	end
 end
 

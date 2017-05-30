@@ -1,10 +1,6 @@
 local widget =  require ("widget")
 local composer = require ("composer")
 local scene = composer.newScene()
---local Publicacao = require("Publicacao")
---local usuarios = require("ListarUsuarios")
-
-
 
 
 local ButtonScheduling -- botao de agendamento
@@ -34,9 +30,9 @@ function  realizarAgendamento(event) -- toque no botao Agenda
 	if event.phase == "began" then
 		composer.gotoScene("Agendamento")
 	end
-	--if event.phase == "ended" then
-	--	print("xau")
-	--end
+	if event.phase == "ended" then
+		print("xau")
+	end
 end
 
 function  visualizarPerfil(event) -- toque no botao Perfil 
@@ -44,18 +40,18 @@ function  visualizarPerfil(event) -- toque no botao Perfil
 	if event.phase == "began" then
 		composer.gotoScene("Perfil")
 	end
-	--if event.phase == "ended" then
-	--	print("xau")
-	--end
+	if event.phase == "ended" then
+		print("xau")
+	end
 end
 
 function realizarPublicacao(event)
 	if event.phase == "began" then
 		composer.gotoScene("Publicacao")
 	end
-	--if event.phase == "ended" then
-	--	print("xau")
-	--end
+	if event.phase == "ended" then
+		print("xau")
+	end
 end
 
 function visualizarUsuarios(event)

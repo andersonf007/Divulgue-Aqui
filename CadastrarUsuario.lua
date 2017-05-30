@@ -37,11 +37,11 @@ function scene:create(event)
 
 	local grupoCena = self.view 
     
-    local titulo = display.newText({text="Formulário",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 200})
-    titulo:setFillColor( 1,1,0 )
-    titulo.isEditable = true
-    titulo.size = 30
-    grupoCena:insert(titulo)
+        local titulo = display.newText({text="Formulário",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 200})
+        titulo:setFillColor( 1,1,0 )
+        titulo.isEditable = true
+        titulo.size = 30
+        grupoCena:insert(titulo)
 
 	LabelNome = display.newText({text="Nome",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 170})
 	LabelNome:setFillColor(0,1,0)
@@ -87,12 +87,12 @@ function scene:show(event)
 		TxtTelefone = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 50, 200, 25 ) 
 		TxtTelefone.inputType = "number"
 		TxtSenha = native.newTextField(display.contentWidth/2, display.contentHeight/2, 200, 25 ) 
-	    TxtNome.isEditable = true
-	    TxtNome.size = 14
-	    TxtEmail.isEditable = true
-	    TxtEmail.size = 14
-	    TxtSenha.isEditable = true
-	    TxtSenha.size = 14
+	        TxtNome.isEditable = true
+	        TxtNome.size = 14
+	        TxtEmail.isEditable = true
+	        TxtEmail.size = 14
+	        TxtSenha.isEditable = true
+                TxtSenha.size = 14
 	end
 end
 

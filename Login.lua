@@ -98,15 +98,6 @@ scene:addEventListener( "destroy", scene )-- adiciona o evento da funcao de dest
 return scene
 
 
-
-
-
-
-
-
-
-
-
 --[[
 local email = "username@domain.com"
  

@@ -24,18 +24,7 @@ local textoLocalidade
 local titulo
 
 local botaoPublicar
-local texto 
-local campoPublicar
--- Se for necessário usar ainda, adicione a "categoria"!  
-local publicacao = 
-{
-  {
-  id,
-  descricao,
-  categoria,
-  localidade
-  }
-}
+
 
 --function criarTabelaNoBanco(event)
 	--local sql = [[CREATE TABLE IF NOT EXISTS publicacao (id INTEGER PRIMARY KEY autoincrement, descricao, data, localidade);]]
@@ -56,12 +45,6 @@ end
   -- Se quiser ajustar um pouco para baixo os campos e os nomes, estar a dispor!
 	local grupoCena = self.view 
 
-	 --texto = display.newText({mensagem = "VC chegou aqui!" ,30, 100, 240, 300, native.systemFont, 16})
-
-     --texto:setFillColor( 0, 0.5, 1 )
-
-     --grupoCena:insert(texto)
-     
      titulo = display.newText({text = "Problema", x=display.contentWidth/2, y=display.contentHeight/2 - 200, native.systemFont, 80})    
      titulo:setFillColor( 1,1,0)
      titulo.isEditable = true
@@ -108,16 +91,18 @@ function scene:show( event )
         -- Code here runs when the scene is entirely on screen
        
 		
-		textoCategoria = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 150, 200, 25 ) 
-		textoCategoria.isEditable = true
+    textoCategoria = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 150, 200, 25 ) 
+    textoCategoria.isEditable = true
     textoCategoria.size = 14
+    
     textoLocalidade = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 100 , 200, 25 ) 
-		textoLocalidade.isEditable = true
+    textoLocalidade.isEditable = true
     textoLocalidade.size = 14
+    
     textoDescricao = native.newTextBox( display.contentWidth/2, display.contentHeight/2 - 10, 200, 100, native.systemFont, 200)
     textoDescricao.isEditable = true
-    --textoDescricao.isFontSizeScaled = true
     textoDescricao.size  = 14
+    --textoDescricao.isFontSizeScaled = true
 		 			
     end
 
@@ -132,8 +117,8 @@ function scene:hide( event )
         -- Code here runs when the scene is on screen (but is about to go off screen)
       display.remove(textoCategoria)
       display.remove(textoDescricao)
-	    display.remove(textoDia)
-	    display.remove(textoLocalidade)
+      display.remove(textoLocalidade)
+	    
 	    
     end
 end
@@ -146,9 +131,6 @@ function scene:destroy( event )
     -- Code here runs prior to the removal of scene's view
  
 end
-
-
-
 
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
