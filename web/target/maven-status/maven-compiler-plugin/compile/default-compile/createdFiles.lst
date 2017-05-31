@@ -1,0 +1,10 @@
+ModelDao\UsuarioDao.class
+ModelBeans\BeansFeedDeNoticia.class
+WS\webService.class
+ModelBeans\BeansOrgao.class
+ModelBeans\BeansUsuario.class
+ModelConection\ConexaoBD.class
+ModelDao\FeedDeNoticiaDao.class
+teste\main.class
+ModelDao\OrgaoDao.class
+WS\ApplicationConfig.class
