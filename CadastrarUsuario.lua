@@ -10,7 +10,6 @@ local LabelTelefone
 local LabelSenha
 local TxtNome
 local TxtEmail
-local TxtTelefone
 local TxtSenha
 local ButtonCadastrar 
 
@@ -35,15 +34,23 @@ function scene:create(event)
 	grupoCena:insert(ButtonCadastrar)
 end
 
+function ValidateSave(response) -- validar salvamento
+
+	if response == 300 then
+		print("nao pode")
+	elseif response == 200 then
+		TxtNome.text = ""
+		TxtEmail.text = ""
+		TxtSenha.text = ""
+		composer.gotoScene("login")
+	end
+end
+
 function saveUser(event)
 
 	if event.phase == "began" then
 		web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
-		TxtNome.text = ""
-		TxtEmail.text = ""
-		TxtTelefone.text = ""
-		TxtSenha.text = ""
-		composer.gotoScene("login")
+
 	end
 
 end
@@ -60,8 +67,6 @@ end
 function scene:hide(event)
 	display.remove(TxtNome)
 	display.remove(TxtEmail)
-	display.remove(TxtEmail)
-	display.remove(TxtTelefone)
 	display.remove(TxtSenha)
 end
 

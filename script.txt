@@ -18,8 +18,8 @@ senha
 CREATE TABLE usuario(
 
 	id serial not null,
-	nome varchar(50),
-	email varchar(50),
+	nome varchar(50) UNIQUE,
+	email varchar(50) UNIQUE,
 	senha varchar(50),
 	CONSTRAINT "usuario_pk" PRIMARY KEY("id")
 );

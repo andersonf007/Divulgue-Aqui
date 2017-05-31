@@ -26,8 +26,8 @@ function scene:create(event)
 	Buttonlogin = widget.newButton( {label="Login", x = display.contentWidth/2 -50, y = display.contentHeight/2 + 80, onPress = touchOnButtonLogin} )
 	grupoCena:insert(Buttonlogin)
 
---	ButtonSingIn = widget.newButton( {label="Cadastre-se", x = display.contentWidth/2 + 30, y = display.contentHeight/2 + 80, onPress = registrarUsuario} )
---	grupoCena:insert(ButtonSingIn)
+	ButtonSingIn = widget.newButton( {label="Cadastre-se", x = display.contentWidth/2 + 30, y = display.contentHeight/2 + 120, onPress = registrarUsuario} )
+	grupoCena:insert(ButtonSingIn)
 end
 
 function storeInformation(codigo,nome,email,senha) -- armazena as informacoes do usuario em variaves globais para poder recuperar em outras telas

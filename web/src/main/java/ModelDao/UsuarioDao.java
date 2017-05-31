@@ -21,7 +21,12 @@ public class UsuarioDao {
     
     ConexaoBD conex = new ConexaoBD();
     BeansUsuario mod = new BeansUsuario();
+    boolean verifica = false;
     
+    public boolean verificar(){
+       
+        return verifica;
+    }
     public void salvar(BeansUsuario mod){
         conex.conexao();
         try {
@@ -31,8 +36,11 @@ public class UsuarioDao {
             pst.setString(3, mod.getSenha());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Dados inseridos com sucesso!!!");
+            verifica = false;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "não foi possivel inserir o usuario (usuarioDao)\n"+ex);
+            verifica = true;
+            verificar();
+            //JOptionPane.showMessageDialog(null, "não foi possivel inserir o usuario (usuarioDao)\n"+ex);
         }
         conex.desconecta();
     }

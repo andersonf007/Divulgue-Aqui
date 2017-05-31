@@ -8,6 +8,13 @@ import ModelDao.FeedDeNoticiaDao;
 import ModelDao.OrgaoDao;
 import ModelDao.UsuarioDao;
 import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.logging.Level;
@@ -56,33 +63,95 @@ public class webService {
         UsuarioDao u = new UsuarioDao();
         BeansUsuario mod = new BeansUsuario();
         
-        JSONObject jsonObject;
+        JSONObject jsonObject = null;
         JSONParser parser = new JSONParser();  
         
-        String nome;
-        String email;
+        String nome = "";
+        String email = "";
         String senha;
+        String nomeResposta = "";
+        String emailResposta = "";
+        String senhaResposta;
 	
-        
+       /* 
         try {
             jsonObject = (JSONObject) parser.parse(json);
+      
             
             nome = (String) jsonObject.get("nome");
-            email = (String)jsonObject.get("email");
-            senha = (String) jsonObject.get("senha");
+        
+            URL url= new URL("http://localhost:8084/web/webresources/webService/usuario/recuperarPorNome?nome="+nome);
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setRequestMethod("GET");
+          
+            int code = connection.getResponseCode();
+            System.out.println(code);
+
+            InputStream inputStrem = connection.getInputStream();
+            BufferedReader br =  new BufferedReader(new InputStreamReader(inputStrem));
             
-            
-            mod.setNome(nome);
-            mod.setEmail(email);
-            mod.setSenha(senha);
-            u.salvar(mod);           
+            String a;
+            StringBuilder stringBuilder = new StringBuilder();
            
+            while ((a  = br.readLine()) != null){
+             //a += br.readLine();
+             stringBuilder.append(a);
+            }
+          //  System.out.println(stringBuilder.toString());
+            connection.disconnect();
+      
+            jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
             
-        } catch (ParseException ex) {
+            // codigo = (long) jsonObject.get("codigo");
+             nomeResposta = (String) jsonObject.get("nome");
+             emailResposta = (String) jsonObject.get("email");
+             senhaResposta = (String) jsonObject.get("senha");
+            
+          //  System.out.print(nomeResposta + emailResposta + senhaResposta);
+        
+          } catch (ParseException ex) {
+            Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
         
+        
+        if (nomeResposta.equals(nome)){
+            // System.out.println("nome igual");
+            return "300";
+        }else{*/
+           // System.out.println("nome diferente");
+            
+          
+            try {
+                jsonObject = (JSONObject) parser.parse(json);
+
+                nome = (String) jsonObject.get("nome");
+                email = (String)jsonObject.get("email");
+                senha = (String) jsonObject.get("senha");
+
+
+                mod.setNome(nome);
+                mod.setEmail(email);
+                mod.setSenha(senha);
+                u.salvar(mod);           
+                
+                if(u.verificar() == true){
+                    System.out.println("WS.webService.insertUsuario()");
+                    return "300";  
+                    // System.out.println("WS.webService.insertUsuario()");
+                }
+                return "200";
+            } catch (ParseException ex) {
+                Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        //}
+         return null;
     }
     
     @GET

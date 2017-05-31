@@ -8,7 +8,7 @@ local function handleResponse( event )
     if not event.isError then
         local response = json.decode( event.response )
     --    print( "erro : " .. event.response )
-        Receivesuserinformation(response.codigo,response.nome,response.email,response.senha)
+        Receivesuserinformation(response.codigo,response.nome,response.email,response.senha) -- manda as informacoes do usuario para a tela de login
     else
         print( "Error" )
     end
@@ -19,13 +19,26 @@ local function handleResponse2( event )
 
     if not event.isError then
         local response = json.decode( event.response )
-    --    print( "erro : " .. event.response )
+      --  print(response)
+     --  print( "erro : " .. event.response )
     else
         print( "Error" )
     end
     return
 end
 
+local function handleResponse3( event )
+
+    if not event.isError then
+        local response = json.decode( event.response )
+        ValidateSave(response) -- manda o codigo retornado do rest para fazer a validacao do cadastro
+      --  print(response)
+       print( "erro : " .. event.response )
+    else
+        print( "Error" )
+    end
+    return
+end
 --//////////////////////////////REGISTRAR USUARIO////////////////////////////////////////////////////
 function webService:RegisterUserWS(nome,email,senha) -- registrar usuario
 		
@@ -43,7 +56,7 @@ function webService:RegisterUserWS(nome,email,senha) -- registrar usuario
 
 			params.body = jsonUsuario
 
-		network.request( "http://localhost:8084/web-serviceDivulgueAqui/webresources/webService/usuario/insert", "POST", handleResponse, params )
+		network.request( "http://localhost:8084/web/webresources/webService/usuario/inserir", "POST", handleResponse3, params )
 end
 
 --////////////////////////////////////RECUPERAR USUARIO POR NOME ////////////////////////////////////////////
@@ -63,11 +76,11 @@ function webService:recoverUserWS(nome) -- recuperar usuario
 
 	params.body = jsonUsuario
 
-	network.request( "http://localhost:8084/web-serviceDivulgueAqui/webresources/webService/usuario/recuperarNom?nome="..nome, "GET", handleResponse, params )
+	network.request( "http://localhost:8084/web/webresources/webService/usuario/recuperarPorNome?nome="..nome, "GET", handleResponse, params )
 end
 
 --/////////////////////////////////////ATUALIZAR USUARIO////////////////////////////////////////////////////
-function webService:updateUserWS(codigo,nome,email,senha) -- registrar usuario
+function webService:updateUserWS(codigo,nome,email,senha) -- atualizar usuario
 		
 		local usuario = { codigo = codigo, nome = nome, email = email, senha = senha }
 			
@@ -83,7 +96,7 @@ function webService:updateUserWS(codigo,nome,email,senha) -- registrar usuario
 
 			params.body = jsonUsuario
 
-		network.request( "http://localhost:8084/web-serviceDivulgueAqui/webresources/webService/usuario/update", "PUT", handleResponse2, params )
+		network.request( "http://localhost:8084/web/webresources/webService/usuario/update", "PUT", handleResponse2, params )
 end
 
 --///////////////////////////////////REGISTRAR PUBLICACAO////////////////////////////////////////////////////////////////////////////

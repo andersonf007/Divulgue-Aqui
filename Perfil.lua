@@ -49,6 +49,7 @@ function updateUser(event)
 
 	if event.phase == "began" then
 		web:updateUserWS(codigoUser, TxtNome.text, TxtEmail.text, TxtSenha.text)
+		composer.gotoScene("Logado")
 	end
 end
 function scene:hide(event)	
