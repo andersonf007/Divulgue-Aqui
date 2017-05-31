@@ -38,6 +38,8 @@ function ValidateSave(response) -- validar salvamento
 
 	if response == 300 then
 		print("nao pode")
+	elseif response == 301 then
+		print("email invalido") 
 	elseif response == 200 then
 		TxtNome.text = ""
 		TxtEmail.text = ""

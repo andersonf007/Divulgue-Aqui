@@ -137,7 +137,11 @@ public class webService {
 
 
                 mod.setNome(nome);
+                if (u.validaEmail(email)){
                 mod.setEmail(email);
+                }else{
+                    return "301";
+                }
                 mod.setSenha(senha);
                 u.salvar(mod);           
                 
