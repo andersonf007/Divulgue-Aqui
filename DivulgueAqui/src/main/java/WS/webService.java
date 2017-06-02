@@ -96,22 +96,24 @@ public class webService {
   
 }
     
-    /*
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuario/recuperarPorId")
-    public String recuperarUsuarioPorId(@QueryParam("id") Long json){
+    public String recuperarUsuarioPorId(@QueryParam("id") long json){
+         
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
-        UsuarioDao u = new UsuarioDao();
-        BeansUsuario mod = new BeansUsuario();
-      
-        mod.setPesquisarPorId(json);
-        mod = u.buscarPorId(mod);
+        UsuariosDao dao = new UsuariosDao();
+        UsuarioEntidade u = new UsuarioEntidade();
+              
+        //u.setId(json);
+        u = dao.recuperar(json);
         
         Gson g = new Gson();
-        return g.toJson(mod);
+        return g.toJson(u);
     }
-    
+    /*
      @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuario/recuperarPorNome")

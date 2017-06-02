@@ -160,22 +160,22 @@ public class main {
       
     */
     ///////////////////////////USUARIO-RECUPERAR POR ID ///////////////////////////////////
-    /*
+    
         String nome ;
         String email;
         String senha;
-        long codigo = 1;
+        long codigo = 52;
             URL url;
         try {
-            url = new URL("http://localhost:8084/web/webresources/webService/usuario/recuperarPorId?id="+codigo);
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperarPorId?id="+codigo);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
-            connection.setDoOutput(true);
+           connection.setDoOutput(true);
             connection.setRequestMethod("GET");
           
             int code = connection.getResponseCode();
-            System.out.println(code);
+            System.out.println(code + "foi");
 
             InputStream inputStrem = connection.getInputStream();
             BufferedReader br =  new BufferedReader(new InputStreamReader(inputStrem));
@@ -210,7 +210,7 @@ public class main {
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, "erro de ParseException conexao ao rest ( Recuperar usuario) \n" + ex);
         }
-    */
+    
     ///////////////////////////USUARIO-RECUPERAR POR NOME ///////////////////////////////////
     /*
         String nome = "marcela" ;
@@ -264,7 +264,7 @@ public class main {
         }
     */
     ///////////////////////////USUARIO-ATUALIZAR ///////////////////////////////////
-    
+    /*
         String nome = "anderson";
         String email = "anderson@gmail.com.br";
         String senha = "123";
@@ -305,7 +305,7 @@ public class main {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
-    
+    /*
     
     ///////////////////////////USUARIO-DELETAR ///////////////////////////////////
     /*
