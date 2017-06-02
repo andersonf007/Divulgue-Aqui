@@ -133,6 +133,7 @@ public class main {
         String Json = gson.toJson(jsonObject);
 
         URL url;
+        
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir");
 

@@ -45,7 +45,23 @@ public class UsuariosDao implements DaoGenerico<UsuarioEntidade>{
 
     @Override
     public void alterar(UsuarioEntidade u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+
+        UsuariosDao.manager.getTransaction().begin();
+
+        try {
+            UsuariosDao.manager.merge(u);
+            UsuariosDao.manager.getTransaction().commit();
+            System.out.println("usuario alterado com sucesso!!");
+        } catch (Exception e) {
+            UsuariosDao.manager.getTransaction().rollback();
+            System.out.println("Não foi possível fazer está operação!!");
+
+        } finally {
+            UsuariosDao.manager.close();
+            System.out.println("Fim da sessão!!");
+        }
+
     }
 
     @Override

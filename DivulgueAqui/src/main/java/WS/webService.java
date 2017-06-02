@@ -1,12 +1,5 @@
-
 package WS;
-/*
-import ModelBeans.BeansFeedDeNoticia;
-import ModelBeans.BeansOrgao;
-import ModelBeans.BeansUsuario;
-import ModelDao.FeedDeNoticiaDao;
-import ModelDao.OrgaoDao;
-import ModelDao.UsuarioDao;*/
+
 import com.google.gson.Gson;
 import dao.UsuariosDao;
 import hibernate.HibernateUtil;
@@ -102,6 +95,7 @@ public class webService {
          return null;
   
 }
+    
     /*
     @GET
     @Produces(MediaType.APPLICATION_JSON)
