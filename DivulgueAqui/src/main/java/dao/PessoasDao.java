@@ -10,59 +10,59 @@ import entidade.PessoaEntidade;
 import java.util.List;
 import javax.persistence.EntityManager;
 
-
 /**
  *
  * @author Izaquias
  */
-public class PessoasDao implements DaoGenerico<PessoaEntidade>{
+public class PessoasDao implements DaoGenerico<PessoaEntidade> {
 
     private static EntityManager manager;
 
     public PessoasDao() {
     }
-    
-    
+
     @Override
-    public void inserir(PessoaEntidade p){
-           manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-           PessoasDao.manager.getTransaction().begin();
-       
-       try{
-           PessoasDao.manager.persist(p);
-           PessoasDao.manager.getTransaction().commit();
-           System.out.println("Dados armazenados com sucesso!");
-       }catch(IllegalArgumentException iae){
-           PessoasDao.manager.getTransaction().rollback();
-           System.out.println("Ocorreu algo inexperado!");
-           //throw new IllegalArgumentException("Dados inválidos, tente novamente, reveja a operação!");
-       } finally{
-           
-           //Pessoas.manager.getTransaction().rollback();
-           PessoasDao.manager.close();
-           System.out.println("Fim da operação!");
-       }       
-    }   
-    
+    public void inserir(PessoaEntidade p) {
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        PessoasDao.manager.getTransaction().begin();
+
+        try {
+            PessoasDao.manager.persist(p);
+            PessoasDao.manager.getTransaction().commit();
+            System.out.println("Dados armazenados com sucesso!");
+        } catch (IllegalArgumentException iae) {
+            PessoasDao.manager.getTransaction().rollback();
+            System.out.println("Ocorreu algo inexperado!");
+            //throw new IllegalArgumentException("Dados inválidos, tente novamente, reveja a operação!");
+        } finally {
+
+            //Pessoas.manager.getTransaction().rollback();
+            PessoasDao.manager.close();
+            System.out.println("Fim da operação!");
+        }
+    }
 
     @Override
     public void alterar(PessoaEntidade p) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         PessoasDao.manager.getTransaction().begin();
-        
+
         try {
-          PessoasDao.manager.merge(p);
-          PessoasDao.manager.getTransaction().commit();
-          System.out.println("Dados alterados com sucesso!");
+            //Neste método nunca adicionei esta próxima linha de código e alterava normalmente, caso quando tu teste, não funcionar
+            //tu descomenta e testa!
+            //p = PessoasDao.manager.find(PessoaEntidade.class, p.getId());
+            PessoasDao.manager.merge(p);
+            PessoasDao.manager.getTransaction().commit();
+            System.out.println("Dados alterados com sucesso!");
         } catch (Exception e) {
-          PessoasDao.manager.getTransaction().rollback();
+            PessoasDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta alteração!");
-        }finally{
+        } finally {
             PessoasDao.manager.close();
             System.out.println("Fim da sessão!");
-            
+
         }
-        
+
     }
 
     @Override
@@ -77,7 +77,7 @@ public class PessoasDao implements DaoGenerico<PessoaEntidade>{
         } catch (Exception e) {
             PessoasDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível remover este registro!");
-        }finally{
+        } finally {
             PessoasDao.manager.close();
             System.out.println("Fim da sessão!");
         }
@@ -87,13 +87,13 @@ public class PessoasDao implements DaoGenerico<PessoaEntidade>{
     public PessoaEntidade recuperar(Long id) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         PessoasDao.manager.getTransaction().begin();
-        
+
         try {
-           return (PessoaEntidade) PessoasDao.manager.find(PessoaEntidade.class, id);
+            return (PessoaEntidade) PessoasDao.manager.find(PessoaEntidade.class, id);
         } catch (Exception e) {
             System.out.println("id não encontrado!");
             System.out.println(e.getMessage());
-        }finally{
+        } finally {
             PessoasDao.manager.close();
             System.out.println("Fim da sessão!");
         }
@@ -102,7 +102,21 @@ public class PessoasDao implements DaoGenerico<PessoaEntidade>{
 
     @Override
     public List<PessoaEntidade> recuperarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+
+        try {
+            return (List) PessoasDao.manager.createQuery("select p from PessoaEntidade p", PessoaEntidade.class).getResultList();
+
+        } catch (Exception e) {
+
+            System.out.println("Algo inexperado aconteceu, reveja seu código!!");
+            System.out.println(e.getMessage());
+        } finally {
+            PessoasDao.manager.close();
+            System.out.println("Fim da sessão!!");
+        }
+
+        return null;
     }
-    
+
 }
