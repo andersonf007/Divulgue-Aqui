@@ -117,9 +117,9 @@ public class main {
          */    
     ///////////////////////////USUARIO-INSERIR///////////////////////////////////         
     //esta returnando codigo 204 porem inseri
-        
-        String nome = "celghdgffgpe300";
-        String email = "celp@celp.com";
+        /*
+        String nome = "anderson";
+        String email = "cghjelp@celp.com";
         String senha = "12hkj3";
           
         JSONObject jsonObject = new JSONObject();
@@ -158,7 +158,7 @@ public class main {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
       
-    
+    */
     ///////////////////////////USUARIO-RECUPERAR POR ID ///////////////////////////////////
     /*
         String nome ;
@@ -264,11 +264,11 @@ public class main {
         }
     */
     ///////////////////////////USUARIO-ATUALIZAR ///////////////////////////////////
-    /*
-        String nome = "marcela";
-        String email = "marcela@gmail.com.br";
-        String senha = "321";
-        long codigo = 1;
+    
+        String nome = "anderson";
+        String email = "anderson@gmail.com.br";
+        String senha = "123";
+        long codigo = 52;
           
         JSONObject jsonObject = new JSONObject();
 
@@ -283,7 +283,7 @@ public class main {
 
         URL url;
         try {
-            url = new URL("http://localhost:8084/web/webresources/webService/usuario/update");
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/update");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
@@ -305,7 +305,7 @@ public class main {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
-    */
+    
     
     ///////////////////////////USUARIO-DELETAR ///////////////////////////////////
     /*

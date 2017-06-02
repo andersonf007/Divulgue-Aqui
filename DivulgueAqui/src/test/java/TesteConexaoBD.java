@@ -41,9 +41,10 @@ public class TesteConexaoBD {
         
        
         ///////////////////////////
-        u.setNome("izaqsagnbvnbvnvbbnvvnbvnuias");
-        u.setEmail("izbnvcxvbcvbaquerfgias@gmail.com");
+        u.setNome("jhdfhjg");
+        u.setEmail("izquerfgias@gmail.com");
         u.setSenha("izaqsdaguias21");
+        u.setId(52);
       
        ///////////////////////////
         pb.setCategoria("Serviços Públicos");
@@ -60,7 +61,7 @@ public class TesteConexaoBD {
         ///////////////////////
         manager.getTransaction().begin();
         //manager.persist(p);
-        u2.inserir(u);
+        u2.alterar(u);
         //manager.persist(u);
         
         //manager.persist(pb);

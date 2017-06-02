@@ -126,14 +126,17 @@ public class webService {
         Gson g = new Gson();
         return g.toJson(mod);
     }
-    
+    */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/update")
     public String updateUsuario(String json){
         
-        UsuarioDao u = new UsuarioDao();
-        BeansUsuario mod = new BeansUsuario();
+       manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        
+        UsuariosDao dao = new UsuariosDao();
+        UsuarioEntidade u = new UsuarioEntidade();
+       
         
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
@@ -153,11 +156,17 @@ public class webService {
             codigo = (long) jsonObject.get("codigo");
             
             
-            mod.setNome(nome);
-            mod.setEmail(email);
-            mod.setSenha(senha);
-            mod.setCodigo((int)codigo);
-            u.editar(mod);           
+            manager.getTransaction().begin();
+            u.setId(codigo);
+            u.setNome(nome);
+            u.setEmail(email);
+            u.setSenha(senha);
+                 
+            dao.alterar(u);
+               
+            manager.getTransaction().commit();
+            System.out.println("WS.webService.insertUsuario()");
+            manager.close();    
            
             
         } catch (ParseException ex) {
@@ -166,7 +175,7 @@ public class webService {
         return null;
         
     }
-    
+    /*
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/delete")

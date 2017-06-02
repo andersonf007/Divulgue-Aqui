@@ -15,6 +15,11 @@ import javax.persistence.Id;
  */
 @Entity
 public class UsuarioEntidade implements Serializable{
+
+    /**
+     * @param id the id to set
+     */
+   
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)//add 50+ 
@@ -49,7 +54,9 @@ public class UsuarioEntidade implements Serializable{
     public long getId() {
         return id;
     }
-
+ public void setId(long id) {
+        this.id = id;
+    }
    
 
     public String getNome() {
