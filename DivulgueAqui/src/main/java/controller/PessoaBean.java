@@ -32,11 +32,6 @@ public class PessoaBean implements Controller{
     public PessoaBean() {
     }
     
-    public PessoaBean(PessoaEntidade pessoa, PessoasDao dao) {
-          this.pessoa = pessoa;
-          this.dao = dao;
-    }
-
     public PessoaEntidade getPessoa() {
         return pessoa;
     }
@@ -62,22 +57,24 @@ public class PessoaBean implements Controller{
 
     @Override
     public String atualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.alterar(pessoa);
+        return "";
     }
 
     @Override
     public String deletar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.remover(pessoa);
+        return "";    
     }
 
     @Override
-    public Object buscar(Long chave) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public PessoaEntidade buscar(Long id) {
+        return dao.recuperar(id);
     }
 
     @Override
-    public List listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<PessoaEntidade> listarTodos() {
+        return dao.recuperarTodos();
     }
     
 }
