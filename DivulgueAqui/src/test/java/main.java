@@ -117,9 +117,9 @@ public class main {
          */    
     ///////////////////////////USUARIO-INSERIR///////////////////////////////////         
     //esta returnando codigo 204 porem inseri
-        /*
-        String nome = "anderson";
-        String email = "cghjelp@celp.com";
+        
+        String nome = "anhglml,jhkghjgkjderson";
+        String email = "@celpjhlkjhlkjh.com";
         String senha = "12hkj3";
           
         JSONObject jsonObject = new JSONObject();
@@ -158,9 +158,9 @@ public class main {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
       
-    */
-    ///////////////////////////USUARIO-RECUPERAR POR ID ///////////////////////////////////
     
+    ///////////////////////////USUARIO-RECUPERAR POR ID ///////////////////////////////////
+    /*
         String nome ;
         String email;
         String senha;

@@ -53,7 +53,7 @@ public class webService {
     public String getJson() {
        return "meu web service";
     }
-    ///////////////////////////USUARIO///////////////////////////////////
+    ///////////////////////////USUARIO//////////////////////////////////
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/inserir")
@@ -107,9 +107,14 @@ public class webService {
         UsuariosDao dao = new UsuariosDao();
         UsuarioEntidade u = new UsuarioEntidade();
               
+        manager.getTransaction().begin();
         //u.setId(json);
         u = dao.recuperar(json);
         
+         manager.getTransaction().commit();
+               System.out.println("WS.webService.insertUsuario()");
+               manager.close();
+               
         Gson g = new Gson();
         return g.toJson(u);
     }

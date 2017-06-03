@@ -41,8 +41,8 @@ public class TesteConexaoBD {
         
        
         ///////////////////////////
-        u.setNome("jhdfhjg");
-        u.setEmail("izquerfgias@gmail.com");
+        u.setNome("jhdfgyhgghghghghhjg");
+        u.setEmail("izghghghgquerfgias@gmail.com");
         u.setSenha("izaqsdaguias21");
         u.setId(52);
       
