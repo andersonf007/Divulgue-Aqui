@@ -41,11 +41,13 @@ public class TesteConexaoBD {
         
        
         ///////////////////////////
-        u.setNome("jhdfhjg");
-        u.setEmail("izquerfgias@gmail.com");
-        u.setSenha("izaqsdaguias21");
-        u.setId(52);
+     //   u.setNome("pedro");
+      //  u.setEmail("pedroEmail");
+       // u.setSenha("001");
+        u.setId((long)52);
+        
       
+      // u.setId((long)1);
        ///////////////////////////
         pb.setCategoria("Serviços Públicos");
         pb.setDescricao("Falta de Iluminção pública.");
@@ -61,7 +63,12 @@ public class TesteConexaoBD {
         ///////////////////////
         manager.getTransaction().begin();
         //manager.persist(p);
-        u2.alterar(u);
+      //  u2.recuperar((long)52);
+       // u2.alterar(u);
+       u2.remover(u);
+      // u2.inserir(u);
+      // u2.recuperar((long)1);
+       //  System.out.println(u.getNome());
         //manager.persist(u);
         
         //manager.persist(pb);

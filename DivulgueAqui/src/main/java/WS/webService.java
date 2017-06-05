@@ -67,8 +67,8 @@ public class webService {
         JSONObject jsonObject = null;
         JSONParser parser = new JSONParser();  
         
-        String nome = "";
-        String email = "";
+        String nome;
+        String email;
         String senha;
 
            try {
@@ -96,22 +96,27 @@ public class webService {
   
 }
     
-    /*
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuario/recuperarPorId")
     public String recuperarUsuarioPorId(@QueryParam("id") Long json){
         
-        UsuarioDao u = new UsuarioDao();
-        BeansUsuario mod = new BeansUsuario();
-      
-        mod.setPesquisarPorId(json);
-        mod = u.buscarPorId(mod);
+         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
-        Gson g = new Gson();
-        return g.toJson(mod);
+        UsuariosDao dao = new UsuariosDao();
+        UsuarioEntidade u = new UsuarioEntidade();
+        
+       manager.getTransaction().begin();
+        //u.setId(json);
+        u = dao.recuperar(json);
+        
+        Gson g = new Gson(); manager.getTransaction().commit();
+               System.out.println("WS.webService.insertUsuario()");
+               manager.close();
+        return g.toJson(u);
     }
-    
+    /*
      @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuario/recuperarPorNome")
@@ -126,7 +131,7 @@ public class webService {
         Gson g = new Gson();
         return g.toJson(mod);
     }
-    */
+    
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/update")
