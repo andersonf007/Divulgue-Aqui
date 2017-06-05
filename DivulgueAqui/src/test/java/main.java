@@ -27,8 +27,8 @@ public class main {
     public static void main(String[] args) {
          // ALTERAR O LINK DE TODAS AS REQUISICOES!
     ///////////////////////////ORGAO-INSERIR/////////////////////////////////// 
-      /*
-        String nome = "celresfdpe10";
+      
+        String nome = "caelresfdpe10";
         String senha = "1gfd23";
           
         JSONObject jsonObject = new JSONObject();
@@ -42,7 +42,7 @@ public class main {
 
         URL url;
         try {
-            url = new URL("http://localhost:8084/web/webresources/webService/orgao/inserir");
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/orgao/inserir");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
@@ -64,7 +64,7 @@ public class main {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
-        */
+        
      ///////////////////////////ORGAO-RECUPERAR/////////////////////////////////// 
      /*
         String nome ;
@@ -118,8 +118,8 @@ public class main {
     ///////////////////////////USUARIO-INSERIR///////////////////////////////////         
     //esta returnando codigo 204 porem inseri
         /*
-        String nome = "anderson";
-        String email = "cghjelp@celp.com";
+        String nome = "andernmson";
+        String email = "cghjhgelp@celp.com";
         String senha = "12hkj3";
           
         JSONObject jsonObject = new JSONObject();
@@ -158,7 +158,7 @@ public class main {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
       
-    */
+    
     ///////////////////////////USUARIO-RECUPERAR POR ID ///////////////////////////////////
     /*
         String nome ;
@@ -264,7 +264,7 @@ public class main {
         }
     */
     ///////////////////////////USUARIO-ATUALIZAR ///////////////////////////////////
-    
+    /*
         String nome = "anderson";
         String email = "anderson@gmail.com.br";
         String senha = "123";
