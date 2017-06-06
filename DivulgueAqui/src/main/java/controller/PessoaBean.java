@@ -6,18 +6,18 @@ import entidade.PessoaEntidade;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-//import javax.faces.bean.SessionScoped;
 import javax.faces.view.ViewScoped;
-
+//import javax.faces.bean.SessionScoped;
 
 //@SessionScoped
+@ViewScoped
 
 /**
  *
  * @author Izaquias
  */
 @ManagedBean(name = "pessoaBean")
-@ViewScoped
+
 public class PessoaBean implements Controller{
     
     private PessoaEntidade pessoa;
