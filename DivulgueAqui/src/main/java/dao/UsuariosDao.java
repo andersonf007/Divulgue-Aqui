@@ -81,14 +81,17 @@ public class UsuariosDao implements DaoGenerico<UsuarioEntidade> {
             System.out.println("Fim da sessão!");
         }
     }
-
     @Override
+
     public UsuarioEntidade recuperar(Long id) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         UsuariosDao.manager.getTransaction().begin();
-
+        
         try {
-            return (UsuarioEntidade) UsuariosDao.manager.find(UsuarioEntidade.class, id);
+            UsuarioEntidade u = (UsuarioEntidade) UsuariosDao.manager.find(UsuarioEntidade.class, id);
+            UsuarioEntidade a = u;
+            return u;
+          //  return (UsuarioEntidade) UsuarioDao.manager.find(Paciente.class, Get.SUS);
         } catch (Exception e) {
             System.out.println("id não encontrado!");
             System.out.println(e.getMessage());
@@ -117,5 +120,7 @@ public class UsuariosDao implements DaoGenerico<UsuarioEntidade> {
 
         return null;
     }
+
+   
 
 }

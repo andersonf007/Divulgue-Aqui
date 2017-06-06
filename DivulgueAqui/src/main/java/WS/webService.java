@@ -1,17 +1,10 @@
 package WS;
 
 import com.google.gson.Gson;
+import dao.OrgaosDao;
 import dao.UsuariosDao;
+import entidade.OrgaoEntidade;
 import hibernate.HibernateUtil;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.sql.Date;
-import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -45,30 +38,21 @@ public class webService {
     private UriInfo context;
 
     
-    public webService() {
-    }
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-       return "meu web service";
-    }
-    ///////////////////////////USUARIO///////////////////////////////////
+    public webService(){}
+  ///////////////////////////USUARIO///////////////////////////////////
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/inserir")
     public String insertUsuario(String json){
-                
-        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-        
+
         UsuariosDao dao = new UsuariosDao();
         UsuarioEntidade u = new UsuarioEntidade();
         
         JSONObject jsonObject = null;
         JSONParser parser = new JSONParser();  
         
-        String nome = "";
-        String email = "";
+        String nome;
+        String email;
         String senha;
 
            try {
@@ -78,16 +62,11 @@ public class webService {
                 email = (String)jsonObject.get("email");
                 senha = (String) jsonObject.get("senha");
 
-                 manager.getTransaction().begin();
-                 u.setNome(nome);
+                u.setNome(nome);
                 u.setEmail(email);
                 u.setSenha(senha);
                  
                 dao.inserir(u);
-               
-               manager.getTransaction().commit();
-               System.out.println("WS.webService.insertUsuario()");
-               manager.close();
                 
             } catch (ParseException ex) {
                 Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,22 +75,27 @@ public class webService {
   
 }
     
-    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuario/recuperarPorId")
-    public String recuperarUsuarioPorId(@QueryParam("id") long json){
-         
-        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-        
+    public String recuperarUsuarioPorId(@QueryParam("id") Long json){
+           
         UsuariosDao dao = new UsuariosDao();
         UsuarioEntidade u = new UsuarioEntidade();
-              
-        //u.setId(json);
+        
         u = dao.recuperar(json);
         
         Gson g = new Gson();
         return g.toJson(u);
+    }
+    
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("oi")
+    public String oi(){
+        
+         
+        return "Olá mundo!";
     }
     /*
      @GET
@@ -129,13 +113,12 @@ public class webService {
         return g.toJson(mod);
     }
     */
+    
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/update")
     public String updateUsuario(String json){
-        
-       manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-        
+          
         UsuariosDao dao = new UsuariosDao();
         UsuarioEntidade u = new UsuarioEntidade();
        
@@ -157,48 +140,43 @@ public class webService {
             senha = (String) jsonObject.get("senha");
             codigo = (long) jsonObject.get("codigo");
             
-            
-            manager.getTransaction().begin();
             u.setId(codigo);
             u.setNome(nome);
             u.setEmail(email);
             u.setSenha(senha);
                  
             dao.alterar(u);
-               
-            manager.getTransaction().commit();
-            System.out.println("WS.webService.insertUsuario()");
-            manager.close();    
            
-            
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
         
     }
-    /*
+    
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/delete")
     public String deletarUsuario(@QueryParam("id") Integer json){
+      
+        UsuariosDao dao = new UsuariosDao();
+        UsuarioEntidade u = new UsuarioEntidade();
         
-        UsuarioDao u = new UsuarioDao();
-        BeansUsuario mod = new BeansUsuario();
-        
-        mod.setCodigo(json);
-        u.excluir(mod);
-        
-        return "";
+        u.setId((long)json);
+        dao.remover(u);
+  
+        return null;
     }
+    
     ///////////////////////////ORGAO///////////////////////////////////
+   
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("orgao/inserir")
     public String insertOrgao(String json){
     
-        OrgaoDao o = new OrgaoDao();
-        BeansOrgao mod = new BeansOrgao();
+       OrgaosDao dao = new OrgaosDao();
+       OrgaoEntidade o = new OrgaoEntidade(); 
         
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
@@ -214,9 +192,9 @@ public class webService {
             senha = (String) jsonObject.get("senha");
             
             
-            mod.setNome(nome);
-            mod.setSenha(senha);
-            o.salvar(mod);           
+            o.setNome(nome);
+            o.setSenha(senha);
+            dao.inserir(o);
            
             
         } catch (ParseException ex) {
@@ -225,7 +203,7 @@ public class webService {
         return null;
         
     }
-    
+    /*
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("orgao/recuperar")
