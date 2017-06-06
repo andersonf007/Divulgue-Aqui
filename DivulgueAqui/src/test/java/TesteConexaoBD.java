@@ -2,6 +2,8 @@
 
 
 
+import dao.OrgaosDao;
+import dao.PublicacoesDao;
 import dao.UsuariosDao;
 import hibernate.HibernateUtil;
 import entidade.OrgaoEntidade;
@@ -26,6 +28,9 @@ public class TesteConexaoBD {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
     
         UsuariosDao u2 = new UsuariosDao();
+        OrgaosDao o2 = new OrgaosDao();
+        PublicacoesDao p2 = new PublicacoesDao();
+        
         UsuarioEntidade u = new UsuarioEntidade();
         
         PublicacaoEntidade pb = new PublicacaoEntidade();
@@ -41,10 +46,10 @@ public class TesteConexaoBD {
         
        
         ///////////////////////////
-     //   u.setNome("pedro");
-      //  u.setEmail("pedroEmail");
+       // u.setNome("pedhro");
+       // u.setEmail("phedroEmail");
        // u.setSenha("001");
-        u.setId((long)52);
+       // u.setId((long)52);
         
       
       // u.setId((long)1);
@@ -57,19 +62,22 @@ public class TesteConexaoBD {
         pb.getUsuario().add(u);
         //////////////////////
         
-        o.setNome("Prefeitura");
-        o.setEndereco("Rua Camilo Fonseca, Centro nº 220");
-        o.getProblemas().add(pb);
+        o.setNome("jantar");
+        o.setSenha("22078");
+        //o.getPublicacao().add(pb);
         ///////////////////////
         manager.getTransaction().begin();
-        //manager.persist(p);
-      //  u2.recuperar((long)52);
-       // u2.alterar(u);
-       u2.remover(u);
-      // u2.inserir(u);
-      // u2.recuperar((long)1);
-       //  System.out.println(u.getNome());
+        // manager.persist(p);
+        // u2.recuperar((long)52);
+        // u2.alterar(u);
+        // u2.remover(u);
+        // u2.inserir(u);
+        // u2.recuperar((long)201);
+        // System.out.println(u2.getNome());
         //manager.persist(u);
+        
+        o2.inserir(o);
+        
         
         //manager.persist(pb);
         //manager.persist(o);

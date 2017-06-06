@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -19,10 +20,10 @@ public class MainUsuario {
     public static void main(String[] args) {
          ///////////////////////////USUARIO-INSERIR///////////////////////////////////         
     //esta returnando codigo 204 porem inseri
-    /*    
-        String nome = "andernmson";
-        String email = "cghjhgelp@celp.com";
-        String senha = "12hkj3";
+    /*       
+        String nome = "ROBERTA";
+        String email = "roberta@roberta.com";
+        String senha = "123";
           
         JSONObject jsonObject = new JSONObject();
 
@@ -59,14 +60,14 @@ public class MainUsuario {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
-      
-    */
-    ///////////////////////////USUARIO-RECUPERAR POR ID ///////////////////////////////////
+      */
     
+    ///////////////////////////USUARIO-RECUPERAR POR ID ///////////////////////////////////
+    /*
         String nome ;
         String email;
         String senha;
-        long codigo = 1;
+        long codigo = 301;
             URL url;
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperarPorId?id="+codigo);
@@ -97,7 +98,7 @@ public class MainUsuario {
       
             jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
             
-            codigo = (long) jsonObject.get("codigo");
+            //codigo = (long) jsonObject.get("codigo");
             nome = (String) jsonObject.get("nome");
             email = (String) jsonObject.get("email");
             senha = (String) jsonObject.get("senha");
@@ -112,7 +113,7 @@ public class MainUsuario {
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, "erro de ParseException conexao ao rest ( Recuperar usuario) \n" + ex);
         }
-    
+    */
     ///////////////////////////USUARIO-RECUPERAR POR NOME ///////////////////////////////////
     /*
         String nome = "marcela" ;
@@ -166,11 +167,12 @@ public class MainUsuario {
         }
     */
     ///////////////////////////USUARIO-ATUALIZAR ///////////////////////////////////
-    /*
-        String nome = "anderson";
+   /*
+    
+        String nome = "izquias";
         String email = "anderson@gmail.com.br";
         String senha = "123";
-        long codigo = 52;
+        long codigo = 1;
           
         JSONObject jsonObject = new JSONObject();
 
@@ -207,15 +209,15 @@ public class MainUsuario {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
-    
+    */
     
     ///////////////////////////USUARIO-DELETAR ///////////////////////////////////
-    /*
-        Integer codigo = 2;
+   /* 
+        Integer codigo = 151;
             URL url;
         
         try {
-            url = new URL("http://localhost:8084/web/webresources/webService/usuario/delete?id="+codigo);
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/delete?id="+codigo);
         
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -227,12 +229,11 @@ public class MainUsuario {
             System.out.println(code);
 
         } catch (MalformedURLException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest (deletar usuario)\n" + ex);
         } catch (ProtocolException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "erro de ProtocolException conexao ao rest (deletar usuario) \n" + ex);
         } catch (IOException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    */
+            JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( deletar usuario ) \n" + ex);
+        }*/
     }
 }

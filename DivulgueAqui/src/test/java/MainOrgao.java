@@ -23,8 +23,8 @@ public class MainOrgao {
     public static void main(String[] args) {
          ///////////////////////////ORGAO-INSERIR/////////////////////////////////// 
       
-        String nome = "caelresfdpe10";
-        String senha = "1gfd23";
+        String nome = "compesa";
+        String senha = "321";
           
         JSONObject jsonObject = new JSONObject();
 
