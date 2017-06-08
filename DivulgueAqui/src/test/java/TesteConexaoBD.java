@@ -1,12 +1,5 @@
 
-
-
-
 import dao.OrgaosDao;
-<<<<<<< HEAD
-import dao.PessoasDao;
-=======
->>>>>>> edb0993c16161055a10c120bee7a52152562603e
 import dao.PublicacoesDao;
 import dao.UsuariosDao;
 import hibernate.HibernateUtil;
@@ -42,7 +35,7 @@ public class TesteConexaoBD {
         OrgaoEntidade o = new OrgaoEntidade();
         PessoaEntidade p = new PessoaEntidade();
         
-        //Ao inserir, altere os valores para n„o ficar com valores repetidos  no BD! 
+        //Ao inserir, altere os valores para n√£o ficar com valores repetidos  no BD! 
         
         
          PublicacoesDao pu2 = new PublicacoesDao();
@@ -50,7 +43,7 @@ public class TesteConexaoBD {
         
         
         p.setNome("adones");
-        p.setEndereco("imbÈcil");
+        p.setEndereco("imb√©cil");
         
         
        
@@ -71,18 +64,15 @@ public class TesteConexaoBD {
        ///////////////////////////
       
         pb.setCategoria("Agua");
-        pb.setDescricao("EncanÁ„o estourada!");
+        pb.setDescricao("Encan√ß√£o estourada!");
         pb.setLocalidade("Rua de garnhuns");
         pb.setStatus("Espera");
-        //Date hoje = Date.from(Instant.now());
-        //pb.setData(hoje);
-        //pb.getUsuario().add(u);
-        pb.getId();
+        //pb.setId();
         //////////////////////
         
         o.setNome("jantar");
-        o.setEndereco("qualquer");
-        //o.setSenha("22078");
+       // o.setEndereco("qualquer");
+        o.setSenha("22078");
         //o.getPublicacao().add(pb);
         ///////////////////////
         manager.getTransaction().begin();

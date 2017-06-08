@@ -15,10 +15,7 @@
     </properties>
     
     <dependencies>
-
         <dependency>
-
-         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
             <version>2.5.2</version>
@@ -52,7 +49,7 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>4.3.1.Final</version>
         </dependency>
-<<<<<<< HEAD
+
         <!--  <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>hibernate-jpamodelgen-4.3.1.Final</artifactId>
@@ -60,9 +57,7 @@
             <scope>provided</scope>
         </dependency>
         -->
-=======
-     
->>>>>>> edb0993c16161055a10c120bee7a52152562603e
+
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
