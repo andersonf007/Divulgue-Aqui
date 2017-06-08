@@ -1,10 +1,11 @@
-
 package entidade;
+
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+//import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ import javax.persistence.OneToMany;
  * @author Izaquias
  */
 @Entity
-public class OrgaoEntidade implements Serializable {
+public class Orgao implements Serializable {
     private static final long serialVersionUID = 1L;
    
     @Id
@@ -28,12 +29,12 @@ public class OrgaoEntidade implements Serializable {
     private String senha;
     
     @OneToMany
-    private Collection<PublicacaoEntidade> publicacao = new ArrayList<>();
+    private Collection<Publicacao> publicacao = new ArrayList<>();
 
-    public OrgaoEntidade() {
+    public Orgao() {
     }
 
-    public OrgaoEntidade( String nome, String senha, Collection<PublicacaoEntidade> publicacao) {
+    public Orgao( String nome, String senha, Collection<Publicacao> publicacao) {
         if(nome == null || nome.isEmpty()){
             throw new IllegalArgumentException("Informe o nome do orgão responsável!");
         }
@@ -69,11 +70,11 @@ public class OrgaoEntidade implements Serializable {
         this.senha = senha;
     }
 
-    public Collection<PublicacaoEntidade> getPublicacao() {
+    public Collection<Publicacao> getPublicacao() {
         return publicacao;
     }
 
-    public void setPublicacao(Collection<PublicacaoEntidade> publicacao) {
+    public void setPublicacao(Collection<Publicacao> publicacao) {
         this.publicacao = publicacao;
     }
     

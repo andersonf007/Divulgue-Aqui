@@ -1,9 +1,9 @@
 package WS;
 
 import com.google.gson.Gson;
-import dao.OrgaosDao;
-import dao.UsuariosDao;
-import entidade.OrgaoEntidade;
+import dao.OrgaoDao;
+import dao.UsuarioDao;
+import entidade.Orgao;
 import hibernate.HibernateUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +19,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import entidade.UsuarioEntidade;
+import entidade.Usuario;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -45,8 +45,8 @@ public class webService {
     @Path("usuario/inserir")
     public String insertUsuario(String json){
 
-        UsuariosDao dao = new UsuariosDao();
-        UsuarioEntidade u = new UsuarioEntidade();
+        UsuarioDao dao = new UsuarioDao();
+        Usuario u = new Usuario();
         
         JSONObject jsonObject = null;
         JSONParser parser = new JSONParser();  
@@ -80,8 +80,8 @@ public class webService {
     @Path("usuario/recuperarPorId")
     public String recuperarUsuarioPorId(@QueryParam("id") Long json){
            
-        UsuariosDao dao = new UsuariosDao();
-        UsuarioEntidade u = new UsuarioEntidade();
+        UsuarioDao dao = new UsuarioDao();
+        Usuario u = new Usuario();
         
         u = dao.recuperar(json);
         
@@ -119,8 +119,8 @@ public class webService {
     @Path("usuario/update")
     public String updateUsuario(String json){
           
-        UsuariosDao dao = new UsuariosDao();
-        UsuarioEntidade u = new UsuarioEntidade();
+        UsuarioDao dao = new UsuarioDao();
+        Usuario u = new Usuario();
        
         
         JSONObject jsonObject;
@@ -159,8 +159,8 @@ public class webService {
     @Path("usuario/delete")
     public String deletarUsuario(@QueryParam("id") Integer json){
       
-        UsuariosDao dao = new UsuariosDao();
-        UsuarioEntidade u = new UsuarioEntidade();
+        UsuarioDao dao = new UsuarioDao();
+        Usuario u = new Usuario();
         
         u.setId((long)json);
         dao.remover(u);
@@ -175,8 +175,8 @@ public class webService {
     @Path("orgao/inserir")
     public String insertOrgao(String json){
     
-       OrgaosDao dao = new OrgaosDao();
-       OrgaoEntidade o = new OrgaoEntidade(); 
+       OrgaoDao dao = new OrgaoDao();
+       Orgao o = new Orgao(); 
         
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  

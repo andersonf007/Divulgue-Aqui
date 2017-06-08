@@ -1,12 +1,13 @@
 
-import dao.OrgaosDao;
-import dao.PublicacoesDao;
-import dao.UsuariosDao;
+import dao.OrgaoDao;
+import dao.PessoaDao;
+import dao.PublicacaoDao;
+import dao.UsuarioDao;
 import hibernate.HibernateUtil;
-import entidade.OrgaoEntidade;
-import entidade.PessoaEntidade;
-import entidade.PublicacaoEntidade;
-import entidade.UsuarioEntidade;
+import entidade.Orgao;
+import entidade.Pessoa;
+import entidade.Publicacao;
+import entidade.Usuario;
 import javax.persistence.EntityManager;
 
 /**
@@ -22,36 +23,43 @@ public class TesteConexaoBD {
     
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
     
+        //Daos
+        UsuarioDao u2 = new UsuarioDao();
+        OrgaoDao o2 = new OrgaoDao();
+        PublicacaoDao p2 = new PublicacaoDao();
+         PessoaDao ps = new PessoaDao();
+        
 
-        UsuariosDao u2 = new UsuariosDao();
-        OrgaosDao o2 = new OrgaosDao();
-        PublicacoesDao p2 = new PublicacoesDao();
-        
-        
-
-        
-        UsuarioEntidade u = new UsuarioEntidade();
-        PublicacaoEntidade pb = new PublicacaoEntidade();
-        OrgaoEntidade o = new OrgaoEntidade();
-        PessoaEntidade p = new PessoaEntidade();
+        //Entity
+        Usuario u = new Usuario();
+        Publicacao pb = new Publicacao();
+        Orgao o = new Orgao();
+        Pessoa p = new Pessoa();
         
         //Ao inserir, altere os valores para não ficar com valores repetidos  no BD! 
         
-        
-         PublicacoesDao pu2 = new PublicacoesDao();
-        
-        
-        
         p.setNome("adones");
         p.setEndereco("imbécil");
+        
+        //ps.inserir(p);
+       // ps.alterar(p);
+       //ps.remover(p);
+      //ps.recuperarTodos();
+      //ps.recuperar(getId());
+        
         
         
        
         ///////////////////////////
 
-        u.setNome("adones22");
-        u.setEmail("adones22@gmail.com");
+        u.setNome("adones");
+        u.setEmail("adones@gmail.com");
         u.setSenha("sacopela22");
+        
+        //u2.inserir(u);
+        //u2.alterar(u);
+        //u2.remover(u);
+        //u2.recuperarTodos();
         //u.setId(52);
 
        // u.setNome("pedhro");
@@ -66,21 +74,31 @@ public class TesteConexaoBD {
         pb.setCategoria("Agua");
         pb.setDescricao("Encanção estourada!");
         pb.setLocalidade("Rua de garnhuns");
-        pb.setStatus("Espera");
-        //pb.setId();
-        //////////////////////
+        pb.setStatus("Pendente");
+        pb.getUsuario().add(u);
         
-        o.setNome("jantar");
-       // o.setEndereco("qualquer");
+        //p2.inserir(pb);
+        //p2.alterar(pb);
+        //p2.remover(pb);
+        //p2.recuperarTodos();
+        
+        //pb.setId();
+       
+        
+        o.setNome("Público");
         o.setSenha("22078");
-        //o.getPublicacao().add(pb);
+        
+        o.getPublicacao().add(pb);
+       
+        //o2.inserir(o);
+        //o2.alterar(o);
+        o2.remover(o);
+        //o2.recuperarTodos();
+        
         ///////////////////////
-        manager.getTransaction().begin();
+        //manager.getTransaction().begin();
 
-        //p2.inserir(p);
         //manager.persist(p);
-        //u2.inserir(u);
-        pu2.alterar(pb);        
 
         // manager.persist(p);
         // u2.recuperar((long)52);
@@ -92,12 +110,12 @@ public class TesteConexaoBD {
 
         //manager.persist(u);
         
-        o2.inserir(o);
+        //o2.inserir(o);
         
         
         //manager.persist(pb);
         //manager.persist(o);
-        manager.getTransaction().commit();
-        manager.close();
+        //manager.getTransaction().commit();
+        //manager.close();
     }
 }

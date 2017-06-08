@@ -17,7 +17,7 @@ import javax.persistence.Id;
  * @author Izaquias
  */
 @Entity
-public class PessoaEntidade implements Serializable{
+public class Pessoa implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -27,10 +27,10 @@ public class PessoaEntidade implements Serializable{
     @Column(length = 35, nullable = false)
     private String endereco;
 
-    public PessoaEntidade() {
+    public Pessoa() {
     }
 
-    public PessoaEntidade( String nome, String endereco) {
+    public Pessoa( String nome, String endereco) {
         
         if(nome == null || nome.isEmpty()){
             throw new IllegalArgumentException("O nome da Pessoa  deve ser Infomado com um valor válido!");

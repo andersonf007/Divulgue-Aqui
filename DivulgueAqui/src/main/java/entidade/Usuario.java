@@ -1,7 +1,6 @@
 
 package entidade;
 
-import excecoes.UsuarioMenorDeIdadeException;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ import javax.persistence.Id;
  * @author Izaquias
  */
 @Entity
-public class UsuarioEntidade implements Serializable{
+public class Usuario implements Serializable{
 
     /**
      * @param id the id to set
@@ -31,11 +30,11 @@ public class UsuarioEntidade implements Serializable{
     @Column(length = 50, nullable = false)
     private String senha;
     
-    public UsuarioEntidade() {
+    public Usuario() {
     }
 
     
-    public UsuarioEntidade( String nome, String email, String senha) {
+    public Usuario( String nome, String email, String senha) {
         if(nome == null || nome.isEmpty()){
             throw new IllegalArgumentException("O nome do Usuário deve ser informado corretamente!");
         }

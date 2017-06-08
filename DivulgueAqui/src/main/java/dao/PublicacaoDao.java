@@ -1,7 +1,7 @@
  
 package dao;
 
-import entidade.PublicacaoEntidade;
+import entidade.Publicacao;
 import hibernate.HibernateUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -12,80 +12,86 @@ import javax.persistence.EntityManager;
  */
 
 
-public class PublicacoesDao implements DaoGenerico<PublicacaoEntidade>{
+public class PublicacaoDao implements DaoGenerico<Publicacao>{
 
     private static EntityManager  manager; 
     
-    public PublicacoesDao() {
+    public PublicacaoDao() {
     }
     
     @Override
-    public void inserir(PublicacaoEntidade pb) {
+    public void inserir(Publicacao pb) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-        PublicacoesDao.manager.getTransaction().begin();
+        PublicacaoDao.manager.getTransaction().begin();
         
         try {
-            PublicacoesDao.manager.persist(pb);
-            PublicacoesDao.manager.getTransaction().commit();
+            PublicacaoDao.manager.persist(pb);
+            PublicacaoDao.manager.getTransaction().commit();
             System.out.println("Dados gravados com sucesso!");
         } catch (Exception e) {
-            PublicacoesDao.manager.getTransaction().rollback();
+            PublicacaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
+            System.out.println(e.getMessage());
         }finally{
-            PublicacoesDao.manager.close();
+            PublicacaoDao.manager.close();
             System.out.println("Fim da sessão!");
         }
     }
 
     @Override
-    public void alterar(PublicacaoEntidade pb) {
+    public void alterar(Publicacao pb) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-        PublicacoesDao.manager.getTransaction().begin();
+        PublicacaoDao.manager.getTransaction().begin();
         try {
-            PublicacoesDao.manager.merge(pb);
-            PublicacoesDao.manager.getTransaction().commit();
+            PublicacaoDao.manager.merge(pb);
+            PublicacaoDao.manager.getTransaction().commit();
             System.out.println("Alteração executada com sucesso!");
         } catch (Exception e) {
-            PublicacoesDao.manager.getTransaction().rollback();
+            PublicacaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
+            System.out.println(e.getMessage());
         }finally{
-            PublicacoesDao.manager.close();
+            PublicacaoDao.manager.close();
             System.out.println("Fim da sessão!");
         }
     }
 
     @Override
-    public void remover(PublicacaoEntidade pb) {
+    public void remover(Publicacao pb) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-        PublicacoesDao.manager.getTransaction().begin();
+        PublicacaoDao.manager.getTransaction().begin();
         
         try {
-            pb = PublicacoesDao.manager.find(PublicacaoEntidade.class, pb.getId());
-            PublicacoesDao.manager.remove(pb);
-            PublicacoesDao.manager.getTransaction().commit();
+            pb = PublicacaoDao.manager.find(Publicacao.class, pb.getId());
+            PublicacaoDao.manager.remove(pb);
+            PublicacaoDao.manager.getTransaction().commit();
             System.out.println("Registro deletado com sucesso!");
         } catch (Exception e) {
-            PublicacoesDao.manager.getTransaction().rollback();
+            PublicacaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
+            System.out.println(e.getMessage());
         }finally{
-            PublicacoesDao.manager.close();
+            PublicacaoDao.manager.close();
             System.out.println("Fim da sessão!");
         }
     }
 
     @Override
-    public PublicacaoEntidade recuperar(Long id) {
+    public Publicacao recuperar(Long id) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-        PublicacoesDao.manager.getTransaction().begin();
+        PublicacaoDao.manager.getTransaction().begin();
         
         try {
-            return (PublicacaoEntidade) PublicacoesDao.manager.find(PublicacaoEntidade.class, id);
+            Publicacao p = (Publicacao) PublicacaoDao.manager.find(Publicacao.class, id);
+            Publicacao pu = p;
+            return p;
+            //return (Publicacao) PublicacaoDao.manager.find(Publicacao.class, id);
             
         } catch (Exception e) {
            System.out.println("id não encontrado!");
            System.out.println(e.getMessage());    
         }finally{
-            PublicacoesDao.manager.close();
+            PublicacaoDao.manager.close();
             System.out.println("Fim da sessão!");
         }
         
@@ -93,16 +99,16 @@ public class PublicacoesDao implements DaoGenerico<PublicacaoEntidade>{
     }
 
     @Override
-    public List<PublicacaoEntidade> recuperarTodos() {
+    public List<Publicacao> recuperarTodos() {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
         try {
-           return (List) PublicacoesDao.manager.createQuery("select pb from PublicacaoEntidade pb", PublicacaoEntidade.class);
+           return (List) PublicacaoDao.manager.createQuery("select pb from Publicacao pb", Publicacao.class);
         } catch (Exception e) {
            System.out.println("Algo inexperado aconteceu, reveja seu código!!");
            System.out.println(e.getMessage());         
         }finally{
-           PublicacoesDao.manager.close();
+           PublicacaoDao.manager.close();
            System.out.println("Fim da sessão!!");
         }
         

@@ -21,21 +21,9 @@ import javax.persistence.TemporalType;
  */
 @Entity
 //@Converter(autoApply = true)
-public class PublicacaoEntidade implements Serializable{
+public class Publicacao implements Serializable{
 
-    /**
-     * @return the status
-     */
-    public String getStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue
@@ -53,7 +41,15 @@ public class PublicacaoEntidade implements Serializable{
     @Column(length = 10, nullable = false )
     private String status;
     @OneToMany
-    private Collection<UsuarioEntidade> usuarios = new ArrayList<>();;//Fazer o devido relacionamento ORM!
+    private Collection<Usuario> usuarios = new ArrayList<>();;//Fazer o devido relacionamento ORM!
+    //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
+    //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
+    //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
+    //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
+    //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
+    //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
+    //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
+    //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
     //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
     //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
     //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
@@ -63,10 +59,10 @@ public class PublicacaoEntidade implements Serializable{
     //private List<Usuario> usuarios;//Fazer o devido relacionamento ORM!
     //private List<Usuario> usuarios;
     
-    public PublicacaoEntidade() {
+    public Publicacao() {
     }
 
-    public PublicacaoEntidade(String categoria, String localidade,Date data, String descricao, Collection<UsuarioEntidade> usuarios, String status) {
+    public Publicacao(String categoria, String localidade,Date data, String descricao, Collection<Usuario> usuarios, String status) {
         
         if(categoria == null || categoria.isEmpty()){
             throw new IllegalArgumentException("Informe a categoria que melhor se enquadra o problema, insira a informação!");
@@ -78,6 +74,9 @@ public class PublicacaoEntidade implements Serializable{
             throw new IllegalArgumentException("Data não resgistrada, de ser informada!");//melhorar
         }
         if(descricao == null || descricao.isEmpty()){
+            throw new IllegalArgumentException("Informe uma descrição do problema a ser divulgado!");
+        }
+        if(status == null || status.isEmpty()){
             throw new IllegalArgumentException("Informe uma descrição do problema a ser divulgado!");
         }
         if(usuarios == null || usuarios.isEmpty()){
@@ -126,12 +125,18 @@ public class PublicacaoEntidade implements Serializable{
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-    public Collection<UsuarioEntidade> getUsuario() {
+    public Collection<Usuario> getUsuario() {
         return usuarios;
     }
 
-    public void setUsuario(Collection<UsuarioEntidade> usuarios) {
+    public void setUsuario(Collection<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 }
