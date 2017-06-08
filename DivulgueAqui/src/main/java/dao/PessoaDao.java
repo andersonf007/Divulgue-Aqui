@@ -51,7 +51,7 @@ public class PessoaDao implements DaoGenerico<Pessoa> {
         try {
             //Neste método nunca adicionei esta próxima linha de código e alterava normalmente, caso quando tu teste, não funcionar
             //tu descomenta e testa!
-            //p = PessoaDao.manager.find(Pessoa.class, p.getId());
+            p = PessoaDao.manager.find(Pessoa.class, p.getId());
             PessoaDao.manager.merge(p);
             PessoaDao.manager.getTransaction().commit();
             System.out.println("Dados alterados com sucesso!");

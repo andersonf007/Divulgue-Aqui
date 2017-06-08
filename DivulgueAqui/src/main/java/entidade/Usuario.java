@@ -21,7 +21,7 @@ public class Usuario implements Serializable{
    
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//add 50+ 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//add 1++ 
     private Long id;
     @Column(length = 50, nullable = false, unique = true)
     private String nome;

@@ -25,7 +25,7 @@ public class OrgaoDao implements DaoGenerico<Orgao> {
         try {
             OrgaoDao.manager.persist(o);
             OrgaoDao.manager.getTransaction().commit();
-            System.out.println("Dados salvos com sucesso!");
+            System.out.println("Dados do orgão salvos com sucesso!");
         } catch (Exception e) {
             OrgaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
@@ -42,10 +42,10 @@ public class OrgaoDao implements DaoGenerico<Orgao> {
         OrgaoDao.manager.getTransaction().begin();
 
         try {
-            o = OrgaoDao.manager.find(Orgao.class, o.getId());
+            //o = OrgaoDao.manager.find(Orgao.class, o.getId());
             OrgaoDao.manager.merge(o);
             OrgaoDao.manager.getTransaction().commit();
-            System.out.println("Registros alterados com sucesso!");
+            System.out.println("Registros do Orgão alterados com sucesso!");
         } catch (Exception e) {
             OrgaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
@@ -64,7 +64,7 @@ public class OrgaoDao implements DaoGenerico<Orgao> {
             o = OrgaoDao.manager.find(Orgao.class, o.getId());
             OrgaoDao.manager.remove(o);
             OrgaoDao.manager.getTransaction().commit();
-            System.out.println("Registro removido com sucesso!");
+            System.out.println("Orgão removido com sucesso!");
         } catch (Exception e) {
             OrgaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível remover este registro!");
@@ -82,7 +82,8 @@ public class OrgaoDao implements DaoGenerico<Orgao> {
 
         try {
            Orgao o =  (Orgao) OrgaoDao.manager.find(Orgao.class, id);
-           Orgao or = o;
+           //Orgao or = o;
+           System.out.println("Encontrado com sucesso!");
            return o;
            //return (Orgao) OrgaoDao.manager.find(Orgao.class, id);
         } catch (Exception e) {

@@ -73,7 +73,7 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
             u = UsuarioDao.manager.find(Usuario.class, u.getId());
             UsuarioDao.manager.remove(u);
             UsuarioDao.manager.getTransaction().commit();
-            System.out.println("Registro removido com sucesso!");
+            System.out.println("Usuário removido com sucesso!");
         } catch (Exception e) {
             UsuarioDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível remover este registro!");

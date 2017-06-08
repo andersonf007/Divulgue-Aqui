@@ -10,6 +10,7 @@ import entidade.Publicacao;
 import entidade.Usuario;
 import javax.persistence.EntityManager;
 
+
 /**
  *
  * @author Izaquias
@@ -38,29 +39,37 @@ public class TesteConexaoBD {
         
         //Ao inserir, altere os valores para não ficar com valores repetidos  no BD! 
         
-        p.setNome("adones");
-        p.setEndereco("imbécil");
+        p.setNome("ana");
+        p.setEndereco("Correntes");
         
         //ps.inserir(p);
-       // ps.alterar(p);
+       //ps.alterar(p);
        //ps.remover(p);
       //ps.recuperarTodos();
       //ps.recuperar(getId());
         
         
-        
-       
-        ///////////////////////////
+        //OBS: PARA REMOVER UMA PUBLICAÇÃO É NECESSÁRIO, REMOVER ANTES O ORGÃO!
+        //PARA REMOVER UM USUÁRIO É NECESSÁRIO, REMOVER UMA PUBLICAÇÃO!
+       //TUDO ISSO É NECESSÁRIO, CASO TENHA DENPENDÊNCIAS ENTRE AS ENTIDADES
+        //OU SEJA, AO REALIZAR UM CADASTRO EM CASCATA(TANTO DE USUARIO,PUBLICAOCAO E ORGAO) SIMULTÂNEO!
+        //CASO CONTRÁRIO TODO O CRUD FUNCIONARÁ CORRETAMENTE!
+        //MAS UMA COISA, TEM UMAS ANOTAÇÕES DE CASCADE NAS ENTIDADES, NÃO REMOVE, CASO PRECISE MUDAR PARA
+        //QUANDO HOUVER ESSAS DEPENDÊNCIAS, SEJA POSSÍVEL REMOVER EM CASCATA, AEE NÃO DARÁ ERROS!
+        //MANDA BRASA NO REST!
 
-        u.setNome("adones");
-        u.setEmail("adones@gmail.com");
-        u.setSenha("sacopela22");
+        u.setNome("ana");
+        u.setEmail("ana@gmail.com");
+        u.setSenha("ana18");
+        
+        u.setId((long)3);
         
         //u2.inserir(u);
         //u2.alterar(u);
-        //u2.remover(u);
+        //u2.recuperar((long)5);
+        u2.remover(u);
         //u2.recuperarTodos();
-        //u.setId(52);
+        
 
        // u.setNome("pedhro");
        // u.setEmail("phedroEmail");
@@ -71,28 +80,31 @@ public class TesteConexaoBD {
       // u.setId((long)1);
        ///////////////////////////
       
-        pb.setCategoria("Agua");
-        pb.setDescricao("Encanção estourada!");
-        pb.setLocalidade("Rua de garnhuns");
+        pb.setCategoria("Iluminação");
+        pb.setDescricao("Queda de energia!");
+        pb.setLocalidade("Rua de magano 1!");
         pb.setStatus("Pendente");
         pb.getUsuario().add(u);
         
+        pb.setId((long)3);
         //p2.inserir(pb);
         //p2.alterar(pb);
-        //p2.remover(pb);
+        p2.remover(pb);
         //p2.recuperarTodos();
         
         //pb.setId();
        
         
-        o.setNome("Público");
-        o.setSenha("22078");
+        o.setNome("Orgão2");
+        o.setSenha("22222");
         
         o.getPublicacao().add(pb);
        
+        
         //o2.inserir(o);
+        //o.setId((long)3);
         //o2.alterar(o);
-        o2.remover(o);
+        //o2.remover(o);
         //o2.recuperarTodos();
         
         ///////////////////////

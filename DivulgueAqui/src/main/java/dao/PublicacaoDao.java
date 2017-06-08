@@ -27,7 +27,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         try {
             PublicacaoDao.manager.persist(pb);
             PublicacaoDao.manager.getTransaction().commit();
-            System.out.println("Dados gravados com sucesso!");
+            System.out.println("Publicação gravada com sucesso!");
         } catch (Exception e) {
             PublicacaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
@@ -45,7 +45,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         try {
             PublicacaoDao.manager.merge(pb);
             PublicacaoDao.manager.getTransaction().commit();
-            System.out.println("Alteração executada com sucesso!");
+            System.out.println("Publicação Atualizada com sucesso!");
         } catch (Exception e) {
             PublicacaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
@@ -65,7 +65,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
             pb = PublicacaoDao.manager.find(Publicacao.class, pb.getId());
             PublicacaoDao.manager.remove(pb);
             PublicacaoDao.manager.getTransaction().commit();
-            System.out.println("Registro deletado com sucesso!");
+            System.out.println("Publicação deletada com sucesso!");
         } catch (Exception e) {
             PublicacaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
