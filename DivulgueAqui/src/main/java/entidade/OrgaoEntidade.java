@@ -17,6 +17,11 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class OrgaoEntidade implements Serializable {
+
+    /**
+     * @param id the id to set
+     */
+   
     private static final long serialVersionUID = 1L;
    
     @Id
@@ -53,6 +58,10 @@ public class OrgaoEntidade implements Serializable {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+     
     public String getNome() {
         return nome;
     }

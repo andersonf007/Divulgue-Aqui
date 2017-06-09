@@ -88,15 +88,6 @@ public class webService {
         Gson g = new Gson();
         return g.toJson(u);
     }
-    
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("oi")
-    public String oi(){
-        
-         
-        return "Olá mundo!";
-    }
     /*
      @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -203,23 +194,72 @@ public class webService {
         return null;
         
     }
-    /*
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("orgao/recuperar")
     public String recuperarUnico(@QueryParam("id") Long json){
-        OrgaoDao o = new OrgaoDao();
-        BeansOrgao mod = new BeansOrgao();
-        
-        mod.setPesquisarId(json);
-        mod = o.buscarPorId(mod);
+      
+        OrgaosDao dao = new OrgaosDao();
+       OrgaoEntidade o = new OrgaoEntidade(); 
+      
+       o = dao.recuperar(json);
         
         Gson g = new Gson();
-        return g.toJson(mod);
+        return g.toJson(o);
     }
     
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("orgao/atualizar")
+    public String atualizarOrgao(String json){
+        
+       OrgaosDao dao = new OrgaosDao();
+       OrgaoEntidade o = new OrgaoEntidade(); 
+        
+        JSONObject jsonObject;
+        JSONParser parser = new JSONParser();  
+        
+        String nome;
+        String senha;
+        long codigo;
+	
+        
+        try {
+            jsonObject = (JSONObject) parser.parse(json);
+            
+            nome = (String) jsonObject.get("nome");
+            senha = (String) jsonObject.get("senha");
+            codigo = (long) jsonObject.get("codigo");
+            
+            o.setId(codigo);
+            o.setNome(nome);
+            o.setSenha(senha);
+                 
+            dao.alterar(o);
+           
+        } catch (ParseException ex) {
+            Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("orgao/delete")
+    public String deletarOrgao(@QueryParam("id") Integer json){
+      
+       OrgaosDao dao = new OrgaosDao();
+       OrgaoEntidade o = new OrgaoEntidade(); 
+       
+        o.setId((long)json);
+        dao.remover(o);
+  
+        return null;
+    }
     
     ///////////////////////////FEED///////////////////////////////////
+    /*
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("feed/inserir")

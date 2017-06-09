@@ -44,7 +44,6 @@ public class UsuariosDao implements DaoGenerico<UsuarioEntidade> {
     @Override
     public void alterar(UsuarioEntidade u) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-
         UsuariosDao.manager.getTransaction().begin();
 
         try {

@@ -40,10 +40,10 @@ public class OrgaosDao implements DaoGenerico<OrgaoEntidade> {
         OrgaosDao.manager.getTransaction().begin();
 
         try {
-            o = OrgaosDao.manager.find(OrgaoEntidade.class, o.getId());
-            OrgaosDao.manager.merge(o);
-            OrgaosDao.manager.getTransaction().commit();
-            System.out.println("Registros alterados com sucesso!");
+          //  o = OrgaosDao.manager.find(OrgaoEntidade.class, o.getId());
+           OrgaosDao.manager.merge(o);
+           OrgaosDao.manager.getTransaction().commit();
+           System.out.println("Registros alterados com sucesso!");
         } catch (Exception e) {
             OrgaosDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");

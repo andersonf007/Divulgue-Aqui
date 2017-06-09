@@ -62,8 +62,9 @@ public class TesteConexaoBD {
         pb.getUsuario().add(u);
         //////////////////////
         
-        o.setNome("jantar");
-        o.setSenha("22078");
+        o.setNome("celpe");
+        o.setSenha("22078w");
+        o.setId(101);
         //o.getPublicacao().add(pb);
         ///////////////////////
         manager.getTransaction().begin();
@@ -76,8 +77,8 @@ public class TesteConexaoBD {
         // System.out.println(u2.getNome());
         //manager.persist(u);
         
-        o2.inserir(o);
-        
+        //o2.inserir(o);
+        o2.alterar(o);
         
         //manager.persist(pb);
         //manager.persist(o);

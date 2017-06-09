@@ -1,12 +1,17 @@
 
 import com.google.gson.Gson;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +27,7 @@ public class MainOrgao {
     
     public static void main(String[] args) {
          ///////////////////////////ORGAO-INSERIR/////////////////////////////////// 
-      
+      /*
         String nome = "compesa";
         String senha = "321";
           
@@ -59,15 +64,15 @@ public class MainOrgao {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
-        
+        */
      ///////////////////////////ORGAO-RECUPERAR/////////////////////////////////// 
      /*
         String nome ;
         String senha;
-        long codigo = 2;
+        long codigo = 101;
             URL url;
         try {
-            url = new URL("http://localhost:8084/web/webresources/webService/orgao/recuperar?id="+codigo);
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/orgao/recuperar?id="+codigo);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
@@ -95,7 +100,6 @@ public class MainOrgao {
       
             jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
             
-            codigo = (long) jsonObject.get("codigo");
             nome = (String) jsonObject.get("nome");
             senha = (String) jsonObject.get("senha");
                         
@@ -108,7 +112,47 @@ public class MainOrgao {
             JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( Recuperar usuario) \n" + ex);
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, "erro de ParseException conexao ao rest ( Recuperar usuario) \n" + ex);
-        }
-         */    
+        }*/  
+     /////////////////////////////////////ORGAO-ATUALIZAR///////////////////////////////////////
+     
+        String nome = "CELPE";
+        String senha = "321";
+        long codigo = 101;
+          
+        JSONObject jsonObject = new JSONObject();
+
+        //Armazena dados em um Objeto JSON
+        jsonObject.put("nome", nome);
+        jsonObject.put("senha", senha);
+        jsonObject.put("codigo", codigo);
+           
+        Gson gson = new Gson();
+        String Json = gson.toJson(jsonObject);
+
+        URL url;
+        try {
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/orgao/atualizar");
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestMethod("PUT");
+            connection.setRequestProperty("Content-Type", "application/json");
+
+            OutputStream os = connection.getOutputStream();
+            os.write(Json.getBytes("UTF-8"));
+            os.flush();
+
+            int code = connection.getResponseCode();
+            System.out.println(code + " - " + Json);
+
+            os.close();
+            connection.disconnect();
+
+            } catch (MalformedURLException ex) {
+                JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest ( salvar cliente)\n" + ex);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
+            }
+
     }
 }
