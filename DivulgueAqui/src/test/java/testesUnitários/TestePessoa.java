@@ -1,4 +1,6 @@
-import entidade.PessoaEntidade;
+package testesUnitários;
+
+import entidade.Pessoa;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -16,25 +18,25 @@ public class TestePessoa {
     @Test
     public void naoPermitirCriarPessoaNomeComNulo(){
         excecao.expect(IllegalArgumentException.class);
-        new PessoaEntidade(null, "Brejão");
+        new Pessoa(null, "Brejão");
     }
     
     @Test
     public void naoPermitirCriarPessoaNomeVazio(){
         excecao.expect(IllegalArgumentException.class);
-        new PessoaEntidade("", "Brejão");
+        new Pessoa("", "Brejão");
     }
     
     @Test
     public void naoPermitirCriarPessoaComEnderecoNulo(){
         excecao.expect(IllegalArgumentException.class);
-        new PessoaEntidade("Izaquias", null);
+        new Pessoa("Izaquias", null);
     }
     
     @Test
     public void naoPermitirCriarPessoaComEnderecoVazio(){
         excecao.expect(IllegalArgumentException.class);
-        new PessoaEntidade("Izaquias", "");
+        new Pessoa("Izaquias", "");
     }
     
 }

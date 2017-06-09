@@ -1,83 +1,86 @@
 
 package controller;
 
-import dao.PessoasDao;
-import entidade.PessoaEntidade;
+import dao.PessoaDao;
+import entidade.Pessoa;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-//import javax.faces.bean.SessionScoped;
 import javax.faces.view.ViewScoped;
-
+//import javax.faces.bean.SessionScoped;
 
 //@SessionScoped
+@ViewScoped
 
 /**
  *
  * @author Izaquias
  */
 @ManagedBean(name = "pessoaBean")
-@ViewScoped
+
 public class PessoaBean implements Controller{
     
-    private PessoaEntidade pessoa;
-    private PessoasDao dao = null;
+    private Pessoa pessoa;
+    private PessoaDao dao = null;
 
     @PostConstruct
     public void inicializar(){
-        pessoa = new PessoaEntidade();
-        dao = new PessoasDao();
+        pessoa = new Pessoa();
+        dao = new PessoaDao();
     }
 
     public PessoaBean() {
     }
     
-    public PessoaBean(PessoaEntidade pessoa, PessoasDao dao) {
+    public PessoaBean(Pessoa pessoa, PessoaDao dao) {
           this.pessoa = pessoa;
           this.dao = dao;
     }
 
-    public PessoaEntidade getPessoa() {
+    public Pessoa getPessoa() {
         return pessoa;
     }
 
-    public void setPessoa(PessoaEntidade pessoa) {
+    public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
 
-    public PessoasDao getDao() {
+    public PessoaDao getDao() {
         return dao;
     }
 
-    public void setDao(PessoasDao dao) {
+    public void setDao(PessoaDao dao) {
         this.dao = dao;
     }
     
     @Override
     public String salvar() {
         dao.inserir(pessoa);
-        pessoa = new PessoaEntidade();
+        pessoa = new Pessoa();
         return "index.xhtml";
     }
 
     @Override
     public String atualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.alterar(pessoa);
+        //pessoa = new Pessoa();
+        return "index.xhtml";    
     }
 
     @Override
     public String deletar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.remover(pessoa);    
+        return "index.xhtml";
     }
 
     @Override
-    public Object buscar(Long chave) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Pessoa buscar(Long id) {
+       return dao.recuperar(id);
     }
 
     @Override
-    public List listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pessoa> listarTodos() {
+       return dao.recuperarTodos();
     }
     
 }
