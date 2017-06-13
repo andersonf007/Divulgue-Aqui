@@ -2,8 +2,10 @@ package WS;
 
 import com.google.gson.Gson;
 import dao.OrgaoDao;
+import dao.PublicacaoDao;
 import dao.UsuarioDao;
 import entidade.Orgao;
+import entidade.Publicacao;
 import hibernate.HibernateUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +22,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import entidade.Usuario;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.Date;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -93,14 +98,6 @@ public class webService {
         return g.toJson(u);
     }
     
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("oi")
-    public String oi(){
-        
-         
-        return "Olá mundo!";
-    }
     /*
      @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -207,33 +204,88 @@ public class webService {
         return null;
         
     }
-    /*
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("orgao/recuperar")
     public String recuperarUnico(@QueryParam("id") Long json){
-        OrgaoDao o = new OrgaoDao();
-        BeansOrgao mod = new BeansOrgao();
+        OrgaoDao dao = new OrgaoDao();
+       Orgao o = new Orgao(); 
         
-        mod.setPesquisarId(json);
-        mod = o.buscarPorId(mod);
+        o = dao.recuperar(json);
         
         Gson g = new Gson();
-        return g.toJson(mod);
+        return g.toJson(o);
     }
     
-    
-    ///////////////////////////FEED///////////////////////////////////
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("feed/inserir")
-    public String insertFeed(String json){
-    
-        FeedDeNoticiaDao f = new FeedDeNoticiaDao();
-        BeansFeedDeNoticia mod = new BeansFeedDeNoticia();
+    @Path("orgao/update")
+    public String updateOrgao(String json){
+          
+       OrgaoDao dao = new OrgaoDao();
+       Orgao o = new Orgao(); 
+       
         
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
+        
+        String nome;
+        String senha;
+        long codigo;
+	
+        
+        try {
+            jsonObject = (JSONObject) parser.parse(json);
+            
+            nome = (String) jsonObject.get("nome");
+            senha = (String) jsonObject.get("senha");
+            codigo = (long) jsonObject.get("codigo");
+            
+            o.setId(codigo);
+            o.setNome(nome);
+            o.setSenha(senha);
+                 
+            dao.alterar(o);
+           
+        } catch (ParseException ex) {
+            Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+        
+    }
+    
+    
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("orgao/delete")
+    public String deletarOrgao(@QueryParam("id") Integer json){
+      
+       OrgaoDao dao = new OrgaoDao();
+       Orgao o = new Orgao(); 
+        
+        o.setId((long)json);
+        dao.remover(o);
+  
+        return null;
+    }
+    
+    ///////////////////////////PUBLICACAO///////////////////////////////////
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("publicacao/inserir")
+    public String insertFeed(String json){
+    
+        Publicacao p = new Publicacao();
+        PublicacaoDao dao = new PublicacaoDao();
+        
+        JSONObject jsonObject;
+        JSONParser parser = new JSONParser();  
+        
+        UsuarioDao daoUsuario = new UsuarioDao();
+        Usuario u = new Usuario();
+        
+       
         
         String localidade;
         String descricao;
@@ -248,18 +300,20 @@ public class webService {
             categoria = (String) jsonObject.get("categoria");
             idUsuario =  (long) jsonObject.get("idUsuario");
             
-            mod.setLocalidade(localidade);
-            mod.setData(LocalDateTime.MAX);
-            mod.setDescricao(descricao);
-            mod.setCategoria(categoria);
-            mod.setIdUsuario(idUsuario);
-            f.salvar(mod);
+            u = daoUsuario.recuperar(idUsuario);// recuperar o objeto do usuario
+             
+            p.setLocalidade(localidade);
+            p.setData(Date.from(Instant.now()));
+            p.setDescricao(descricao);
+            p.setCategoria(categoria);
+            p.setUsuario((Collection<Usuario>) u);
+            dao.inserir(p);
    
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
         
-    }*/
+    }
    
 }

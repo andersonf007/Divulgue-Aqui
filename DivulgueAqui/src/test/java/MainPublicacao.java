@@ -3,7 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 /**
  *
  * @author ander
@@ -12,7 +25,7 @@ public class MainPublicacao {
     public static void main(String[] args) {
           ///////////////////////////feeddenoticia-INSERIR///////////////////////////////////         
     //esta returnando codigo 204 porem inseri
-    /*
+    
         String localidade = "centro4";
         String descricao = "buraco";
         String categoria = "infra-estrutura";
@@ -31,7 +44,7 @@ public class MainPublicacao {
 
         URL url;
         try {
-            url = new URL("http://localhost:8084/web/webresources/webService/feed/inserir");
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/publicacao/inserir");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
@@ -53,7 +66,7 @@ public class MainPublicacao {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
-         */   
+          
     }
    
 }

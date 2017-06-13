@@ -20,7 +20,7 @@ public class MainUsuario {
     public static void main(String[] args) {
          ///////////////////////////USUARIO-INSERIR///////////////////////////////////         
     //esta returnando codigo 204 porem inseri
-        
+       /* 
         String nome = "anderson";
         String email = "anderson@roberta.com";
         String senha = "123";
@@ -61,13 +61,13 @@ public class MainUsuario {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
     
-    
+    */
     ///////////////////////////USUARIO-RECUPERAR POR ID ///////////////////////////////////
     /*
         String nome ;
         String email;
         String senha;
-        long codigo = 301;
+        long codigo = 8;
             URL url;
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperarPorId?id="+codigo);
@@ -167,8 +167,8 @@ public class MainUsuario {
         }
     */
     ///////////////////////////USUARIO-ATUALIZAR ///////////////////////////////////
-   /*
-    
+   
+    /*
         String nome = "izquias";
         String email = "anderson@gmail.com.br";
         String senha = "123";
@@ -209,11 +209,11 @@ public class MainUsuario {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
-    
     */
+    
     ///////////////////////////USUARIO-DELETAR ///////////////////////////////////
-   /* 
-        Integer codigo = 151;
+   /*
+        Integer codigo = 3;
             URL url;
         
         try {
