@@ -306,7 +306,11 @@ public class webService {
             p.setData(Date.from(Instant.now()));
             p.setDescricao(descricao);
             p.setCategoria(categoria);
+            try{
             p.setUsuario((Collection<Usuario>) u);
+            }catch(Exception e){
+                System.out.println("WS.webService.insertFeed()\n" + e);
+            }
             dao.inserir(p);
    
         } catch (ParseException ex) {

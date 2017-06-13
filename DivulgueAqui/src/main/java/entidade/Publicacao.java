@@ -35,7 +35,6 @@ public class Publicacao implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column
     private Date data = Date.from(Instant.now());
-    ;
     @Column(length = 100, nullable = false)
     private String descricao;
     @Column(length = 10, nullable = false)
