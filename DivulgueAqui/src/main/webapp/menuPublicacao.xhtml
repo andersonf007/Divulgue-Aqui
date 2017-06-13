@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Publicações</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <p:messages/>
+        <h:form id="menuPubli">
+            
+            <p:menubar>
+                
+                <p:menuitem value="home" url="index.xhtml"/>
+                
+                <p:submenu label="Publicação" >
+                    
+                    <p:menuitem value="Visuarizar" url="apresentaPublicacao.xhtml"/>
+                    
+                </p:submenu>
+                
+              
+                 <p:menuitem value="Sair" action="{#LoginBean.fazerLogout()}"/>
+                
+            </p:menubar>
+            <p:separator/>
+        </h:form>
+        
+    </h:body>
+</html>
