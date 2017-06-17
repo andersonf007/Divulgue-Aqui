@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuario;
+package Publicacao;
 
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -11,6 +11,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Instant;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
 
@@ -22,24 +24,23 @@ public class Inserir {
     
     public static void main(String[] args) {
         
-        String nome = "anderson";
-        String email = "anderson@roberta.com";
-        String senha = "123";
-          
+        String localidade = "centro4";
+        String descricao = "buraco";
+        long idUsuario = 2;
+        
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
-        jsonObject.put("nome", nome);
-        jsonObject.put("email", email);
-        jsonObject.put("senha", senha);
+        jsonObject.put("localidade", localidade);
+        jsonObject.put("descricao", descricao);
+        jsonObject.put("idUsuario", idUsuario);           
            
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);
 
         URL url;
-        
         try {
-            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir");
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/inserir");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
