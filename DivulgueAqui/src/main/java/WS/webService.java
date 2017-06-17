@@ -100,9 +100,8 @@ public class webService {
         Gson g = new Gson();
         return g.toJson(u);
     }
-     
-    /*
-     @GET
+        
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuario/recuperar/nome")
     public String recuperarUsuarioPorNome(@QueryParam("nome") String json){
@@ -212,25 +211,9 @@ public class webService {
         return null;
         
     }
-    /*
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-
-    @Path("orgao/recuperar")
-    public String recuperarUnico(@QueryParam("id") Long json){
-        OrgaoDao o = new OrgaoDao();
-        BeansOrgao mod = new BeansOrgao();
-        
-        mod.setPesquisarId(json);
-        mod = o.buscarPorId(mod);
-        
-        Gson g = new Gson();
-        return g.toJson(mod);
-    }
-    
-    
-    ///////////////////////////FEED///////////////////////////////////
-
     @Path("orgao/recuperarId")
     public String recuperarId(@QueryParam("id") Long json){
         
@@ -301,7 +284,7 @@ public class webService {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////PUBLICACAO///////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("pb/inserir")
@@ -409,5 +392,5 @@ public class webService {
   
         return null;
     }
-*/    
+    
 }
