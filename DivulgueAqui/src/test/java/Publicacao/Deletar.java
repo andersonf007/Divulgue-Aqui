@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuario;
+package Publicacao;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -20,11 +20,11 @@ public class Deletar {
     
     public static void main(String[] args) {
         
-         URL url;
+          URL url;
          
-         Integer codigo = 4;   
+         Integer codigo = 8;   
         try {
-            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/delete?id="+codigo);//codigo
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/delete?id="+codigo);//codigo
         
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

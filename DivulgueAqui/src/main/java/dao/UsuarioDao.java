@@ -124,16 +124,16 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         return null;
     }
 
-    public Usuario recuperarUsuarioIdNome(long id, String nome){
+    public Usuario recuperarUsuarioIdNome(String nome){
         Usuario u = null;
 
-        String hql = "from Usuario o where id=:idUsuario and nome=:nomeUsuario";//como tá no bd, e o segundo param. é como um álias!
+        String hql = "from Usuario o where nome=:nomeUsuario";//como tá no bd, e o segundo param. é como um álias!
 
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
         try {
             Query query = manager.createQuery(hql);
-            u = (Usuario) query.setParameter("idUsuario", id).setParameter("nomeUsuario", nome).getSingleResult();
+            u = (Usuario) query.setParameter("nomeUsuario", nome).getSingleResult();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

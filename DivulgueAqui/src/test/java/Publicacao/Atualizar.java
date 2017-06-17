@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuario;
+package Publicacao;
 
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -18,32 +18,33 @@ import org.json.simple.JSONObject;
  *
  * @author ander
  */
-public class Inserir {
+public class Atualizar {
     
     public static void main(String[] args) {
         
-        String nome = "anderson";
-        String email = "anderson@roberta.com";
-        String senha = "123";
+         String categoria = "mobilidade";
+        String descricao = "nevasca";
+        String localidade = "interior";
+        long codigo = 8;
           
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
-        jsonObject.put("nome", nome);
-        jsonObject.put("email", email);
-        jsonObject.put("senha", senha);
+        jsonObject.put("categoria", categoria);
+        jsonObject.put("descricao", descricao);
+        jsonObject.put("localidade", localidade);
+        jsonObject.put("codigo", codigo);
            
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);
 
         URL url;
-        
         try {
-            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir");
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/update");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod("PUT");
             connection.setRequestProperty("Content-Type", "application/json");
 
             OutputStream os = connection.getOutputStream();
@@ -62,4 +63,5 @@ public class Inserir {
                 JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
             }
     }
+    
 }

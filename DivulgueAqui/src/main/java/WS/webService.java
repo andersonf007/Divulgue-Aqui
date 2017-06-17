@@ -3,8 +3,10 @@ package WS;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dao.OrgaoDao;
+import dao.PublicacaoDao;
 import dao.UsuarioDao;
 import entidade.Orgao;
+import entidade.Publicacao;
 import hibernate.HibernateUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +34,13 @@ import org.json.simple.parser.ParseException;
  */
 @Path("webService")
 public class webService {
+    
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("oi")
+    public String oi(){  
+        return "Olá mundo!";
+    }
 
     static EntityManager manager;
      
@@ -40,7 +49,9 @@ public class webService {
 
     
     public webService(){}
-  ///////////////////////////USUARIO///////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////USUARIO////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/inserir")
@@ -89,29 +100,20 @@ public class webService {
         Gson g = new Gson();
         return g.toJson(u);
     }
-    
+        
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("oi")
-    public String oi(){  
-        return "Olá mundo!";
-    }
-    /*
-     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("usuario/recuperarPorNome")
+    @Path("usuario/recuperar/nome")
     public String recuperarUsuarioPorNome(@QueryParam("nome") String json){
         
-        UsuarioDao u = new UsuarioDao();
-        BeansUsuario mod = new BeansUsuario();
-      
-        mod.setPesquisarPorNome(json);
-        mod = u.buscarPorNome(mod);
+        UsuarioDao dao = new UsuarioDao();
+        Usuario u = new Usuario();
+        
+        u = dao.recuperarUsuarioIdNome(json);
         
         Gson g = new Gson();
-        return g.toJson(mod);
+        return g.toJson(u);
     }
-    */
     
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -158,6 +160,12 @@ public class webService {
     @Path("usuario/delete")
     public String deletarUsuario(@QueryParam("id") Integer json){
       
+        PublicacaoDao daopb = new PublicacaoDao();
+        Publicacao pb = new Publicacao();
+       
+        pb.setId((long)json);
+        daopb.remover(pb);
+        
         UsuarioDao dao = new UsuarioDao();
         Usuario u = new Usuario();
         
@@ -274,23 +282,22 @@ public class webService {
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////FEED///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////PUBLICACAO///////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /*
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("feed/inserir")
-    public String insertFeed(String json){
+    @Path("pb/inserir")
+    public String insertPublicacao(String json){
     
-        FeedDeNoticiaDao f = new FeedDeNoticiaDao();
-        BeansFeedDeNoticia mod = new BeansFeedDeNoticia();
+       PublicacaoDao dao = new PublicacaoDao();
+       Publicacao pb = new Publicacao();
         
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
         
         String localidade;
         String descricao;
-        String categoria;
         long idUsuario;
      
         try {
@@ -298,21 +305,92 @@ public class webService {
             
             localidade = (String) jsonObject.get("localidade");
             descricao = (String) jsonObject.get("descricao");
-            categoria = (String) jsonObject.get("categoria");
             idUsuario =  (long) jsonObject.get("idUsuario");
             
-            mod.setLocalidade(localidade);
-            mod.setData(LocalDateTime.MAX);
-            mod.setDescricao(descricao);
-            mod.setCategoria(categoria);
-            mod.setIdUsuario(idUsuario);
-            f.salvar(mod);
+            pb.setLocalidade(localidade);
+            pb.setDescricao(descricao);
+            pb.setCategoria("");
+            pb.setStatus("Pendente");
+            try{
+            pb.setIdUsuario(idUsuario);
+           
+            }catch(Exception e){
+                System.out.println("WS.webService.insertPublicacao()\n"+e);
+            }
+            
+             dao.inserir(pb);
    
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("pb/update")
+    public String updatePublicacao(String json){
+    
+        PublicacaoDao dao = new PublicacaoDao();
+        Publicacao pb = new Publicacao();
+      
+        JSONObject jsonObject;
+        JSONParser parser = new JSONParser();  
         
-    }*/
-   
+        String categoria;
+        String descricao;
+        String localidade;
+	long codigo;
+        
+        try {
+            jsonObject = (JSONObject) parser.parse(json);
+            
+            categoria = (String) jsonObject.get("categoria");
+            descricao = (String) jsonObject.get("descricao");
+            localidade = (String) jsonObject.get("localidade");
+            codigo = (long) jsonObject.get("codigo");
+            
+            pb.setCategoria(categoria);
+            pb.setDescricao(descricao);
+            pb.setLocalidade(localidade);
+            pb.setId(codigo);
+                 
+            dao.alterar(pb);
+           
+        } catch (ParseException ex) {
+            Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("pb/recuperarId")
+    public String recuperarPublicacaoId(@QueryParam("id") Long json){
+        
+       PublicacaoDao dao = new PublicacaoDao();
+       Publicacao pb = new Publicacao();
+        
+       pb = dao.recuperar(json);
+        
+       Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+       String resultadoJson = g.toJson(pb);
+       return resultadoJson;
+       
+    }
+        
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("pb/delete")
+    public String deletarPublicacao(@QueryParam("id") Integer json){
+      
+        PublicacaoDao dao = new PublicacaoDao();
+        Publicacao pb = new Publicacao();
+       
+        pb.setId((long)json);
+        dao.remover(pb);
+  
+        return null;
+    }
+    
 }

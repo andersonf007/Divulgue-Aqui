@@ -66,6 +66,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
             PublicacaoDao.manager.remove(pb);
             PublicacaoDao.manager.getTransaction().commit();
             System.out.println("Publicação deletada com sucesso!");
+          
         } catch (Exception e) {
             PublicacaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
