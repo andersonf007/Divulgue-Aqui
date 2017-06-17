@@ -100,18 +100,9 @@ public class webService {
         Gson g = new Gson();
         return g.toJson(u);
     }
-        
-    @GET
-<<<<<<< HEAD
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("oi")
-    public String oi(){
-        return "Olá mundo!";
-    }
+     
     /*
      @GET
-=======
->>>>>>> a15026575ba49d046bd218f63e8b7f9572e4086c
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuario/recuperar/nome")
     public String recuperarUsuarioPorNome(@QueryParam("nome") String json){
@@ -224,7 +215,7 @@ public class webService {
     /*
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-<<<<<<< HEAD
+
     @Path("orgao/recuperar")
     public String recuperarUnico(@QueryParam("id") Long json){
         OrgaoDao o = new OrgaoDao();
@@ -239,7 +230,7 @@ public class webService {
     
     
     ///////////////////////////FEED///////////////////////////////////
-=======
+
     @Path("orgao/recuperarId")
     public String recuperarId(@QueryParam("id") Long json){
         
@@ -310,12 +301,7 @@ public class webService {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////PUBLICACAO///////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-<<<<<<< HEAD
-    /*
->>>>>>> b45b0847a3f9249919c51e5951de84cb2ff9f583
-=======
-    
->>>>>>> a15026575ba49d046bd218f63e8b7f9572e4086c
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("pb/inserir")
@@ -423,5 +409,5 @@ public class webService {
   
         return null;
     }
-    
+*/    
 }
