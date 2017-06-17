@@ -17,8 +17,9 @@
      
     
     <dependencies>
-
+                
         <dependency>
+
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.0.Final</version>
@@ -107,6 +108,7 @@
             <artifactId>antlr</artifactId>
             <version>2.7.7</version>
         </dependency>
+
         
         <dependency>
             <groupId>mysql</groupId>
@@ -114,6 +116,7 @@
             <version>5.1.39</version>
         </dependency>
         
+
         <!--Daqui para cima!-->
          
         <!--API de Servlet -->
@@ -159,8 +162,6 @@
             <version>2.1.7</version>
         </dependency>
 
-
-        <!-- JSF Mojarra 2.2.12 -->
         
         <dependency>
             <groupId>org.primefaces</groupId>
@@ -179,13 +180,13 @@
             <artifactId>hibernate</artifactId>
             <version>4.1.1</version>
         </dependency>
-
+        
         <dependency>
             <groupId>org.ops4j.pax.jdbc</groupId>
             <artifactId>pax-jdbc-mysql</artifactId>
             <version>1.1.0</version>
         </dependency>
-
+        
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-server</artifactId>
@@ -198,7 +199,6 @@
             <version>1.8</version>
         </dependency>
        
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

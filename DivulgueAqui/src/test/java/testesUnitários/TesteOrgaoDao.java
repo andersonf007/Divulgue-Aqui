@@ -14,9 +14,11 @@ import org.junit.Test;
 
 
 public class TesteOrgaoDao {
+
     @Ignore 
     @Test
     public void verificarOrgaoUsuarioDB(){
+
         Orgao orgao = new Orgao();
         OrgaoDao dao = new OrgaoDao();
         
@@ -33,6 +35,7 @@ public class TesteOrgaoDao {
            
     }
     
+
     @Ignore
     @Test
     public void verificarAtualizacaoOrgaoDB(){

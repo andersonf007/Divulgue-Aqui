@@ -1,5 +1,6 @@
 package entidade;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,6 +8,7 @@ import javax.persistence.CascadeType;
 //import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,16 +22,19 @@ import javax.persistence.OneToMany;
 public class Orgao implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @Expose
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Expose
     @Column(length = 50, nullable = false)
     private String nome;
+    @Expose
     @Column(length = 50, nullable = false)
     private String senha;
 
-    @OneToMany//(cascade = CascadeType.MERGE)
+    
+    @OneToMany(fetch = FetchType.EAGER)//(cascade = CascadeType.MERGE)
     private Collection<Publicacao> publicacao = new ArrayList<>();
 
     public Orgao() {

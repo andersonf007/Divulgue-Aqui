@@ -1,8 +1,9 @@
 package controller;
 
+
 import dao.AdministradorDao;
-import dao.OrgaoDao;
 import entidade.Administrador;
+import dao.OrgaoDao;
 import entidade.Orgao;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -20,12 +21,14 @@ import javax.faces.context.FacesContext;
 
 public class LoginBean {
 
+
     private String nome;
     private String senha;
     private Administrador admin;
     private AdministradorDao daoAdmin;
     private Orgao orgaoLogin;
     private OrgaoDao daoOrgao;
+
     public LoginBean() {
         
     }
@@ -38,6 +41,7 @@ public class LoginBean {
     }
     
     public String fazerLogin() {
+
         
         String redireciona = "";
         
@@ -67,6 +71,7 @@ public class LoginBean {
     
     public String fazerLogout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+
         return "fazerLogin.xhtml?faces-redirect=true";
 
     }
@@ -80,6 +85,7 @@ public class LoginBean {
         return o != null;
     }
 
+
     private void setAdminLogado(Administrador a){
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("AdminLogado", a);
     }
@@ -87,14 +93,6 @@ public class LoginBean {
     public boolean  verificarAdminLogado(){
         Administrador a = (Administrador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AdminLogado");
         return a != null;
-    }
-    
-    public Orgao getOrgaoLogin() {
-        return orgaoLogin;
-    }
-
-    public void setOrgaoLogin(Orgao orgaoLogin) {
-        this.orgaoLogin = orgaoLogin;
     }
     
     public Administrador getAdmin() {
@@ -113,7 +111,14 @@ public class LoginBean {
         this.daoAdmin = daoAdmin;
     }
     
-    
+    public Orgao getOrgaoLogin() {
+        return orgaoLogin;
+    }
+
+    public void setOrgaoLogin(Orgao orgaoLogin) {
+        this.orgaoLogin = orgaoLogin;
+    }
+
     public OrgaoDao getDaoOrgao() {
         return daoOrgao;
     }

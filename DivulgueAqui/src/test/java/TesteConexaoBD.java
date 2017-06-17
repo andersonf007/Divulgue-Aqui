@@ -62,12 +62,12 @@ public class TesteConexaoBD {
         u.setEmail("ana@gmail.com");
         u.setSenha("ana18");
         
-        //u.setId((long)3);
+        u.setId((long)3);
         
         //u2.inserir(u);
         //u2.alterar(u);
         //u2.recuperar((long)5);
-        //u2.remover(u);
+        u2.remover(u);
         //u2.recuperarTodos();
         
 
@@ -88,24 +88,31 @@ public class TesteConexaoBD {
         
         //pb.setId((long)3);
         //p2.inserir(pb);
-        p2.alterar(pb);
+
         //p2.remover(pb);
+        //p2.alterar(pb);
+        //p2.remover(pb);
+
         //p2.recuperarTodos();
         
         //pb.setId();
        
         
+
         o.setNome("Diferente");
         o.setSenha("0011");
-        
-        //o.getPublicacao().add(pb);
+
+       // o.setNome("Orgão2");
+       // o.setSenha("22222");
+
+       // o.getPublicacao().add(pb);
        
         
         //o2.inserir(o);
-        //o.setId((long)3);
+        //o.setId(1);
         //o2.alterar(o);
         //o2.remover(o);
-        //o2.recuperarTodos();
+        o2.recuperar((long)1);
         
         ///////////////////////
         //manager.getTransaction().begin();
