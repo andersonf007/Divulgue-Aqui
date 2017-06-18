@@ -43,6 +43,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         PublicacaoDao.manager.getTransaction().begin();
         try {
+            pb = PublicacaoDao.manager.find(Publicacao.class, pb.getId());
             PublicacaoDao.manager.merge(pb);
             PublicacaoDao.manager.getTransaction().commit();
             System.out.println("Publicação Atualizada com sucesso!");

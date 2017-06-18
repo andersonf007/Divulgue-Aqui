@@ -79,6 +79,22 @@ public class TesteConexaoBD {
       
         // u.setId((long)1);
        ///////////////////////////
+
+        pb.setId(10);//corrigido erro de atualização, no caso estava inserindo! 
+        pb.setCategoria("Estrutural");
+        pb.setDescricao("Borracos nas ruas!");
+        pb.setLocalidade("Rua de magano 2!");
+        pb.setStatus("Pendente");
+        //pb.getUsuario().add(u);
+        
+        //pb.setId((long)3);
+        //p2.inserir(pb);
+
+        //p2.remover(pb);
+        //p2.alterar(pb);
+        //p2.remover(pb);
+
+
       
         pb.setCategoria("");
         pb.setDescricao("fgh energia!");
@@ -98,9 +114,13 @@ public class TesteConexaoBD {
         //pb.setId();
        
         
+
+        o.setNome("Diferente");
+        o.setSenha("0011");
+
        // o.setNome("Orgão2");
        // o.setSenha("22222");
-        
+
        // o.getPublicacao().add(pb);
        
         

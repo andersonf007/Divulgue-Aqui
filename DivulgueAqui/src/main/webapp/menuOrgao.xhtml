@@ -5,36 +5,35 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Entidade Responsável</title><!--Pode ser, um administrador!-->
+        <title>Entidade Responsável</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
         <p:messages/>
         <h:form id="menuOrgao">
-               <p:menubar>
-                <p:menuitem value="home" url="index.xhtml"/>
-                   <p:submenu label="Orgão">
-                       <p:menuitem value="Visualizar" url="apresentaOrgao.xhtml"/>
-                   </p:submenu> 
-                   
+
+            <p:menubar>
+                <p:menuitem value="Home" url="index.xhtml"/>
+                <p:submenu label="Orgão">
+                    <p:menuitem value="Visualizar" url="apresentaOrgao.xhtml"/>
+                </p:submenu> 
+
                 <p:submenu label="Usuário">
                     <p:menuitem value="Visualizar" url="apresentaUsuario.xhtml"/>
                 </p:submenu>
-                
+
                 <p:submenu label="Publicação" >
-                    
                     <p:menuitem value="Visuarizar" url="apresentaPublicacao.xhtml"/>
-                    
                 </p:submenu>
-                   
+
                 <f:facet name="options" >
-                    <p:outputLabel value="Bem Vindo(a), #{OrgaoLogado.nome}!"/>
+                    <p:outputLabel value="Bem Vindo(a), #{AdminLogado.nome}!"/>
                 </f:facet>
-                
-                 <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}"/>
-                              
-                </p:menubar>
-            
+
+                <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}"/>
+
+            </p:menubar>
+
             <p:separator/>
         </h:form>
     </h:body>

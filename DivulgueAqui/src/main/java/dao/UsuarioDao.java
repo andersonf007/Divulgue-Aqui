@@ -32,12 +32,12 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
             UsuarioDao.manager.getTransaction().commit();
             System.out.println("Usuário salvo com sucesso!");
 
-        } catch (UnsupportedOperationException operation) {
+        } catch (Exception operation) {
 
             UsuarioDao.manager.getTransaction().rollback();
             System.out.println("Operação cancelada");
             System.out.println(operation.getMessage());
-            //throw new UnsupportedOperationException("Operação cancelada, pois os dados passados não satisfazem as regras da aplicação!");
+            
 
         } finally {
             UsuarioDao.manager.close();
@@ -52,8 +52,7 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         UsuarioDao.manager.getTransaction().begin();
 
         try {
-             //Em meus projetos anteriores não precisou, mas por garantia se precisar coloca!
-            //u = UsuarioDao.manager.find(Usuario.class, u.getId());
+           u = UsuarioDao.manager.find(Usuario.class, u.getId());
             UsuarioDao.manager.merge(u);
             UsuarioDao.manager.getTransaction().commit();
             System.out.println("usuario alterado com sucesso!!");

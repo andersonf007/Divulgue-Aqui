@@ -4,7 +4,9 @@ import dao.OrgaoDao;
 import entidade.Orgao;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 
 /**
@@ -31,21 +33,24 @@ public class OrgaoBean implements Controller {
     @Override
     public String salvar() {
         dao.inserir(orgao);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi cadastrado com sucesso!"));
         orgao = new Orgao();
-        return "index.xhtml";
+        return "index.xhtml?faces-redirect=true";
     }
 
     @Override
     public String atualizar() {
         dao.alterar(orgao);
+         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi atualizado com sucesso!"));
         orgao = new Orgao();
-        return "index.xhtml";
+        return "index.xhtml?faces-redirect=true";
     }
 
     @Override
     public String deletar() {
         dao.remover(orgao);
-        return "index.xhtml";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi removido com sucesso!"));
+        return "index.xhtml?faces-redirect=true";
     }
 
     @Override

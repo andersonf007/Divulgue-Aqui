@@ -33,20 +33,20 @@ public class UsuarioBean implements Controller{
     public String salvar() {
         dao.inserir(usuario);
         usuario = new Usuario();
-        return "index.xhtml";
+        return "index.xhtml?faces-redirect=true";
     }
 
     @Override
     public String atualizar() {
         dao.alterar(usuario);
         usuario = new Usuario();
-        return "index.xhtml";    
+        return "index.xhtml?faces-redirect=true";    
     }
 
     @Override
     public String deletar() {
         dao.remover(usuario);
-        return "index.xhtml";        
+        return "index.xhtml?faces-redirect=true";        
     }
 
     @Override
