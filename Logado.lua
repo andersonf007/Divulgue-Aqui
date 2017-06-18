@@ -1,13 +1,7 @@
 local widget =  require ("widget")
 local composer = require ("composer")
 local scene = composer.newScene()
---local Publicacao = require("Publicacao")
---local usuarios = require("ListarUsuarios")
 
-
-
-
-local ButtonScheduling -- botao de agendamento
 local ButtonProfile
 local ButtonPublicacao
 local ButtonListar
@@ -15,9 +9,6 @@ local ButtonListar
 function scene:create(event)
 
 	local grupoCena = self.view 
-
-	--ButtonScheduling = widget.newButton( {label="Agenda", x = display.contentWidth/2 + 5, y =display.contentHeight/2 - 150, shape = "roundedRect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = realizarAgendamento } )
-	--grupoCena:insert(ButtonScheduling)
 
 	ButtonProfile = widget.newButton( {label="Perfil", x = display.contentWidth/2 + 5, y =display.contentHeight/2 - 50, shape = "roundedRect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = visualizarPerfil } )
 	grupoCena:insert(ButtonProfile)
@@ -27,16 +18,6 @@ function scene:create(event)
 
 	ButtonListar = widget.newButton( {label = "Usuários", x = display.contentWidth/2 + 5, y = display.contentHeight/2, shape = "Rect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = visualizarUsuarios} )
     grupoCena:insert(ButtonListar)
-end
-
-function  realizarAgendamento(event) -- toque no botao Agenda 
-	-- vai para a pagina de agendamento
-	if event.phase == "began" then
-		composer.gotoScene("Agendamento")
-	end
-	--if event.phase == "ended" then
-	--	print("xau")
-	--end
 end
 
 function  visualizarPerfil(event) -- toque no botao Perfil 
@@ -56,12 +37,6 @@ function realizarPublicacao(event)
 	--if event.phase == "ended" then
 	--	print("xau")
 	--end
-end
-
-function visualizarUsuarios(event)
-	if event.phase == "began" then
-		composer.gotoScene( "ListarUsuarios" )
-	end
 end
 
 function scene:show(event)

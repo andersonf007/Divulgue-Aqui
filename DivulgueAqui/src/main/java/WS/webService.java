@@ -226,8 +226,6 @@ public class webService {
        String resultadoJson = g.toJson(o);
        return resultadoJson;
        
-       //return "hghghghghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
-       
     }
     
     @PUT
@@ -392,5 +390,4 @@ public class webService {
   
         return null;
     }
-    
 }

@@ -37,22 +37,14 @@ function scene:create(event)
 	LabelEmail:setFillColor( 0,1,0 )
 	grupoCena:insert(LabelEmail)
 
-
-	LabelTelefone = display.newText({text="Telefone ",x=display.contentWidth/2,y=display.contentHeight/2  - 40})	
-	LabelTelefone:setFillColor( 0,1,0 )
-	grupoCena:insert(LabelTelefone)
-
-
 	LabelSenha = display.newText({text="Senha ",x=display.contentWidth/2,y=display.contentHeight/2 + 20})
 	LabelSenha:setFillColor( 0,1,0 )
 	grupoCena:insert(LabelSenha)
 
 
-	ButtonSave =  widget.newButton( {label="Save", x = display.contentWidth/2 - 50, y = display.contentHeight/2 + 80, onPress = alterarDadosUsuario } )
+	ButtonSave =  widget.newButton( {label="Save", x = display.contentWidth/2 - 50, y = display.contentHeight/2 + 80, onPress = updateUser } )
 	grupoCena:insert(ButtonSave)
 
-	ButtonLogout =  widget.newButton( {label="Logout", x = display.contentWidth/2 + 50, y = display.contentHeight/2 + 80, onPress = fazerLogout } )
-    grupoCena:insert(ButtonLogout)
 end
 
 -- Adicionar o ouvinte para o botão Logout!
@@ -61,31 +53,28 @@ local function fazerLogout(event)
 end
 
 
-local function alterarDadosUsuario( ... )
-	--recuperar dados do usuario para alterar
+function updateUser(event)
+
+	if event.phase == "began" then
+		web:updateUserWS(codigoUser, TxtNome.text, TxtEmail.text, TxtSenha.text)
+		composer.gotoScene("Logado")
+	end
 end
 
 function scene:show(event)
 	if event.phase == "did" then
-		TxtNome = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 140, 200, 25 ) 
-		TxtNome.isEditable = true
-		TxtNome.size = 14
-		TxtEmail = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 80, 200, 25 ) 
-		TxtEmail.isEditable = true
-		TxtEmail.size = 14
-		TxtTelefone = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 20, 200, 25 ) 
-		TxtTelefone.inputType = "number"
-		TxtSenha = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 + 40, 200, 25 ) 
-	    TxtSenha.isEditable = true
-	    TxtSenha.size = 14
+		TxtNome = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 200, 200, 25 )
+		TxtNome.text = nomeUser 
+		TxtEmail = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 150, 200, 25 ) 
+		TxtEmail.text = emailUser
+		TxtSenha = native.newTextField(display.contentWidth/2 + 15, display.contentHeight/2 - 100, 178, 25 )
+		TxtSenha.text = senhaUser 
 	end
 end
 
 function scene:hide(event)	
 	display.remove(TxtNome)
 	display.remove(TxtEmail)
-	display.remove(TxtEmail)
-	display.remove(TxtTelefone)
 	display.remove(TxtSenha)
 end
 

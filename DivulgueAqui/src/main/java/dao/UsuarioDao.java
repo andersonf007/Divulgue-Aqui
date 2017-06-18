@@ -3,6 +3,8 @@ package dao;
 import hibernate.HibernateUtil;
 import entidade.Usuario;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -140,5 +142,18 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         return u;
     }   
+    
+    public boolean validaEmail(String email){
+          boolean isEmailIdValid = false;
+        if (email != null && email.length() > 0) {
+            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches()) {
+                isEmailIdValid = true;
+            }
+        }
+        return isEmailIdValid;
+    }
 
 }

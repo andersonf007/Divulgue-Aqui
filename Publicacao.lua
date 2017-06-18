@@ -1,16 +1,6 @@
---Code here
---Publicacao.lua
-
 local widget =  require ("widget") -- para os botoes
 local composer = require ("composer") -- para as telas
 local scene = composer.newScene()
-
------------------------conectar ao banco de dados ------------------------
-local sqlite3 = require( "sqlite3" )
- 
-local path = system.pathForFile( "data.db", system.DocumentsDirectory )
-local db = sqlite3.open( path )
---------------------------------------------------------------------------
 
 local campoDescricao
 local textoDescricao

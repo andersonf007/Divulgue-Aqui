@@ -1,13 +1,7 @@
 local widget =  require ("widget") -- para os botoes
 local composer = require ("composer") -- para as telas
+local web = require ("webServiceConnection")
 local scene = composer.newScene()
-
------------------------conectar ao banco de dados ------------------------
-local sqlite3 = require( "sqlite3" )
- 
-local path = system.pathForFile( "data.db", system.DocumentsDirectory )
-local db = sqlite3.open( path )
---------------------------------------------------------------------------
 
 local LabelUser
 local LabelPassword
@@ -34,29 +28,32 @@ function scene:create(event)
 	Buttonlogin = widget.newButton( {label="Login", x = display.contentWidth/2 -50, y = display.contentHeight/2 + 80, onPress = touchOnButtonLogin} )
 	grupoCena:insert(Buttonlogin)
 
-	ButtonSingIn = widget.newButton( {label="Cadastre-se", x = display.contentWidth/2 + 30, y = display.contentHeight/2 + 80, onPress = registrarUsuario} )
+	ButtonSingIn = widget.newButton( {label="Cadastre-se", x = display.contentWidth/2 + 30, y = display.contentHeight/2 + 200, onPress = registrarUsuario} )
 	grupoCena:insert(ButtonSingIn)
 end
 
-function StoreID(id)
-	return id
+function storeInformation(codigo,nome,email,senha) -- armazena as informacoes do usuario em variaves globais para poder recuperar em outras telas
+	codigoUser = codigo
+	nomeUser = nome
+	emailUser = email
+	senhaUser = senha
+	
 end
 
-function touchOnButtonLogin(event) -- toque no botao de login
+function Receivesuserinformation(codigo,nome,email,senha) -- recebe as informacoes do usuario que veio do web service e faz a validacao para o usuario poder fazer login 
 
-	if event.phase == "began" then
-		for row in db:nrows("SELECT * FROM usuario") do
-    	print( "Row id " .. row.id )
-
-    		if row.nome == TxtUserName.text or row.email == TxtUserName.text then
-    			if row.senha == TxtPassword.text then
-    				--print( "Row id " .. row.id )
-    			StoreID(row.id)
-    			composer.gotoScene("Logado")
-    			end
-    		end
-    	end    	
+	if TxtUserName.text == nome and TxtPassword.text == senha then
+		storeInformation(codigo,nome,email,senha)
+		composer.gotoScene("Logado")
 	end
+end
+
+function touchOnButtonLogin(event) -- toque no botao de login/ manda a requisicao para o web service
+	
+	if event.phase == "began" then
+		web:recoverUserWS(TxtUserName.text)
+	end
+	
 end
 
 function  registrarUsuario(event) -- toque no botao sing in 
@@ -71,12 +68,8 @@ function scene:show(event)
 
 	if event.phase == "did" then
 		TxtUserName = native.newTextField(display.contentWidth/2, display.contentHeight/2, 150, 25 )
-		TxtUserName.isEditable = true
-		TxtUserName.size = 14
 		TxtPassword = native.newTextField(display.contentWidth/2, display.contentHeight/2 + 50, 150, 25 )
 		TxtPassword.isSecure = true
-		TxtPassword.isEditable = true
-		TxtPassword.size = 14
 	end
 end
 
