@@ -14,6 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,6 +26,9 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Publicacao implements Serializable {
+
+    
+   
 
     private static final long serialVersionUID = 1L;
     @Expose
@@ -50,23 +55,20 @@ public class Publicacao implements Serializable {
     private String descricao;
     
     @Expose
-    @Column(length = 10, nullable = false)
+    @Column(length = 10, nullable = true)
     private String status;
     
-    @Expose
-    @Column(length = 100000,nullable = true)
-    private long idUsuario; 
+    @JoinColumn(name="idUsuario",updatable=false)
+    @ManyToOne
+    private Usuario usuario;
     
-    @OneToMany(fetch = FetchType.EAGER)//(cascade = CascadeType.MERGE)
-    private Collection<Usuario> usuarios = new ArrayList<>();
-
     //Fazer o devido relacionamento ORM!
     //private List<Usuario> usuarios;
     
     public Publicacao() {
     }
 
-    public Publicacao(String categoria, String localidade, Date data, String descricao, Collection<Usuario> usuarios, String status, long idUsuario) {
+    public Publicacao(String categoria, String localidade, Date data, String descricao, String status) {
 
         if (categoria == null || categoria.isEmpty()) {
             throw new IllegalArgumentException("Informe a categoria que melhor se enquadra o problema, insira a informação!");
@@ -83,33 +85,17 @@ public class Publicacao implements Serializable {
         if (status == null || status.isEmpty()) {
             throw new IllegalArgumentException("Informe uma descrição do problema a ser divulgado!");
         }
-        if (usuarios == null || usuarios.isEmpty()) {
-            throw new IllegalArgumentException("Usuário não registrado, impossível publicar a respeito!");
-        }
+       
         this.categoria = categoria;
         this.localidade = localidade;
         this.descricao = descricao;
       //  this.usuarios = usuarios;//Ver se não dará complicações futuras! 
         this.data = data;
         this.status = status;
-        this.idUsuario = idUsuario;
+       
     }
     
-    /**
-     * @return the idUsuario
-     */
-    public long getIdUsuario() {
-        return idUsuario;
-    }
-
-    /**
-     * @param idUsuario the idUsuario to set
-     */
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public long getId() {
+        public long getId() {
         return id;
     }
 
@@ -156,13 +142,19 @@ public class Publicacao implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    public Collection<Usuario> getUsuario() {
-        return usuarios;
+    /**
+     * @return the usuario
+     */
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario(Collection<Usuario> usuarios) {
-        this.usuarios = usuarios;
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
+   
 }

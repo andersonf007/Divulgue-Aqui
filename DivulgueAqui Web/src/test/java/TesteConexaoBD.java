@@ -97,16 +97,16 @@ public class TesteConexaoBD {
 
       
         pb.setCategoria("");
-        pb.setDescricao("fgh energia!");
+        pb.setDescricao("fgdgh energia!");
         pb.setLocalidade("Rua de mghagano 1!");
         pb.setStatus("Pendente");
-        pb.setIdUsuario((long)4);
-        pb.setId((long)6);
+      //  pb.setIdUsuario((long)4);
+        pb.setId((long)7);
         //pb.getUsuario().add(u);
         
         //pb.setId((long)2);
         //p2.inserir(pb);
-        p2.alterar(pb);
+        //p2.alterar(pb);
         //p2.remover(pb);
         //p2.recuperar((long)1);
         //p2.recuperarTodos();

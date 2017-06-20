@@ -23,6 +23,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import entidade.Usuario;
+import java.util.Collection;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -75,15 +76,24 @@ public class webService {
                 senha = (String) jsonObject.get("senha");
 
                 u.setNome(nome);
-                u.setEmail(email);
+                if (!dao.validaEmail(email)){
+                    u.setEmail(email);
+                }else{
+                    return "301";
+                }
                 u.setSenha(senha);
                  
-                dao.inserir(u);
+                try{
+                    dao.inserir(u);
+                    return "200";
+                }catch(Exception e){
+                    System.out.println("nao foi possivel inserir o usuario (web service inserir usuario\n " + e);
+                }
                 
             } catch (ParseException ex) {
                 Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
             }
-         return null;
+         return "";
   
 }
     
@@ -290,6 +300,9 @@ public class webService {
     
        PublicacaoDao dao = new PublicacaoDao();
        Publicacao pb = new Publicacao();
+       
+       UsuarioDao daoUsuario = new UsuarioDao();
+        Usuario u = new Usuario();
         
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
@@ -304,19 +317,15 @@ public class webService {
             localidade = (String) jsonObject.get("localidade");
             descricao = (String) jsonObject.get("descricao");
             idUsuario =  (long) jsonObject.get("idUsuario");
-            
+                    
+            u = daoUsuario.recuperar(idUsuario);
+           
             pb.setLocalidade(localidade);
             pb.setDescricao(descricao);
             pb.setCategoria("");
             pb.setStatus("Pendente");
-            try{
-            pb.setIdUsuario(idUsuario);
-           
-            }catch(Exception e){
-                System.out.println("WS.webService.insertPublicacao()\n"+e);
-            }
-            
-             dao.inserir(pb);
+            pb.setUsuario(u);
+            dao.inserir(pb);
    
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
@@ -376,7 +385,13 @@ public class webService {
        return resultadoJson;
        
     }
-        
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("pb/recuperarTodos")
+    public String recuperarTodasPublicacoes(){
+        return null;
+    }
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("pb/delete")
