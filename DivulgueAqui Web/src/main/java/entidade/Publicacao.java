@@ -62,9 +62,6 @@ public class Publicacao implements Serializable {
     @ManyToOne
     private Usuario usuario;
     
-    //Fazer o devido relacionamento ORM!
-    //private List<Usuario> usuarios;
-    
     public Publicacao() {
     }
 

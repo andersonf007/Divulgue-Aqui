@@ -1,5 +1,6 @@
 local widget =  require ("widget") -- para os botoes
 local composer = require ("composer") -- para as telas
+local web = require ("webServiceConnection")
 local scene = composer.newScene()
 
 local campoDescricao
@@ -27,53 +28,39 @@ local publicacao =
   }
 }
 
---function criarTabelaNoBanco(event)
-	--local sql = [[CREATE TABLE IF NOT EXISTS publicacao (id INTEGER PRIMARY KEY autoincrement, descricao, data, localidade);]]
-	--variavel = db:exec( sql )
-	--print("criacao do banco : " .. variavel)
---end
-
---criarTabelaNoBanco()
-
---function armazenarDados(descricao, data, localidade)
---	local sql = [[INSERT INTO usuario VALUES (NULL, ']]..descricao..[[',']]..data..[[',']]..localidade..[[');]]
---[[	db:exec( sql )
-	print("mendagem do banco : " .. db:errmsg())
-end
-]]--
-
  function scene:create(event)
   -- Se quiser ajustar um pouco para baixo os campos e os nomes, estar a dispor!
-	local grupoCena = self.view 
+	  local grupoCena = self.view 
 
-	 --texto = display.newText({mensagem = "VC chegou aqui!" ,30, 100, 240, 300, native.systemFont, 16})
-
-     --texto:setFillColor( 0, 0.5, 1 )
-
-     --grupoCena:insert(texto)
-     
-     titulo = display.newText({text = "Problema", x=display.contentWidth/2, y=display.contentHeight/2 - 200, native.systemFont, 80})    
-     titulo:setFillColor( 1,1,0)
-     titulo.isEditable = true
-     titulo.size = 30
-     grupoCena:insert(titulo)
+    titulo = display.newText({text = "Problema", x=display.contentWidth/2, y=display.contentHeight/2 - 200, native.systemFont, 80})    
+    titulo:setFillColor( 1,1,0)
+    titulo.isEditable = true
+    titulo.size = 30
+    grupoCena:insert(titulo)
 
 
-     campoDescricao = display.newText({text = "Descrição", x=display.contentWidth/2, y=display.contentHeight/2 - 70, native.systemFont, 16})
-     campoDescricao:setFillColor(0,1,0)
-     grupoCena:insert( campoDescricao )
+    campoDescricao = display.newText({text = "Descrição", x=display.contentWidth/2, y=display.contentHeight/2 - 70, native.systemFont, 16})
+    campoDescricao:setFillColor(0,1,0)
+    grupoCena:insert( campoDescricao )
 
-     campoCategoria = display.newText({text = "Categoria", x=display.contentWidth/2, y=display.contentHeight/2 - 170, native.systemFont, 16})
-     campoCategoria:setFillColor(0,1,0)
-     grupoCena:insert( campoCategoria )
+    campoCategoria = display.newText({text = "Categoria", x=display.contentWidth/2, y=display.contentHeight/2 - 170, native.systemFont, 16})
+    campoCategoria:setFillColor(0,1,0)
+    grupoCena:insert( campoCategoria )
 
-     campoLocalidade = display.newText({text = "Local", x=display.contentWidth/2,y=display.contentHeight/2 - 120, native.systemFont, 16})
-     campoLocalidade:setFillColor(0,1,0)
-     grupoCena:insert( campoLocalidade )
+    campoLocalidade = display.newText({text = "Local", x=display.contentWidth/2,y=display.contentHeight/2 - 120, native.systemFont, 16})
+    campoLocalidade:setFillColor(0,1,0)
+    grupoCena:insert( campoLocalidade )
 
-     botaoPublicar = widget.newButton( {label = "Publicar", x = display.contentWidth/2,
-                                     y = display.contentHeight/2 + 60, native.systemFont, 20} )
-                                     --onPress = registrarPublicacao
+    botaoPublicar = widget.newButton( 
+        {
+        label = "Publicar", 
+        x = display.contentWidth/2,
+        y = display.contentHeight/2 + 60, 
+        native.systemFont, 20
+        --onPress = registrarPublicacao
+        } 
+    )
+    
      grupoCena:insert( botaoPublicar )
 end
 

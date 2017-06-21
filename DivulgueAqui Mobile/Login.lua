@@ -16,6 +16,8 @@ function scene:create(event)
 	
 	local grupoCena = self.view 	
 
+	display.setDefault("background", 0.3, 0.6, 1)
+
 	LabelUser = display.newText({text="UserName",x=display.contentWidth/2,y=display.contentHeight/2 - 23})
 	LabelUser:setFillColor(0,1,0)
 	grupoCena:insert(LabelUser)
@@ -25,10 +27,30 @@ function scene:create(event)
 
 	grupoCena:insert(LabelPassword)
 
-	Buttonlogin = widget.newButton( {label="Login", x = display.contentWidth/2 -50, y = display.contentHeight/2 + 80, onPress = touchOnButtonLogin} )
+	Buttonlogin = widget.newButton( 
+		{
+		label="Login", 
+		x = display.contentWidth/2 -50, 
+		y = display.contentHeight/2 + 90,
+		width = 50,
+		height = 40,
+		onPress = touchOnButtonLogin, 
+		shape = "roundedRect"
+		}
+	)
 	grupoCena:insert(Buttonlogin)
 
-	ButtonSingIn = widget.newButton( {label="Cadastre-se", x = display.contentWidth/2 + 30, y = display.contentHeight/2 + 200, onPress = registrarUsuario} )
+	ButtonSingIn = widget.newButton( 
+		{
+		label="Cadastre-se",
+		x = display.contentWidth/2 + 30,
+		y = display.contentHeight/2 + 90,
+		width = 100,
+		height = 40,
+		shape = "roundedRect",
+		onPress = registrarUsuario
+		}
+	)
 	grupoCena:insert(ButtonSingIn)
 end
 

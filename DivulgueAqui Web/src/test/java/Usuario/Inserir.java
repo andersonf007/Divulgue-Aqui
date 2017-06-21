@@ -22,8 +22,8 @@ public class Inserir {
     
     public static void main(String[] args) {
         
-        String nome = "jr";
-        String email = "jr@roberta.com";
+        String nome = "jr2";
+        String email = "jr2@roberta.com";
         String senha = "123";
           
         JSONObject jsonObject = new JSONObject();

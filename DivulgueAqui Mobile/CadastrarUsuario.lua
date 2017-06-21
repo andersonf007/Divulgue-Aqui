@@ -15,28 +15,44 @@ local ButtonCadastrar
 function scene:create(event)
 
 	local grupoCena = self.view 
+
+	display.setDefault("background", 0.3, 0.6, 1)
     
-    local titulo = display.newText({text="Formulário",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 200})
+    local titulo = display.newText({text="Formulário",x=display.contentWidth/2,y=display.contentHeight/2 - 250})
     titulo:setFillColor( 1,1,0 )
     titulo.isEditable = true
     titulo.size = 30
     grupoCena:insert(titulo)
 
-	LabelNome = display.newText({text="Nome",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 170})
+	LabelNome = display.newText({text="Nome",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 200})
 	LabelNome:setFillColor(0,1,0)
 	grupoCena:insert(LabelNome)
 	
 
-	LabelEmail = display.newText({text="Email",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 120})	
+	LabelEmail = display.newText({text="Email",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 150})	
 	LabelEmail:setFillColor(0,1,0)
 	grupoCena:insert(LabelEmail)
 
-	LabelSenha = display.newText({text="Senha",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 20})
+	LabelSenha = display.newText({text="Senha",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 100})
 	LabelSenha:setFillColor(0,1,0)
 	grupoCena:insert(LabelSenha)
 
 
-	ButtonCadastrar =  widget.newButton( {label="Cadastrar", x = display.contentWidth/2, y = display.contentHeight/2 + 30 ,onPress = salvarUsuario} )
+	ButtonCadastrar =  widget.newButton( 
+	
+		{
+	
+		label="Cadastrar", 
+		x = display.contentWidth/2,
+		y = display.contentHeight/2 - 35, 
+		fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
+        strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
+        strokeWidth = 4,
+        shape = "roundedRect",
+		onPress = salvarUsuario
+		}
+	)
+
 	grupoCena:insert(ButtonCadastrar)
 end
 
@@ -44,8 +60,6 @@ function ValidateSave(response) -- validar salvamento
 
 	if response == 300 then
 		print("nao pode")
-	elseif response == 301 then
-		print("email invalido") 
 	elseif response == 200 then
 		TxtNome.text = ""
 		TxtEmail.text = ""
@@ -57,7 +71,14 @@ end
 function salvarUsuario(event)
 
 	if event.phase == "began" then
-		web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
+		local email = TxtEmail.text
+
+		if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
+		   print( email.." IS formatted properly." )
+		   web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
+		else
+		   print( email.." is NOT formatted properly." )
+		end
 		
 	end
 
@@ -65,9 +86,10 @@ end
 
 function scene:show(event)
 	if event.phase == "did" then
-		TxtNome = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 150, 200, 25 ) 
-		TxtEmail = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 100, 200, 25 ) 
-		TxtSenha = native.newTextField(display.contentWidth/2, display.contentHeight/2, 200, 25 ) 
+		TxtNome = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 178, 200, 25 ) 
+		TxtEmail = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 128, 200, 25 ) 
+		TxtSenha = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 78, 200, 25 )
+		TxtSenha.isSecure = true
 	end
 end
 

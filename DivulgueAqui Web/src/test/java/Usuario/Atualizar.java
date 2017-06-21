@@ -23,9 +23,9 @@ public class Atualizar {
     public static void main(String[] args) {
         
         String nome = "Roberta";
-        String email = "anderson@gmail.com.br";
+        String email = "anderson20@gmail.com.br";
         String senha = "123";
-        long codigo = 2;
+        long codigo = 15;
           
         JSONObject jsonObject = new JSONObject();
 

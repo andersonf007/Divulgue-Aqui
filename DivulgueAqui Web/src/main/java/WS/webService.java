@@ -53,6 +53,7 @@ public class webService {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////USUARIO////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/inserir")
@@ -75,12 +76,8 @@ public class webService {
                 email = (String)jsonObject.get("email");
                 senha = (String) jsonObject.get("senha");
 
-                u.setNome(nome);
-                if (!dao.validaEmail(email)){
-                    u.setEmail(email);
-                }else{
-                    return "301";
-                }
+                u.setNome(nome);              
+                u.setEmail(email);
                 u.setSenha(senha);
                  
                 try{
@@ -89,13 +86,13 @@ public class webService {
                 }catch(Exception e){
                     System.out.println("nao foi possivel inserir o usuario (web service inserir usuario\n " + e);
                 }
-                
+               
             } catch (ParseException ex) {
                 Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
             }
          return "";
   
-}
+    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -110,7 +107,7 @@ public class webService {
         Gson g = new Gson();
         return g.toJson(u);
     }
-        
+       
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuario/recuperar/nome")

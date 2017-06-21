@@ -1,6 +1,7 @@
 local widget =  require ("widget")
 local composer = require ("composer")
 local scene = composer.newScene()
+local web = require ("webServiceConnection")
 local login = require ("Login")
 
 local LabelNome
@@ -21,28 +22,45 @@ print(variavel)
 function scene:create(event)
 
 	local grupoCena = self.view 
+
+
+	display.setDefault("background", 0.3, 0.6, 1)
+
     -- Se achar melhor outro nome, fique a vontade!
-	local titulo = display.newText({text = "Status Perfil",x=display.contentWidth/2,y=display.contentHeight/2 - 210 })
+	local titulo = display.newText({text = "Status Do Perfil",x=display.contentWidth/2,y=display.contentHeight/2 - 260 })
 	titulo:setFillColor( 1,1,0 )
 	titulo.isEditable = true
 	titulo.size = 30
 	grupoCena:insert(titulo)
 	
-	LabelNome = display.newText({text="Nome ",x=display.contentWidth/2,y=display.contentHeight/2 - 160})
+	LabelNome = display.newText({text="Nome ",x=display.contentWidth/2,y=display.contentHeight/2 - 225})
 	LabelNome:setFillColor( 0,1,0 )
 	grupoCena:insert(LabelNome)
 	
 
-	LabelEmail = display.newText({text="Email ",x=display.contentWidth/2 ,y=display.contentHeight/2 - 100})	
+	LabelEmail = display.newText({text="Email ",x=display.contentWidth/2 ,y=display.contentHeight/2 - 173})	
 	LabelEmail:setFillColor( 0,1,0 )
 	grupoCena:insert(LabelEmail)
 
-	LabelSenha = display.newText({text="Senha ",x=display.contentWidth/2,y=display.contentHeight/2 + 20})
+	LabelSenha = display.newText({text="Senha ",x=display.contentWidth/2,y=display.contentHeight/2 - 122})
 	LabelSenha:setFillColor( 0,1,0 )
 	grupoCena:insert(LabelSenha)
 
 
-	ButtonSave =  widget.newButton( {label="Save", x = display.contentWidth/2 - 50, y = display.contentHeight/2 + 80, onPress = updateUser } )
+	ButtonSave =  widget.newButton( 
+
+		{
+		label="Save",
+		x = display.contentWidth/2 + 5,
+		y = display.contentHeight/2 - 50,
+		onPress = updateUser,
+		fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
+        strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
+        strokeWidth = 4,
+        shape = "roundedRect" 
+		
+		}
+	)
 	grupoCena:insert(ButtonSave)
 
 end
@@ -67,8 +85,9 @@ function scene:show(event)
 		TxtNome.text = nomeUser 
 		TxtEmail = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 150, 200, 25 ) 
 		TxtEmail.text = emailUser
-		TxtSenha = native.newTextField(display.contentWidth/2 + 15, display.contentHeight/2 - 100, 178, 25 )
+		TxtSenha = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 100, 200, 25 )
 		TxtSenha.text = senhaUser 
+		TxtSenha.isSecure = true
 	end
 end
 
