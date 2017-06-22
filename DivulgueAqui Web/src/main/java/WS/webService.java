@@ -118,6 +118,8 @@ public class webService {
         
         u = dao.recuperarUsuarioIdNome(json);
         
+        //System.out.println("WS.webService.recuperarUsuarioPorNome()" + u.getId());
+        
         Gson g = new Gson();
         return g.toJson(u);
     }
@@ -130,7 +132,6 @@ public class webService {
         UsuarioDao dao = new UsuarioDao();
         Usuario u = new Usuario();
        
-        
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
         
@@ -146,19 +147,24 @@ public class webService {
             nome = (String) jsonObject.get("nome");
             email = (String)jsonObject.get("email");
             senha = (String) jsonObject.get("senha");
-            codigo = (long) jsonObject.get("codigo");
+            codigo = (Long) jsonObject.get("codigo");
             
-            u.setId(codigo);
-            u.setNome(nome);
-            u.setEmail(email);
-            u.setSenha(senha);
-                 
-            dao.alterar(u);
+            u = dao.recuperar(codigo);
            
+            u.setEmail(email);
+            u.setNome(nome);
+            u.setSenha(senha);
+            
+            try{
+            dao.alterar(u);
+            return "200";
+            }catch(Exception e){
+                System.out.println("nao foi possivel alterar o usuario ( rest atualizar) \n"+e);
+            }
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return "";
         
     }
     
@@ -392,7 +398,6 @@ public class webService {
          
        PublicacaoDao dao = new PublicacaoDao();
        Publicacao pb = new Publicacao();
-       
        
        pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
        

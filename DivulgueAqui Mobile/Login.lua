@@ -54,18 +54,10 @@ function scene:create(event)
 	grupoCena:insert(ButtonSingIn)
 end
 
-function storeInformation(codigo,nome,email,senha) -- armazena as informacoes do usuario em variaves globais para poder recuperar em outras telas
-	codigoUser = codigo
-	nomeUser = nome
-	emailUser = email
-	senhaUser = senha
-	
-end
-
-function Receivesuserinformation(codigo,nome,email,senha) -- recebe as informacoes do usuario que veio do web service e faz a validacao para o usuario poder fazer login 
+function ReceivesUserInformation(codigo,nome,email,senha) -- recebe as informacoes do usuario que veio do web service e faz a validacao para o usuario poder fazer login 
 
 	if TxtUserName.text == nome and TxtPassword.text == senha then
-		storeInformation(codigo,nome,email,senha)
+		web:storeInformation(codigo,nome,email,senha)
 		composer.gotoScene("Logado")
 	end
 end
