@@ -52,7 +52,7 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         UsuarioDao.manager.getTransaction().begin();
 
         try {
-           u = UsuarioDao.manager.find(Usuario.class, u.getId());
+            UsuarioDao.manager.find(Usuario.class, u.getId());
             UsuarioDao.manager.merge(u);
             UsuarioDao.manager.getTransaction().commit();
             System.out.println("usuario alterado com sucesso!!");

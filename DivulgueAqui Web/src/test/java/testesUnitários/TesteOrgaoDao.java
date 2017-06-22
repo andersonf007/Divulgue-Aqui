@@ -15,7 +15,7 @@ import org.junit.Test;
 
 public class TesteOrgaoDao {
 
-    @Ignore 
+   // @Ignore 
     @Test
     public void verificarOrgaoUsuarioDB(){
 
@@ -36,7 +36,7 @@ public class TesteOrgaoDao {
     }
     
 
-    @Ignore
+    //@Ignore
     @Test
     public void verificarAtualizacaoOrgaoDB(){
         Orgao orgao = new Orgao();
@@ -56,7 +56,7 @@ public class TesteOrgaoDao {
     }
     
     @Test
-    @Ignore
+   // @Ignore
     public void verificarExclusaoOrgaoDB(){
         Orgao orgao = new Orgao();
         orgao.setId(11);
@@ -71,7 +71,7 @@ public class TesteOrgaoDao {
             Assert.fail("Erro ao tentar excluir o orgão");
         }
     }
-    @Ignore
+    //@Ignore
     @Test
     public void verificarBuscaOrgaoDB(){
         Orgao orgao = new Orgao();
@@ -85,7 +85,7 @@ public class TesteOrgaoDao {
     
     }
     
-    @Ignore
+   // @Ignore
     @Test
     public void listarTodosOrgaosBD(){
         OrgaoDao dao = new OrgaoDao();

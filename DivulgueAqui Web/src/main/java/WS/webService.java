@@ -337,7 +337,8 @@ public class webService {
     
         PublicacaoDao dao = new PublicacaoDao();
         Publicacao pb = new Publicacao();
-      
+        Publicacao p = new Publicacao();
+        
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
         
@@ -354,12 +355,13 @@ public class webService {
             localidade = (String) jsonObject.get("localidade");
             codigo = (long) jsonObject.get("codigo");
             
-            pb.setCategoria(categoria);
-            pb.setDescricao(descricao);
-            pb.setLocalidade(localidade);
-            pb.setId(codigo);
-                 
-            dao.alterar(pb);
+            p = dao.recuperar(codigo);
+            
+            p.setCategoria(categoria);
+            p.setDescricao(descricao);
+            p.setLocalidade(localidade);
+            //pb.setId(codigo);
+            dao.alterar(p);
            
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
@@ -386,8 +388,16 @@ public class webService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("pb/recuperarTodos")
-    public String recuperarTodasPublicacoes(){
-        return null;
+    public String recuperarTodasPublicacoes(@QueryParam("id") Long json){
+         
+       PublicacaoDao dao = new PublicacaoDao();
+       Publicacao pb = new Publicacao();
+       
+       
+       pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
+       
+       Gson g = new Gson();
+       return g.toJson(pb);
     }
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)

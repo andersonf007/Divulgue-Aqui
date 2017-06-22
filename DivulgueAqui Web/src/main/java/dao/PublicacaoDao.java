@@ -5,6 +5,7 @@ import entidade.Publicacao;
 import hibernate.HibernateUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -39,12 +40,12 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
     }
 
     @Override
-    public void alterar(Publicacao pb) {
+    public void alterar(Publicacao p) {
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         PublicacaoDao.manager.getTransaction().begin();
         try {
-            pb = PublicacaoDao.manager.find(Publicacao.class, pb.getId());
-            PublicacaoDao.manager.merge(pb);
+           
+            PublicacaoDao.manager.merge(p);
             PublicacaoDao.manager.getTransaction().commit();
             System.out.println("Publicação Atualizada com sucesso!");
         } catch (Exception e) {
@@ -118,4 +119,22 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         return null;
     }
     
+    public List<Publicacao> buscarPublicacaoPorIdUsuario(long id) {
+
+        String hql = "select * from Publicacao where idUsuario:=id";
+
+        Publicacao p = null;
+
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+
+        try {
+            Query query = manager.createQuery(hql);
+            p = (Publicacao) query.setParameter("idUsuario", id).getResultList();
+        } catch (Exception e) {
+            System.out.println("Não encontrou resultados para essa busca, reveja o código!");
+            System.out.println(e.getMessage());
+        }
+
+        return (List<Publicacao>) p;
+    }
 }

@@ -22,10 +22,10 @@ public class Atualizar {
     
     public static void main(String[] args) {
         
-        String nome = "Roberta";
-        String email = "anderson20@gmail.com.br";
+        String nome = "robderta";
+        String email = "andderson20@gmail.com.br";
         String senha = "123";
-        long codigo = 15;
+        long codigo = 8;
           
         JSONObject jsonObject = new JSONObject();
 

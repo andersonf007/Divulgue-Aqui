@@ -14,7 +14,7 @@ import org.junit.Test;
 
 
 public class TesteUsuarioDao {
-    @Ignore
+    //@Ignore
     @Test
     public void verificarInsercaoUsuarioDB(){
         Usuario usuario = new Usuario();
@@ -31,7 +31,7 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar salvar");
         }
     }
-    @Ignore
+    //@Ignore
     @Test
     public void verificarAtualizacaoUsuarioDB(){
         Usuario usuario = new Usuario();
@@ -49,7 +49,7 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar alterar o usuário!");
         }
     }
-    @Ignore
+    //@Ignore
     @Test
     public void verificarExclusaoUsuarioDB(){
         Usuario usuario = new Usuario();
@@ -67,7 +67,7 @@ public class TesteUsuarioDao {
         }
     }
     
-    @Ignore
+    //@Ignore
     @Test
     public void listarTodosUsuariosBD(){
        UsuarioDao dao = new UsuarioDao();

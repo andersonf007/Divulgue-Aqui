@@ -38,7 +38,7 @@ public class TestePublicacaoDao {
         }
         
     }
-    @Ignore
+   @Ignore
     @Test
     public void verificarAtualizacaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
@@ -93,6 +93,7 @@ public class TestePublicacaoDao {
            System.out.println("Localidade" + p.getLocalidade());
            System.out.println("Data" + p.getData());
            System.out.println("Status" + p.getStatus());
+          // System.out.println("Usuario" + p.getUsuario());
            System.out.println("------------------------");
        }
     }

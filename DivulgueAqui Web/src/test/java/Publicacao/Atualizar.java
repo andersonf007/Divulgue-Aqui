@@ -25,7 +25,7 @@ public class Atualizar {
          String categoria = "mobilidade";
         String descricao = "nevasca";
         String localidade = "interior";
-        long codigo = 19;
+        long codigo = 23;
           
         JSONObject jsonObject = new JSONObject();
 

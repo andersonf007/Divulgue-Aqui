@@ -36,10 +36,10 @@ public class Usuario implements Serializable{
     @Column(length = 50, nullable = false)
     private String senha;
     
-    /*
+    
     @OneToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     private Collection<Publicacao> publicacao = new ArrayList<>();
-*/
+
     public Usuario() {
     }
 
@@ -94,17 +94,17 @@ public class Usuario implements Serializable{
 
    /**
      * @return the publicacao
-     *
+     */
     public Collection<Publicacao> getPublicacao() {
         return publicacao;
     }
 
     /**
      * @param publicacao the publicacao to set
-     *
+     */
     public void setPublicacao(Collection<Publicacao> publicacao) {
         this.publicacao = publicacao;
-    }*/
+    }
 
 
 }
