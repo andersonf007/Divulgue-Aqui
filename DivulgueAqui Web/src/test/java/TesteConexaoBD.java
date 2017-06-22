@@ -58,9 +58,9 @@ public class TesteConexaoBD {
         //QUANDO HOUVER ESSAS DEPENDÊNCIAS, SEJA POSSÍVEL REMOVER EM CASCATA, AEE NÃO DARÁ ERROS!
         //MANDA BRASA NO REST!
 
-      //  u.setNome("ana");
-      //  u.setEmail("ana@gmail.com");
-      //  u.setSenha("ana18");
+        u.setNome("CJ");
+        u.setEmail("cj@gmail.com");
+        u.setSenha("cj");
         
        // u.setId((long)3);
         
@@ -71,22 +71,24 @@ public class TesteConexaoBD {
         //u2.recuperarTodos();
         
 
-        u.setNome("asdf");
-        u.setEmail("anderson@gmail.com");
-        u.setSenha("001");
+        //u.setNome("asdf");
+        //u.setEmail("anderson@gmail.com");
+        //u.setSenha("001");
        // u.setId((long)52);
         
       
         // u.setId((long)1);
        ///////////////////////////
 
-        pb.setId(10);//corrigido erro de atualização, no caso estava inserindo! 
-        pb.setCategoria("Estrutural");
-        pb.setDescricao("Borracos nas ruas!");
-        pb.setLocalidade("Rua de magano 2!");
+       // pb.setId(10);//corrigido erro de atualização, no caso estava inserindo! 
+        pb.setCategoria("Segurança");
+        pb.setDescricao("Falta de pulíticas públicas!");
+        pb.setLocalidade("Boa vista!");
         pb.setStatus("Pendente");
         //pb.getUsuario().add(u);
-        
+        //u.setId((long)1);
+        //u2.recuperar((long)4);
+        pb.setUsuario(u);
         //pb.setId((long)3);
         //p2.inserir(pb);
 
@@ -96,12 +98,12 @@ public class TesteConexaoBD {
 
 
       
-        pb.setCategoria("");
-        pb.setDescricao("fgdgh energia!");
-        pb.setLocalidade("Rua de mghagano 1!");
-        pb.setStatus("Pendente");
+        //pb.setCategoria("");
+        //pb.setDescricao("fgdgh energia!");
+        ///pb.setLocalidade("Rua de mghagano 1!");
+        //pb.setStatus("Pendente");
       //  pb.setIdUsuario((long)4);
-        pb.setId((long)7);
+        //pb.setId((long)7);
         //pb.getUsuario().add(u);
         
         //pb.setId((long)2);
