@@ -138,7 +138,7 @@ function webService:updateUserWS(codigo,nome,email,senha) -- atualizar usuario
 end
 
 --///////////////////////////////////REGISTRAR PUBLICACAO////////////////////////////////////////////////////////////////////////////
-function webService:RegisterFeedWS(localidade,descricao,categoria,codigo) -- registrar feed
+function webService:RegisterPublicationWS(localidade,descricao,categoria,codigo) -- registrar feed
 		
 		local feed = { localidade = localidade, descricao = descricao, categoria = categoria, codigo = codigo}
 			

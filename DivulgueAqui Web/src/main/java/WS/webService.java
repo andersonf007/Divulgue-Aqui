@@ -295,7 +295,7 @@ public class webService {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////PUBLICACAO///////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+    //colocar tratamento para mostrar msg pra quando nao tiver usuario
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("pb/inserir")
@@ -319,7 +319,7 @@ public class webService {
             
             localidade = (String) jsonObject.get("localidade");
             descricao = (String) jsonObject.get("descricao");
-            idUsuario =  (long) jsonObject.get("idUsuario");
+            idUsuario =  (long) jsonObject.get("codigo");
                     
             u = daoUsuario.recuperar(idUsuario);
            
