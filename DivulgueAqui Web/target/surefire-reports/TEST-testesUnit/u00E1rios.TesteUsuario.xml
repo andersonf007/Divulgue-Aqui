@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<<<<<<< HEAD
-<testsuite tests="7" failures="0" name="testesUnit\u00E1rios.TesteUsuario" time="0.005" errors="0" skipped="1">
-=======
-<testsuite tests="7" failures="0" name="testesUnit\u00E1rios.TesteUsuario" time="0" errors="0" skipped="1">
->>>>>>> 0d65216ca7515d2ccdc102b5298efe105c601c15
+<testsuite tests="7" failures="0" name="testesUnit\u00E1rios.TesteUsuario" time="0.008" errors="0" skipped="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>

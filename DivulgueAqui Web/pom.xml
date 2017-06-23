@@ -174,7 +174,7 @@
             <version>5.0</version>
         </dependency>
 
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.primefaces.themes</groupId>
             <artifactId>all-themes</artifactId>
             <version>1.0.10</version>
@@ -217,7 +217,7 @@
             <scope>test</scope>
         </dependency>
 
-         <!--https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple--> 
+        <!--https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple--> 
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
