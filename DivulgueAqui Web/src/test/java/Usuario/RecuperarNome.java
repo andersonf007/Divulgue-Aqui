@@ -25,7 +25,7 @@ public class RecuperarNome {
     
     public static void main(String[] args) {
         
-        String nome = "Roberta" ;
+        String nome = "izaquias" ;
         String email;
         String senha;
         long codigo;

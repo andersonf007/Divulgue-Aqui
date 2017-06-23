@@ -22,7 +22,7 @@ public class Deletar {
         
          URL url;
          
-         Integer codigo = 3;   
+         Integer codigo = 2;   
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/orgao/delete?id="+codigo);//codigo
         
