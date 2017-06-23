@@ -11,10 +11,30 @@ function scene:create(event)
 
 	local grupoCena = self.view 
 
-	ButtonProfile = widget.newButton( {label="Perfil", x = display.contentWidth/2 + 5, y =display.contentHeight/2 - 50, shape = "roundedRect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = visualizarPerfil } )
+	ButtonProfile = widget.newButton( 
+		{
+		label="Perfil", 
+		x = display.contentWidth/2 * 0.50, 
+		y =display.contentHeight/2 * 2.10,
+		width = 150,
+		height = 40, 
+		shape = "roundedRect" , 
+		fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, 
+		onPress = visualizarPerfil 
+		} 
+	)
 	grupoCena:insert(ButtonProfile)
 
-	ButtonPublicacao = widget.newButton( {label="Publicação", x = display.contentWidth/2 + 5, y =display.contentHeight/2 - 100, shape = "Rect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = realizarPublicacao})
+	ButtonPublicacao = widget.newButton( 
+		{
+		label="Publicação", 
+		x = display.contentWidth/2 * 1.50, 
+		y =display.contentHeight/2 * 2.10, 
+		width = 150,
+		height = 40, 
+		shape = "roundedRect", 
+		fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, 
+		onPress = realizarPublicacao})
 	grupoCena:insert( ButtonPublicacao)
 
 end
