@@ -56,25 +56,25 @@ local publicacao =
         label = "Publicar", 
         x = display.contentWidth/2,
         y = display.contentHeight/2 + 60, 
-        native.systemFont, 20
-        --onPress = registrarPublicacao
+        native.systemFont,20,
+        onPress = registrarPublicacao
         } 
     )
     
      grupoCena:insert( botaoPublicar )
 end
 
---[[
-function registrarPublicacao( ... )
+
+function registrarPublicacao( event )
 	if event.phase == "began" then
-		armazenarDados(textoDescricao.text, textoDia.text, textoLocalidade.text)
-		textoDescricao.text = ""
-		textoDia.text = ""
-		textoLocalidade.text = ""
-		composer.gotoScene("login")
+		web:RegisterPublicationWS(textoLocalidade.text,textoDescricao.text,textoCategoria.text,codigoUser)
+	--	textoDescricao.text = ""
+		--textoDia.text = ""
+		--textoLocalidade.text = ""
+		composer.gotoScene("Logado")
 	end
 end
-]]--
+
 
 function scene:show( event )
  

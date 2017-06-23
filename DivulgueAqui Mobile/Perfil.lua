@@ -74,6 +74,7 @@ end
 function updateUser(event)
 
 	if event.phase == "began" then
+		print(codigoUser)
 		web:updateUserWS(codigoUser, TxtNome.text, TxtEmail.text, TxtSenha.text)
 		composer.gotoScene("Logado")
 	end
@@ -83,8 +84,10 @@ function scene:show(event)
 	if event.phase == "did" then
 		TxtNome = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 200, 200, 25 )
 		TxtNome.text = nomeUser 
+
 		TxtEmail = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 150, 200, 25 ) 
 		TxtEmail.text = emailUser
+		
 		TxtSenha = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 100, 200, 25 )
 		TxtSenha.text = senhaUser 
 		TxtSenha.isSecure = true

@@ -23,7 +23,7 @@ public class Atualizar {
     public static void main(String[] args) {
         
         String nome = "robderta";
-        String email = "andderson20@gmail.com.br";
+        String email = "samuka@gmail.com.br";
         String senha = "123";
         long codigo = 8;
           

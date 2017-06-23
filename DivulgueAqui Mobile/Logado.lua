@@ -1,5 +1,6 @@
 local widget =  require ("widget")
 local composer = require ("composer")
+local web = require ("webServiceConnection")
 local scene = composer.newScene()
 
 local ButtonProfile
@@ -16,27 +17,20 @@ function scene:create(event)
 	ButtonPublicacao = widget.newButton( {label="Publicação", x = display.contentWidth/2 + 5, y =display.contentHeight/2 - 100, shape = "Rect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = realizarPublicacao})
 	grupoCena:insert( ButtonPublicacao)
 
-	ButtonListar = widget.newButton( {label = "Usuários", x = display.contentWidth/2 + 5, y = display.contentHeight/2, shape = "Rect" , fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, onPress = visualizarUsuarios} )
-    grupoCena:insert(ButtonListar)
 end
 
 function  visualizarPerfil(event) -- toque no botao Perfil 
 	-- vai para a pagina de perfil
 	if event.phase == "began" then
+		web:recoverUserIdWS(codigoUser)
 		composer.gotoScene("Perfil")
 	end
-	--if event.phase == "ended" then
-	--	print("xau")
-	--end
 end
 
 function realizarPublicacao(event)
 	if event.phase == "began" then
 		composer.gotoScene("Publicacao")
 	end
-	--if event.phase == "ended" then
-	--	print("xau")
-	--end
 end
 
 function scene:show(event)

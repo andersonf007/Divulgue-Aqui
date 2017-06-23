@@ -22,7 +22,7 @@ public class Atualizar {
     
     public static void main(String[] args) {
         
-         String categoria = "mobilidade";
+         String categoria = "";
         String descricao = "nevasca";
         String localidade = "interior";
         long codigo = 23;

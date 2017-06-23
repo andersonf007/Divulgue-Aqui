@@ -1,0 +1,26 @@
+<<<<<<< HEAD
+testesUnitários\TesteUsuario.class
+MainPublicacao.class
+Publicacao\Deletar.class
+Usuario\RecuperarId.class
+Publicacao\Inserir.class
+Usuario\Deletar.class
+Orgao\RecuperarId.class
+testesUnitários\Teste.class
+TesteConexaoBD.class
+testesUnitários\TesteAdministradorDao.class
+testesUnitários\TesteUsuarioDao.class
+Usuario\RecuperarNome.class
+Usuario\Atualizar.class
+MainCriptografia.class
+Orgao\Inserir.class
+testesUnitários\TestePessoa.class
+Orgao\Atualizar.class
+Orgao\Deletar.class
+testesUnitários\TestePublicacaoDao.class
+Orgao\MainOrgao.class
+Publicacao\Atualizar.class
+testesUnitários\TesteOrgaoDao.class
+Usuario\Inserir.class
+=======
+>>>>>>> 0d65216ca7515d2ccdc102b5298efe105c601c15

@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: testesUnit\u00E1rios.TesteUsuarioDao
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 sec
+=======
 Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0 sec
+>>>>>>> 0d65216ca7515d2ccdc102b5298efe105c601c15

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteOrgaoDao" time="4.492" errors="0" skipped="0">
+=======
 <testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteOrgaoDao" time="79.615" errors="0" skipped="4">
+>>>>>>> 0d65216ca7515d2ccdc102b5298efe105c601c15
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -62,6 +66,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+<<<<<<< HEAD
+  <testcase classname="testesUnit\u00E1rios.TesteOrgaoDao" name="verificarExclusaoOrgaoDB" time="3.96"/>
+  <testcase classname="testesUnit\u00E1rios.TesteOrgaoDao" name="verificarAtualizacaoOrgaoDB" time="0.114"/>
+  <testcase classname="testesUnit\u00E1rios.TesteOrgaoDao" name="listarTodosOrgaosBD" time="0.347"/>
+  <testcase classname="testesUnit\u00E1rios.TesteOrgaoDao" name="verificarBuscaOrgaoDB" time="0"/>
+  <testcase classname="testesUnit\u00E1rios.TesteOrgaoDao" name="verificarOrgaoUsuarioDB" time="0.064"/>
+=======
   <testcase classname="testesUnit\u00E1rios.TesteOrgaoDao" name="verificarExclusaoOrgaoDB" time="0.466">
     <skipped/>
   </testcase>
@@ -75,4 +86,5 @@
   <testcase classname="testesUnit\u00E1rios.TesteOrgaoDao" name="verificarBuscaOrgaoDB" time="79.599">
     <skipped/>
   </testcase>
+>>>>>>> 0d65216ca7515d2ccdc102b5298efe105c601c15
 </testsuite>
