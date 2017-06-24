@@ -38,19 +38,20 @@ public class TestePublicacaoDao {
         }
         
     }
-   @Ignore
+    @Ignore
     @Test
     public void verificarAtualizacaoPublicacaoDB(){
-        Publicacao publicacao = new Publicacao();
+        Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao.setId(5);
-        Date data = Date.from(Instant.now());
-        publicacao.setCategoria("MinhaCategoria");
-        publicacao.setDescricao("MinhaDescrição");
-        publicacao.setLocalidade("MinhaLocalidade");
-        publicacao.setData(data);
-        publicacao.setStatus("StatusNovo");
+         publicacao  =  dao.recuperar((long)5);
+        //publicacao.setId(6);
+        publicacao.setCategoria("Segurança X");
+        publicacao.setDescricao("Aumento de Furtos 2");
+        publicacao.setLocalidade("Magano");
+        publicacao.setStatus("Resolvendo");
+        //Date data = Date.from(Instant.now());
+        //publicacao.setData(data);
         
         try {
             dao.alterar(publicacao);
@@ -63,16 +64,12 @@ public class TestePublicacaoDao {
     @Ignore
     @Test
     public void verificarExclusaoPublicacaoDB(){
-        Publicacao publicacao = new Publicacao();
+        Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao.setId(5);
-        Date data = Date.from(Instant.now());
-        publicacao.setCategoria("MinhaCategoria");
-        publicacao.setDescricao("MinhaDescrição");
-        publicacao.setLocalidade("MinhaLocalidade");
-        publicacao.setData(data);
-        publicacao.setStatus("StatusNovo");
+        publicacao  =  dao.recuperar((long)5);
+        
+        //publicacao.setId(5);
         
         try {
             dao.remover(publicacao);
@@ -93,8 +90,22 @@ public class TestePublicacaoDao {
            System.out.println("Localidade" + p.getLocalidade());
            System.out.println("Data" + p.getData());
            System.out.println("Status" + p.getStatus());
-          // System.out.println("Usuario" + p.getUsuario());
            System.out.println("------------------------");
        }
+    }
+    @Ignore
+    @Test
+    public void buscarPublicacaoPorId(){
+        PublicacaoDao dao = new PublicacaoDao();
+        
+        Publicacao p =  dao.recuperar((long)5);
+        
+        System.out.println("Categoria:" + p.getCategoria());
+        System.out.println("Descrição:" + p.getDescricao());
+        System.out.println("Localidade:" + p.getLocalidade());
+        System.out.println("Data:" + p.getData());
+        System.out.println("Status:" + p.getStatus());
+        //System.out.println("Código do Usuario:" + p.getUsuario());
+        System.out.println("------------------------");
     }
 }

@@ -23,16 +23,17 @@ import org.json.simple.JSONObject;
 public class Inserir {
     
     public static void main(String[] args) {
-        
-        String localidade = "Barreira do sombras";
-        String descricao = "descaso com o povo";
+        String categoria = "Infraestrutura";
+        String localidade = "Rua de garanhuns";
+        String descricao = "Esgoto a céu aberto";
         //String status = "pendente";
         
-        long idUsuario = 4;
+        long idUsuario = 1;
         
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
+        jsonObject.put("categoria",categoria);
         jsonObject.put("localidade", localidade);
         jsonObject.put("descricao", descricao);
         //jsonObject.put("status", status);

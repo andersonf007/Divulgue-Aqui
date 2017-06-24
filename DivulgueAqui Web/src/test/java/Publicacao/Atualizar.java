@@ -22,15 +22,15 @@ public class Atualizar {
     
     public static void main(String[] args) {
         
-         String categoria = "Segurança X";
-        String descricao = "nevasca";
+         //String categoria = "Segurança";
+        String descricao = "Aumento de criminalidade";
         String localidade = "interior";
         long codigo = 4;
           
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
-        jsonObject.put("categoria", categoria);
+       // jsonObject.put("categoria", categoria);
         jsonObject.put("descricao", descricao);
         jsonObject.put("localidade", localidade);
         jsonObject.put("codigo", codigo);

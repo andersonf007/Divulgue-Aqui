@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Dados da Publicação</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        
+    </h:head>
+    <h:body>
+        
+        <ui:include src="menuOrgao.xhtml"/>
+        
+        <h:form id="alteraPublicacao">
+            <p:fieldset legend="Atualizar Status da Publicação">
+                <p:panelGrid columns="2">     
+                    <p:outputLabel for="categoria" value="Categoria"/>
+                    <h:outputText id="categoria" value="#{publicacaoBean.publicacao.categoria}"/>
+                    
+                    <p:outputLabel for="descricao" value="Descrição"/>
+                    <h:outputText id="descricao" value="#{publicacaoBean.publicacao.descricao}"/>
+                    
+                    <p:outputLabel for="localidade" value="Localidade"/>
+                    <h:outputText id="localidade" value="#{publicacaoBean.publicacao.localidade}"/>
+                    
+                    <p:outputLabel for="data" value="Data"/>
+                    <h:outputText id="data" value="#{publicacaoBean.publicacao.data}"/>
+                    
+                    <p:outputLabel for="status" value="Status"/>
+                    <p:inputText id="status" value="#{publicacaoBean.publicacao.status}"/>
+                </p:panelGrid>
+                
+                <p:commandButton value="Alterar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                <p:commandButton value="Cancelar" action="apresentaPublicacao.xhtml" immediate="false"/>
+                
+            </p:fieldset>
+            
+            <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
+                <f:facet name="herder">
+                    Atenção!!!
+                </f:facet>
+                <p:outputLabel value="Realmente quer alterar essa Publicação?"/>
+                
+                <f:facet name="footer">
+                    <p:commandButton value="Sim" action="#{publicacaoBean.atualizar()}" style="color: green" update="alteraPublicacao" oncomplete="PF('WidDial').hide()"/>
+                    <p:commandButton value="Não" style="position: relative; left: 50%; color: red" oncomplete="PF('WidDial').hide()"/>
+                </f:facet>
+            </p:dialog>
+
+        </h:form>
+    </h:body>
+</html>

@@ -6,8 +6,9 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.faces.context.FacesContext;
+
 
 /**
  *
@@ -39,10 +40,11 @@ public class PublicacaoBean implements Controller {
 
     @Override
     public String atualizar() {
+        //Publicacao publicacao = buscar(getPublicacao().getId());
         dao.alterar(publicacao);
-        publicacao = new Publicacao();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O status da publicação foi mudado para  " + publicacao.getStatus() + "com sucesso!"));
-        return "index.xhtml?faces-redirect=true";
+        publicacao = new Publicacao();
+        return "apresentaPublicacao.xhtml?faces-redirect=true";
     }
 
     @Override

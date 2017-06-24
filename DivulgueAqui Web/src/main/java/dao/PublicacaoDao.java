@@ -44,7 +44,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         PublicacaoDao.manager.getTransaction().begin();
         try {
-           
+            
             PublicacaoDao.manager.merge(p);
             PublicacaoDao.manager.getTransaction().commit();
             System.out.println("Publicação Atualizada com sucesso!");
@@ -135,6 +135,25 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
             System.out.println(e.getMessage());
         }
 
+        return (List<Publicacao>) p;
+    }
+    
+    public List<Publicacao> buscarPublicacaoPorIdUsuario(long id, Long id_usuario){
+        String hql = "select id from Publicacao p join Usuario u where p.id=:idPublicacao and u.idUsuario=:idUser";
+        
+        Publicacao p = null;
+        
+         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        
+         try {
+              Query query = manager.createQuery(hql);
+              p = (Publicacao) query.setParameter("idPublicacao", id).setParameter("idUser", id).getResultList();
+        } catch (Exception e) {
+             System.out.println("Não encontrou resultados para essa busca, reveja o código!");
+             System.out.println(e.getMessage());
+        }
+        
+         
         return (List<Publicacao>) p;
     }
 }

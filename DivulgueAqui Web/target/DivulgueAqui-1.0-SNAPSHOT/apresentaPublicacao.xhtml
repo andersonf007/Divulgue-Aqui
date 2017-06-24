@@ -42,7 +42,40 @@
                     <h:outputText value="#{atributo.status}"/>
                 </p:column>
                 
+                <p:column headerText="Operações" style="width: 13%">
+                    <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualiza').show()"
+                        update=':visualizarPublicacao:dialVisualiza' title="visualizar">
+                        <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
+                    </p:commandButton>
+                    
+                    <p:commandButton icon='ui-icon-pencil' action="alteraPublicacao.xhtml" title="alterar"  oncomplete="PF('widDialVisualiza').show()">
+                        <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
+                    </p:commandButton> 
+                </p:column>
             </p:dataTable>
+            
+            <p:dialog id="dialVisualiza" visible="false" resizable="false" modal="true" widgetVar="widDialVisualiza">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Id"/>
+                    <h:outputText value="#{publicacaoBean.publicacao.id}"/>
+                    
+                    <h:outputText value="Categoria"/>
+                    <h:outputText value="#{publicacaoBean.publicacao.categoria}"/>
+                    
+                    <h:outputText value="Descrição"/>
+                    <h:outputText value="#{publicacaoBean.publicacao.descricao}"/>
+                    
+                    <h:outputText value="Localidade"/>
+                    <h:outputText value="#{publicacaoBean.publicacao.localidade}"/>
+                    
+                    <h:outputText value="Data"/>
+                    <h:outputText value="#{publicacaoBean.publicacao.data}"/>
+                    
+                    <h:outputText value="Status"/>
+                    <h:outputText value="#{publicacaoBean.publicacao.status}"/>
+                </p:panelGrid>
+            </p:dialog>
+            
         </h:form> 
     </h:body>
 </html>
