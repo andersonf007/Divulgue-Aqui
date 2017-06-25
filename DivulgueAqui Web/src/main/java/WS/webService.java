@@ -24,6 +24,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import entidade.Usuario;
 import java.util.Collection;
+import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -397,10 +398,12 @@ public class webService {
     public String recuperarTodasPublicacoes(@QueryParam("id") Long json){
          
        PublicacaoDao dao = new PublicacaoDao();
-       Publicacao pb = new Publicacao();
-       
-       pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
-       
+       List<Publicacao> pb = dao.recuperarTodos();
+       //Publicacao pb = new Publicacao();
+       //Estava acusando erro, nem mexi, do nada apaceu o erro, possívelmente porque tu chamou o método errado!
+       //mudei para uma lista e o erro saiu, bom vê melhor como ficará o parametro do json, talvez nem precise, mas quem 
+       //manja é vc brow!
+      // pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
        Gson g = new Gson();
        return g.toJson(pb);
     }

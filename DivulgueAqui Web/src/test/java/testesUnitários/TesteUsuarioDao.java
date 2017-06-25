@@ -34,14 +34,13 @@ public class TesteUsuarioDao {
     @Ignore
     @Test
     public void verificarAtualizacaoUsuarioDB(){
-        Usuario usuario = new Usuario();
+        Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
-        
-        usuario.setId((long)5);
-        usuario.setNome("usuariodiferente");
-        usuario.setEmail("usuario@gmail.com");
-        usuario.setSenha("000");
-        
+       
+        usuario = dao.recuperar(4L);
+        usuario.setNome("Carl Jonhson");
+        usuario.setEmail("cj@gmail.com");
+        usuario.setSenha("gta");
         try {
             dao.alterar(usuario);
             System.out.println("Usuário alterado com sucesso!");
@@ -52,13 +51,11 @@ public class TesteUsuarioDao {
     @Ignore
     @Test
     public void verificarExclusaoUsuarioDB(){
-        Usuario usuario = new Usuario();
+        Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
         
-        usuario.setId((long)5);
-        usuario.setNome("usuariodiferente");
-        usuario.setEmail("usuario@gmail.com");
-        usuario.setSenha("000");
+        usuario = dao.recuperar(6L);
+        
         try {
             dao.remover(usuario);
             System.out.println("Usuario excluido com sucesso!");
@@ -78,5 +75,18 @@ public class TesteUsuarioDao {
            System.out.println("Senha:" + u.getSenha());
            System.out.println("---------------------------");
        }
+    }
+    @Ignore
+    @Test
+    public void buscarUsuarioBDPorId(){
+        UsuarioDao dao = new UsuarioDao();
+        Usuario usuario;
+        
+        usuario = dao.recuperar(6L);
+        System.out.println("Id:" + usuario.getId());
+        System.out.println("Nome:" + usuario.getNome());
+        System.out.println("E-mail:" + usuario.getEmail());
+        System.out.println("Senha:" + usuario.getSenha());
+        
     }
 }
