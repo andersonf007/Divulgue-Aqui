@@ -352,7 +352,7 @@ public class webService {
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
         
-        String categoria;
+        //String categoria;
         String descricao;
         String localidade;
 	long codigo;
@@ -360,14 +360,14 @@ public class webService {
         try {
             jsonObject = (JSONObject) parser.parse(json);
             
-            categoria = (String) jsonObject.get("categoria");
+            //categoria = (String) jsonObject.get("categoria");
             descricao = (String) jsonObject.get("descricao");
             localidade = (String) jsonObject.get("localidade");
             codigo = (long) jsonObject.get("codigo");
             
             p = dao.recuperar(codigo);
             
-            p.setCategoria(categoria);
+            //p.setCategoria(categoria);
             p.setDescricao(descricao);
             p.setLocalidade(localidade);
             //pb.setId(codigo);
@@ -401,10 +401,12 @@ public class webService {
     public String recuperarTodasPublicacoes(@QueryParam("id") Long json){
          
        PublicacaoDao dao = new PublicacaoDao();
-       Publicacao pb = new Publicacao();
-       
-       pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
-       
+       List<Publicacao> pb = dao.recuperarTodos();
+       //Publicacao pb = new Publicacao();
+       //Estava acusando erro, nem mexi, do nada apaceu o erro, possívelmente porque tu chamou o método errado!
+       //mudei para uma lista e o erro saiu, bom vê melhor como ficará o parametro do json, talvez nem precise, mas quem 
+       //manja é vc brow!
+      // pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
        Gson g = new Gson();
        return g.toJson(pb);
     }
@@ -417,7 +419,7 @@ public class webService {
        PublicacaoDao dao = new PublicacaoDao();
        Publicacao pb = new Publicacao();
        
-       pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
+    //   pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
        
        Gson g = new Gson();
        //return g.toJson(pb);

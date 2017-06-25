@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: testesUnit\u00E1rios.TesteOrgaoDao
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 5, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 13.484 sec
+=======
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 17.829 sec
+>>>>>>> 325ef60d2b61093aa0c1788806502cfe2bb2fdd5

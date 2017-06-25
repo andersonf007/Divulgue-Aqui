@@ -50,7 +50,7 @@ public class AdministradorDao implements DaoGenerico<Administrador>{
         AdministradorDao.manager.getTransaction().begin();
         
         try {
-            a = AdministradorDao.manager.find(Administrador.class, a.getId());
+            
             AdministradorDao.manager.merge(a);
             AdministradorDao.manager.getTransaction().commit();
             System.out.println("Admin atualizado com sucesso!");

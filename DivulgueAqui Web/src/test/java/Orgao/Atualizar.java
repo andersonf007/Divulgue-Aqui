@@ -23,8 +23,8 @@ public class Atualizar {
     public static void main(String[] args) {
         
         String nome = "celpe";
-        String senha = "123";
-        long codigo = 3;
+        String senha = "0220";
+        long codigo = 2;
           
         JSONObject jsonObject = new JSONObject();
 

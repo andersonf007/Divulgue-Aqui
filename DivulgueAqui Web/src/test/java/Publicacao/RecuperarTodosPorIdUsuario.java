@@ -24,7 +24,7 @@ import org.json.simple.parser.ParseException;
 public class RecuperarTodosPorIdUsuario {
     public static void main(String[] args) {
         
-        long codigo = 2;
+        long codigo = 1;
             URL url;
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="+codigo);

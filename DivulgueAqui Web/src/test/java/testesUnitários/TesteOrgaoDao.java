@@ -39,11 +39,11 @@ public class TesteOrgaoDao {
     @Ignore
     @Test
     public void verificarAtualizacaoOrgaoDB(){
-        Orgao orgao = new Orgao();
-        orgao.setId(11);
-        orgao.setNome("Administrativo");
-        orgao.setSenha("1010");
+        Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
+        orgao = dao.recuperar(1L);
+        orgao.setNome("Administrativo");
+        orgao.setSenha("1100");
         
         try {
             
@@ -55,14 +55,13 @@ public class TesteOrgaoDao {
         
     }
     
+    //@Ignore
     @Test
-    @Ignore
     public void verificarExclusaoOrgaoDB(){
-        Orgao orgao = new Orgao();
-        orgao.setId(11);
-        orgao.setNome("Administrativo");
-        orgao.setSenha("1010");
+        Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
+        
+        orgao = dao.recuperar(3L);
         
         try {
              dao.remover(orgao);
@@ -73,20 +72,6 @@ public class TesteOrgaoDao {
     }
     @Ignore
     @Test
-    public void verificarBuscaOrgaoDB(){
-        Orgao orgao = new Orgao();
-        orgao.setId(11);
-        orgao.setNome("Administrativo");
-        orgao.setSenha("1010");
-        OrgaoDao dao = new OrgaoDao();
-        
-        //if(orgao.equals(dao.recuperar(long(11)))){
-        
-    
-    }
-    
-    //@Ignore
-    @Test
     public void listarTodosOrgaosBD(){
         OrgaoDao dao = new OrgaoDao();
         
@@ -96,6 +81,20 @@ public class TesteOrgaoDao {
             System.out.println("--------------------------------");
             
         }
+    }
+    
+    @Ignore
+    @Test
+    public void verificarBuscaOrgaoDB(){
+        Orgao orgao;
+        OrgaoDao dao = new OrgaoDao();
+        
+        orgao = dao.recuperar(4L);
+        
+        System.out.println("Id:" + orgao.getId());
+        System.out.println("Nome:" + orgao.getNome());
+        System.out.println("Senha:" + orgao.getSenha());
+        
     }
     
 }

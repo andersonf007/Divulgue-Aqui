@@ -20,8 +20,8 @@ public class TesteAdministradorDao {
         Administrador admin = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         
-        admin.setNome("master");
-        admin.setEmail("master@gmail.com");
+        admin.setNome("mestre");
+        admin.setEmail("mestre@gmail.com");
         admin.setSenha("1000");
         
         try {
@@ -35,12 +35,13 @@ public class TesteAdministradorDao {
     @Ignore
     @Test
     public void vericarAtualizacaoAdminBD(){
-        Administrador admin = new Administrador();
+        Administrador admin;
         AdministradorDao dao = new AdministradorDao();
         
-        admin.setId((long)4);
-        admin.setNome("root");
-        admin.setEmail("root@gmail.com");
+        admin = dao.recuperar(2L);
+        
+        admin.setNome("master");
+        admin.setEmail("master@gmail.com");
         admin.setSenha("1000");
         
         try {
@@ -54,13 +55,10 @@ public class TesteAdministradorDao {
     @Ignore
     @Test
     public void vericarExclusaoAdminBD(){
-        Administrador admin = new Administrador();
+        Administrador admin;
         AdministradorDao dao = new AdministradorDao();
         
-        admin.setId((long)2);
-        admin.setNome("root");
-        admin.setEmail("root@gmail.com");
-        admin.setSenha("1000");
+        admin = dao.recuperar(3L);
         
         try {
             dao.remover(admin);
@@ -81,5 +79,18 @@ public class TesteAdministradorDao {
             System.out.println("Senha:" + a.getSenha());
             System.out.println("-----------------------------");
         }
+    }
+    @Ignore
+    @Test
+    public void buscarAdminPorId(){
+        AdministradorDao dao = new AdministradorDao();
+        Administrador admin;
+        
+        admin = dao.recuperar(2L);
+        
+        System.out.println("Id:" + admin.getId());
+        System.out.println("Nome:" + admin.getNome());
+        System.out.println("E-mail:" + admin.getEmail());
+        System.out.println("Senha:" + admin.getSenha());
     }
 }
