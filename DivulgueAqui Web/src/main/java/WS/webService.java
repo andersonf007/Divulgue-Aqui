@@ -23,7 +23,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import entidade.Usuario;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -312,6 +314,7 @@ public class webService {
         
         String localidade;
         String descricao;
+        String categoria;
         long idUsuario;
      
         try {
@@ -320,12 +323,13 @@ public class webService {
             localidade = (String) jsonObject.get("localidade");
             descricao = (String) jsonObject.get("descricao");
             idUsuario =  (long) jsonObject.get("codigo");
+            categoria =  (String) jsonObject.get("categoria");
                     
             u = daoUsuario.recuperar(idUsuario);
            
             pb.setLocalidade(localidade);
             pb.setDescricao(descricao);
-            pb.setCategoria("");
+            pb.setCategoria(categoria);
             pb.setStatus("Pendente");
             pb.setUsuario(u);
             dao.inserir(pb);
@@ -403,6 +407,21 @@ public class webService {
        
        Gson g = new Gson();
        return g.toJson(pb);
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("pb/listaTodasPorIdUsuario")
+    public ArrayList<Publicacao> listarTodasPublicacoes(@QueryParam("id") Long json){
+         
+       PublicacaoDao dao = new PublicacaoDao();
+       Publicacao pb = new Publicacao();
+       
+       pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
+       
+       Gson g = new Gson();
+       //return g.toJson(pb);
+    return null;
     }
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)

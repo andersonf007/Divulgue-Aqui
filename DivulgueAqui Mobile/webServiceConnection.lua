@@ -50,7 +50,7 @@ local function retornoDoRestParaCadastroDoUsuario( event )
         local response = json.decode( event.response )
         ValidateSave(response) -- manda o codigo retornado do rest para fazer a validacao do cadastro
         print(response)
-       print( "erro : " .. event.response )
+       print( "codigo de retorno : " .. event.response )
     else
         print( "Error" )
     end

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Usuario\RecuperarNome.java
 C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Orgao\MainOrgao.java
 C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Usuario\Deletar.java
@@ -23,28 +22,3 @@ C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\jav
 C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TestePublicacaoDao.java
 C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteUsuario.java
 C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Publicacao\RecuperarTodosPorIdUsuario.java
-=======
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Usuario\Inserir.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\MainCriptografia.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\TesteConexaoBD.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Publicacao\Deletar.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TestePublicacaoDao.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteUsuarioDao.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\MainPublicacao.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Orgao\RecuperarId.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteAdministradorDao.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Publicacao\Atualizar.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\Teste.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TestePessoa.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Usuario\RecuperarNome.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Usuario\Atualizar.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteUsuario.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Usuario\Deletar.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Orgao\Inserir.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Publicacao\Inserir.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Orgao\MainOrgao.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Orgao\Atualizar.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Usuario\RecuperarId.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteOrgaoDao.java
-C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Orgao\Deletar.java
->>>>>>> 0d65216ca7515d2ccdc102b5298efe105c601c15

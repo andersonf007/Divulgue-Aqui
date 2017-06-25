@@ -26,14 +26,16 @@ public class Inserir {
         
         String localidade = "interior do estado";
         String descricao = "engarrafamento";
-        long idUsuario = 13;
+        String categoria = "infra Estrutura";
+        long idUsuario = 2;
         
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
         jsonObject.put("localidade", localidade);
         jsonObject.put("descricao", descricao);
-        jsonObject.put("idUsuario", idUsuario);           
+        jsonObject.put("codigo", idUsuario);    
+        jsonObject.put("categoria", categoria);  
            
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);

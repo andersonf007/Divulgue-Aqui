@@ -6,7 +6,14 @@ local scene = composer.newScene()
 local ButtonProfile
 local ButtonPublicacao
 local ButtonListar
-
+local tableView
+--// integracao continua / treves/ ap veiou e treves
+--um ambiente de execucao 
+--cria uma maquina virtual mas proxima do que vc precisa
+--uma maquina praticamente igual a um ambiente de producao mais nao é um ambiente de producao
+-- ambiente de omologacao
+-- o cliente usa o amiente de producao e nao de omologacao
+-- almetar a chance de nao dar erros no ambiente de producao
 function scene:create(event)
 
 	local grupoCena = self.view 
@@ -37,6 +44,20 @@ function scene:create(event)
 		onPress = realizarPublicacao})
 	grupoCena:insert( ButtonPublicacao)
 
+--[[
+	tableView = widget.newTableView(
+	    {
+	        left = 10,
+	        top = 000,
+	        height = 330,
+	        width = 300,
+	        onRowRender = onRowRender,
+	        onRowTouch = onRowTouch,
+	    }
+	)
+	grupoCena:insert(tableView)
+]]
+
 end
 
 function  visualizarPerfil(event) -- toque no botao Perfil 
@@ -53,6 +74,21 @@ function realizarPublicacao(event)
 	end
 end
 
+--[[
+
+local nome = {{nome = "hey", idade = 1}, {nome = "hey2", idade = 2}}
+
+-- Insert 40 rows
+for i = 1, #nome do
+    -- Insert a row into the tableView
+    tableView:insertRow{
+    	--isCategory = false,
+    	rowHeight = 80,
+    	rowColor = {default = {225,225,225}},
+    	lineColor = {220,220,220}
+	}
+end
+]]
 function scene:show(event)
 end
 

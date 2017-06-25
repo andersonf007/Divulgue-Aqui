@@ -22,10 +22,11 @@ public class Atualizar {
     
     public static void main(String[] args) {
         
-         String categoria = "";
+        
         String descricao = "nevasca";
         String localidade = "interior";
-        long codigo = 23;
+        String categoria = "mobilidade";
+        long codigo = 6;
           
         JSONObject jsonObject = new JSONObject();
 
