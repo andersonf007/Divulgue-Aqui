@@ -44,12 +44,12 @@ public class TestePublicacaoDao {
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-         publicacao  =  dao.recuperar((long)5);
-        //publicacao.setId(6);
-        publicacao.setCategoria("Segurança X");
-        publicacao.setDescricao("Aumento de Furtos 2");
-        publicacao.setLocalidade("Magano");
-        publicacao.setStatus("Resolvendo");
+         publicacao  =  dao.recuperar(9L);
+        
+        publicacao.setCategoria("Ultra");
+        publicacao.setDescricao("Descaso social");
+        publicacao.setLocalidade("Brejão");
+        publicacao.setStatus("Pendente");
         //Date data = Date.from(Instant.now());
         //publicacao.setData(data);
         
@@ -67,9 +67,7 @@ public class TestePublicacaoDao {
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao  =  dao.recuperar((long)5);
-        
-        //publicacao.setId(5);
+        publicacao  =  dao.recuperar(5L);
         
         try {
             dao.remover(publicacao);
@@ -98,14 +96,13 @@ public class TestePublicacaoDao {
     public void buscarPublicacaoPorId(){
         PublicacaoDao dao = new PublicacaoDao();
         
-        Publicacao p =  dao.recuperar((long)5);
+        Publicacao p =  dao.recuperar(9L);
         
         System.out.println("Categoria:" + p.getCategoria());
         System.out.println("Descrição:" + p.getDescricao());
         System.out.println("Localidade:" + p.getLocalidade());
         System.out.println("Data:" + p.getData());
         System.out.println("Status:" + p.getStatus());
-        //System.out.println("Código do Usuario:" + p.getUsuario());
-        System.out.println("------------------------");
+        
     }
 }
