@@ -43,7 +43,7 @@ public class OrgaoDao implements DaoGenerico<Orgao> {
         OrgaoDao.manager.getTransaction().begin();
 
         try {
-            //o = OrgaoDao.manager.find(Orgao.class, o.getId());
+            
             OrgaoDao.manager.merge(o);
             OrgaoDao.manager.getTransaction().commit();
             System.out.println("Registros do Orgão alterados com sucesso!");
@@ -83,10 +83,8 @@ public class OrgaoDao implements DaoGenerico<Orgao> {
 
         try {
            Orgao o =  (Orgao) OrgaoDao.manager.find(Orgao.class, id);
-           //Orgao or = o;
            System.out.println("Encontrado com sucesso!");
            return o;
-           //return (Orgao) OrgaoDao.manager.find(Orgao.class, id);
         } catch (Exception e) {
             System.out.println("id não encontrado!");
             System.out.println(e.getMessage());
