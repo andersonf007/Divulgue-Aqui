@@ -25,7 +25,7 @@ public class Atualizar {
          //String categoria = "Segurança";
         String descricao = "Aumento de criminalidade";
         String localidade = "interior";
-        long codigo = 4;
+        long codigo = 7;
           
         JSONObject jsonObject = new JSONObject();
 

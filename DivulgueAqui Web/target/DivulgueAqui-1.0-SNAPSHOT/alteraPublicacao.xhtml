@@ -18,6 +18,9 @@
         <h:form id="alteraPublicacao">
             <p:fieldset legend="Atualizar Status da Publicação">
                 <p:panelGrid columns="2">     
+                    <p:outputLabel for="id" value="Id"/>
+                    <h:outputText id="id" value="#{publicacaoBean.publicacao.id}"/>
+                    
                     <p:outputLabel for="categoria" value="Categoria"/>
                     <h:outputText id="categoria" value="#{publicacaoBean.publicacao.categoria}"/>
                     

@@ -51,6 +51,10 @@
                     <p:commandButton icon='ui-icon-pencil' action="alteraPublicacao.xhtml" title="alterar"  oncomplete="PF('widDialVisualiza').show()">
                         <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
                     </p:commandButton> 
+                    
+                    <p:commandButton icon='ui-icon-closethick' oncomplete="PF('widDialDeleta').show()" title="deletar">
+                        <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
+                    </p:commandButton>
                 </p:column>
             </p:dataTable>
             
@@ -76,6 +80,11 @@
                 </p:panelGrid>
             </p:dialog>
             
+            <p:confirmDialog message="Deseja realmente deletar essa publicação?" visible="false" id="dialDeleta" widgetVar="widDialDeleta">
+                <p:commandButton id="butao" value="sim"  action="#{publicacaoBean.deletar()}" update=':visualizarPublicacao:tabela'
+                                  style="left: 15%; color: green"  oncomplete="PF('widDialDeleta').hide()" />
+                 <p:commandButton value="não" style="position: relative; left: 50%; color: red" oncomplete="PF('widDialDeleta').hide()" />
+            </p:confirmDialog>
         </h:form> 
     </h:body>
 </html>

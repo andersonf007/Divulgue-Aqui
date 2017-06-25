@@ -16,6 +16,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,6 +27,11 @@ import javax.persistence.TemporalType;
  * @author Izaquias
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Publicacao.consultarPorUsuario",
+            query = "SELECT p FROM Publicacao p "
+            + " WHERE p.usuario.id = :usuarioId")
+})
 public class Publicacao implements Serializable {
 
     

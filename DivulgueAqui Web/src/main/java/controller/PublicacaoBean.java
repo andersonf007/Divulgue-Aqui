@@ -2,6 +2,7 @@ package controller;
 
 import dao.PublicacaoDao;
 import entidade.Publicacao;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -16,8 +17,9 @@ import javax.faces.context.FacesContext;
  */
 @ViewScoped
 
-@ManagedBean
-public class PublicacaoBean implements Controller {
+@ManagedBean(name="publicacaoBean")
+public class PublicacaoBean implements Controller, Serializable {
+    private static final long serialVersionUID = 1L;
 
     private PublicacaoDao dao;
     private Publicacao publicacao;
@@ -51,7 +53,7 @@ public class PublicacaoBean implements Controller {
     public String deletar() {
         dao.remover(publicacao);
         publicacao = new Publicacao();
-        return "index.xhtml";
+        return "apresentaPublicacao.xhtml?faces-redirect=true";
     }
 
     @Override

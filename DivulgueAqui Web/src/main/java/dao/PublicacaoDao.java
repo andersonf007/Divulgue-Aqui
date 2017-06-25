@@ -3,6 +3,7 @@ package dao;
 
 import entidade.Publicacao;
 import hibernate.HibernateUtil;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -107,7 +108,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         
         try {
            return (List) PublicacaoDao.manager.createQuery("select pb from Publicacao pb", Publicacao.class).getResultList();
-                        //PublicacaoDao.manager.createQuery("select pb from Publicacao pb", Publicacao.class).getResultList();
+                        
         } catch (Exception e) {
            System.out.println("Algo inexperado aconteceu, reveja seu código!!");
            System.out.println(e.getMessage());         
@@ -117,25 +118,6 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         }
         
         return null;
-    }
-    
-    public List<Publicacao> buscarPublicacaoPorIdUsuario(long id) {
-
-        String hql = "select * from Publicacao where idUsuario:=id";
-
-        Publicacao p = null;
-
-        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-
-        try {
-            Query query = manager.createQuery(hql);
-            p = (Publicacao) query.setParameter("idUsuario", id).getResultList();
-        } catch (Exception e) {
-            System.out.println("Não encontrou resultados para essa busca, reveja o código!");
-            System.out.println(e.getMessage());
-        }
-
-        return (List<Publicacao>) p;
     }
     
     public List<Publicacao> buscarPublicacaoPorIdUsuario(long id, Long id_usuario){
@@ -151,9 +133,27 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         } catch (Exception e) {
              System.out.println("Não encontrou resultados para essa busca, reveja o código!");
              System.out.println(e.getMessage());
-        }
+        }finally{
+             manager.close();
+         }
         
          
         return (List<Publicacao>) p;
+    }
+    
+    //Com @NamedQuerie vide entidade publicacao!
+    public List<Publicacao> consultarPorUsuario(Long usuarioId){
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        List<Publicacao> publicacao;
+        try {
+           Query q = manager.createNamedQuery("Publicacao.consultarPorUsuario");
+           q.setParameter("usuarioId", usuarioId);
+           publicacao = q.getResultList();
+        } catch (Exception e) {
+           publicacao = new ArrayList();
+        }finally{
+            manager.close();
+        }
+        return publicacao;
     }
 }
