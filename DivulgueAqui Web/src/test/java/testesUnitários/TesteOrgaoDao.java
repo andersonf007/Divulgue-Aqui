@@ -55,7 +55,7 @@ public class TesteOrgaoDao {
         
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void verificarExclusaoOrgaoDB(){
         Orgao orgao;
