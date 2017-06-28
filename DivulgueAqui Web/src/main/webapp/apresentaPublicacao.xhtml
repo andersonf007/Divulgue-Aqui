@@ -13,6 +13,8 @@
         
         <ui:include src="menuOrgao.xhtml"/>
         <h:form id="visualizarPublicacao">
+            
+
             <p:dataTable id="tabela" var="atributo" value="#{publicacaoBean.listarTodos()}" rows="10" paginator="true" rowKey="#{atributo.id}" selectionMode="single">
                 <f:facet name="header">
                     Posts Enviados

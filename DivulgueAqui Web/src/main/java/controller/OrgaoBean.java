@@ -35,7 +35,7 @@ public class OrgaoBean implements Controller {
         dao.inserir(orgao);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi cadastrado com sucesso!"));
         orgao = new Orgao();
-        return "menuOrgao.xhtml?faces-redirect=true";
+        return "menuOrgao.xhtml";//?faces-redirect=true
     }
 
     @Override
@@ -43,14 +43,14 @@ public class OrgaoBean implements Controller {
         dao.alterar(orgao);
          FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi atualizado com sucesso!"));
         orgao = new Orgao();
-        return "menuOrgao.xhtml?faces-redirect=true";
+        return "menuOrgao.xhtml";//?faces-redirect=true
     }
 
     @Override
     public String deletar() {
         dao.remover(orgao);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi removido com sucesso!"));
-        return "menuOrgao.xhtml?faces-redirect=true";
+        return "menuOrgao.xhtml";//?faces-redirect=true
     }
 
     @Override
