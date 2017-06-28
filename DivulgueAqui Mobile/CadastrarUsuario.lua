@@ -53,7 +53,18 @@ function scene:create(event)
 		}
 	)
 
-	grupoCena:insert(ButtonCadastrar)
+	grupoCena:insert(ButtonCadastrar)  
+
+	voltar = display.newImage( "botao-voltar.png", display.contentWidth/2 - 100, display.contentHeight/2 + 120)
+    grupoCena:insert( voltar )
+
+    voltar:addEventListener("touch",voltar)
+end
+
+function voltar(event)
+ if event.phase == "began" then
+    print("entrou no voltar")
+  end
 end
 
 function ValidateSave(response) -- validar salvamento
@@ -69,17 +80,21 @@ function ValidateSave(response) -- validar salvamento
 end
 
 function salvarUsuario(event)
-
+print("entrou no botao salvar")
 	if event.phase == "began" then
 		local email = TxtEmail.text
 
 		if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
-		   print( email.." IS formatted properly." )
-		   web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
+			print("entrou no match")
+		   	if TxtNome.text ~= "" or TxtSenha.text ~= "" then
+			   web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
+			else
+				alert = native.showAlert("não foi possivel Cadastrar","preencha todos os campos", {"ok"} )
+			end
+
 		else
-		   print( email.." is NOT formatted properly." )
+		   alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
 		end
-		
 	end
 
 end

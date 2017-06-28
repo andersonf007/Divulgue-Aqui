@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TestePublicacaoDao.java
 C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\MainPublicacao.java
 C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\PublicacaoNamedQuerie.java
@@ -23,3 +24,30 @@ C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\
 C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Usuario\RecuperarId.java
 C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteOrgaoDao.java
 C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web\src\test\java\Orgao\Deletar.java
+=======
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Usuario\RecuperarNome.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteAdministradorDao.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Publicacao\Deletar.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Usuario\Inserir.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Orgao\Deletar.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\MainCriptografia.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Publicacao\Atualizar.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\PublicacaoNamedQuerie.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\MainPublicacao.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Orgao\RecuperarId.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Usuario\Atualizar.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteOrgaoDao.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteUsuario.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Publicacao\RecuperarTodosPorIdUsuario.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Orgao\MainOrgao.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Usuario\Deletar.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Usuario\RecuperarId.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TesteUsuarioDao.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Orgao\Inserir.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Publicacao\Inserir.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\Orgao\Atualizar.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\Teste.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TestePessoa.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\TesteConexaoBD.java
+C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web\src\test\java\testesUnitários\TestePublicacaoDao.java
+>>>>>>> 5dd51f7a6fa3dc9456d9ff105fe3b24c62dc0703

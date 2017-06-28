@@ -1,3 +1,4 @@
+--display.setDefault("background", 0.3, 0.6, 1)
 local widget =  require ("widget") -- para os botoes
 local composer = require ("composer") -- para as telas
 local web = require ("webServiceConnection")
@@ -5,33 +6,26 @@ local scene = composer.newScene()
 
 local campoDescricao
 local textoDescricao
-
 local campoCategoria
 local textoCategoria
-
 local campoLocalidade
 local textoLocalidade
-
-local titulo
-
 local botaoPublicar
 local texto 
 local campoPublicar
--- Se for necessário usar ainda, adicione a "categoria"!  
-local publicacao = 
-{
-  {
-  id,
-  descricao,
-  categoria,
-  localidade
-  }
-}
+local voltar
 
  function scene:create(event)
+   print("hum")
   -- Se quiser ajustar um pouco para baixo os campos e os nomes, estar a dispor!
 	  local grupoCena = self.view 
-
+--[[
+    local rect = display.newRect(0,0, display.contentWidth,display.contentHeight)
+    rect.anchorX = 0
+    rect.anchorY = 0
+    rect:setFillColor( 3, 0.2, 0.5 )
+    grupoCena:insert(rect)
+]]
     titulo = display.newText({text = "Problema", x=display.contentWidth/2, y=display.contentHeight/2 - 200, native.systemFont, 80})    
     titulo:setFillColor( 1,1,0)
     titulo.isEditable = true
@@ -62,15 +56,26 @@ local publicacao =
     )
     
      grupoCena:insert( botaoPublicar )
+
+    voltar = display.newImage( "botao-voltar.png", display.contentWidth/2 - 100, display.contentHeight/2 + 120)
+    grupoCena:insert( voltar )
+
+    voltar:addEventListener("touch",voltar)
 end
 
+function voltar(event)
+ if event.phase == "began" then
+    print("entrou no voltar")
+  end
+end
 
 function registrarPublicacao( event )
 	if event.phase == "began" then
 		web:RegisterPublicationWS(textoLocalidade.text,textoDescricao.text,textoCategoria.text,codigoUser)
-	--	textoDescricao.text = ""
-		--textoDia.text = ""
-		--textoLocalidade.text = ""
+    web:recoverPublicacaoIdWS(codigoUser)
+	  textoCategoria.text = ""
+		textoDescricao.text = ""
+		textoLocalidade.text = ""
 		composer.gotoScene("Logado")
 	end
 end

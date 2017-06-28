@@ -1,6 +1,7 @@
 local widget =  require ("widget")
 local composer = require ("composer")
 local json = require( "json" )  -- Include the Corona JSON library
+--local logado = require("Logado")
 local webService = {}
 
 
@@ -16,6 +17,17 @@ local function retornoDoRestParaReceberInformacoesDoUsuario( event )
     if not event.isError then
         local response = json.decode( event.response )
         ReceivesUserInformation(response.id,response.nome,response.email,response.senha) -- manda as informacoes do usuario para a tela de login
+    else
+        print( "Error" )
+    end
+    return
+end
+
+local function retornoDoRestParaReceberInformacoesDaPublicacao( event )
+
+    if not event.isError then
+        tabelaPublicacao = json.decode( event.response )
+        recebeTabelaDaPublicacao(tabelaPublicacao)
     else
         print( "Error" )
     end
@@ -50,7 +62,7 @@ local function retornoDoRestParaCadastroDoUsuario( event )
         local response = json.decode( event.response )
         ValidateSave(response) -- manda o codigo retornado do rest para fazer a validacao do cadastro
         print(response)
-       print( "erro : " .. event.response )
+       print( "codigo de retorno : " .. event.response )
     else
         print( "Error" )
     end
@@ -157,4 +169,22 @@ function webService:RegisterPublicationWS(localidade,descricao,categoria,codigo)
 		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/pb/inserir", "POST", handleResponse2, params )
 end
 
+function webService:recoverPublicacaoIdWS(id) -- recuperar usuario por id
+	
+	local usuario = { id = id}
+			
+	local jsonPublicacao = json.encode(usuario)
+		print("jsonPublicacao : " .. jsonPublicacao)
+	local headers = {}
+					  
+	headers["Content-Type"] = "application/json"
+
+	local params = {}
+
+	params.headers = headers
+
+	params.body = jsonPublicacao
+
+	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="..id, "GET", retornoDoRestParaReceberInformacoesDaPublicacao, params )
+end
 return webService

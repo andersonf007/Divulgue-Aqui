@@ -23,7 +23,7 @@ public class Inserir {
     public static void main(String[] args) {
         
         String nome = "samuel";
-        String email = "samuel@roberta.com";
+        String email = "samuel@gmail.com";
         String senha = "123";
           
         JSONObject jsonObject = new JSONObject();

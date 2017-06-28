@@ -23,12 +23,11 @@ import org.json.simple.JSONObject;
 public class Inserir {
     
     public static void main(String[] args) {
-        String categoria = "Infraestrutura";
-        String localidade = "Rua de garanhuns";
-        String descricao = "Esgoto a céu aberto";
-        //String status = "pendente";
-        
-        long idUsuario = 1;
+               
+        String localidade = "interior do estado";
+        String descricao = "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+        String categoria = "infra Estrutura";
+        long idUsuario = 2;
         
         JSONObject jsonObject = new JSONObject();
 
@@ -36,8 +35,8 @@ public class Inserir {
         jsonObject.put("categoria",categoria);
         jsonObject.put("localidade", localidade);
         jsonObject.put("descricao", descricao);
-        //jsonObject.put("status", status);
-        jsonObject.put("codigo", idUsuario);           
+        jsonObject.put("codigo", idUsuario);    
+        jsonObject.put("categoria", categoria); 
            
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);

@@ -120,16 +120,16 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         return null;
     }
     
-    public List<Publicacao> buscarPublicacaoPorIdUsuario(long id, Long id_usuario){
-        String hql = "select id from Publicacao p join Usuario u where p.id=:idPublicacao and u.idUsuario=:idUser";
-        
-        Publicacao p = null;
+    public List<Publicacao> buscarPublicacaoPorIdUsuario(Long id_usuario){
+      
+        String hql = "from Publicacao where idUsuario=:id_usuario";
+        ArrayList<Publicacao> pb = new ArrayList<>();
         
          manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
          try {
               Query query = manager.createQuery(hql);
-              p = (Publicacao) query.setParameter("idPublicacao", id).setParameter("idUser", id).getResultList();
+              pb =(ArrayList<Publicacao>) query.setParameter("id_usuario", id_usuario).getResultList();
         } catch (Exception e) {
              System.out.println("Não encontrou resultados para essa busca, reveja o código!");
              System.out.println(e.getMessage());
@@ -137,8 +137,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
              manager.close();
          }
         
-         
-        return (List<Publicacao>) p;
+        return  pb;
     }
     
     //Com @NamedQuerie vide entidade publicacao!
