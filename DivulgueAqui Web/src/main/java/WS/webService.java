@@ -346,13 +346,12 @@ public class webService {
     public String updatePublicacao(String json){
     
         PublicacaoDao dao = new PublicacaoDao();
-        Publicacao pb = new Publicacao();
         Publicacao p = new Publicacao();
         
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
         
-        //String categoria;
+        String categoria;
         String descricao;
         String localidade;
 	long codigo;
@@ -360,17 +359,16 @@ public class webService {
         try {
             jsonObject = (JSONObject) parser.parse(json);
             
-            //categoria = (String) jsonObject.get("categoria");
+            categoria = (String) jsonObject.get("categoria");
             descricao = (String) jsonObject.get("descricao");
             localidade = (String) jsonObject.get("localidade");
             codigo = (long) jsonObject.get("codigo");
             
             p = dao.recuperar(codigo);
             
-            //p.setCategoria(categoria);
+            p.setCategoria(categoria);
             p.setDescricao(descricao);
             p.setLocalidade(localidade);
-            //pb.setId(codigo);
             dao.alterar(p);
            
         } catch (ParseException ex) {
@@ -402,11 +400,7 @@ public class webService {
          
        PublicacaoDao dao = new PublicacaoDao();
        List<Publicacao> pb = dao.recuperarTodos();
-       //Publicacao pb = new Publicacao();
-       //Estava acusando erro, nem mexi, do nada apaceu o erro, possívelmente porque tu chamou o método errado!
-       //mudei para uma lista e o erro saiu, bom vê melhor como ficará o parametro do json, talvez nem precise, mas quem 
-       //manja é vc brow!
-      // pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
+       
        Gson g = new Gson();
        return g.toJson(pb);
     }
@@ -415,28 +409,19 @@ public class webService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("pb/listaTodasPorIdUsuario")
     public String listarTodasPublicacoes(@QueryParam("id") Long json){
-      /*   
-       PublicacaoDao dao = new PublicacaoDao();
-       Publicacao pb = new Publicacao();
-       
-    //   pb = (Publicacao) dao.buscarPublicacaoPorIdUsuario(json);
-       
-       Gson g = new Gson();
-       //return g.toJson(pb);
-   
-*/    PublicacaoDao dao = new PublicacaoDao();
+      
+      PublicacaoDao dao = new PublicacaoDao();
       ArrayList<Publicacao> pbl = new ArrayList<>();
         
        pbl = (ArrayList<Publicacao>) dao.buscarPublicacaoPorIdUsuario(json);
-     //  pb = dao.buscarPublicacaoPorIdUsuario(json);
-     
+    
         Gson g = new Gson();
        try{
             String resultado = g.toJson(pbl);
             return resultado;
         }catch(Exception e ){
             System.out.println("WS.webService.listarTodasPublicacoes()"+e);
-        }//return (List<Publicacao>) g;
+        }
       return null;
     }
     @DELETE

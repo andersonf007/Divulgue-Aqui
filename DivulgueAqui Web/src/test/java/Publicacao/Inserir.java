@@ -25,7 +25,7 @@ public class Inserir {
     public static void main(String[] args) {
                
         String localidade = "interior do estado";
-        String descricao = "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+        String descricao = "123456789012345678901234";
         String categoria = "infra Estrutura";
         long idUsuario = 2;
         

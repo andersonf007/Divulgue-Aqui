@@ -49,7 +49,7 @@ function scene:create(event)
         strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
         strokeWidth = 4,
         shape = "roundedRect",
-		onPress = salvarUsuario
+		onRelease = salvarUsuario
 		}
 	)
 
@@ -80,20 +80,26 @@ function ValidateSave(response) -- validar salvamento
 end
 
 function salvarUsuario(event)
-print("entrou no botao salvar")
-	if event.phase == "began" then
+	--print("entrou no botao salvar")
+	if event.phase == "ended" then
 		local email = TxtEmail.text
 
-		if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
-			print("entrou no match")
-		   	if TxtNome.text ~= "" or TxtSenha.text ~= "" then
-			   web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
+		if TxtNome.text ~= "" or TxtSenha.text ~= "" or TxtEmail.text ~= "" then
+
+			if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
+				--print("entrou no match")
+			   	if TxtNome.text ~= "" or TxtSenha.text ~= "" then
+				   web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
+				else
+					alert = native.showAlert("não foi possivel Cadastrar","preencha todos os campos", {"ok"} )
+				end
+
 			else
-				alert = native.showAlert("não foi possivel Cadastrar","preencha todos os campos", {"ok"} )
+			   alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
 			end
 
-		else
-		   alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
+		else 
+			 alert = native.showAlert("erro","todos os campos são obrigatorios", {"ok"} )
 		end
 	end
 

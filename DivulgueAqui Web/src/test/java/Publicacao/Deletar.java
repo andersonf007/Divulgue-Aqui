@@ -20,7 +20,7 @@ public class Deletar {
     
     public static void main(String[] args) {
         
-          URL url;
+        URL url;
          
          Integer codigo = 5;   
         try {
