@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 testesUnitários\TesteUsuario.class
 MainPublicacao.class
 Publicacao\Deletar.class
@@ -23,4 +21,3 @@ Orgao\MainOrgao.class
 Publicacao\Atualizar.class
 testesUnitários\TesteOrgaoDao.class
 Usuario\Inserir.class
->>>>>>> 325ef60d2b61093aa0c1788806502cfe2bb2fdd5

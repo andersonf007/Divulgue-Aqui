@@ -414,8 +414,8 @@ public class webService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("pb/listaTodasPorIdUsuario")
-    public ArrayList<Publicacao> listarTodasPublicacoes(@QueryParam("id") Long json){
-         
+    public String listarTodasPublicacoes(@QueryParam("id") Long json){
+      /*   
        PublicacaoDao dao = new PublicacaoDao();
        Publicacao pb = new Publicacao();
        
@@ -423,7 +423,21 @@ public class webService {
        
        Gson g = new Gson();
        //return g.toJson(pb);
-    return null;
+   
+*/    PublicacaoDao dao = new PublicacaoDao();
+      ArrayList<Publicacao> pbl = new ArrayList<>();
+        
+       pbl = (ArrayList<Publicacao>) dao.buscarPublicacaoPorIdUsuario(json);
+     //  pb = dao.buscarPublicacaoPorIdUsuario(json);
+     
+        Gson g = new Gson();
+       try{
+            String resultado = g.toJson(pbl);
+            return resultado;
+        }catch(Exception e ){
+            System.out.println("WS.webService.listarTodasPublicacoes()"+e);
+        }//return (List<Publicacao>) g;
+      return null;
     }
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)

@@ -8,6 +8,7 @@ import entidade.Orgao;
 import entidade.Pessoa;
 import entidade.Publicacao;
 import entidade.Usuario;
+import java.util.ArrayList;
 import javax.persistence.EntityManager;
 
 
@@ -149,7 +150,9 @@ public class TesteConexaoBD {
         
         //o2.inserir(o);
         
+        ArrayList<Publicacao> pbl = new ArrayList<>();
         
+       pbl = (ArrayList<Publicacao>) p2.buscarPublicacaoPorIdUsuario((long)2);
         //manager.persist(pb);
         //manager.persist(o);
         //manager.getTransaction().commit();

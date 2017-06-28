@@ -63,6 +63,16 @@ function scene:create(event)
 	)
 	grupoCena:insert(ButtonSave)
 
+    voltar = display.newImage( "botao-voltar.png", display.contentWidth/2 - 100, display.contentHeight/2 + 120)
+    grupoCena:insert( voltar )
+
+    voltar:addEventListener("touch",voltar)
+end
+
+function voltar(event)
+ if event.phase == "began" then
+    print("entrou no voltar")
+  end
 end
 
 -- Adicionar o ouvinte para o botão Logout!
@@ -74,8 +84,9 @@ end
 function updateUser(event)
 
 	if event.phase == "began" then
-		print(codigoUser)
+		--print(codigoUser)
 		web:updateUserWS(codigoUser, TxtNome.text, TxtEmail.text, TxtSenha.text)
+		web:recoverPublicacaoIdWS(codigoUser)
 		composer.gotoScene("Logado")
 	end
 end

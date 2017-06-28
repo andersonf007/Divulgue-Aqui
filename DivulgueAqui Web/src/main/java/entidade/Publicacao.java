@@ -58,7 +58,7 @@ public class Publicacao implements Serializable {
     private Date data = Date.from(Instant.now());
     
     @Expose
-    @Column(length = 100, nullable = false)
+    @Column(nullable = false)
     private String descricao;
     
     @Expose

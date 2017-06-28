@@ -12,7 +12,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -24,7 +27,13 @@ import org.json.simple.parser.ParseException;
 public class RecuperarTodosPorIdUsuario {
     public static void main(String[] args) {
         
-        long codigo = 1;
+        String localidade = "";
+        String descricao = "";
+        String categoria = "";
+        String status = "";
+        Date data = null;
+        long idPublicacao = 0;
+        long codigo = 2;
             URL url;
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="+codigo);
@@ -49,20 +58,25 @@ public class RecuperarTodosPorIdUsuario {
           //  System.out.println(stringBuilder.toString());
             connection.disconnect();
             
-             JSONObject jsonObject;
+            ArrayList<JSONObject> jsonObject;
        
-             JSONParser parser = new JSONParser();  
+            JSONParser parser = new JSONParser();  
       
-            jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
-            
+            jsonObject = (ArrayList<JSONObject>) parser.parse(stringBuilder.toString());
+    /*        
+            for (JSONObject jsonObject1 : jsonObject) {
+                localidade = (String) jsonObject.get("localidade");
+                descricao = (String) jsonObject.get("descricao");
+                categoria = (String) jsonObject.get("categoria");
+                status = (String) jsonObject.get("status");
+                data = (Date) jsonObject.get("data");
+                idPublicacao = (long) jsonObject.get("idPublicacao");
+            }
             //codigo = (long) jsonObject.get("codigo");
-        /*    nome = (String) jsonObject.get("nome");
-            email = (String) jsonObject.get("email");
-            senha = (String) jsonObject.get("senha");
-                        
-            System.out.println("o codigo é :" + codigo + " nome : " + nome 
-            + " email : " + email + " senha : " + senha);
-        */
+                                  
+            System.out.println("o codigo é :" + codigo + " localidade : " + localidade 
+            + " descricao : " + descricao + " categoria : " + categoria + "status : " + status + "data : " + data + "idPublicacao : " + idPublicacao);
+  */      
         } catch (MalformedURLException ex) {
             JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest ( recuperar usuario)\n" + ex);
         } catch (IOException ex) {
