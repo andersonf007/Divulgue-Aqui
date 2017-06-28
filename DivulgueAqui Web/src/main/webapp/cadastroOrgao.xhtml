@@ -10,7 +10,7 @@
     </h:head>
     
     <h:body>    
-        <ui:include src="menu.xhtml"/>
+        <ui:include src="menuOrgao.xhtml"/>
            <h:form id="cadOrgao">
               <p:messages id="mensages"/>
                <p:fieldset legend="Cadastro Orgão">   
@@ -34,7 +34,7 @@
                        
                        <f:facet name="footer">
                            
-                           <p:commandButton value="Sim" action="#{orgaoBean.salvar()}"  update="cadOrgao" /><!--update="cadOrgao"-->
+                           <p:commandButton value="Sim" action="#{orgaoBean.salvar()}"  update="cadOrgao" />
                            <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 30%"/>                            
                        </f:facet>
                        

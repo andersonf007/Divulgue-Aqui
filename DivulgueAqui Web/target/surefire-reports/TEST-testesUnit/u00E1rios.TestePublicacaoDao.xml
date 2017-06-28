@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TestePublicacaoDao" time="6.626" errors="0" skipped="4">
+=======
 <testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TestePublicacaoDao" time="3.14" errors="0" skipped="0">
+>>>>>>> 5dd51f7a6fa3dc9456d9ff105fe3b24c62dc0703
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
@@ -62,9 +66,25 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+<<<<<<< HEAD
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarInsercaoPublicacaoDB" time="6.344"/>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="buscarPublicacaoPorId" time="6.36">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="listarTodasPublicacoesBD" time="6.36">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarExclusaoPublicacaoDB" time="6.36">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarAtualizacaoPublicacaoDB" time="6.36">
+    <skipped/>
+  </testcase>
+=======
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarInsercaoPublicacaoDB" time="2.74"/>
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="buscarPublicacaoPorId" time="0.031"/>
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="listarTodasPublicacoesBD" time="0.094"/>
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarExclusaoPublicacaoDB" time="0.026"/>
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarAtualizacaoPublicacaoDB" time="0.11"/>
+>>>>>>> 5dd51f7a6fa3dc9456d9ff105fe3b24c62dc0703
 </testsuite>

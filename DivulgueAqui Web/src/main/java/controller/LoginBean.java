@@ -51,7 +51,9 @@ public class LoginBean {
         
             this.setAdminLogado(a);
                  
-                redireciona = "menuOrgao.xhtml?faces-redirect=true";
+                FacesContext.getCurrentInstance().addMessage
+                (null, new FacesMessage("O administrador " + a.getNome() + " logado com sucesso!"));
+                 redireciona = "menuOrgao.xhtml";//?faces-redirect=true
         
         }else{ 
             

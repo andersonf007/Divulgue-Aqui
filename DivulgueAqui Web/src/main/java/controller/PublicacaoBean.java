@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.view.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 
@@ -15,8 +15,8 @@ import javax.faces.context.FacesContext;
  *
  * @author Izaquias
  */
-@ViewScoped
 
+@SessionScoped
 @ManagedBean(name="publicacaoBean")
 public class PublicacaoBean implements Controller, Serializable {
     private static final long serialVersionUID = 1L;
@@ -37,23 +37,22 @@ public class PublicacaoBean implements Controller, Serializable {
     public String salvar() {
         dao.inserir(publicacao);
         publicacao = new Publicacao();
-        return "index.xhtml";
+        return "menu.xhtml";
     }
 
     @Override
     public String atualizar() {
-        //Publicacao publicacao = buscar(getPublicacao().getId());
         dao.alterar(publicacao);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O status da publicação foi mudado para  " + publicacao.getStatus() + "com sucesso!"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O status da publicação foi mudado para  " + publicacao.getStatus() + " com sucesso!"));
         publicacao = new Publicacao();
-        return "apresentaPublicacao.xhtml?faces-redirect=true";
+        return "apresentaPublicacao.xhtml";//?faces-redirect=true
     }
 
     @Override
     public String deletar() {
         dao.remover(publicacao);
-        publicacao = new Publicacao();
-        return "apresentaPublicacao.xhtml?faces-redirect=true";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação foi removida com sucesso!"));
+        return "apresentaPublicacao.xhtml";//?faces-redirect=true
     }
 
     @Override

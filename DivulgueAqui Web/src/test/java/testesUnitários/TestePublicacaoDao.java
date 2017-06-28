@@ -2,7 +2,9 @@
 package testesUnitários;
 
 import dao.PublicacaoDao;
+import dao.UsuarioDao;
 import entidade.Publicacao;
+import entidade.Usuario;
 import java.time.Instant;
 import java.util.Date;
 import static org.junit.Assert.fail;
@@ -23,12 +25,16 @@ public class TestePublicacaoDao {
         Publicacao publicacao = new Publicacao();
         PublicacaoDao dao = new PublicacaoDao();
         
+        UsuarioDao usuDao = new UsuarioDao(); 
+        Usuario usuario = usuDao.recuperar(3L);
+        
         Date data = Date.from(Instant.now());
-        publicacao.setCategoria("MinhaCat");
-        publicacao.setDescricao("MinhaDesc");
-        publicacao.setLocalidade("MinhaLoc");
+        publicacao.setCategoria("Segurança");
+        publicacao.setDescricao("Aumento de furtos");
+        publicacao.setLocalidade("Vila do Quartel");
         publicacao.setData(data);
-        publicacao.setStatus("StatusAtu");
+        publicacao.setStatus("Pendente");
+        publicacao.setUsuario(usuario);
         
         try {
             dao.inserir(publicacao);
@@ -44,11 +50,11 @@ public class TestePublicacaoDao {
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-         publicacao  =  dao.recuperar(9L);
+         publicacao  =  dao.recuperar(8L);
         
-        publicacao.setCategoria("Ultra");
+        publicacao.setCategoria("Saneamento");
         publicacao.setDescricao("Descaso social");
-        publicacao.setLocalidade("Brejão");
+        publicacao.setLocalidade("Garanhuns");
         publicacao.setStatus("Pendente");
         //Date data = Date.from(Instant.now());
         //publicacao.setData(data);
@@ -67,7 +73,7 @@ public class TestePublicacaoDao {
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao  =  dao.recuperar(5L);
+        publicacao  =  dao.recuperar(11L);
         
         try {
             dao.remover(publicacao);

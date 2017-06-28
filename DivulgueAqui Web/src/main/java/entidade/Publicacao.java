@@ -3,14 +3,11 @@ package entidade;
 import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import javax.persistence.CascadeType;
-//import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -64,6 +60,9 @@ public class Publicacao implements Serializable {
     @Expose
     @Column(length = 10, nullable = true)
     private String status;
+    
+    //@Enumerated(EnumType.STRING)
+    //private Status estado; 
     
     @JoinColumn(name="idUsuario",updatable=false)
     @ManyToOne

@@ -14,7 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
-     
     
     <dependencies>
                 
@@ -102,13 +101,12 @@
             <artifactId>jsr250-api</artifactId>
             <version>1.0</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.lucee</groupId>
             <artifactId>antlr</artifactId>
             <version>2.7.7</version>
         </dependency>
-
         
         <dependency>
             <groupId>mysql</groupId>
@@ -148,11 +146,7 @@
             <version>2.5.2</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>2.5.2</version>
-        </dependency>
+        
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -172,6 +166,13 @@
             <version>2.1.7</version>
         </dependency>
 
+   
+<!--        <dependency>
+            <groupId>org.primefaces.extensions</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>1.0.8</version>
+        </dependency>-->
+        
         
         <dependency>
             <groupId>org.primefaces</groupId>
@@ -179,12 +180,7 @@
             <version>5.0</version>
         </dependency>
 
-        <!--        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>all-themes</artifactId>
-            <version>1.0.10</version>
-        </dependency>-->
-                
+        
         <dependency>
             <groupId>org.apache.karaf.jpa</groupId>
             <artifactId>hibernate</artifactId>
@@ -285,5 +281,4 @@
             </plugin>
         </plugins>
     </build>
-   
 </project>

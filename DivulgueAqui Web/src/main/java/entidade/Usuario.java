@@ -44,7 +44,7 @@ public class Usuario implements Serializable{
     }
 
     
-    public Usuario( String nome, String email, String senha) {
+    public Usuario(Long id, String nome, String email, String senha) {
         if(nome == null || nome.isEmpty()){
             throw new IllegalArgumentException("O nome do Usuário deve ser informado corretamente!");
         }
@@ -54,6 +54,7 @@ public class Usuario implements Serializable{
         if(senha == null || senha.isEmpty()){
             throw new IllegalArgumentException("A senha do usuário deve ser informada corretamente!");
         }
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;

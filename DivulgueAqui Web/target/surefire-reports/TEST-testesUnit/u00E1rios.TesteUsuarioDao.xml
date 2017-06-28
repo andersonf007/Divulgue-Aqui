@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteUsuarioDao" time="6.547" errors="0" skipped="4">
+=======
 <testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteUsuarioDao" time="3.913" errors="0" skipped="0">
+>>>>>>> 5dd51f7a6fa3dc9456d9ff105fe3b24c62dc0703
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
@@ -62,9 +66,25 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+<<<<<<< HEAD
+  <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="verificarExclusaoUsuarioDB" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="listarTodosUsuariosBD" time="0.032">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="verificarAtualizacaoUsuarioDB" time="0.032">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="verificarInsercaoUsuarioDB" time="6.235"/>
+  <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="buscarUsuarioBDPorId" time="6.235">
+    <skipped/>
+  </testcase>
+=======
   <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="verificarExclusaoUsuarioDB" time="3.256"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="listarTodosUsuariosBD" time="0.094"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="verificarAtualizacaoUsuarioDB" time="0.266"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="verificarInsercaoUsuarioDB" time="0.172"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuarioDao" name="buscarUsuarioBDPorId" time="0"/>
+>>>>>>> 5dd51f7a6fa3dc9456d9ff105fe3b24c62dc0703
 </testsuite>
