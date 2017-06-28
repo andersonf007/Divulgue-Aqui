@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.faces.context.FacesContext;
 
@@ -15,8 +16,8 @@ import javax.faces.context.FacesContext;
  *
  * @author Izaquias
  */
-@ViewScoped
-
+//@ViewScoped
+@SessionScoped
 @ManagedBean(name="publicacaoBean")
 public class PublicacaoBean implements Controller, Serializable {
     private static final long serialVersionUID = 1L;
