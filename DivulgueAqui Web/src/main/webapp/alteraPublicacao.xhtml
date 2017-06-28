@@ -33,8 +33,17 @@
                     <p:outputLabel for="data" value="Data"/>
                     <h:outputText id="data" value="#{publicacaoBean.publicacao.data}"/>
                     
-                    <p:outputLabel for="status" value="Status"/>
-                    <p:inputText id="status" value="#{publicacaoBean.publicacao.status}"/>
+
+                    <p:outputLabel for="status" value="Status:" />
+                    <p:selectOneMenu id="status" value="#{publicacaoBean.publicacao.status}" style="width:125px">
+                        <f:selectItem itemLabel="Selecione um" itemValue="" />
+                        <f:selectItem itemLabel="PENDENTE" itemValue="PENDENTE" />
+                        <f:selectItem itemLabel="VISTO" itemValue="VISTO" />
+                        <f:selectItem itemLabel="RESOLVENDO" itemValue="RESOLVENDO" />
+                        <f:selectItem itemLabel="RESOLVIDO" itemValue="RESOLVIDO" />
+                        <f:selectItem itemLabel="IGNORADO" itemValue="IGNORADO" />
+                    </p:selectOneMenu>
+                    
                 </p:panelGrid>
                 
                 <p:commandButton value="Alterar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
