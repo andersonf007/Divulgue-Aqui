@@ -21,7 +21,7 @@ public final class UsuariosBDFake implements DaoGenerico<Usuario>{
     private final Map<String, Usuario> tabela = new HashMap<>();
 
     public UsuariosBDFake() {
-         this.inserir(new Usuario("izaquias cavalcante", "izaquiascavalcante@gmail.com", "izaquias20"));
+         this.inserir(new Usuario(1L,"izaquias cavalcante", "izaquiascavalcante@gmail.com", "izaquias20"));
     }
     
     
@@ -41,13 +41,15 @@ public final class UsuariosBDFake implements DaoGenerico<Usuario>{
     }
 
     @Override
-    public Usuario recuperar(Long chave) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Usuario recuperar(Long id) {
+       Usuario u =  this.tabela.get(id);
+       return u;
     }
 
     @Override
     public List<Usuario> recuperarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //List<Usuarios> u = this.tabela.keySet();
+        return null;
     }
     
 }
