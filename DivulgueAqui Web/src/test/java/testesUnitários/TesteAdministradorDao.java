@@ -32,18 +32,18 @@ public class TesteAdministradorDao {
         }
     }
     //nao funciona
-    @Ignore
+    @Ignore//Aqui também funcionou!
     @Test
     public void vericarAtualizacaoAdminBD(){
         Administrador admin;
         AdministradorDao dao = new AdministradorDao();
         
-        admin = dao.recuperar(2L);
+        admin = dao.recuperar(3L);
         
-        admin.setNome("master");
-        admin.setEmail("master@gmail.com");
-        admin.setSenha("1000");
-        
+        admin.setNome("extreme");
+        admin.setEmail("extreme@gmail.com");
+        admin.setSenha("321");
+        //tentar fazer com a senha criptografada!
         try {
             dao.alterar(admin);
             System.out.println("Admin atualizado com sucesso!");
@@ -81,7 +81,7 @@ public class TesteAdministradorDao {
         }
     }
     //nao funciona
-    @Ignore
+    @Ignore//aqui funcionou perfeitamente
     @Test
     public void buscarAdminPorId(){
         AdministradorDao dao = new AdministradorDao();

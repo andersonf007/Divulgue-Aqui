@@ -36,14 +36,14 @@ public class TesteOrgaoDao {
     }
     
     //nao funciona
-    @Ignore
+    @Ignore// Também funcionou!
     @Test
     public void verificarAtualizacaoOrgaoDB(){
         Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
-        orgao = dao.recuperar(1L);
-        orgao.setNome("Administrativo");
-        orgao.setSenha("1100");
+        orgao = dao.recuperar(6L);
+        orgao.setNome("Forum");
+        orgao.setSenha("9090");
         
         try {
             
@@ -83,13 +83,13 @@ public class TesteOrgaoDao {
         }
     }
     //nao funciona
-    @Ignore
+    @Ignore//Funcionou também
     @Test
     public void verificarBuscaOrgaoDB(){
         Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
         
-        orgao = dao.recuperar(4L);
+        orgao = dao.recuperar(6L);
         
         System.out.println("Id:" + orgao.getId());
         System.out.println("Nome:" + orgao.getNome());

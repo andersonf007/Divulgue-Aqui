@@ -1,6 +1,6 @@
 package testesUnitários;
 
-import excecoes.UsuarioMenorDeIdadeException;
+
 import entidade.Usuario;
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -53,11 +53,5 @@ public class TesteUsuario {
         excecao.expect(IllegalArgumentException.class);
         new Usuario(1L,"izaquias", "izaquias@gmail.com", "");
     }
-    //não funciona
-    @Ignore 
-    @Test
-    public void naoPermitirCriarUsuarioMenorDeIdade(){
-        excecao.expect(UsuarioMenorDeIdadeException.class);
-        new Usuario(1L,"izaquias", "izaquias@gmail.com", "izaquias21");
-    }
+   
 }
