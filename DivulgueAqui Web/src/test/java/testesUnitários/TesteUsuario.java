@@ -53,7 +53,8 @@ public class TesteUsuario {
         excecao.expect(IllegalArgumentException.class);
         new Usuario("izaquias", "izaquias@gmail.com", "");
     }
-    @Ignore
+    //não funciona
+    @Ignore 
     @Test
     public void naoPermitirCriarUsuarioMenorDeIdade(){
         excecao.expect(UsuarioMenorDeIdadeException.class);

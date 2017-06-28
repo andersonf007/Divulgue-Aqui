@@ -35,7 +35,7 @@ public class TesteOrgaoDao {
            
     }
     
-
+    //nao funciona
     @Ignore
     @Test
     public void verificarAtualizacaoOrgaoDB(){
@@ -55,7 +55,7 @@ public class TesteOrgaoDao {
         
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void verificarExclusaoOrgaoDB(){
         Orgao orgao;
@@ -82,7 +82,7 @@ public class TesteOrgaoDao {
             
         }
     }
-    
+    //nao funciona
     @Ignore
     @Test
     public void verificarBuscaOrgaoDB(){

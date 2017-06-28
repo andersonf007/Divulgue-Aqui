@@ -31,7 +31,7 @@ public class TesteAdministradorDao {
             fail("Erro ao tentar salvar o admin!");
         }
     }
-    
+    //nao funciona
     @Ignore
     @Test
     public void vericarAtualizacaoAdminBD(){
@@ -80,6 +80,7 @@ public class TesteAdministradorDao {
             System.out.println("-----------------------------");
         }
     }
+    //nao funciona
     @Ignore
     @Test
     public void buscarAdminPorId(){

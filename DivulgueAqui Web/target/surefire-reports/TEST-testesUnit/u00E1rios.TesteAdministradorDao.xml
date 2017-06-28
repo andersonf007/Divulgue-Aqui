@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteAdministradorDao" time="0.118" errors="0" skipped="5">
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteAdministradorDao" time="3.036" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
@@ -14,10 +14,10 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
+    <property name="test" value="testesUnitários.TesteAdministradorDao"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\ander\Documents\IFPE 2017.1\Divulgue Aqui\DivulgueAqui Web"/>
     <property name="java.runtime.version" value="1.8.0_131-b11"/>
-    <property name="netbeans.deploy" value="true"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
@@ -26,7 +26,6 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
-    <property name="netbeans.deploy.debugmode" value="true"/>
     <property name="os.name" value="Windows 10"/>
     <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.2\java\maven\bin\m2.conf"/>
@@ -46,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_131\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dnetbeans.deploy.debugmode=true -Dnetbeans.deploy=true -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 package"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=testesUnitários.TesteAdministradorDao -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -63,19 +62,131 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="buscarAdminPorId" time="0">
-    <skipped/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="buscarAdminPorId" time="2.552">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at testesUnitários.TesteAdministradorDao.buscarAdminPorId(TesteAdministradorDao.java:91)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</error>
+    <system-out>Hibernate: 
+    select
+        administra0_.id as id1_0_0_,
+        administra0_.email as email2_0_0_,
+        administra0_.nome as nome3_0_0_,
+        administra0_.senha as senha4_0_0_ 
+    from
+        Administrador administra0_ 
+    where
+        administra0_.id=?
+Admin encontrado com sucesso!
+Fim da sessão!
+</system-out>
+    <system-err>jun 28, 2017 10:17:52 AM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [
+	name: Persistencia
+	...]
+jun 28, 2017 10:17:53 AM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.2.2.Final}
+jun 28, 2017 10:17:53 AM org.hibernate.cfg.Environment &lt;clinit&gt;
+INFO: HHH000206: hibernate.properties not found
+jun 28, 2017 10:17:53 AM org.hibernate.cfg.Environment buildBytecodeProvider
+INFO: HHH000021: Bytecode provider name : javassist
+jun 28, 2017 10:17:53 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
+INFO: HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+jun 28, 2017 10:17:53 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+jun 28, 2017 10:17:53 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/divulgueWeb?zeroDateTimeBehavior=convertToNull]
+jun 28, 2017 10:17:53 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=root, password=****}
+jun 28, 2017 10:17:53 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+jun 28, 2017 10:17:53 AM org.hibernate.engine.jdbc.connections.internal.PooledConnections &lt;init&gt;
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Wed Jun 28 10:17:53 BRT 2017 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+jun 28, 2017 10:17:53 AM org.hibernate.dialect.Dialect &lt;init&gt;
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+jun 28, 2017 10:17:54 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@569bf9eb] for (non-JTA) DDL execution was not in auto-commit mode; the Connection &apos;local transaction&apos; will be committed and the Connection will be set into auto-commit mode.
+jun 28, 2017 10:17:54 AM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+</system-err>
   </testcase>
-  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarExclusaoAdminBD" time="0">
-    <skipped/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarExclusaoAdminBD" time="0.016"/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarAtualizacaoAdminBD" time="0.062">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at testesUnitários.TesteAdministradorDao.vericarAtualizacaoAdminBD(TesteAdministradorDao.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</error>
+    <system-out>Hibernate: 
+    select
+        administra0_.id as id1_0_0_,
+        administra0_.email as email2_0_0_,
+        administra0_.nome as nome3_0_0_,
+        administra0_.senha as senha4_0_0_ 
+    from
+        Administrador administra0_ 
+    where
+        administra0_.id=?
+Admin encontrado com sucesso!
+Fim da sessão!
+</system-out>
   </testcase>
-  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarAtualizacaoAdminBD" time="0">
-    <skipped/>
-  </testcase>
-  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="listarTodosAdminBD" time="0">
-    <skipped/>
-  </testcase>
-  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarInsercaoAdminBD" time="0">
-    <skipped/>
-  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="listarTodosAdminBD" time="0.047"/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarInsercaoAdminBD" time="0.235"/>
 </testsuite>

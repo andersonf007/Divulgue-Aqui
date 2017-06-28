@@ -80,12 +80,12 @@ function ValidateSave(response) -- validar salvamento
 end
 
 function salvarUsuario(event)
-
+print("entrou no botao salvar")
 	if event.phase == "began" then
 		local email = TxtEmail.text
 
 		if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
-
+			print("entrou no match")
 		   	if TxtNome.text ~= "" or TxtSenha.text ~= "" then
 			   web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
 			else
