@@ -93,7 +93,6 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         try {
             Usuario u = (Usuario) UsuarioDao.manager.find(Usuario.class, id);
-            //UsuarioEntidade us = u;//Me explique isso!
             return u;
           
         } catch (Exception e) {
@@ -142,5 +141,22 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         return u;
     }   
     
-    
+    public Usuario buscarPorEmailAndSenha(String email, String senha){
+        Usuario u = null;
+        String hql = "FROM Usuario u WHERE email=:EmailUser and senha=:senhaUser";
+        
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        
+        try {
+            Query query = manager.createQuery(hql);
+            u = (Usuario) query.setParameter("EmailUser", email).setParameter("senhaUser", senha).getSingleResult();
+        } catch (Exception e) {
+            System.out.println("Dados não encontrados!");
+            System.out.println(e.getMessage());
+        }finally{
+            manager.close();
+            System.out.println("Fim da sessão!");
+        }
+        return u;
+    }
 }

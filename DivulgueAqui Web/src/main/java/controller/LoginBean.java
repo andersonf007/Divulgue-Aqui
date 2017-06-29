@@ -4,7 +4,9 @@ package controller;
 import dao.AdministradorDao;
 import entidade.Administrador;
 import dao.OrgaoDao;
+import dao.UsuarioDao;
 import entidade.Orgao;
+import entidade.Usuario;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -24,9 +26,12 @@ public class LoginBean {
 
     private String nome;
     private String senha;
+    private String email;
     private Administrador admin;
     private AdministradorDao daoAdmin;
-    private Orgao orgaoLogin;
+    private Usuario usuario;
+    private UsuarioDao daoUsuario;
+    private Orgao orgao;
     private OrgaoDao daoOrgao;
 
     public LoginBean() {
@@ -36,8 +41,10 @@ public class LoginBean {
     public void Inicializar() {
         daoAdmin = new AdministradorDao();
         admin = new Administrador();
-        orgaoLogin = new Orgao();
+        orgao = new Orgao();
         daoOrgao = new OrgaoDao();
+        usuario = new Usuario();
+        daoUsuario = new UsuarioDao();
     }
     
     public String fazerLogin() {
@@ -113,12 +120,12 @@ public class LoginBean {
         this.daoAdmin = daoAdmin;
     }
     
-    public Orgao getOrgaoLogin() {
-        return orgaoLogin;
+    public Orgao getOrgao() {
+        return orgao;
     }
 
-    public void setOrgaoLogin(Orgao orgaoLogin) {
-        this.orgaoLogin = orgaoLogin;
+    public void setOrgao(Orgao orgao) {
+        this.orgao = orgao;
     }
 
     public OrgaoDao getDaoOrgao() {
@@ -128,6 +135,22 @@ public class LoginBean {
     public void setDaoOrgao(OrgaoDao daoOrgao) {
         this.daoOrgao = daoOrgao;
     }
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public UsuarioDao getDaoUsuario() {
+        return daoUsuario;
+    }
+
+    public void setDaoUsuario(UsuarioDao daoUsuario) {
+        this.daoUsuario = daoUsuario;
+    }
+    
 
     public String getNome() {
         return nome;
@@ -143,6 +166,14 @@ public class LoginBean {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }
