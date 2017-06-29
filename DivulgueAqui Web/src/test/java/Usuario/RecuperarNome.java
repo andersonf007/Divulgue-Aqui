@@ -5,6 +5,7 @@
  */
 package Usuario;
 
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,13 +26,24 @@ public class RecuperarNome {
     
     public static void main(String[] args) {
         
-        String nome = "izaquias" ;
+        String nome;
+        String usuario = "anderson" ;
         String email;
-        String senha;
+        String senha = "123";
         long codigo;
-            URL url;
+        
+        JSONObject jsonObject = new JSONObject();
+
+        //Armazena dados em um Objeto JSON
+        jsonObject.put("usuario", usuario);
+        jsonObject.put("senha", senha);
+       
+        Gson gson = new Gson();
+        String Json = gson.toJson(jsonObject);
+       
+        URL url;
         try {
-            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="+nome);
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="+Json);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
@@ -52,19 +64,17 @@ public class RecuperarNome {
             }
           //  System.out.println(stringBuilder.toString());
             connection.disconnect();
-            
-             JSONObject jsonObject;
-       
+                   
              JSONParser parser = new JSONParser();  
       
             jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
             
             //codigo = (long) jsonObject.get("codigo");
-            //nome = (String) jsonObject.get("nome");
+            nome = (String) jsonObject.get("nome");
             email = (String) jsonObject.get("email");
-            senha = (String) jsonObject.get("senha");
+            //senha = (String) jsonObject.get("senha");
                         
-            System.out.println("o  nome : " + nome 
+            System.out.println("o  nome : " + nome  + " usuario : " + usuario 
             + " email : " + email + " senha : " + senha);
 
         } catch (MalformedURLException ex) {

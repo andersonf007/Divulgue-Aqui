@@ -20,21 +20,18 @@ import javax.persistence.OneToMany;
 @Entity
 public class Usuario implements Serializable{
 
-    
-    /**
-     * @param id the id to set
-     */
-   
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//add 1++ 
     private Long id;
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(length = 50, nullable = false)
     private String nome;
     @Column(length = 50, nullable = false, unique = true)
     private String email;
     @Column(length = 50, nullable = false)
     private String senha;
+    @Column(name="nomeFicticio",length = 50, nullable = false, unique = true)
+     private String usuario;
     
     
     @OneToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
@@ -44,7 +41,7 @@ public class Usuario implements Serializable{
     }
 
     
-    public Usuario(Long id, String nome, String email, String senha) {
+    public Usuario(Long id, String nome, String email, String senha, String usuario) {
         if(nome == null || nome.isEmpty()){
             throw new IllegalArgumentException("O nome do Usuário deve ser informado corretamente!");
         }
@@ -58,7 +55,7 @@ public class Usuario implements Serializable{
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        
+        this.usuario = usuario;
     }
 
     public Long getId() {
@@ -107,5 +104,18 @@ public class Usuario implements Serializable{
         this.publicacao = publicacao;
     }
 
+     /**
+     * @return the usuario
+     */
+    public String getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
 }

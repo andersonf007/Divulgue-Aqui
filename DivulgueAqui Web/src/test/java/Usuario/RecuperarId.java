@@ -27,7 +27,7 @@ public class RecuperarId {
         String nome ;
         String email;
         String senha;
-        long codigo = 3;
+        long codigo = 1;
             URL url;
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperarPorId?id="+codigo);

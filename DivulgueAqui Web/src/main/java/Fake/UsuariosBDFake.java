@@ -21,7 +21,7 @@ public final class UsuariosBDFake implements DaoGenerico<Usuario>{
     private final Map<String, Usuario> tabela = new HashMap<>();
 
     public UsuariosBDFake() {
-         this.inserir(new Usuario(1L,"izaquias cavalcante", "izaquiascavalcante@gmail.com", "izaquias20"));
+         this.inserir(new Usuario(1L,"izaquias cavalcante", "izaquiascavalcante@gmail.com", "izaquias20",""));
     }
     
     

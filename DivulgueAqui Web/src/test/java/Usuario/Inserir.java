@@ -22,8 +22,9 @@ public class Inserir {
     
     public static void main(String[] args) {
         
-        String nome = "samuel";
-        String email = "samuel@gmail.com";
+        String nome = "anderson";
+        String usuario = "andy";
+        String email = "anderson@gmail.com";
         String senha = "123";
           
         JSONObject jsonObject = new JSONObject();
@@ -32,7 +33,8 @@ public class Inserir {
         jsonObject.put("nome", nome);
         jsonObject.put("email", email);
         jsonObject.put("senha", senha);
-           
+        jsonObject.put("usuario", usuario);   
+        
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);
 
