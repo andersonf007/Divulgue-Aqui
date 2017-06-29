@@ -104,6 +104,15 @@ public class LoginBean {
         return a != null;
     }
     
+    public void setUsuarioLogado(Usuario u){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("UsuarioLogado",u);
+    }
+    
+    public boolean verificarUsuarioLogado(){
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        return u != null;    
+    } 
+    
     public Administrador getAdmin() {
         return admin;
     }
