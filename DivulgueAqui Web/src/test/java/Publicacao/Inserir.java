@@ -27,7 +27,7 @@ public class Inserir {
         String localidade = "interior do estado";
         String descricao = "123456789012345678901234";
         String categoria = "infra Estrutura";
-        long idUsuario = 1;
+        long idUsuario = 2;
         
         JSONObject jsonObject = new JSONObject();
 

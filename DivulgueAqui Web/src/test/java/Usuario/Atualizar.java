@@ -22,8 +22,8 @@ public class Atualizar {
     
     public static void main(String[] args) {
         
-        String nome = "samtuka";
-        String email = "satmuka@gmail.com.br";
+        String nome = "Anderson";
+        String email = "anderson@gmail.com.br";
         String senha = "123";
         //String usuario = "muka";
         long codigo = 1;

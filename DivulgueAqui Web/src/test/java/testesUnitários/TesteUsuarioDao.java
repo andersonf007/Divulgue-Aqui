@@ -89,11 +89,12 @@ public class TesteUsuarioDao {
         System.out.println("Senha:" + usuario.getSenha());
         
     }
+    @Ignore
     @Test
     public void buscarUsuarioBDPorNome(){
         UsuarioDao dao = new UsuarioDao();
         
-        Usuario usuario = dao.recuperarUsuarioIdNome("izaquias");
+        Usuario usuario = dao.recuperarUsuarioNome("izaquias");
         System.out.println("Nome:" + usuario.getNome());
         System.out.println("Email:" + usuario.getEmail());
         System.out.println("Senha:" + usuario.getSenha()); 

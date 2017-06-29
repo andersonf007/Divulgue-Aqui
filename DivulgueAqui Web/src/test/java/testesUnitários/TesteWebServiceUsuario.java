@@ -37,6 +37,7 @@ public class TesteWebServiceUsuario {
         
         String nome = "junior";
         String email = "junior@gmail.com";
+        String nomeFicticio = "jr";
         String senha = "123";
           
         JSONObject jsonObject = new JSONObject();
@@ -45,6 +46,7 @@ public class TesteWebServiceUsuario {
         jsonObject.put("nome", nome);
         jsonObject.put("email", email);
         jsonObject.put("senha", senha);
+        jsonObject.put("usuario", nomeFicticio);
            
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);
@@ -82,9 +84,9 @@ public class TesteWebServiceUsuario {
     @Test
     public void atualizarUsuario(){
         int code = 0;
-        String nome = "otavio";
-        String email = "otavio@gmail.com.br";
-        String senha = "321";
+        String nome = "Anderson";
+        String email = "anderson@gmail.com.br";
+        String senha = "123";
         long codigo = 1;
           
         JSONObject jsonObject = new JSONObject();
@@ -128,17 +130,18 @@ public class TesteWebServiceUsuario {
 
     @Ignore
     @Test
-    public void recuperarUsuarioPorNome(){
+    public void recuperarUsuarioPorNomeFicticio(){
         int code = 0;
         
-        String nome = "Roberta" ;
+        String nome = null ;
         String email = null;
+        String nomeFicticio = "beta";
         String senha = "123";
         
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
-        jsonObject.put("nome", nome);
+        jsonObject.put("usuario", nomeFicticio);
         jsonObject.put("senha", senha);
        
         Gson gson = new Gson();
@@ -172,11 +175,13 @@ public class TesteWebServiceUsuario {
       
             jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
             
+            nome = (String) jsonObject.get("nome");
             email = (String) jsonObject.get("email");
-            senha = (String) jsonObject.get("senha");
+           // senha = (String) jsonObject.get("senha");
+            nomeFicticio = (String) jsonObject.get("usuario");
                         
-            System.out.println("o  nome : " + nome 
-            + " email : " + email + " senha : " + senha);
+            System.out.println("o  nome : " + nome + " usuario: " + nomeFicticio
+            + " email : " + email /*+ " senha : " + senha*/);
 
         } catch (MalformedURLException ex) {
             JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest ( recuperar usuario)\n" + ex);
@@ -188,7 +193,7 @@ public class TesteWebServiceUsuario {
         assertEquals(200, code);
         assertEquals("Roberta", nome);
         assertEquals("roberta@gmail.com", email);
-        assertEquals("123", senha);
+        assertEquals("beta ", nomeFicticio);
     }
     
     @Ignore
@@ -199,6 +204,7 @@ public class TesteWebServiceUsuario {
         String nome = null;
         String email = null;
         String senha = null;
+        String nomeFicticio = null;
         long codigo = 2;
             URL url;
         try {
@@ -232,10 +238,11 @@ public class TesteWebServiceUsuario {
          
             nome = (String) jsonObject.get("nome");
             email = (String) jsonObject.get("email");
-            senha = (String) jsonObject.get("senha");
+            //senha = (String) jsonObject.get("senha");
+            nomeFicticio = (String) jsonObject.get("usuario");
                         
-            System.out.println("o codigo é :" + codigo + " nome : " + nome 
-            + " email : " + email + " senha : " + senha);
+            System.out.println("o  nome : " + nome + " usuario: " + nomeFicticio
+            + " email : " + email /*+ " senha : " + senha*/);
 
         } catch (MalformedURLException ex) {
             JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest ( recuperar usuario)\n" + ex);
@@ -248,7 +255,7 @@ public class TesteWebServiceUsuario {
         assertEquals(200, code);
         assertEquals("Roberta", nome);
         assertEquals("roberta@gmail.com", email);
-        assertEquals("123", senha);
+        assertEquals("beta ", nomeFicticio);
     }
     
     @Ignore
@@ -257,7 +264,7 @@ public class TesteWebServiceUsuario {
         int code = 0;
          URL url;
          
-         Integer codigo = 1; 
+         Integer codigo = 4; 
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/delete?id="+codigo);//codigo
         

@@ -87,9 +87,9 @@ public class TesteWebServicePublicacao {
         
         int code = 0;
         String descricao = "nevasca";
-        String localidade = "interior";
+        String localidade = "nunca";
         String categoria = "mobilidade";
-        long codigo = 2;//codigo da publicacao
+        long codigo = 3;//codigo da publicacao
           
         JSONObject jsonObject = new JSONObject();
 
@@ -135,7 +135,7 @@ public class TesteWebServicePublicacao {
     public void recuperarPublicacoesPorIdDoUsuario(){
         int code = 0;
        
-        long codigo = 4; // id do usuario
+        long codigo = 2; // id do usuario
             URL url;
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="+codigo);
@@ -163,7 +163,7 @@ public class TesteWebServicePublicacao {
         int code = 0;
         URL url;
          
-         Integer codigo = 12;   
+         Integer codigo = 2;   
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/delete?id="+codigo);//codigo
         
