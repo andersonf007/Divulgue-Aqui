@@ -86,6 +86,9 @@ function scene:create(event)
 
 	 grupoCena = self.view 
 
+	logout = display.newImage( "logout.png", display.contentWidth - 15, 15)
+    grupoCena:insert( logout )
+
 	ButtonProfile = widget.newButton( 
 		{
 		label="Perfil", 
@@ -114,6 +117,16 @@ function scene:create(event)
 
 	grupoCena:insert( ButtonPublicacao)
 
+	
+    logout:addEventListener("touch",logout)
+
+end
+
+function logout(event)
+	
+	if event.phase == "began" then
+		print("entrou")
+	end
 end
 
 function  visualizarPerfil(event) -- toque no botao Perfil 

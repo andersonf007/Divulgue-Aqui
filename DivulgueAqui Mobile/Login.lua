@@ -30,9 +30,9 @@ function scene:create(event)
 	Buttonlogin = widget.newButton( 
 		{
 		label="Login", 
-		x = display.contentWidth/2 -50, 
+		x = display.contentWidth/2 -49, 
 		y = display.contentHeight/2 + 90,
-		width = 50,
+		width = 48,
 		height = 40,
 		onPress = touchOnButtonLogin, 
 		shape = "roundedRect"
@@ -43,9 +43,9 @@ function scene:create(event)
 	ButtonSingIn = widget.newButton( 
 		{
 		label="Cadastre-se",
-		x = display.contentWidth/2 + 30,
+		x = display.contentWidth/2 + 26,
 		y = display.contentHeight/2 + 90,
-		width = 100,
+		width = 96,
 		height = 40,
 		shape = "roundedRect",
 		onPress = registrarUsuario
