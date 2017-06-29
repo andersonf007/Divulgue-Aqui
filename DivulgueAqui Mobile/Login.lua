@@ -54,10 +54,16 @@ function scene:create(event)
 	grupoCena:insert(ButtonSingIn)
 end
 
-function ReceivesUserInformation(codigo,nome,email,senha) -- recebe as informacoes do usuario que veio do web service e faz a validacao para o usuario poder fazer login 
+function erroEfetuarLogin(codigo) -- mostra a mensagem de erro ao efetuar login
+	if codigo == 305 then
+		alert = native.showAlert("erro","usuario ou senha incorretos", {"ok"} )
+	end
+end
 
-	if TxtUserName.text == nome and TxtPassword.text == senha then
-		web:storeInformation(codigo,nome,email,senha)-- armazena as informacoes do usuario em variaves globais para poder recuperar em outras telas
+function ReceivesUserInformation(codigo,nome,email,senha,usuario) -- recebe as informacoes do usuario que veio do web service e faz a validacao para o usuario poder fazer login 
+
+	if TxtUserName.text == usuario then
+		web:storeInformation(codigo,nome,email,senha,usuario)-- armazena as informacoes do usuario em variaves globais para poder recuperar em outras telas
 		web:recoverPublicacaoIdWS(codigo)
 		composer.gotoScene("Logado")
 	end
@@ -66,7 +72,7 @@ end
 function touchOnButtonLogin(event) -- toque no botao de login/ manda a requisicao para o web service
 	
 	if event.phase == "began" then
-		web:recoverUserWS(TxtUserName.text)
+		web:recoverUserWS(TxtUserName.text,TxtPassword.text)
 	end
 	
 end

@@ -82,6 +82,13 @@ local function onRowRender( event )-- metodo para preencher o tableView
 		return true 
 end
 
+function fazerLogout(event)
+	print("unhum")
+	if event.phase == "began" then
+		print("entrou")
+	end
+end
+
 function scene:create(event)
 
 	 grupoCena = self.view 
@@ -118,16 +125,11 @@ function scene:create(event)
 	grupoCena:insert( ButtonPublicacao)
 
 	
-    logout:addEventListener("touch",logout)
+    logout:addEventListener("touch",fazerLogout)
 
 end
 
-function logout(event)
-	
-	if event.phase == "began" then
-		print("entrou")
-	end
-end
+
 
 function  visualizarPerfil(event) -- toque no botao Perfil 
 	-- vai para a pagina de perfil

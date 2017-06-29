@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 /**
@@ -125,20 +126,36 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         return null;
     }
 
-    public Usuario recuperarUsuarioIdNome(String nome){
-        Usuario u = null;
+    public Usuario recuperarUsuarioIdNomeFicticio(String nomeDeUsuario){
+        Usuario u = new Usuario();
 
-        String hql = "from Usuario o where nome=:nomeUsuario";//como tá no bd, e o segundo param. é como um álias!
+        String hql = "from Usuario where nomeFicticio=:nomeUsuario";//como tá no bd, e o segundo param. é como um álias!
 
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
         try {
             Query query = manager.createQuery(hql);
-            u = (Usuario) query.setParameter("nomeUsuario", nome).getSingleResult();
+            u = (Usuario) query.setParameter("nomeUsuario", nomeDeUsuario).getSingleResult();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         
         return u;
     }   
+     public Usuario recuperarUsuarioIdNome(String nome){
+        Usuario u = null;
+
+        String hql = "from Usuario o where nome=:usuario";//como tá no bd, e o segundo param. é como um álias!
+
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        
+        try {
+            Query query = manager.createQuery(hql);
+            u = (Usuario) query.setParameter("usuario", nome).getSingleResult();
+        } catch (NoResultException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return u;
+    } 
 }

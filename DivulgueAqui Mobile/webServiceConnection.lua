@@ -5,9 +5,10 @@ local json = require( "json" )  -- Include the Corona JSON library
 local webService = {}
 
 
-function webService:storeInformation(codigo,nome,email,senha) -- armazena as informacoes do usuario em variaves globais para poder recuperar em outras telas
+function webService:storeInformation(codigo,nomeDoUsuario,email,senha,usuario) -- armazena as informacoes do usuario em variaves globais para poder recuperar em outras telas
 	codigoUser = codigo
-	nomeUser = nome
+	nomeUser = usuario
+	nome = nomeDoUsuario
 	emailUser = email
 	senhaUser = senha	
 end
@@ -16,7 +17,12 @@ local function retornoDoRestParaReceberInformacoesDoUsuario( event )
 
     if not event.isError then
         local response = json.decode( event.response )
-        ReceivesUserInformation(response.id,response.nome,response.email,response.senha) -- manda as informacoes do usuario para a tela de login
+        print(response)
+        if response == 305 then
+        	erroEfetuarLogin(response) -- chama o metodo do login para mostrar a mensagem de arro
+       	else
+        ReceivesUserInformation(response.id,response.nome,response.email,response.senha,response.usuario) -- manda as informacoes do usuario para a tela de login
+    	end
     else
         print( "Error" )
     end
@@ -70,9 +76,9 @@ local function retornoDoRestParaCadastroDoUsuario( event )
 end
 
 --//////////////////////////////REGISTRAR USUARIO////////////////////////////////////////////////////
-function webService:RegisterUserWS(nome,email,senha) -- registrar usuario 
+function webService:RegisterUserWS(nome,email,senha,usuario) -- registrar usuario 
 		
-		local usuario = { nome = nome, email = email, senha = senha }
+		local usuario = { nome = nome, email = email, senha = senha, usuario = usuario }
 			
 			local jsonUsuario = json.encode(usuario)
 			print("jsonCliente : " .. jsonUsuario)
@@ -90,9 +96,9 @@ function webService:RegisterUserWS(nome,email,senha) -- registrar usuario
 end
 
 --////////////////////////////////////RECUPERAR USUARIO POR NOME ////////////////////////////////////////////
-function webService:recoverUserWS(nome) -- recuperar usuario por nome
+function webService:recoverUserWS(nome,senha) -- recuperar usuario por nome
 	
-	local usuario = { nome = nome}
+	local usuario = { nome = nome, senha = senha}
 			
 	local jsonUsuario = json.encode(usuario)
 		print("jsonUsuario : " .. jsonUsuario)
@@ -106,7 +112,7 @@ function webService:recoverUserWS(nome) -- recuperar usuario por nome
 
 	params.body = jsonUsuario
 
-	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="..nome, "GET", retornoDoRestParaReceberInformacoesDoUsuario, params )
+	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="..jsonUsuario, "GET", retornoDoRestParaReceberInformacoesDoUsuario, params )
 end
 
 --////////////////////////////////////RECUPERAR USUARIO POR ID ////////////////////////////////////////////

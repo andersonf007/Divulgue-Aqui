@@ -35,8 +35,8 @@ public class TesteWebServiceUsuario {
     public void inserirUsuario(){
         int code = 0;
         
-        String nome = "matheus";
-        String email = "matheus@gmail.com";
+        String nome = "junior";
+        String email = "junior@gmail.com";
         String senha = "123";
           
         JSONObject jsonObject = new JSONObject();
@@ -85,7 +85,7 @@ public class TesteWebServiceUsuario {
         String nome = "otavio";
         String email = "otavio@gmail.com.br";
         String senha = "321";
-        long codigo = 7;
+        long codigo = 1;
           
         JSONObject jsonObject = new JSONObject();
 
@@ -133,11 +133,20 @@ public class TesteWebServiceUsuario {
         
         String nome = "Roberta" ;
         String email = null;
-        String senha = null;
+        String senha = "123";
+        
+        JSONObject jsonObject = new JSONObject();
+
+        //Armazena dados em um Objeto JSON
+        jsonObject.put("nome", nome);
+        jsonObject.put("senha", senha);
+       
+        Gson gson = new Gson();
+        String Json = gson.toJson(jsonObject);
        
             URL url;
         try {
-            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="+nome);
+            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="+Json);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
@@ -159,8 +168,6 @@ public class TesteWebServiceUsuario {
           //  System.out.println(stringBuilder.toString());
             connection.disconnect();
             
-             JSONObject jsonObject;
-       
              JSONParser parser = new JSONParser();  
       
             jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
@@ -250,7 +257,7 @@ public class TesteWebServiceUsuario {
         int code = 0;
          URL url;
          
-         Integer codigo = 6; 
+         Integer codigo = 1; 
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/delete?id="+codigo);//codigo
         

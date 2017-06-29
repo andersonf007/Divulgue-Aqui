@@ -163,7 +163,7 @@ public class TesteWebServicePublicacao {
         int code = 0;
         URL url;
          
-         Integer codigo = 11;   
+         Integer codigo = 12;   
         try {
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/delete?id="+codigo);//codigo
         

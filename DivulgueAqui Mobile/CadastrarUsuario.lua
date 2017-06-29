@@ -7,6 +7,7 @@ local scene = composer.newScene()
 local LabelNome
 local LabelEmail
 local LabelSenha
+local LabelUsuario
 local TxtNome
 local TxtEmail
 local TxtSenha
@@ -18,7 +19,7 @@ function scene:create(event)
 
 	display.setDefault("background", 0.3, 0.6, 1)
     
-    local titulo = display.newText({text="Formulário",x=display.contentWidth/2,y=display.contentHeight/2 - 250})
+    local titulo = display.newText({text="Formulário",x=display.contentWidth/2,y=display.contentHeight/2 - 230})
     titulo:setFillColor( 1,1,0 )
     titulo.isEditable = true
     titulo.size = 30
@@ -33,7 +34,11 @@ function scene:create(event)
 	LabelEmail:setFillColor(0,1,0)
 	grupoCena:insert(LabelEmail)
 
-	LabelSenha = display.newText({text="Senha",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 100})
+	LabelUsuario = display.newText({text="usuario",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 100})
+	LabelUsuario:setFillColor(0,1,0)
+	grupoCena:insert(LabelUsuario)
+
+	LabelSenha = display.newText({text="Senha",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 50})
 	LabelSenha:setFillColor(0,1,0)
 	grupoCena:insert(LabelSenha)
 
@@ -44,7 +49,7 @@ function scene:create(event)
 	
 		label="Cadastrar", 
 		x = display.contentWidth/2,
-		y = display.contentHeight/2 - 35, 
+		y = display.contentHeight/2 + 35, 
 		fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
         strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
         strokeWidth = 4,
@@ -54,19 +59,19 @@ function scene:create(event)
 	)
 
 	grupoCena:insert(ButtonCadastrar)  
-
+	--[[
 	voltar = display.newImage( "botao-voltar.png", display.contentWidth/2 - 100, display.contentHeight/2 + 120)
     grupoCena:insert( voltar )
 
-    voltar:addEventListener("touch",voltar)
+    voltar:addEventListener("touch",voltar)]]
 end
-
+--[[
 function voltar(event)
  if event.phase == "began" then
     print("entrou no voltar")
   end
 end
-
+]]
 function ValidateSave(response) -- validar salvamento
 
 	if response == 300 then
@@ -75,6 +80,7 @@ function ValidateSave(response) -- validar salvamento
 		TxtNome.text = ""
 		TxtEmail.text = ""
 		TxtSenha.text = ""
+		txtUsuario.text = ""
 		composer.gotoScene("login")
 	end
 end
@@ -84,22 +90,27 @@ function salvarUsuario(event)
 	if event.phase == "ended" then
 		local email = TxtEmail.text
 
-		if TxtNome.text ~= "" or TxtSenha.text ~= "" or TxtEmail.text ~= "" then
+		if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
+			
+			if TxtNome.text ~= "" then
 
-			if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
-				--print("entrou no match")
-			   	if TxtNome.text ~= "" or TxtSenha.text ~= "" then
-				   web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text)
+				if TxtSenha.text ~= "" then
+
+					if txtUsuario.text ~= "" then
+
+						 web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text, txtUsuario.text)
+						
+					else
+						alert = native.showAlert("não foi possivel Cadastrar","nome de usuario invalido", {"ok"} )
+					end
 				else
-					alert = native.showAlert("não foi possivel Cadastrar","preencha todos os campos", {"ok"} )
+					alert = native.showAlert("não foi possivel Cadastrar","senha invalido", {"ok"} )
 				end
-
 			else
-			   alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
+				alert = native.showAlert("não foi possivel Cadastrar","nome invalido", {"ok"} )
 			end
-
-		else 
-			 alert = native.showAlert("erro","todos os campos são obrigatorios", {"ok"} )
+		else
+		   alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
 		end
 	end
 
@@ -109,7 +120,8 @@ function scene:show(event)
 	if event.phase == "did" then
 		TxtNome = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 178, 200, 25 ) 
 		TxtEmail = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 128, 200, 25 ) 
-		TxtSenha = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 78, 200, 25 )
+		txtUsuario = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 78, 200, 25 )
+		TxtSenha = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 28, 200, 25 )
 		TxtSenha.isSecure = true
 	end
 end
@@ -117,6 +129,7 @@ end
 function scene:hide(event)
 	display.remove(TxtNome)
 	display.remove(TxtEmail)
+	display.remove(txtUsuario)
 	display.remove(TxtSenha)
 end
 

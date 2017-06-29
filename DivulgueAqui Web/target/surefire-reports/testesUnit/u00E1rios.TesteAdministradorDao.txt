@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: testesUnit\u00E1rios.TesteAdministradorDao
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 16.116 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 23.274 sec

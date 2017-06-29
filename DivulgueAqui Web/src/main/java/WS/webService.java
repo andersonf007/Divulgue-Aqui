@@ -23,6 +23,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import entidade.Usuario;
+import hibernate.Criptografia;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -70,6 +71,7 @@ public class webService {
         String nome;
         String email;
         String senha;
+        String usuario;
 
            try {
                 jsonObject = (JSONObject) parser.parse(json);
@@ -77,11 +79,14 @@ public class webService {
                 nome = (String) jsonObject.get("nome");
                 email = (String)jsonObject.get("email");
                 senha = (String) jsonObject.get("senha");
+                usuario = (String) jsonObject.get("usuario");
 
                 u.setNome(nome);              
                 u.setEmail(email);
                 u.setSenha(senha);
-                 
+                u.setSenha(Criptografia.encriptografar(u.getSenha()));
+                u.setUsuario(usuario);
+                
                 try{
                     dao.inserir(u);
                     return "200";
@@ -117,13 +122,30 @@ public class webService {
         
         UsuarioDao dao = new UsuarioDao();
         Usuario u = new Usuario();
-        
-        u = dao.recuperarUsuarioIdNome(json);
-        
-        //System.out.println("WS.webService.recuperarUsuarioPorNome()" + u.getId());
-        
         Gson g = new Gson();
-        return g.toJson(u);
+        JSONObject jsonObject;
+        JSONParser parser = new JSONParser(); 
+        
+        String usuario = null;
+        String senha = null;
+        
+        try {
+            jsonObject = (JSONObject) parser.parse(json);
+                   
+            usuario = (String) jsonObject.get("usuario");
+            senha = (String) jsonObject.get("senha");
+       
+        } catch (ParseException ex) {
+            Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //u = dao.recuperarUsuarioIdNomeFicticio(usuario);
+        u = dao.recuperarUsuarioIdNome(usuario);
+        
+        if(u.getSenha().equals(Criptografia.encriptografar(senha))){
+            return g.toJson(u);
+        }else{
+            return "305";
+        }
     }
     
     @PUT
@@ -140,6 +162,7 @@ public class webService {
         String nome;
         String email;
         String senha;
+       // String usuario;
         long codigo;
 	
         
@@ -149,13 +172,15 @@ public class webService {
             nome = (String) jsonObject.get("nome");
             email = (String)jsonObject.get("email");
             senha = (String) jsonObject.get("senha");
+           // usuario = (String) jsonObject.get("usuario");
             codigo = (Long) jsonObject.get("codigo");
             
             u = dao.recuperar(codigo);
            
             u.setEmail(email);
             u.setNome(nome);
-            u.setSenha(senha);
+            //u.setUsuario(usuario);
+            u.setSenha(Criptografia.encriptografar(senha));
             
             try{
             dao.alterar(u);

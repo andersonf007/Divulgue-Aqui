@@ -12,6 +12,7 @@ public abstract class Usuario_ {
 	public static volatile CollectionAttribute<Usuario, Publicacao> publicacao;
 	public static volatile SingularAttribute<Usuario, String> senha;
 	public static volatile SingularAttribute<Usuario, String> nome;
+	public static volatile SingularAttribute<Usuario, String> usuario;
 	public static volatile SingularAttribute<Usuario, Long> id;
 	public static volatile SingularAttribute<Usuario, String> email;
 

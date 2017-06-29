@@ -22,15 +22,15 @@ public class MainCriptografia {
         adm.setSenha("321");
         adm.setSenha(Criptografia.encriptografar(adm.getSenha()));//Efetua a criptografia!
         
-        //dao.inserir(adm);
-       ///* 
+        dao.inserir(adm);
+       /* 
             if(adm.getSenha().equals(Criptografia.encriptografar("321"))){//Compara senha já criptografada do BD e compara com String passada da possível senha!
                 System.out.println("É a mesma senha!");
                 System.out.println("Senha:" + adm.getSenha());
             }else{
                 System.out.println("Não é a mesma senha!");
             }
-        //*/
+        */
     }
     
 }

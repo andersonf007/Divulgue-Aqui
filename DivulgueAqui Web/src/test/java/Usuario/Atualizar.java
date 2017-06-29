@@ -22,10 +22,11 @@ public class Atualizar {
     
     public static void main(String[] args) {
         
-        String nome = "samuka";
-        String email = "samuka@gmail.com.br";
-        String senha = "321";
-        long codigo = 3;
+        String nome = "samtuka";
+        String email = "satmuka@gmail.com.br";
+        String senha = "123";
+        //String usuario = "muka";
+        long codigo = 1;
           
         JSONObject jsonObject = new JSONObject();
 
@@ -33,6 +34,7 @@ public class Atualizar {
         jsonObject.put("nome", nome);
         jsonObject.put("email", email);
         jsonObject.put("senha", senha);
+       // jsonObject.put("usuario", usuario);
         jsonObject.put("codigo", codigo);
            
         Gson gson = new Gson();
