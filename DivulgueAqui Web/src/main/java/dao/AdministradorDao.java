@@ -31,6 +31,7 @@ public class AdministradorDao implements DaoGenerico<Administrador>{
         
         try {
             
+            Criptografia.encriptografar(a.getSenha());
             AdministradorDao.manager.persist(a);
             AdministradorDao.manager.getTransaction().commit();
             System.out.println("Admin salvo com sucesso!");
@@ -53,7 +54,6 @@ public class AdministradorDao implements DaoGenerico<Administrador>{
         
         try {
             //Administrador admin = a;
-            a.setSenha(Criptografia.encriptografar(a.getSenha()));
             AdministradorDao.manager.merge(a);
             AdministradorDao.manager.getTransaction().commit();
             System.out.println("Admin atualizado com sucesso!");

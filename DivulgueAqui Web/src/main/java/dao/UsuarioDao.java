@@ -141,4 +141,6 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         return u;
     }   
+    
+    
 }
