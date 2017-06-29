@@ -94,7 +94,6 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         try {
             Usuario u = (Usuario) UsuarioDao.manager.find(Usuario.class, id);
-            //UsuarioEntidade us = u;//Me explique isso!
             return u;
           
         } catch (Exception e) {
@@ -142,6 +141,7 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         return u;
     }   
+
      public Usuario recuperarUsuarioIdNome(String nome){
         Usuario u = null;
 
@@ -151,6 +151,7 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         try {
             Query query = manager.createQuery(hql);
+
             u = (Usuario) query.setParameter("usuario", nome).getSingleResult();
         } catch (NoResultException e) {
             System.out.println(e.getMessage());

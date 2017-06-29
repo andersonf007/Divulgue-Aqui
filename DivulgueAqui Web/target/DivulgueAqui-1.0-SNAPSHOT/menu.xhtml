@@ -7,6 +7,7 @@
         <title>Divulgue Aqui Web</title>
     </h:head>
     <h:body>
+        <p:messages/>
         <h:form id="formularioMenu">
 
             <p:menubar>
@@ -16,13 +17,11 @@
                     <p:menuitem value="Fazer Login" url="fazerLogin.xhtml"/>
                 </p:submenu>
                 
-                <p:submenu label="Usuário">
-                    <p:menuitem value="cadastrar" url="cadastroUsuario.xhtml"/>
+                <p:submenu label="Administrador">
+                    <p:menuitem value="cadastrar" url="cadastroAdmin.xhtml"/>
+                    <p:menuitem value="visualizar" url="apresentaAdmin.xhtml"/>
                 </p:submenu>
-
-                <p:submenu label="Publicação">
-                    <p:menuitem value="cadastrar" url="cadastroPublicacao.xhtml"/>
-                </p:submenu>
+                
             </p:menubar>
             <p:separator/>
         </h:form>
