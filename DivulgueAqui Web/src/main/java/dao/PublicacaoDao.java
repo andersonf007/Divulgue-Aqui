@@ -3,8 +3,11 @@ package dao;
 
 import entidade.Publicacao;
 import hibernate.HibernateUtil;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -14,7 +17,8 @@ import javax.persistence.Query;
  */
 
 
-public class PublicacaoDao implements DaoGenerico<Publicacao>{
+public class PublicacaoDao implements DaoGenerico<Publicacao>, Serializable{
+    private static final long serialVersionUID = 1L;
 
     private static EntityManager  manager; 
     
@@ -68,8 +72,8 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
             pb = PublicacaoDao.manager.find(Publicacao.class, pb.getId());
             PublicacaoDao.manager.remove(pb);
             PublicacaoDao.manager.getTransaction().commit();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação foi removida com sucesso!"));
             System.out.println("Publicação deletada com sucesso!");
-          
         } catch (Exception e) {
             PublicacaoDao.manager.getTransaction().rollback();
             System.out.println("Não foi possível realizar esta operação!");
@@ -87,9 +91,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>{
         
         try {
             Publicacao p = (Publicacao) PublicacaoDao.manager.find(Publicacao.class, id);
-            //Publicacao pu = p;
             return p;
-            //return (Publicacao) PublicacaoDao.manager.find(Publicacao.class, id);
             
         } catch (Exception e) {
            System.out.println("id não encontrado!");

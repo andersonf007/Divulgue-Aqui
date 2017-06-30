@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: testesUnit\u00E1rios.TesteWebServicePublicacao
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0 sec
+=======
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0.016 sec
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37

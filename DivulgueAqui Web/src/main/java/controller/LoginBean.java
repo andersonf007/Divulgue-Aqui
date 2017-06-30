@@ -53,7 +53,7 @@ public class LoginBean {
         String redireciona = "";
         
          Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, senha);
-        
+         Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, senha);
         if (a != null) {
         
             this.setAdminLogado(a);
@@ -62,7 +62,9 @@ public class LoginBean {
                 (null, new FacesMessage("O administrador " + a.getNome() + " logado com sucesso!"));
                  redireciona = "menuOrgao.xhtml";//?faces-redirect=true
         
-        }else{ 
+        }
+        
+        else{ 
             
         Orgao o = daoOrgao.recuperarOrgaoUsuarioSenha(nome, senha);
         
@@ -103,6 +105,15 @@ public class LoginBean {
         Administrador a = (Administrador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AdminLogado");
         return a != null;
     }
+    
+    public void setUsuarioLogado(Usuario u){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("UsuarioLogado",u);
+    }
+    
+    public boolean verificarUsuarioLogado(){
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        return u != null;    
+    } 
     
     public Administrador getAdmin() {
         return admin;

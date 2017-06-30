@@ -19,14 +19,14 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-    @Ignore 
+    //@Ignore 
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
         PublicacaoDao dao = new PublicacaoDao();
         
         UsuarioDao usuDao = new UsuarioDao(); 
-        Usuario usuario = usuDao.recuperar(3L);
+        Usuario usuario = usuDao.recuperar(1L);
         
         Date data = Date.from(Instant.now());
         publicacao.setCategoria("Segurança");

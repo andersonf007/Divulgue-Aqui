@@ -11,17 +11,25 @@
     </h:head>
     <h:body>
         <ui:include src="menu.xhtml"/>
+        <p:messages/>
         <h:form id="cadUsuario">
             <p:fieldset legend="Cadastro Usuário">
                 <p:panelGrid columns="2">    
                     <p:outputLabel for="nome" value="Nome"/>
-                    <p:inputText id="nome" value="#{usuarioBean.usuario.nome}"/>
+                    <p:inputText id="nome" value="#{usuarioBean.usuario.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
                     
                     <p:outputLabel for="e-mail" value="E-mail"/>
-                    <p:inputText id="e-mail" value="#{usuarioBean.usuario.email}"/>
+                    <p:inputText id="e-mail" value="#{usuarioBean.usuario.email}" required="true" requiredMessage="O e-mail é obrigatório!">
+                           <f:validateRegex 
+                         pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+
+                    </p:inputText>
                     
                     <p:outputLabel for="senha" value="Senha"/>
-                    <p:inputText id="senha" value="#{usuarioBean.usuario.senha}"/>
+                    <p:inputText id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
+                    
+                    <p:outputLabel for="apelido" value="Apelido"/>
+                    <p:inputText id="apelido" value="#{usuarioBean.usuario.usuario}"/>
                     
                     <p:commandButton value="Cadastrar" action="#{usuarioBean.salvar()}" icon="ui-icon-star"/>
                     <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>

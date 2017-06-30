@@ -3,8 +3,6 @@ package dao;
 import hibernate.HibernateUtil;
 import entidade.Usuario;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -158,5 +156,22 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         }
         
         return u;
+    }
+     
+    public Usuario buscarUsuarioPorNomeSenha(String nome, String senha){
+        String hql = "from Usuario u where nome=:nomeUser and senha=:senhaUser";
+        Usuario u = null;
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        
+        try {
+            Query query = manager.createQuery(hql);
+            u = (Usuario) query.setParameter("nomeUser", nome).setParameter("senhaUser", senha).getSingleResult();
+            System.out.println("Usuário Logou no sistema!");
+        } catch (Exception e) {
+            System.out.println("Dados incorretos, Usuário não logou no sistema!");
+            System.out.println(e.getMessage());
+        }
+    
+    return u;
     } 
 }

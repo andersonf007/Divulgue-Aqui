@@ -11,6 +11,7 @@
     </h:head>
     <h:body>
         <ui:include src="menu.xhtml"/>
+        <p:messages/>
         <h:form id="cadOublicacao">
             <p:fieldset legend="Casdastro Publicação">
                 <p:panelGrid columns="2">
@@ -18,13 +19,13 @@
                     <p:inputText id="categoria" value="#{publicacaoBean.publicacao.categoria}"/>
                     
                     <p:outputLabel for="descricao" value="Descrição"/>
-                    <p:inputText id="descricao" value="#{publicacaoBean.publicacao.descricao}"/>
+                    <p:inputText id="descricao" value="#{publicacaoBean.publicacao.descricao}" required="true" requiredMessage="A descrição é obrigatória!"/>
                     
                     <p:outputLabel for="localidade" value="Localidade"/>
-                    <p:inputText id="localidade" value="#{publicacaoBean.publicacao.localidade}"/>
+                    <p:inputText id="localidade" value="#{publicacaoBean.publicacao.localidade}" required="true" requiredMessage="O local é obrigatório!"/>
                     
                     <p:outputLabel for="status" value="Status"/>
-                    <p:inputText id="status" value="#{publicacaoBean.publicacao.status}"/>
+                    <p:inputText id="status" value="#{publicacaoBean.publicacao.status}" required="true" requiredMessage="O Status é obrigatório!"/>
                     
                     <p:commandButton value="Cadastrar"  action="#{publicacaoBean.salvar()}" icon="ui-icon-star"/>
                     <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>

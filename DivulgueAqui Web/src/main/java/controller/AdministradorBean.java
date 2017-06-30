@@ -33,7 +33,7 @@ public class AdministradorBean implements Controller{
         //ver como vai ficar a criptografia aqui!
         
         dao.inserir(administrador);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + administrador.getNome() + " foi cadastrado com sucesso!"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Adminitrador " + administrador.getNome() + " foi cadastrado com sucesso!"));
         this.administrador = new Administrador();
         return "menu.xhtml";
     }
