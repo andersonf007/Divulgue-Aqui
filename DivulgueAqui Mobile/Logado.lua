@@ -10,13 +10,13 @@ local ButtonListar
 local tableView
 local tabelaDaPublicacao
 local grupoCena
---// integracao continua / treves/ ap veiou e treves
---um ambiente de execucao 
---cria uma maquina virtual mas proxima do que vc precisa
---uma maquina praticamente igual a um ambiente de producao mais nao é um ambiente de producao
+-- integracao continua / treves/ ap veiou e treves
+-- um ambiente de execucao cria uma maquina virtual mas proxima do que vc precisa uma maquina praticamente igual
+-- a um ambiente de producao mais nao é um ambiente de producao
 -- ambiente de omologacao
 -- o cliente usa o amiente de producao e nao de omologacao
 -- almetar a chance de nao dar erros no ambiente de producao
+--web:recoverPublicacaoIdWS(codigoUser)
 
 local function onRowRender( event )-- metodo para preencher o tableView
 		--Set up the localized variables to be passed via the event table
@@ -35,18 +35,11 @@ local function onRowRender( event )-- metodo para preencher o tableView
 		row.data.y = 20
 		row.data.x = 42
 
-		row.categoria = display.newText("categoria: "..tabelaDaPublicacao[id].categoria, 12, 0, native.systemFont, 18 )
-		row.categoria.anchorX = 0
-		row.categoria.anchorY = 0.5
-		row.categoria:setFillColor( 0.5 )
-		row.categoria.y = 40
-		row.categoria.x = 42
-
 		row.localidade = display.newText("local: "..tabelaDaPublicacao[id].localidade, 12, 0, native.systemFont, 18 )
 		row.localidade.anchorX = 0
 		row.localidade.anchorY = 0.5
 		row.localidade:setFillColor( 0.5 )
-		row.localidade.y = 60
+		row.localidade.y = 38
 		row.localidade.x = 42
 
 		local options = 
@@ -64,7 +57,7 @@ local function onRowRender( event )-- metodo para preencher o tableView
 		row.descricao.anchorX = 0
 		row.descricao.anchorY = 0.5
 		row.descricao:setFillColor( 0.5 )
-		row.descricao.y = 87
+		row.descricao.y = 60
 		row.descricao.x = 42
 
 		row.status = display.newText("status: " ..tabelaDaPublicacao[id].status, 12, 0, native.systemFont, 18 )
@@ -75,8 +68,7 @@ local function onRowRender( event )-- metodo para preencher o tableView
 		row.status.x = 42
 
 		row:insert( row.data )
-		    row:insert( row.categoria )
-		    	row:insert( row.localidade )
+		    row:insert( row.localidade )
 		    		row:insert( row.descricao )
 		    			row:insert( row.status )-- 
 		return true 
@@ -85,16 +77,32 @@ end
 function fazerLogout(event)
 	print("unhum")
 	if event.phase == "began" then
-		print("entrou")
+		codigoUser = ""
+		nomeFicticio = ""
+		nome = ""
+		emailUser = ""
+		senhaUser = ""
+		composer.gotoScene("Login")
+	end
+end
+
+function recarregarTableView(event)
+	if event.phase == "ended" then
+		print("entrou no evento")
+		web:recoverPublicacaoIdWS(codigoUser)
+		composer.gotoScene("Logado")
 	end
 end
 
 function scene:create(event)
 
-	 grupoCena = self.view 
+	grupoCena = self.view 
 
 	logout = display.newImage( "logout.png", display.contentWidth - 15, 15)
     grupoCena:insert( logout )
+
+    recarregar = display.newImage( "recarregar.png", display.contentWidth - 45, 15)
+    grupoCena:insert( recarregar )
 
 	ButtonProfile = widget.newButton( 
 		{
@@ -127,9 +135,8 @@ function scene:create(event)
 	
     logout:addEventListener("touch",fazerLogout)
 
+    recarregar:addEventListener("touch",recarregarTableView)
 end
-
-
 
 function  visualizarPerfil(event) -- toque no botao Perfil 
 	-- vai para a pagina de perfil
@@ -169,11 +176,13 @@ function scene:show(event)
 		listener = scrollListener
 	}
 	grupoCena:insert( myList)
+
+
 end
 
 function scene:hide(event)
-	print("hide")
-	print(myList)
+	--print("hide")
+	--print(myList)
 	if event.phase == "did" then
 		print("entrou")
 		display.remove(myList)

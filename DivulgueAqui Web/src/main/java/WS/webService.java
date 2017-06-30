@@ -348,17 +348,22 @@ public class webService {
             localidade = (String) jsonObject.get("localidade");
             descricao = (String) jsonObject.get("descricao");
             idUsuario =  (long) jsonObject.get("codigo");
-            categoria =  (String) jsonObject.get("categoria");
+            //categoria =  (String) jsonObject.get("categoria");
                     
             u = daoUsuario.recuperar(idUsuario);
            
             pb.setLocalidade(localidade);
             pb.setDescricao(descricao);
-            pb.setCategoria(categoria);
+            //pb.setCategoria(categoria);
             pb.setStatus("Pendente");
             pb.setUsuario(u);
-            dao.inserir(pb);
-   
+            
+            try{
+                dao.inserir(pb);
+                return "204";
+            }catch(Exception e){
+                System.out.println("WS.webService.insertPublicacao()" + e);
+            }
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -376,7 +381,7 @@ public class webService {
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();  
         
-        String categoria;
+        //String categoria;
         String descricao;
         String localidade;
 	long codigo;
@@ -384,14 +389,14 @@ public class webService {
         try {
             jsonObject = (JSONObject) parser.parse(json);
             
-            categoria = (String) jsonObject.get("categoria");
+            //categoria = (String) jsonObject.get("categoria");
             descricao = (String) jsonObject.get("descricao");
             localidade = (String) jsonObject.get("localidade");
             codigo = (long) jsonObject.get("codigo");
             
             p = dao.recuperar(codigo);
             
-            p.setCategoria(categoria);
+            //p.setCategoria(categoria);
             p.setDescricao(descricao);
             p.setLocalidade(localidade);
             dao.alterar(p);
@@ -449,6 +454,7 @@ public class webService {
         }
       return null;
     }
+    
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("pb/delete")

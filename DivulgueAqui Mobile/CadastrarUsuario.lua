@@ -1,4 +1,3 @@
---rest
 local widget =  require ("widget")
 local composer = require ("composer")
 local web = require ("webServiceConnection")
@@ -82,6 +81,7 @@ function ValidateSave(response) -- validar salvamento
 		TxtSenha.text = ""
 		txtUsuario.text = ""
 		composer.gotoScene("login")
+
 	end
 end
 
@@ -90,30 +90,34 @@ function salvarUsuario(event)
 	if event.phase == "ended" then
 		local email = TxtEmail.text
 
-		if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
-			
-			if TxtNome.text ~= "" then
+		if  TxtNome.text ~= "" and TxtEmail.text ~= "" and  TxtSenha.text ~= "" and txtUsuario.text ~= "" then
 
-				if TxtSenha.text ~= "" then
+			if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
+				
+				if TxtNome.text ~= "" then
 
-					if txtUsuario.text ~= "" then
+					if TxtSenha.text ~= "" then
 
-						 web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text, txtUsuario.text)
-						
+						if txtUsuario.text ~= "" then
+
+							 web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text, txtUsuario.text)
+							
+						else
+							alert = native.showAlert("não foi possivel Cadastrar","nome de usuario invalido", {"ok"} )
+						end
 					else
-						alert = native.showAlert("não foi possivel Cadastrar","nome de usuario invalido", {"ok"} )
+						alert = native.showAlert("não foi possivel Cadastrar","senha invalido", {"ok"} )
 					end
 				else
-					alert = native.showAlert("não foi possivel Cadastrar","senha invalido", {"ok"} )
+					alert = native.showAlert("não foi possivel Cadastrar","nome invalido", {"ok"} )
 				end
 			else
-				alert = native.showAlert("não foi possivel Cadastrar","nome invalido", {"ok"} )
+			   alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
 			end
 		else
-		   alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
+			alert = native.showAlert("não foi possivel Cadastrar","todos os campos são obrigatorios", {"ok"} )
 		end
 	end
-
 end
 
 function scene:show(event)

@@ -63,19 +63,8 @@ function scene:create(event)
 	)
 	grupoCena:insert(ButtonSave)
 
-    voltar = display.newImage( "botao-voltar.png", display.contentWidth/2 - 100, display.contentHeight/2 + 120)
-    grupoCena:insert( voltar )
-
-    voltar:addEventListener("touch",voltar)
 end
 
-function voltar(event)
- if event.phase == "began" then
-    print("entrou no voltar")
-  end
-end
-
--- Adicionar o ouvinte para o botão Logout!
 local function fazerLogout(event)
 	composer.gotoScene("Login")
 end
@@ -84,23 +73,39 @@ end
 function updateUser(event)
 
 	if event.phase == "began" then
-		--print(codigoUser)
-		web:updateUserWS(codigoUser, TxtNome.text, TxtEmail.text, TxtSenha.text)
-		web:recoverPublicacaoIdWS(codigoUser)
-		composer.gotoScene("Logado")
+		local email =  TxtEmail.text
+		
+		if  TxtNome.text ~= "" then
+
+			if  ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
+
+				if TxtSenha.text ~= "" then
+					web:updateUserWS(codigoUser, TxtNome.text, TxtEmail.text, TxtSenha.text)
+					web:recoverPublicacaoIdWS(codigoUser)
+					composer.gotoScene("Logado")
+					nome = TxtNome.text
+					emailUser = TxtEmail.text
+				else
+					alert = native.showAlert("não foi possivel Cadastrar","senha invalido", {"ok"} )
+				end
+			else
+				alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
+			end
+		else
+			alert = native.showAlert("não foi possivel Cadastrar","preencha o campo nome", {"ok"} )
+		end		
 	end
 end
 
 function scene:show(event)
 	if event.phase == "did" then
 		TxtNome = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 200, 200, 25 )
-		TxtNome.text = nomeUser 
+		TxtNome.text = nome
 
 		TxtEmail = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 150, 200, 25 ) 
 		TxtEmail.text = emailUser
 		
 		TxtSenha = native.newTextField(display.contentWidth/2 + 5, display.contentHeight/2 - 100, 200, 25 )
-		TxtSenha.text = senhaUser 
 		TxtSenha.isSecure = true
 	end
 end
