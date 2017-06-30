@@ -1,7 +1,9 @@
 package controller;
 
 import dao.PublicacaoDao;
+import dao.UsuarioDao;
 import entidade.Publicacao;
+import entidade.Usuario;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -21,8 +23,10 @@ import javax.faces.context.FacesContext;
 public class PublicacaoBean implements Controller, Serializable {
     private static final long serialVersionUID = 1L;
 
-    private PublicacaoDao dao;
     private Publicacao publicacao;
+    private PublicacaoDao dao;
+    private Usuario usuario;
+    private UsuarioDao daoUsuario;
 
     public PublicacaoBean() {
     }
@@ -30,11 +34,15 @@ public class PublicacaoBean implements Controller, Serializable {
     @PostConstruct
     public void inicializar() {
         dao = new PublicacaoDao();
+        daoUsuario = new UsuarioDao();
         publicacao = new Publicacao();
+        usuario = new Usuario();
     }
 
     @Override
     public String salvar() {
+        usuario = daoUsuario.recuperar(usuario.getId());
+        publicacao.setUsuario(usuario);
         dao.inserir(publicacao);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação salva com sucesso!"));
        
@@ -86,4 +94,20 @@ public class PublicacaoBean implements Controller, Serializable {
         this.publicacao = publicacao;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public UsuarioDao getDaoUsuario() {
+        return daoUsuario;
+    }
+
+    public void setDaoUsuario(UsuarioDao daoUsuario) {
+        this.daoUsuario = daoUsuario;
+    }
+    
 }

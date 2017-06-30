@@ -44,14 +44,14 @@ public class UsuarioBean implements Controller{
         dao.alterar(usuario);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + "dodos foram atualizados com sucesso!"));
         usuario = new Usuario();
-        return "index.xhtml?faces-redirect=true";    
+        return "index.xhtml";//?faces-redirect=true    
     }
 
     @Override
     public String deletar() {
         dao.remover(usuario);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados do Usuario foram removidos com sucesso!"));
-        return "index.xhtml?faces-redirect=true";        
+        return "index.xhtml";//?faces-redirect=true        
     }
 
     @Override
@@ -80,4 +80,7 @@ public class UsuarioBean implements Controller{
         this.usuario = usuario;
     }
     
+    public void buscarUsuarioNome(String nome){
+        dao.recuperarUsuarioNome(nome);
+    } 
 }

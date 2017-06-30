@@ -19,7 +19,7 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-    //@Ignore 
+    @Ignore 
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
