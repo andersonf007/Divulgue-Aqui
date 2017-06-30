@@ -138,8 +138,8 @@ public class webService {
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //u = dao.recuperarUsuarioIdNomeFicticio(usuario);
-        u = dao.recuperarUsuarioIdNome(usuario);
+        u = dao.recuperarUsuarioPorNomeFicticio(usuario);
+        //u = dao.recuperarUsuarioNome(usuario);
         
         if(u.getSenha().equals(Criptografia.encriptografar(senha))){
             return g.toJson(u);

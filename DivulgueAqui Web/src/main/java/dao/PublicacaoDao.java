@@ -3,6 +3,7 @@ package dao;
 
 import entidade.Publicacao;
 import hibernate.HibernateUtil;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -16,7 +17,8 @@ import javax.persistence.Query;
  */
 
 
-public class PublicacaoDao implements DaoGenerico<Publicacao>{
+public class PublicacaoDao implements DaoGenerico<Publicacao>, Serializable{
+    private static final long serialVersionUID = 1L;
 
     private static EntityManager  manager; 
     

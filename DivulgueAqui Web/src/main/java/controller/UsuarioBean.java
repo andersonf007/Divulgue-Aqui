@@ -5,15 +5,17 @@ import dao.UsuarioDao;
 import entidade.Usuario;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.view.ViewScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
  * @author Izaquias
  */
-@ViewScoped
 
+@SessionScoped
 @ManagedBean(name = "usuarioBean")
 public class UsuarioBean implements Controller{
     
@@ -32,13 +34,15 @@ public class UsuarioBean implements Controller{
     @Override
     public String salvar() {
         dao.inserir(usuario);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + " foi cadastrado com sucesso!"));
         usuario = new Usuario();
-        return "index.xhtml?faces-redirect=true";
+        return "menu.xhtml";//?faces-redirect=true
     }
 
     @Override
     public String atualizar() {
         dao.alterar(usuario);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + "dodos foram atualizados com sucesso!"));
         usuario = new Usuario();
         return "index.xhtml?faces-redirect=true";    
     }
@@ -46,6 +50,7 @@ public class UsuarioBean implements Controller{
     @Override
     public String deletar() {
         dao.remover(usuario);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados do Usuario foram removidos com sucesso!"));
         return "index.xhtml?faces-redirect=true";        
     }
 

@@ -50,7 +50,7 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar alterar o usuário!");
         }
     }
-    //@Ignore
+    @Ignore
     @Test
     public void verificarExclusaoUsuarioDB(){
         Usuario usuario;
@@ -97,11 +97,14 @@ public class TesteUsuarioDao {
     public void buscarUsuarioBDPorNome(){
         UsuarioDao dao = new UsuarioDao();
         
-        Usuario usuario = dao.recuperarUsuarioIdNome("Carl Jonhson");
+
+        Usuario usuario = dao.recuperarUsuarioNome("Carl Jonhson");
         
         System.out.println("Nome:" + usuario.getNome());
         System.out.println("Email:" + usuario.getEmail());
         System.out.println("Senha:" + usuario.getSenha()); 
         System.out.println("Ficticio:" + usuario.getUsuario());    
     }
+    
+    
 }

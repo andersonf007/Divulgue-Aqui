@@ -16,13 +16,17 @@
             <p:fieldset legend="Cadastrar Adiministrador">
                 <p:panelGrid columns="2">
                     <p:outputLabel for="nome" value="Nome"/>
-                    <p:inputText id="nome" value="#{administradorBean.administrador.nome}"/>
+                    <p:inputText id="nome" value="#{administradorBean.administrador.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
 
                     <p:outputLabel for="email" value="E-mail"/>
-                    <p:inputText id="email" value="#{administradorBean.administrador.email}"/>
+                    <p:inputText id="email" value="#{administradorBean.administrador.email}" required="true" requiredMessage="O e-mail é obrigatório!">
+                       <f:validateRegex 
+                         pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+
+                    </p:inputText>
 
                     <p:outputLabel for="senha" value="Senha"/>
-                    <p:inputText id="senha" value="#{administradorBean.administrador.senha}"/>
+                    <p:inputText id="senha" value="#{administradorBean.administrador.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
 
                     <p:commandButton value="Cadastrar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
                     <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
@@ -39,7 +43,7 @@
                         <f:facet name="footer">
 
                             <p:commandButton value="Sim" action="#{administradorBean.salvar()}" update="cadAdmin"/>
-                            <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 30%"/>
+                            <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 50%"/>
                         </f:facet>
 
                     </p:dialog>

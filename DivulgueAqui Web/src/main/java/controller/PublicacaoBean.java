@@ -36,6 +36,7 @@ public class PublicacaoBean implements Controller, Serializable {
     @Override
     public String salvar() {
         dao.inserir(publicacao);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação salva com sucesso!"));
        // externalContext.getFlash().put("A publicação com", publicacao.getCategoria() + "foi salva com sucesso!");
         publicacao = new Publicacao();
         return "menu.xhtml";

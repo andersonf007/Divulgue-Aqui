@@ -27,7 +27,7 @@ public class RecuperarNome {
     public static void main(String[] args) {
         
         String nome;
-        String usuario = "anderson" ;
+        String usuario = "andy" ;
         String email;
         String senha = "123";
         long codigo;
@@ -69,11 +69,9 @@ public class RecuperarNome {
       
             jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
             
-            //codigo = (long) jsonObject.get("codigo");
             nome = (String) jsonObject.get("nome");
             email = (String) jsonObject.get("email");
-            //senha = (String) jsonObject.get("senha");
-                        
+                                    
             System.out.println("o  nome : " + nome  + " usuario : " + usuario 
             + " email : " + email + " senha : " + senha);
 

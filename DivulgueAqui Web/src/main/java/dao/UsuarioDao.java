@@ -3,8 +3,6 @@ package dao;
 import hibernate.HibernateUtil;
 import entidade.Usuario;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -125,10 +123,10 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         return null;
     }
 
-    public Usuario recuperarUsuarioIdNomeFicticio(String nomeDeUsuario){
-        Usuario u = new Usuario();
+    public Usuario recuperarUsuarioPorNomeFicticio(String nomeDeUsuario){
+        Usuario u = null;
 
-        String hql = "from Usuario where nomeFicticio=:nomeUsuario";//como tá no bd, e o segundo param. é como um álias!
+        String hql = "from Usuario o where nomeFicticio=:nomeUsuario";//como tá no bd, e o segundo param. é como um álias!
 
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
@@ -142,7 +140,7 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         return u;
     }   
 
-     public Usuario recuperarUsuarioIdNome(String nome){
+    public Usuario recuperarUsuarioNome(String nome){
         Usuario u = null;
 
         String hql = "from Usuario o where nome=:usuario";//como tá no bd, e o segundo param. é como um álias!
