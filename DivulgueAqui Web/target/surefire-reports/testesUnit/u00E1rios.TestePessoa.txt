@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: testesUnit\u00E1rios.TestePessoa
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+=======
+<<<<<<< HEAD
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+=======
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 sec
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b

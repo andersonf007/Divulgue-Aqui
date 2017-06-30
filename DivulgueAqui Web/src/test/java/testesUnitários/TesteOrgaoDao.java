@@ -22,7 +22,8 @@ public class TesteOrgaoDao {
         Orgao orgao = new Orgao();
         OrgaoDao dao = new OrgaoDao();
         
-        orgao.setNome("Administrativo");
+        orgao.setNome("Forum");
+        orgao.setEmail("forum@gmail.com");
         orgao.setSenha("1010");
         
         try {
@@ -43,6 +44,7 @@ public class TesteOrgaoDao {
         OrgaoDao dao = new OrgaoDao();
         orgao = dao.recuperar(6L);
         orgao.setNome("Forum");
+        orgao.setEmail("forum@gmail.com");
         orgao.setSenha("9090");
         
         try {

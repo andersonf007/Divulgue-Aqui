@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteAdministradorDao" time="13.922" errors="0" skipped="4">
+=======
+<<<<<<< HEAD
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteAdministradorDao" time="3.652" errors="0" skipped="4">
+=======
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteAdministradorDao" time="25.892" errors="0" skipped="4">
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -65,7 +73,23 @@
   <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="buscarAdminPorId" time="0">
     <skipped/>
   </testcase>
+<<<<<<< HEAD
   <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarExclusaoAdminBD" time="0.067">
+=======
+<<<<<<< HEAD
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarExclusaoAdminBD" time="0.026">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarAtualizacaoAdminBD" time="0.026">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="listarTodosAdminBD" time="0.026">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarInsercaoAdminBD" time="3.503"/>
+=======
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarExclusaoAdminBD" time="0.016">
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
     <skipped/>
   </testcase>
   <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarAtualizacaoAdminBD" time="0.067">
@@ -74,5 +98,10 @@
   <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="listarTodosAdminBD" time="0.067">
     <skipped/>
   </testcase>
+<<<<<<< HEAD
   <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarInsercaoAdminBD" time="13.551"/>
+=======
+  <testcase classname="testesUnit\u00E1rios.TesteAdministradorDao" name="vericarInsercaoAdminBD" time="25.642"/>
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
 </testsuite>

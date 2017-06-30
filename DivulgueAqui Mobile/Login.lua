@@ -63,7 +63,7 @@ end
 function ReceivesUserInformation(codigo,nome,email,senha,usuario) -- recebe as informacoes do usuario que veio do web service e faz a validacao para o usuario poder fazer login 
 
 	if TxtUserName.text == usuario then
-		web:storeInformation(codigo,nome,email,senha,usuario)-- armazena as informacoes do usuario em variaves globais para poder recuperar em outras telas
+		web:storeInformation(codigo,nome,email,senha,usuario)-- armazena as informacoes do usuario em variaves globais que esta no webservice para poder recuperar em outras telas
 		web:recoverPublicacaoIdWS(codigo)
 		composer.gotoScene("Logado")
 	end

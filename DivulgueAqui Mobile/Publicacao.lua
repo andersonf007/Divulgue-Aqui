@@ -1,4 +1,3 @@
---display.setDefault("background", 0.3, 0.6, 1)
 local widget =  require ("widget") -- para os botoes
 local composer = require ("composer") -- para as telas
 local web = require ("webServiceConnection")
@@ -44,7 +43,7 @@ function scene:create(event)
       campoLocalidade = display.newText({text = "Local do problema", x=display.contentWidth/2,y=display.contentHeight/2 - 170, native.systemFont, 16})
       campoLocalidade:setFillColor(0,1,0)
       grupoCena:insert( campoLocalidade )
-      --[[
+      
       botaoPublicar = widget.newButton( 
           {
           label = "Publicar", 
@@ -55,31 +54,27 @@ function scene:create(event)
           } 
       )
       
-       grupoCena:insert( botaoPublicar )
-
-      voltar = display.newImage( "botao-voltar.png", display.contentWidth/2 - 100, display.contentHeight/2 + 120)
-      grupoCena:insert( voltar )
-
-      voltar:addEventListener("touch",voltar)]]
+      grupoCena:insert( botaoPublicar )      
 end
---[[
-function voltar(event)
- if event.phase == "began" then
-    print("entrou no voltar")
-  end
+
+function retornoDoCodigoDeInsercaoDaPublicacao( codigo ) -- recebe o codigo que vem do web service para saber se inseriu no banco com sucesso
+        
+        if codigo == 204 then
+
+            textoDescricao.text = ""
+            textoLocalidade.text = ""
+            web:recoverPublicacaoIdWS(codigoUser)
+            composer.gotoScene("Logado")
+
+        end
 end
-]]
+
 function registrarPublicacao( event )
 
 	if event.phase == "ended" then
 
         if textoLocalidade.text ~= "" and textoDescricao.text ~= "" then
         		web:RegisterPublicationWS(textoLocalidade.text,textoDescricao.text,codigoUser)
-            web:recoverPublicacaoIdWS(codigoUser)
-        	 -- textoCategoria.text = ""
-        		textoDescricao.text = ""
-        		textoLocalidade.text = ""
-        		composer.gotoScene("Logado")
         else
           alert = native.showAlert("erro","todos os campos são obrigatorios", {"ok"} )
         end
@@ -92,7 +87,7 @@ function scene:show( event )
     local phase = event.phase
  
     if ( phase == "did" ) then
---[[
+      --[[
   		textoCategoria = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 150, 200, 25 ) 
   		textoCategoria.isEditable = true
       textoCategoria.size = 14]]
@@ -105,7 +100,6 @@ function scene:show( event )
       textoDescricao.size  = 14
 		 			
     end
-
 end
  
 function scene:hide( event )
@@ -114,26 +108,15 @@ function scene:hide( event )
     local phase = event.phase
  
     if ( phase == "will" ) then
-        -- Code here runs when the scene is on screen (but is about to go off screen)
-      display.remove(textoCategoria)
+        
       display.remove(textoDescricao)
-	    display.remove(textoDia)
 	    display.remove(textoLocalidade)
 	    
     end
 end
  
- 
--- destroy()
 function scene:destroy( event )
- 
-    --local sceneGroup = self.view
-    -- Code here runs prior to the removal of scene's view
- 
 end
-
-
-
 
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )

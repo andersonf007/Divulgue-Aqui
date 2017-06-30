@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TestePublicacaoDao" time="0.001" errors="0" skipped="5">
+=======
+<<<<<<< HEAD
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TestePublicacaoDao" time="0.004" errors="0" skipped="5">
+=======
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TestePublicacaoDao" time="1.25" errors="0" skipped="4">
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -62,7 +70,27 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarInsercaoPublicacaoDB" time="0.009">
+=======
+<<<<<<< HEAD
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarInsercaoPublicacaoDB" time="0.016">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="buscarPublicacaoPorId" time="0.016">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="listarTodasPublicacoesBD" time="0.016">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarExclusaoPublicacaoDB" time="0.016">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarAtualizacaoPublicacaoDB" time="0.016">
+=======
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarInsercaoPublicacaoDB" time="1.25"/>
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="buscarPublicacaoPorId" time="1.25">
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
     <skipped/>
   </testcase>
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="buscarPublicacaoPorId" time="0.009">
@@ -71,10 +99,15 @@
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="listarTodasPublicacoesBD" time="0.009">
     <skipped/>
   </testcase>
+<<<<<<< HEAD
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarExclusaoPublicacaoDB" time="0.009">
     <skipped/>
   </testcase>
   <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarAtualizacaoPublicacaoDB" time="0.009">
+=======
+  <testcase classname="testesUnit\u00E1rios.TestePublicacaoDao" name="verificarAtualizacaoPublicacaoDB" time="1.25">
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
     <skipped/>
   </testcase>
 </testsuite>

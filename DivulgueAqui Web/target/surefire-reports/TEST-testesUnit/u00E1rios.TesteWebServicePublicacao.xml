@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="4" failures="0" name="testesUnit\u00E1rios.TesteWebServicePublicacao" time="0.003" errors="0" skipped="4">
+=======
+<<<<<<< HEAD
+<testsuite tests="4" failures="0" name="testesUnit\u00E1rios.TesteWebServicePublicacao" time="0.007" errors="0" skipped="4">
+=======
+<testsuite tests="4" failures="0" name="testesUnit\u00E1rios.TesteWebServicePublicacao" time="0.016" errors="0" skipped="4">
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -44,8 +52,17 @@
     <property name="java.class.path" value="C:\Program Files\NetBeans 8.0.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
+<<<<<<< HEAD
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_131\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 install"/>
+=======
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_77\jre"/>
+<<<<<<< HEAD
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dnetbeans.deploy=true -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 package"/>
+=======
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 install"/>
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -62,7 +79,23 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="atualizarPublicacao" time="0.035">
+=======
+<<<<<<< HEAD
+  <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="atualizarPublicacao" time="0.041">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="deletarPublicacao" time="0.041">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="inserirPublicacao" time="0.041">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="recuperarPublicacoesPorIdDoUsuario" time="0.041">
+=======
+  <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="atualizarPublicacao" time="0.031">
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
     <skipped/>
   </testcase>
   <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="deletarPublicacao" time="0.035">
@@ -71,7 +104,12 @@
   <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="inserirPublicacao" time="0.035">
     <skipped/>
   </testcase>
+<<<<<<< HEAD
   <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="recuperarPublicacoesPorIdDoUsuario" time="0.035">
+=======
+  <testcase classname="testesUnit\u00E1rios.TesteWebServicePublicacao" name="recuperarPublicacoesPorIdDoUsuario" time="0.031">
+>>>>>>> b813131d7ab5fee99928d8dab4017c7f02c00c37
+>>>>>>> d1ce6be042fd1ac4e28aa1306650036cbe67610b
     <skipped/>
   </testcase>
 </testsuite>
