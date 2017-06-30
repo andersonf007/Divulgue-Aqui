@@ -32,32 +32,32 @@ local function onRowRender( event )-- metodo para preencher o tableView
 		row.data.anchorX = 0
 		row.data.anchorY = 0.5
 		row.data:setFillColor( 0 )
-		row.data.y = 20
+		row.data.y = 15
 		row.data.x = 42
 
 		row.localidade = display.newText("local: "..tabelaDaPublicacao[id].localidade, 12, 0, native.systemFont, 18 )
 		row.localidade.anchorX = 0
 		row.localidade.anchorY = 0.5
 		row.localidade:setFillColor( 0.5 )
-		row.localidade.y = 38
+		row.localidade.y = 33
 		row.localidade.x = 42
 
 		local options = 
 		{
-		    text = tabelaDaPublicacao[id].descricao ,     
+		    text = "descricao: ".. tabelaDaPublicacao[id].descricao ,     
 		    x = 12,
 		    y = 0,
 		    width = 250,
-		    height = 40,
+		    height = 58,
 		    font = native.systemFont,   
-		    fontSize = 18,
+		    fontSize = 17,
 		    align = "left"  -- Alignment parameter
 		}
 		row.descricao = display.newText(options)
 		row.descricao.anchorX = 0
 		row.descricao.anchorY = 0.5
 		row.descricao:setFillColor( 0.5 )
-		row.descricao.y = 60
+		row.descricao.y = 70
 		row.descricao.x = 42
 
 		row.status = display.newText("status: " ..tabelaDaPublicacao[id].status, 12, 0, native.systemFont, 18 )
