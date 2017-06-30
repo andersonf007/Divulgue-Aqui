@@ -12,14 +12,15 @@
     <h:body>
         <ui:include src="menu.xhtml"/>
         <h:form id="cadAdmin">
-            
+             <p:messages id="mensages"/>
             <p:fieldset legend="Cadastrar Adiministrador">
                 <p:panelGrid columns="2">
                     <p:outputLabel for="nome" value="Nome"/>
                     <p:inputText id="nome" value="#{administradorBean.administrador.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
 
                     <p:outputLabel for="email" value="E-mail"/>
-                    <p:inputText id="email" value="#{administradorBean.administrador.email}" required="true" requiredMessage="O e-mail é obrigatório!">
+                    <p:inputText id="email" value="#{administradorBean.administrador.email}" required="true" requiredMessage="O e-mail é obrigatório!"
+                                 validatorMessage="Formato de e-mail inválido! Exemplo correto: nome@domain.com">
                        <f:validateRegex 
                          pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
 

@@ -11,15 +11,17 @@
     </h:head>
     <h:body>
         <ui:include src="menu.xhtml"/>
-        <p:messages/>
+        
         <h:form id="cadUsuario">
+        <p:messages id="mensages"/>
             <p:fieldset legend="Cadastro Usuário">
                 <p:panelGrid columns="2">    
                     <p:outputLabel for="nome" value="Nome"/>
                     <p:inputText id="nome" value="#{usuarioBean.usuario.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
                     
                     <p:outputLabel for="e-mail" value="E-mail"/>
-                    <p:inputText id="e-mail" value="#{usuarioBean.usuario.email}" required="true" requiredMessage="O e-mail é obrigatório!">
+                    <p:inputText id="e-mail" value="#{usuarioBean.usuario.email}" required="true" requiredMessage="O e-mail é obrigatório!"
+                                 validatorMessage="Formato de e-mail inválido! Exemplo correto: nome@domain.com">
                            <f:validateRegex 
                          pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
 
