@@ -21,7 +21,6 @@
       <property name="hibernate.hbm2ddl.auto" value="update"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
       <!--      <property name="javax.persistence.schema-generation.database.action" value="create"/>-->
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-    </properties>
+     </properties>
   </persistence-unit>
 </persistence>

@@ -20,9 +20,10 @@ public class TesteUsuarioDao {
         Usuario usuario = new Usuario();
         UsuarioDao dao = new UsuarioDao();
         
-        usuario.setNome("usuarioComum");
-        usuario.setEmail("usuario@gmail.com");
-        usuario.setSenha("0000");
+        usuario.setNome("Adonaia");
+        usuario.setEmail("adonaia@gmail.com");
+        usuario.setSenha("2424");
+        usuario.setUsuario("adonaia");
         
         try {
             dao.inserir(usuario);
@@ -37,10 +38,11 @@ public class TesteUsuarioDao {
         Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
        
-        usuario = dao.recuperar(4L);
+        usuario = dao.recuperar(2L);
         usuario.setNome("Carl Jonhson");
         usuario.setEmail("cj@gmail.com");
         usuario.setSenha("gta");
+        usuario.setUsuario("carl");
         try {
             dao.alterar(usuario);
             System.out.println("Usuário alterado com sucesso!");
@@ -48,13 +50,13 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar alterar o usuário!");
         }
     }
-    @Ignore
+    //@Ignore
     @Test
     public void verificarExclusaoUsuarioDB(){
         Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
         
-        usuario = dao.recuperar(6L);
+        usuario = dao.recuperar(3L);
         
         try {
             dao.remover(usuario);
@@ -73,6 +75,7 @@ public class TesteUsuarioDao {
            System.out.println("Nome:" + u.getNome());
            System.out.println("E-mail:" + u.getEmail());
            System.out.println("Senha:" + u.getSenha());
+           System.out.println("Ficticio:" + u.getUsuario());
            System.out.println("---------------------------");
        }
     }
@@ -87,15 +90,18 @@ public class TesteUsuarioDao {
         System.out.println("Nome:" + usuario.getNome());
         System.out.println("E-mail:" + usuario.getEmail());
         System.out.println("Senha:" + usuario.getSenha());
-        
+        System.out.println("Ficticio:" + usuario.getUsuario());
     }
+    @Ignore
     @Test
     public void buscarUsuarioBDPorNome(){
         UsuarioDao dao = new UsuarioDao();
         
-        Usuario usuario = dao.recuperarUsuarioIdNome("izaquias");
+        Usuario usuario = dao.recuperarUsuarioIdNome("Carl Jonhson");
+        
         System.out.println("Nome:" + usuario.getNome());
         System.out.println("Email:" + usuario.getEmail());
         System.out.println("Senha:" + usuario.getSenha()); 
+        System.out.println("Ficticio:" + usuario.getUsuario());    
     }
 }

@@ -53,7 +53,7 @@ public class LoginBean {
         String redireciona = "";
         
          Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, senha);
-        
+         Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, senha);
         if (a != null) {
         
             this.setAdminLogado(a);
@@ -62,7 +62,9 @@ public class LoginBean {
                 (null, new FacesMessage("O administrador " + a.getNome() + " logado com sucesso!"));
                  redireciona = "menuOrgao.xhtml";//?faces-redirect=true
         
-        }else{ 
+        }
+        
+        else{ 
             
         Orgao o = daoOrgao.recuperarOrgaoUsuarioSenha(nome, senha);
         
