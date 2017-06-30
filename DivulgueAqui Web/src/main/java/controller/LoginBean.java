@@ -53,7 +53,7 @@ public class LoginBean {
         String redireciona = "";
         
          Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, senha);
-         Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, senha);
+         
         if (a != null) {
         
             this.setAdminLogado(a);
@@ -66,12 +66,18 @@ public class LoginBean {
         
         else{ 
             
-        Orgao o = daoOrgao.recuperarOrgaoUsuarioSenha(nome, senha);
-        
-        if(o != null){
-           this.setOrgaoLogado(o);
-            redireciona = "menuAdmim.xhtml?faces-redirect=true";
-        }
+//        Orgao o = daoOrgao.recuperarOrgaoUsuarioSenha(nome, senha);
+//        
+//        if(o != null){
+//           this.setOrgaoLogado(o);
+//            redireciona = "menuAdmim.xhtml?faces-redirect=true";
+//        }
+        Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, senha);
+        if(u != null){
+            this.setUsuarioLogado(u);
+            redireciona = "menuUsuario.xhtml?faces-redirect=true";
+        } 
+            
          else {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no Login", "Email ou senha invalidos"));

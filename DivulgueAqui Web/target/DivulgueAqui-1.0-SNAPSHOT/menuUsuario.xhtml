@@ -16,6 +16,16 @@
                 <p:submenu label="Usuário">
                     <p:menuitem value="Visualizar" url="apresentaUsuario.xhtml"/>
                 </p:submenu>
+                
+                <p:submenu label="Publicacao" >
+                    <p:menuitem value="Cadastrar" url="cadastroPublicacao.xhtml"/>
+                </p:submenu>
+                
+                <f:facet name="options" >
+                    <p:outputLabel value="Bem Vindo(a), #{UsuarioLogado.nome}!"/>
+                </f:facet>
+
+                <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}"/>
             </p:menubar>
         </h:form>
     </h:body>

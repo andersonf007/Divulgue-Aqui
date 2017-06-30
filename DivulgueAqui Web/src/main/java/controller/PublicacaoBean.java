@@ -50,7 +50,7 @@ public class PublicacaoBean implements Controller, Serializable {
         //FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
 
         publicacao = new Publicacao();
-        return "menu.xhtml";//?faces-redirect=true
+        return "menuUsuario.xhtml";//?faces-redirect=true
     }
 
     @Override
