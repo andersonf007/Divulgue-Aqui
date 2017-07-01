@@ -50,7 +50,7 @@ function scene:create(event)
 		label="Save",
 		x = display.contentWidth/2 + 5,
 		y = display.contentHeight/2 - 50,
-		onPress = updateUser,
+		onRelease = updateUser,
 		fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
         strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
         strokeWidth = 4,
@@ -67,6 +67,7 @@ function confirmacaoDeAtualizacaoDoUsuario(codigo)
 			alert = native.showAlert("informação","usuario alterado com sucesso!", {"ok"} )
 			nome = TxtNome.text
 			emailUser = TxtEmail.text
+			web:recoverPublicacaoIdWS(codigoUser)
 			composer.gotoScene("Logado")
 		else
 			alert = native.showAlert("erro","não foi possivel alterar o usuario. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
@@ -76,7 +77,7 @@ end
 
 function updateUser(event)
 
-	if event.phase == "began" then
+	if event.phase == "ended" then
 		local email =  TxtEmail.text
 		
 		if  TxtNome.text ~= "" then

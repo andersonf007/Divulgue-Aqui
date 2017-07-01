@@ -66,6 +66,9 @@ function retornoDoCodigoDeInsercaoDaPublicacao( codigo ) -- recebe o codigo que 
             web:recoverPublicacaoIdWS(codigoUser)
             composer.gotoScene("Logado")
 
+        else
+          alert = native.showAlert("erro","Nao foi possivel publicar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+  
         end
 end
 

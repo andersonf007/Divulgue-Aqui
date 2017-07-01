@@ -14,7 +14,7 @@ import org.junit.Test;
 
 
 public class TesteAdministradorDao {
-   // @Ignore
+    @Ignore
     @Test
     public void vericarInsercaoAdminBD(){
         Administrador admin = new Administrador();

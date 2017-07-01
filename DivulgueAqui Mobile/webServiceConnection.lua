@@ -101,7 +101,7 @@ function webService:RegisterUserWS(nome,email,senha,usuario) -- registrar usuari
 
 			params.body = jsonUsuario
 
-		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir", "POST", retornoDoRestParaCadastroDoUsuario, params )
+		network.request( "http://192.168.1.109:8084/DivulgueAqui/webresources/webService/usuario/inserir", "POST", retornoDoRestParaCadastroDoUsuario, params )
 end
 
 --////////////////////////////////////RECUPERAR USUARIO POR NOME ////////////////////////////////////////////
@@ -161,7 +161,7 @@ function webService:updateUserWS(codigo,nome,email,senha) -- atualizar usuario
 
 			params.body = jsonUsuario
 
-		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/update", "PUT", handleResponse2, params )
+		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/update", "PUT", retornoRestParaConfirmarAlteracaoDoUsuario, params )
 end
 
 --///////////////////////////////////REGISTRAR PUBLICACAO////////////////////////////////////////////////////////////////////////////
