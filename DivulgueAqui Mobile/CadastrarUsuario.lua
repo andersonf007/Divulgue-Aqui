@@ -64,24 +64,18 @@ function scene:create(event)
 
     voltar:addEventListener("touch",voltar)]]
 end
---[[
-function voltar(event)
- if event.phase == "began" then
-    print("entrou no voltar")
-  end
-end
-]]
+
 function ValidateSave(response) -- validar salvamento
 
-	if response == 300 then
-		print("nao pode")
-	elseif response == 200 then
+	if response == 200 then
 		TxtNome.text = ""
 		TxtEmail.text = ""
 		TxtSenha.text = ""
 		txtUsuario.text = ""
+		alert = native.showAlert("informacao","usuario cadastrado com sucesso!", {"ok"} )
 		composer.gotoScene("login")
-
+	else
+		alert = native.showAlert("erro","não foi possivel se cadastrar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 	end
 end
 

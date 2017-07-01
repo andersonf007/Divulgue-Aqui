@@ -38,12 +38,11 @@ local function retornoDoRestParaReceberInformacoesDaPublicacao( event )
     return
 end
 
-local function handleResponse2( event )
+local function retornoRestParaConfirmarAlteracaoDoUsuario( event )
 
     if not event.isError then
         local response = json.decode( event.response )
-        print("resposta")
-        print(response)
+        confirmacaoDeAtualizacaoDoUsuario(response)
     else
         print( "Error" )
     end
@@ -203,4 +202,5 @@ function webService:recoverPublicacaoIdWS(id) -- recuperar usuario por id
 
 	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="..id, "GET", retornoDoRestParaReceberInformacoesDaPublicacao, params )
 end
+
 return webService

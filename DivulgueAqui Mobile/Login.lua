@@ -18,11 +18,11 @@ function scene:create(event)
 
 	display.setDefault("background", 0.3, 0.6, 1)
 
-	LabelUser = display.newText({text="UserName",x=display.contentWidth/2,y=display.contentHeight/2 - 23})
+	LabelUser = display.newText({text="usuario",x=display.contentWidth/2,y=display.contentHeight/2 - 23})
 	LabelUser:setFillColor(0,1,0)
 	grupoCena:insert(LabelUser)
 
-	LabelPassword = display.newText({text="Password",x=display.contentWidth/2,y=display.contentHeight/2 + 25})
+	LabelPassword = display.newText({text="senha",x=display.contentWidth/2,y=display.contentHeight/2 + 25})
 	LabelPassword:setFillColor(0,1,0)
 
 	grupoCena:insert(LabelPassword)
@@ -56,7 +56,7 @@ end
 
 function erroEfetuarLogin(codigo) -- mostra a mensagem de erro ao efetuar login
 	if codigo == 305 then
-		alert = native.showAlert("erro","usuario ou senha incorretos", {"ok"} )
+		alert = native.showAlert("erro","usuario ou senha incorretos. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 	end
 end
 
