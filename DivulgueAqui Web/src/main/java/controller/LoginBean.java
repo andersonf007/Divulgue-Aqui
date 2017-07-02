@@ -7,6 +7,7 @@ import dao.OrgaoDao;
 import dao.UsuarioDao;
 import entidade.Orgao;
 import entidade.Usuario;
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -21,7 +22,8 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "LoginBean")
 @SessionScoped
 
-public class LoginBean {
+public class LoginBean implements Serializable{
+    private static final long serialVersionUID = -1174008149968491704L;
 
 
     private String nome;

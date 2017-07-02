@@ -14,6 +14,12 @@
 
             <p:menubar>
                 <p:menuitem value="Home" url="index.xhtml"/>
+                
+                <p:submenu label="Administrador">
+                    <p:menuitem value="Cadastrar" url="cadastroAdmin.xhtml"/>
+                    <p:menuitem value="Visualizar" url="apresentaAdmin.xhtml"/>
+                </p:submenu>
+                
                 <p:submenu label="Orgão">
                     <p:menuitem value="cadastrar" url="cadastroOrgao.xhtml"/>
                     <p:menuitem value="Visualizar" url="apresentaOrgao.xhtml"/>
@@ -25,13 +31,14 @@
 
                 <p:submenu label="Publicação" >
                     <p:menuitem value="Visuarizar" url="apresentaPublicacao.xhtml"/>
+                    <p:menuitem value="Gráfico" url="apresentaRelatorioPublicacao.xhtml"/>                
                 </p:submenu>
 
                 <f:facet name="options" >
                     <p:outputLabel value="Bem Vindo(a), #{AdminLogado.nome}!"/>
                 </f:facet>
 
-                <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}"/>
+                <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}" icon="ui-icon-extlink"/>
 
             </p:menubar>
 

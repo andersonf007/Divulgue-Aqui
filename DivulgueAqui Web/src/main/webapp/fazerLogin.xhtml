@@ -19,7 +19,7 @@
                 width: 28%
             }
             .grid-login {
-                background-color: #DCDCDC;
+                background-color: #DCDCDC;//#DCDCDC
                 border-color: #DCDCDC;
                
             }
@@ -41,10 +41,10 @@
                       
                       <h:panelGrid columns="2" styleClass="grid-login" >
                           
-                          <h:outputText value="Usuário: "/>
+                          <h:outputText value="Usuário: " style="color: black"/>
                           <p:inputText id="login" value="#{LoginBean.nome}" required="true"/>
 
-                        <h:outputText value="Senha: "/>
+                        <h:outputText value="Senha: " style="color: black"/>
                         <p:password id="senha" value="#{LoginBean.senha}" required="true"/>
 
 

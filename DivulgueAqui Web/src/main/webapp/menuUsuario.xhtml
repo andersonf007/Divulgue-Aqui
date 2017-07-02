@@ -14,19 +14,19 @@
             <p:menubar>
                 <p:menuitem value="Home" url="index.xhtml"/>
                 <p:submenu label="Usuário">
-                    <p:menuitem value="Visualizar" url="apresentaUsuario.xhtml"/>
+                    <p:menuitem value="Visualizar" url="visualizaUsuario.xhtml"/>
+                    <p:menuitem value="Publicações" url="publicacaoUsuario.xhtml"/>
                 </p:submenu>
                 
                 <p:submenu label="Publicacao" >
                     <p:menuitem value="Cadastrar" url="cadastroPublicacao.xhtml"/>
-                    
                 </p:submenu>
                 
                 <f:facet name="options" >
                     <p:outputLabel value="Bem Vindo(a), #{UsuarioLogado.nome}!"/>
                 </f:facet>
 
-                <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}"/>
+                <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}" icon="ui-icon-extlink"/>
             </p:menubar>
         </h:form>
     </h:body>

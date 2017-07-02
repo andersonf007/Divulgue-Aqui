@@ -7,6 +7,7 @@ import entidade.Publicacao;
 import entidade.Usuario;
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 import static org.junit.Assert.fail;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -110,5 +111,19 @@ public class TestePublicacaoDao {
         System.out.println("Data:" + p.getData());
         System.out.println("Status:" + p.getStatus());
         
+    }
+    @Ignore
+    @Test
+    public void buscarPublicacaoPorStatus(){
+        PublicacaoDao dao = new PublicacaoDao();
+        List<Publicacao> publicacoes = dao.contaStatusPublicacao("PENDENTE");
+        
+        for (Publicacao p : publicacoes) {
+           
+               
+            System.out.println("ID da Consulta:" + p.getId());
+            System.out.println("Status da Consulta:" + p.getStatus());
+                   
+        }
     }
 }
