@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: testesUnitários.TesteUsuario
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in testesUnitários.TesteUsuario
+=======
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in testesUnitários.TesteUsuario
+>>>>>>> a1e042ba4ce2b1151006dcb5d3b08bac153b3cc3

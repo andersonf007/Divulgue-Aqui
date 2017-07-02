@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class TesteWebServiceUsuario {
   
-    @Ignore
+    //@Ignore
     @Test
     public void inserirUsuario(){
         int code = 0;
@@ -191,9 +191,9 @@ public class TesteWebServiceUsuario {
             JOptionPane.showMessageDialog(null, "erro de ParseException conexao ao rest ( Recuperar usuario) \n" + ex);
         }
         assertEquals(200, code);
-        assertEquals("Roberta", nome);
+        assertEquals("Roberta Maria Silva Santos", nome);
         assertEquals("roberta@gmail.com", email);
-        assertEquals("beta ", nomeFicticio);
+        assertEquals("beta", nomeFicticio);
     }
     
     @Ignore
@@ -253,9 +253,9 @@ public class TesteWebServiceUsuario {
         }
         
         assertEquals(200, code);
-        assertEquals("Roberta", nome);
+        assertEquals("Roberta Maria Silva Santos", nome);
         assertEquals("roberta@gmail.com", email);
-        assertEquals("beta ", nomeFicticio);
+        assertEquals("beta", nomeFicticio);
     }
     
     @Ignore

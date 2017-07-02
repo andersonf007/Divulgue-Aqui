@@ -5,7 +5,9 @@ import entidade.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
+import javax.validation.ConstraintViolationException;
 
 /**
  *
@@ -19,8 +21,13 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
 
     }
 
+    public void validarUsuarioNoBanco() { // confirma se existe ou nao usuario no banco.
+        
+    }
+    
     @Override
     public void inserir(Usuario u) {
+        
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
 
         UsuarioDao.manager.getTransaction().begin();
@@ -31,14 +38,14 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
             UsuarioDao.manager.getTransaction().commit();
             System.out.println("Usuário salvo com sucesso!");
 
-        } catch (Exception operation) {
+        }catch (Exception operation) {
 
             UsuarioDao.manager.getTransaction().rollback();
             System.out.println("Operação cancelada");
             System.out.println(operation.getMessage());
             
 
-        } finally {
+        }finally {
             UsuarioDao.manager.close();
             System.out.println("Fim da Operação");
         }
@@ -139,6 +146,28 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         return u;
     }   
+    public boolean verificarUsuarioPorNomeFicticio(String nomeDeUsuario){//verifica se o nome de usuario ja existe no banco de dador
+        Usuario u = null;
+
+        String hql = "from Usuario o where nomeFicticio=:nomeUsuario";
+        
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        
+        try {
+            Query query = manager.createQuery(hql);
+            u = (Usuario) query.setParameter("nomeUsuario", nomeDeUsuario).getSingleResult();
+            
+            if (u  != null){ // existe no banco de dados
+                return false;
+            }else{ // nao existe no banco de dados
+                return true;
+            }
+         
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return true;
+    } 
 
     public Usuario recuperarUsuarioNome(String nome){
         Usuario u = null;

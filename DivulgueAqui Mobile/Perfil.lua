@@ -15,10 +15,7 @@ local TxtSenha
 local ButtonSave 
 
 local ButtonLogout
---[[
-variavel = login.StoreID()
-print(variavel)
-]]
+
 function scene:create(event)
 
 	local grupoCena = self.view 
@@ -27,7 +24,7 @@ function scene:create(event)
 	display.setDefault("background", 0.3, 0.6, 1)
 
     -- Se achar melhor outro nome, fique a vontade!
-	local titulo = display.newText({text = "Status Do Perfil",x=display.contentWidth/2,y=display.contentHeight/2 - 260 })
+	local titulo = display.newText({text = "Status Do Perfil",x=display.contentWidth/2,y=display.contentHeight/2 - 250 })
 	titulo:setFillColor( 1,1,0 )
 	titulo.isEditable = true
 	titulo.size = 30
@@ -53,7 +50,7 @@ function scene:create(event)
 		label="Save",
 		x = display.contentWidth/2 + 5,
 		y = display.contentHeight/2 - 50,
-		onPress = updateUser,
+		onRelease = updateUser,
 		fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
         strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
         strokeWidth = 4,
@@ -62,17 +59,25 @@ function scene:create(event)
 		}
 	)
 	grupoCena:insert(ButtonSave)
-
 end
 
-local function fazerLogout(event)
-	composer.gotoScene("Login")
+function confirmacaoDeAtualizacaoDoUsuario(codigo)
+	
+		if codigo == 200 then
+			alert = native.showAlert("informação","usuario alterado com sucesso!", {"ok"} )
+			nome = TxtNome.text
+			emailUser = TxtEmail.text
+			web:recoverPublicacaoIdWS(codigoUser)
+			composer.gotoScene("Logado")
+		else
+			alert = native.showAlert("erro","não foi possivel alterar o usuario. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+		end
 end
 
 
 function updateUser(event)
 
-	if event.phase == "began" then
+	if event.phase == "ended" then
 		local email =  TxtEmail.text
 		
 		if  TxtNome.text ~= "" then
@@ -82,9 +87,7 @@ function updateUser(event)
 				if TxtSenha.text ~= "" then
 					web:updateUserWS(codigoUser, TxtNome.text, TxtEmail.text, TxtSenha.text)
 					web:recoverPublicacaoIdWS(codigoUser)
-					composer.gotoScene("Logado")
-					nome = TxtNome.text
-					emailUser = TxtEmail.text
+					
 				else
 					alert = native.showAlert("não foi possivel Cadastrar","senha invalido", {"ok"} )
 				end

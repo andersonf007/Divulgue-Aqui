@@ -72,32 +72,40 @@ public class webService {
         String email;
         String senha;
         String usuario;
+        boolean validacao;
+        
+        try {
+             jsonObject = (JSONObject) parser.parse(json);
 
-           try {
-                jsonObject = (JSONObject) parser.parse(json);
+             nome = (String) jsonObject.get("nome");
+             email = (String)jsonObject.get("email");
+             senha = (String) jsonObject.get("senha");
+             usuario = (String) jsonObject.get("usuario");
 
-                nome = (String) jsonObject.get("nome");
-                email = (String)jsonObject.get("email");
-                senha = (String) jsonObject.get("senha");
-                usuario = (String) jsonObject.get("usuario");
+            validacao = dao.verificarUsuarioPorNomeFicticio(usuario);
 
-                u.setNome(nome);              
-                u.setEmail(email);
-                u.setSenha(senha);
-                u.setSenha(Criptografia.encriptografar(u.getSenha()));
-                u.setUsuario(usuario);
-                
-                try{
-                    dao.inserir(u);
-                    return "200";
-                }catch(Exception e){
-                    System.out.println("nao foi possivel inserir o usuario (web service inserir usuario\n " + e);
-                }
-               
-            } catch (ParseException ex) {
-                Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
-            }
-         return "";
+                if (validacao == true){
+
+                 u.setNome(nome);              
+                 u.setEmail(email);
+                 u.setSenha(senha);
+                 u.setSenha(Criptografia.encriptografar(u.getSenha()));
+                 u.setUsuario(usuario);
+
+                     try{
+                         dao.inserir(u);
+                         return "200";
+                     }catch(Exception e){
+                         System.out.println("nao foi possivel inserir o usuario (web service inserir usuario\n " + e);
+                         return "301";
+                     }
+
+                } 
+
+         } catch (ParseException ex) {
+             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return "301";
   
     }
     
