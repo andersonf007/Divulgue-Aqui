@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <p:messages/>
+        <p:growl id="gro15" life="5000"/>
         <h:form id="menuUsu">
             <p:menubar>
                 <p:menuitem value="Home" url="index.xhtml"/>
@@ -19,6 +19,7 @@
                 
                 <p:submenu label="Publicacao" >
                     <p:menuitem value="Cadastrar" url="cadastroPublicacao.xhtml"/>
+                    
                 </p:submenu>
                 
                 <f:facet name="options" >

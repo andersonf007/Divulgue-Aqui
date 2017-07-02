@@ -75,12 +75,14 @@ public class LoginBean {
         Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, senha);
         if(u != null){
             this.setUsuarioLogado(u);
-            redireciona = "menuUsuario.xhtml?faces-redirect=true";
+            FacesContext.getCurrentInstance().addMessage
+                (null, new FacesMessage("O usuario " + u.getNome() + " logado com sucesso!"));
+            redireciona = "menuUsuario.xhtml";//
         } 
             
          else {
             FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no Login", "Email ou senha invalidos"));
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no Login", "Nome ou senha invalidos"));
             }
         }
         return redireciona;

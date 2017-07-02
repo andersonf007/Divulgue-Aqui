@@ -141,6 +141,12 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>, Serializable{
         
         return  pb;
     }
+//    
+//    public int contaStatusPublicacao(List<Publicacao> publicacao){
+//        String hql = "SELECT status FROM Publicacao W";
+//        
+//        return 0;
+//    }
     
     //Com @NamedQuerie vide entidade publicacao!
     public List<Publicacao> consultarPorUsuario(Long usuarioId){
