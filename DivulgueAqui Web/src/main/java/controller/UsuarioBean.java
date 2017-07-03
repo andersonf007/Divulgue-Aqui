@@ -3,6 +3,7 @@ package controller;
 
 import dao.UsuarioDao;
 import entidade.Usuario;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -17,7 +18,9 @@ import javax.faces.context.FacesContext;
 
 @SessionScoped
 @ManagedBean(name = "usuarioBean")
-public class UsuarioBean implements Controller{
+public class UsuarioBean implements Controller, Serializable{
+    private static final long serialVersionUID = -6707698940390690698L;
+    
     
     private UsuarioDao dao;
     private Usuario usuario; 

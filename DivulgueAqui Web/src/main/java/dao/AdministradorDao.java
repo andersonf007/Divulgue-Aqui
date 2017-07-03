@@ -6,7 +6,7 @@ import hibernate.HibernateUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import hibernate.Criptografia;
+
 
 /**
  *
@@ -31,7 +31,7 @@ public class AdministradorDao implements DaoGenerico<Administrador>{
         
         try {
             
-            Criptografia.encriptografar(a.getSenha());
+            //Criptografia.encriptografar(a.getSenha());
             AdministradorDao.manager.persist(a);
             AdministradorDao.manager.getTransaction().commit();
             System.out.println("Admin salvo com sucesso!");

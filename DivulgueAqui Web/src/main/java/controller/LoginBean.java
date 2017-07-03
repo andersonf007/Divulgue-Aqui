@@ -7,6 +7,7 @@ import dao.OrgaoDao;
 import dao.UsuarioDao;
 import entidade.Orgao;
 import entidade.Usuario;
+import hibernate.Criptografia;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -54,7 +55,7 @@ public class LoginBean implements Serializable{
         
         String redireciona = "";
         
-         Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, senha);
+         Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, Criptografia.encriptografar(senha));
          
         if (a != null) {
         
