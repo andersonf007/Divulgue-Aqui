@@ -47,6 +47,7 @@ public class AdministradorBean implements Controller, Serializable{
 
     @Override
     public String atualizar() {
+         administrador.setSenha(Criptografia.encriptografar(administrador.getSenha()));
          dao.alterar(administrador);
          FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + administrador.getNome() + " dados atualizados com sucesso!"));
          this.administrador = new Administrador();

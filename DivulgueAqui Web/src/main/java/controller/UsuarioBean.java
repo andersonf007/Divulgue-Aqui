@@ -3,6 +3,7 @@ package controller;
 
 import dao.UsuarioDao;
 import entidade.Usuario;
+import hibernate.Criptografia;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -36,6 +37,7 @@ public class UsuarioBean implements Controller, Serializable{
     
     @Override
     public String salvar() {
+        usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         dao.inserir(usuario);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + " foi cadastrado com sucesso!"));
         usuario = new Usuario();
@@ -44,6 +46,7 @@ public class UsuarioBean implements Controller, Serializable{
 
     @Override
     public String atualizar() {
+        usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         dao.alterar(usuario);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + "dodos foram atualizados com sucesso!"));
         usuario = new Usuario();

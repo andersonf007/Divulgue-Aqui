@@ -75,7 +75,7 @@ public class LoginBean implements Serializable{
 //           this.setOrgaoLogado(o);
 //            redireciona = "menuAdmim.xhtml?faces-redirect=true";
 //        }
-        Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, senha);
+        Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, Criptografia.encriptografar(senha));
         if(u != null){
             this.setUsuarioLogado(u);
             FacesContext.getCurrentInstance().addMessage
