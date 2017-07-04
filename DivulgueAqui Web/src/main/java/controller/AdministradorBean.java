@@ -58,6 +58,7 @@ public class AdministradorBean implements Controller, Serializable{
     public String deletar() {
         dao.remover(administrador);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + administrador.getNome() + " dados removidos com sucesso!"));
+        this.administrador = new Administrador();
         return "menuOrgao.xhtml";
     }
 

@@ -36,7 +36,7 @@ public class UsuarioBean implements Controller, Serializable{
     }
     
     @Override
-    public String salvar() {
+    public String salvar() {//Fazer validação no  Dao para freiar quando houver resgistro a ser duplicado no BD!
         usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         dao.inserir(usuario);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + " foi cadastrado com sucesso!"));

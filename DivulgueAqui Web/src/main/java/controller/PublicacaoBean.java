@@ -40,7 +40,7 @@ public class PublicacaoBean implements Controller, Serializable {
     }
 
     @Override
-    public String salvar() {
+    public String salvar() {//fazer validação pelo model
         usuario = daoUsuario.recuperar(usuario.getId());
         publicacao.setUsuario(usuario);
         dao.inserir(publicacao);
@@ -77,7 +77,14 @@ public class PublicacaoBean implements Controller, Serializable {
     public List<Publicacao> listarTodos() {
         return dao.recuperarTodos();
     }
-
+    
+    public void publicacaoUsuario(){
+         dao.consultarPorUsuario(usuario.getId());
+    }
+    public List publicacoesDoUsuario(Long id){
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        return dao.buscarPublicacaoPorIdUsuario(u.getId());
+    }
     public PublicacaoDao getDao() {
         return dao;
     }
