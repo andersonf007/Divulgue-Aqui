@@ -35,7 +35,7 @@ public class AdministradorBean implements Controller{
         dao.inserir(administrador);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Adminitrador " + administrador.getNome() + " foi cadastrado com sucesso!"));
         this.administrador = new Administrador();
-        return "menu.xhtml";
+        return "menuOrgao.xhtml";
     }
 
     @Override

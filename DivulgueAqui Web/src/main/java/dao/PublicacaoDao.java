@@ -142,6 +142,20 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>, Serializable{
         return  pb;
     }
     
+    public List<Publicacao> contaStatusPublicacao(String statusAtual){
+        String hql = "FROM Publicacao WHERE status=:statusConsulta";
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+        List<Publicacao> publicacao;
+        try {
+           Query quantidade = manager.createQuery(hql);
+           quantidade.setParameter("statusConsulta", statusAtual);
+           publicacao = quantidade.getResultList();
+        } catch (Exception e) {
+           publicacao = new ArrayList();
+        }
+        return publicacao;
+    }
+    
     //Com @NamedQuerie vide entidade publicacao!
     public List<Publicacao> consultarPorUsuario(Long usuarioId){
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();

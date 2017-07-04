@@ -7,6 +7,7 @@ import dao.OrgaoDao;
 import dao.UsuarioDao;
 import entidade.Orgao;
 import entidade.Usuario;
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -21,7 +22,8 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "LoginBean")
 @SessionScoped
 
-public class LoginBean {
+public class LoginBean implements Serializable{
+    private static final long serialVersionUID = -1174008149968491704L;
 
 
     private String nome;
@@ -75,12 +77,14 @@ public class LoginBean {
         Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, senha);
         if(u != null){
             this.setUsuarioLogado(u);
-            redireciona = "menuUsuario.xhtml?faces-redirect=true";
+            FacesContext.getCurrentInstance().addMessage
+                (null, new FacesMessage("O usuario " + u.getNome() + " logado com sucesso!"));
+            redireciona = "menuUsuario.xhtml";//
         } 
             
          else {
             FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no Login", "Email ou senha invalidos"));
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no Login", "Nome ou senha invalidos"));
             }
         }
         return redireciona;

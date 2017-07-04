@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <ui:include src="menu.xhtml"/>
+        <ui:include src="menuOrgao.xhtml"/>
         <h:form id="vizualizarAdmin">
             <p:growl id="gro13" life="5000"/>
             <p:dataTable id="tabela" var="atributo" value="#{administradorBean.listarTodos()}" paginator="true" selectionMode="single" rowKey="#{atributo.id}" rows="10">

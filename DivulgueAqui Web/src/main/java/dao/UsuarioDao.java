@@ -37,16 +37,7 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
             UsuarioDao.manager.getTransaction().commit();
             System.out.println("Usuário salvo com sucesso!");
 
-        }catch (PersistenceException operation) {
-        UsuarioDao.manager.getTransaction().rollback();
-            System.out.println("Operação cancelada");
-            System.out.println(operation.getMessage());
-       /* if (e.getMessage().contains("ConstraintViolationException")) {
-            throw new ViolacaoDeConstraintException(e.getMessage());
-        } else {
-            throw e;
-        }}*/}
-        catch (Exception operation) {
+        }catch (Exception operation) {
 
             UsuarioDao.manager.getTransaction().rollback();
             System.out.println("Operação cancelada");
