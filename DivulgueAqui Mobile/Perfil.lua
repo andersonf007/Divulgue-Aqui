@@ -13,7 +13,6 @@ local TxtEmail
 local TxtTelefone
 local TxtSenha
 local ButtonSave 
-
 local ButtonLogout
 
 function scene:create(event)
@@ -73,7 +72,6 @@ function confirmacaoDeAtualizacaoDoUsuario(codigo)
 			alert = native.showAlert("erro","não foi possivel alterar o usuario. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 		end
 end
-
 
 function updateUser(event)
 

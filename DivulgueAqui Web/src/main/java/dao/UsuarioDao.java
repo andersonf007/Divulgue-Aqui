@@ -33,7 +33,6 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         UsuarioDao.manager.getTransaction().begin();
 
         try {
-
             UsuarioDao.manager.persist(u);
             UsuarioDao.manager.getTransaction().commit();
             System.out.println("Usuário salvo com sucesso!");

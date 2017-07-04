@@ -52,8 +52,8 @@ end
 local function retornoRestParaFazerSegundaAlteracaoDoUsuario(event)
 	if not event.isError then
 		local response = json.decode(event.response)
-		
-		storeInformation(response.id,response.nome,response.email,response.senha,response.usuario)
+		print(response)
+		--storeInformation(response.id,response.nome,response.email,response.senha,response.usuario)
 	else
 		print("erro")
 	end
@@ -84,7 +84,7 @@ local function retornoDeConfirmacaoDeInsercaoDaPublicacao( event )
       end
 end
 
---//////////////////////////////REGISTRAR USUARIO////////////////////////////////////////////////////
+--//////////////////////////////REGISTRAR USUARIO////////////////////////////////////////////////////////////////////////////////////
 function webService:RegisterUserWS(nome,email,senha,usuario) -- registrar usuario 
 		
 		local usuario = { nome = nome, email = email, senha = senha, usuario = usuario }
@@ -101,10 +101,10 @@ function webService:RegisterUserWS(nome,email,senha,usuario) -- registrar usuari
 
 			params.body = jsonUsuario
 
-		network.request( "http://192.168.1.109:8084/DivulgueAqui/webresources/webService/usuario/inserir", "POST", retornoDoRestParaCadastroDoUsuario, params )
+		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir", "POST", retornoDoRestParaCadastroDoUsuario, params )
 end
 
---////////////////////////////////////RECUPERAR USUARIO POR NOME ////////////////////////////////////////////
+--////////////////////////////////////RECUPERAR USUARIO POR NOME ////////////////////////////////////////////////////////////////////
 function webService:recoverUserWS(usuario,senha) -- recuperar usuario por nome
 	
 	local usuario = { usuario = usuario, senha = senha}
@@ -124,7 +124,7 @@ function webService:recoverUserWS(usuario,senha) -- recuperar usuario por nome
 	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="..jsonUsuario, "GET", retornoDoRestParaReceberInformacoesDoUsuario, params )
 end
 
---////////////////////////////////////RECUPERAR USUARIO POR ID ////////////////////////////////////////////
+--////////////////////////////////////RECUPERAR USUARIO POR ID //////////////////////////////////////////////////////////////////////
 function webService:recoverUserIdWS(id) -- recuperar usuario por id
 	
 	local usuario = { id = id}
@@ -144,7 +144,7 @@ function webService:recoverUserIdWS(id) -- recuperar usuario por id
 	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperarPorId?id="..id, "GET", retornoRestParaFazerSegundaAlteracaoDoUsuario, params )
 end
 
---/////////////////////////////////////ATUALIZAR USUARIO////////////////////////////////////////////////////
+--/////////////////////////////////////ATUALIZAR USUARIO/////////////////////////////////////////////////////////////////////////////
 function webService:updateUserWS(codigo,nome,email,senha) -- atualizar usuario
 		
 		local usuario = { codigo = codigo, nome = nome, email = email, senha = senha }
@@ -184,6 +184,7 @@ function webService:RegisterPublicationWS(localidade,descricao,codigo) -- regist
 		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/pb/inserir", "POST", retornoDeConfirmacaoDeInsercaoDaPublicacao, params )
 end
 
+--//////////////////////////////RECUPERAR PUBLICACAO/////////////////////////////////////////////////////////////////////////////////
 function webService:recoverPublicacaoIdWS(id) -- recuperar usuario por id
 	
 	local usuario = { id = id}

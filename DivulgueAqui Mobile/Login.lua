@@ -9,8 +9,6 @@ local TxtUserName
 local TxtPassword
 local Buttonlogin
 local ButtonSingIn
-local storeID -- armazenar id
-
 
 function scene:create(event)
 	
@@ -74,7 +72,6 @@ function touchOnButtonLogin(event) -- toque no botao de login/ manda a requisica
 	if event.phase == "began" then
 		web:recoverUserWS(TxtUserName.text,TxtPassword.text)
 	end
-	
 end
 
 function  registrarUsuario(event) -- toque no botao sing in 
@@ -82,7 +79,6 @@ function  registrarUsuario(event) -- toque no botao sing in
 	if event.phase == "began" then
 		composer.gotoScene("CadastrarUsuario")
 	end
-
 end
 
 function scene:show(event) 
@@ -110,23 +106,3 @@ scene:addEventListener( "hide", scene ) -- adiciona o evento da funcao de sair
 scene:addEventListener( "destroy", scene )-- adiciona o evento da funcao de destruir 
 
 return scene
-
-
-
-
-
-
-
-
-
-
-
---[[
-local email = "username@domain.com"
- 
-if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
-   print( email.." IS formatted properly." )
-else
-   print( email.." is NOT formatted properly." )
-end
-]]---

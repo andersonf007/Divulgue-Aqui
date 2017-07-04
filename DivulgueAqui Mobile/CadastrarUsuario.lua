@@ -74,8 +74,10 @@ function ValidateSave(response) -- validar salvamento
 		txtUsuario.text = ""
 		alert = native.showAlert("informacao","usuario cadastrado com sucesso!", {"ok"} )
 		composer.gotoScene("login")
+	elseif response == 302 then
+		alert = native.showAlert("erro","nome de usuario ja existe", {"ok"} )
 	else
-		alert = native.showAlert("erro","não foi possivel se cadastrar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+		alert = native.showAlert("erro","não foi possivel se cadastrar, verifique a sua conexão com a internet. já pode existir o nome de Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 	end
 end
 

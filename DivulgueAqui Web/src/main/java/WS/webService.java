@@ -100,6 +100,8 @@ public class webService {
                          return "301";
                      }
 
+                }else{
+                    return "302";
                 } 
 
          } catch (ParseException ex) {

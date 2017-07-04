@@ -64,6 +64,7 @@ function retornoDoCodigoDeInsercaoDaPublicacao( codigo ) -- recebe o codigo que 
             textoDescricao.text = ""
             textoLocalidade.text = ""
             web:recoverPublicacaoIdWS(codigoUser)
+            alert = native.showAlert("informação","Publicado com sucesso!", {"ok"} )
             composer.gotoScene("Logado")
 
         else

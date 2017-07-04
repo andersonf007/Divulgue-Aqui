@@ -10,6 +10,7 @@ local ButtonListar
 local tableView
 local tabelaDaPublicacao
 local grupoCena
+local bemVindo
 -- integracao continua / treves/ ap veiou e treves
 -- um ambiente de execucao cria uma maquina virtual mas proxima do que vc precisa uma maquina praticamente igual
 -- a um ambiente de producao mais nao é um ambiente de producao
@@ -86,23 +87,18 @@ function fazerLogout(event)
 	end
 end
 
-function recarregarTableView(event)
-	if event.phase == "ended" then
-		print("entrou no evento")
-		web:recoverPublicacaoIdWS(codigoUser)
-		composer.gotoScene("Logado")
-	end
-end
-
 function scene:create(event)
 
 	grupoCena = self.view 
 
+	bemVindo = display.newText({text="Bem-Vindo : " .. nomeFicticio ,x=display.contentWidth/2 - 95,y=display.contentHeight/2 - 210})
+    bemVindo:setFillColor( 0,0,0 )
+    bemVindo.isEditable = true
+    bemVindo.size = 16
+    grupoCena:insert(bemVindo)
+
 	logout = display.newImage( "logout.png", display.contentWidth - 15, 15)
     grupoCena:insert( logout )
-
-    recarregar = display.newImage( "recarregar.png", display.contentWidth - 45, 15)
-    grupoCena:insert( recarregar )
 
 	ButtonProfile = widget.newButton( 
 		{
@@ -120,7 +116,7 @@ function scene:create(event)
 
 	ButtonPublicacao = widget.newButton( 
 		{
-		label="Publicação", 
+		label="relatar problema", 
 		x = display.contentWidth/2 * 1.50, 
 		y = display.contentHeight,-- * 0.99, 
 		width = 150,
@@ -134,8 +130,6 @@ function scene:create(event)
 
 	
     logout:addEventListener("touch",fazerLogout)
-
-    recarregar:addEventListener("touch",recarregarTableView)
 end
 
 function  visualizarPerfil(event) -- toque no botao Perfil 
@@ -176,8 +170,6 @@ function scene:show(event)
 		listener = scrollListener
 	}
 	grupoCena:insert( myList)
-
-
 end
 
 function scene:hide(event)
@@ -187,13 +179,10 @@ function scene:hide(event)
 		print("entrou")
 		display.remove(myList)
 	end
-	
 end
 
 
 function scene:destroy(event)
---	display.remove(myList)
-
 end
 
 scene:addEventListener( "create", scene ) -- adiciona o evento da funcao de criar 
