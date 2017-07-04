@@ -78,12 +78,9 @@ public class PublicacaoBean implements Controller, Serializable {
         return dao.recuperarTodos();
     }
     
-    public void publicacaoUsuario(){
-         dao.consultarPorUsuario(usuario.getId());
-    }
-    public List publicacoesDoUsuario(Long id){
+    public List publicacaoUsuario(Long id){
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
-        return dao.buscarPublicacaoPorIdUsuario(u.getId());
+        return dao.consultarPorUsuario(u.getId());
     }
     public PublicacaoDao getDao() {
         return dao;

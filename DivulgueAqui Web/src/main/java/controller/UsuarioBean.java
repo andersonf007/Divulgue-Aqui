@@ -46,16 +46,18 @@ public class UsuarioBean implements Controller, Serializable{
 
     @Override
     public String atualizar() {
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
         usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
-        dao.alterar(usuario);
+        dao.alterar(u);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + "dodos foram atualizados com sucesso!"));
         usuario = new Usuario();
         return "index.xhtml";//?faces-redirect=true    
     }
 
     @Override
-    public String deletar() {
-        dao.remover(usuario);
+    public String deletar() {//Validar: mandar mensagem para o usuário caso ele tenha publicações! 
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        dao.remover(u);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados do Usuario foram removidos com sucesso!"));
         return "index.xhtml";//?faces-redirect=true        
     }

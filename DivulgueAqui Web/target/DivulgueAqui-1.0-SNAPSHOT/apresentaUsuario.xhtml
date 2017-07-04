@@ -11,7 +11,7 @@
     </h:head>
     <h:body>
         <ui:include src="menuOrgao.xhtml"/>
-        <h:form id="apresentaUsu">
+        <h:form id="apresentaUsuarios">
             <p:growl id="gro10" life="5000"/>
             <p:dataTable id="tabela" var="atributo" value="#{usuarioBean.listarTodos()}" paginator="true" rows="10" rowKey="#{atributo.id}" selectionMode="single">
                 <f:facet name="header">
