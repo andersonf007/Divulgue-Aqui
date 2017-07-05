@@ -26,12 +26,6 @@
                     <p:outputLabel for="localidade" value="Localidade"/>
                     <p:inputText id="localidade" value="#{publicacaoBean.publicacao.localidade}" required="true" requiredMessage="O local é obrigatório!"/>
                     
-                    <p:outputLabel for="usuario" value="Usuário"/>
-                    <p:selectOneMenu id="usuario" value="#{publicacaoBean.usuario.id}" filter="true" filterMatchMode="startsWith" style="width:125px" required="true" requiredMessage="O Status é obrigatório!">
-                        <f:selectItem itemLabel="Selecione" itemValue="" />
-                        <f:selectItems value="#{usuarioBean.listarTodos()}"  var="atributo" itemValue="#{atributo.id}" itemLabel="#{atributo.nome}"/>
-                    </p:selectOneMenu>
-                    
                     <p:outputLabel for="status" value="Status"/>
                     <p:selectOneMenu id="status" value="#{publicacaoBean.publicacao.status}" style="width:125px" required="true" requiredMessage="O Status é obrigatório!">
                         <f:selectItem itemLabel="Selecione" itemValue="" />

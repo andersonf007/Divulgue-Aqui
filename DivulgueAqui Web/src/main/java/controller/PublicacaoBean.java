@@ -41,7 +41,8 @@ public class PublicacaoBean implements Controller, Serializable {
 
     @Override
     public String salvar() {//fazer validação pelo model
-        usuario = daoUsuario.recuperar(usuario.getId());
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        usuario = daoUsuario.recuperar(u.getId());
         publicacao.setUsuario(usuario);
         dao.inserir(publicacao);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação salva com sucesso!"));
