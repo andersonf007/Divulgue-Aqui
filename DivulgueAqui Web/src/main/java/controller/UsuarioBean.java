@@ -47,11 +47,11 @@ public class UsuarioBean implements Controller, Serializable{
     @Override
     public String atualizar() {
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
-        usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
+        u.setSenha(Criptografia.encriptografar(u.getSenha()));
         dao.alterar(u);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + "dodos foram atualizados com sucesso!"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + u.getNome() + "dodos foram atualizados com sucesso!"));
         usuario = new Usuario();
-        return "index.xhtml";//?faces-redirect=true    
+        return "visualizaUsuario.xhtml";//?faces-redirect=true    
     }
 
     @Override
@@ -59,7 +59,7 @@ public class UsuarioBean implements Controller, Serializable{
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
         dao.remover(u);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados do Usuario foram removidos com sucesso!"));
-        return "index.xhtml";//?faces-redirect=true        
+        return "menu.xhtml";//?faces-redirect=true//fazerLogin.xhtml        
     }
 
     @Override
