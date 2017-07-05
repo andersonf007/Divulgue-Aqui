@@ -12,9 +12,9 @@
     <h:body>
         <ui:include src="menuUsuario.xhtml"/>
         <h:form id="publicacaoUsuario">
-            <p:dataTable id="tabela" var="atributo" value="#{publicacaoBean.publicacaoUsuario(id)}" emptyMessage="Você não possui publicações">
+            <p:dataTable id="tabela" var="atributo" value="#{publicacaoBean.publicacaoUsuario(id)}" emptyMessage="Você não fez nenhum relato!">
                 <f:facet name="header">
-                    Minhas Publicações
+                    Meus Relatos
                 </f:facet>
                 <p:column headerText="Id" filterBy="#{atributo.id}">
                     <h:outputText value="#{atributo.id}"/>

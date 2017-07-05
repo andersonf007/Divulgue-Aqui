@@ -22,7 +22,7 @@
         
         <h:form id="alteraPublicacao">
             <p:growl id="gro14" life="5000"/>
-            <p:fieldset legend="Atualizar Status da Publicação">
+            <p:fieldset legend="Atualizar Status da Problema">
                 <p:panelGrid columns="2">     
                     <p:outputLabel for="id" value="Id"/>
                     <h:outputText id="id" value="#{publicacaoBean.publicacao.id}"/>
@@ -44,7 +44,7 @@
                     <p:selectOneMenu id="status" value="#{publicacaoBean.publicacao.status}" style="width:125px">
                         <f:selectItem itemLabel="Selecione" itemValue="" />
                         <f:selectItem itemLabel="PENDENTE" itemValue="PENDENTE" />
-                        <f:selectItem itemLabel="VISTO" itemValue="VISTO" />
+                        <f:selectItem itemLabel="ANALIZANDO" itemValue="ANALIZANDO" />
                         <f:selectItem itemLabel="RESOLVENDO" itemValue="RESOLVENDO" />
                         <f:selectItem itemLabel="RESOLVIDO" itemValue="RESOLVIDO" />
                         <f:selectItem itemLabel="IGNORADO" itemValue="IGNORADO" />
@@ -52,7 +52,7 @@
                     
                 </p:panelGrid>
                 
-                <p:commandButton value="Alterar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                <p:commandButton value="Responder Problema" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
                 <p:commandButton value="Cancelar" action="apresentaPublicacao.xhtml" immediate="false"/>
                 
             </p:fieldset>
@@ -61,7 +61,7 @@
                 <f:facet name="herder">
                     Atenção!!!
                 </f:facet>
-                <p:outputLabel value="Realmente quer alterar essa Publicação?"/>
+                <p:outputLabel value="Realmente quer responder essa problema?"/>
                 
                 <f:facet name="footer">
                     <p:commandButton value="Sim" action="#{publicacaoBean.atualizar()}" style="color: green" update="alteraPublicacao" oncomplete="PF('WidDial').hide()"/>
