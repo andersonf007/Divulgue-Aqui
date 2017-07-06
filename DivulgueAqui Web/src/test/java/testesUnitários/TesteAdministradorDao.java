@@ -20,8 +20,8 @@ public class TesteAdministradorDao {
         Administrador admin = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         
-        admin.setNome("mestre");
-        admin.setEmail("mestre@gmail.com");
+        admin.setNome("root");
+        admin.setEmail("root@gmail.com");
         admin.setSenha("1000");
         
         try {

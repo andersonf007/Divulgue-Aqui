@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: testesUnitários.TesteOrgaoDao
--------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0 sec - in testesUnitários.TesteOrgaoDao
-=======
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.001 sec - in testesUnitários.TesteOrgaoDao
->>>>>>> a1e042ba4ce2b1151006dcb5d3b08bac153b3cc3

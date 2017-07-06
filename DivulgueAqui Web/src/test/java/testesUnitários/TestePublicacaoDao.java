@@ -74,7 +74,7 @@ public class TestePublicacaoDao {
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao  =  dao.recuperar(11L);
+        publicacao  =  dao.recuperar(2L);
         
         try {
             dao.remover(publicacao);

@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class TesteWebServiceUsuario {
   
-    //@Ignore
+    @Ignore
     @Test
     public void inserirUsuario(){
         int code = 0;

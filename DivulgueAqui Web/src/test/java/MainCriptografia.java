@@ -17,9 +17,9 @@ public class MainCriptografia {
         Administrador adm = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         
-        adm.setNome("experiente");
-        adm.setEmail("experiente@gmail.com");
-        adm.setSenha("321");
+        adm.setNome("master");
+        adm.setEmail("master@gmail.com");
+        adm.setSenha("123");
         adm.setSenha(Criptografia.encriptografar(adm.getSenha()));//Efetua a criptografia!
         
         dao.inserir(adm);
