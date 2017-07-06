@@ -20,14 +20,14 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-    @Ignore 
+   @Ignore 
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
         PublicacaoDao dao = new PublicacaoDao();
         
         UsuarioDao usuDao = new UsuarioDao(); 
-        Usuario usuario = usuDao.recuperar(1L);
+        Usuario usuario = usuDao.recuperar((long)2);
         
         Date data = Date.from(Instant.now());
         publicacao.setCategoria("Segurança");
@@ -41,17 +41,18 @@ public class TestePublicacaoDao {
             dao.inserir(publicacao);
             System.out.println("Publicação salva com sucesso!");
         } catch (Exception e) {
-            fail("Erro ao tentar salvar a publicação!");
+            fail("Erro ao tentar salvar a publicação!" + e);
         }
         
     }
-    @Ignore
+  
+   @Ignore
     @Test
     public void verificarAtualizacaoPublicacaoDB(){
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-         publicacao  =  dao.recuperar(8L);
+         publicacao  =  dao.recuperar((long)6);
         
         publicacao.setCategoria("Saneamento");
         publicacao.setDescricao("Descaso social");
@@ -64,28 +65,29 @@ public class TestePublicacaoDao {
             dao.alterar(publicacao);
             System.out.println("Publicação altereda com sucesso!");
         } catch (Exception e) {
-            fail("Erro ao tentar alterar a publicação!");
+            fail("Erro ao tentar alterar a publicação!" + e);
         }
         
     }
-    @Ignore
+  
+  // @Ignore
     @Test
     public void verificarExclusaoPublicacaoDB(){
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao  =  dao.recuperar(11L);
+        publicacao  =  dao.recuperar((long)15);
         
         try {
             dao.remover(publicacao);
             System.out.println("Publicação excluida com sucesso!");
         } catch (Exception e) {
-            fail("Erro ao tentar excluida a publicação!");
+            fail("Erro ao tentar excluida a publicação!"+e);
         }
     }
     
-    @Ignore
-    @Test
+   @Ignore
+   @Test
     public void listarTodasPublicacoesBD(){
        PublicacaoDao dao = new PublicacaoDao();
        
@@ -98,12 +100,13 @@ public class TestePublicacaoDao {
            System.out.println("------------------------");
        }
     }
-    @Ignore
+   
+   @Ignore
     @Test
     public void buscarPublicacaoPorId(){
         PublicacaoDao dao = new PublicacaoDao();
         
-        Publicacao p =  dao.recuperar(9L);
+        Publicacao p =  dao.recuperar((long)5);
         
         System.out.println("Categoria:" + p.getCategoria());
         System.out.println("Descrição:" + p.getDescricao());
@@ -112,11 +115,12 @@ public class TestePublicacaoDao {
         System.out.println("Status:" + p.getStatus());
         
     }
+  
     @Ignore
     @Test
     public void buscarPublicacaoPorStatus(){
         PublicacaoDao dao = new PublicacaoDao();
-        List<Publicacao> publicacoes = dao.contaStatusPublicacao("PENDENTE");
+        List<Publicacao> publicacoes = dao.contaStatusPublicacao("Pendente");
         
         for (Publicacao p : publicacoes) {
            

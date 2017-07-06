@@ -16,23 +16,27 @@ function scene:create(event)
 
 	display.setDefault("background", 0.3, 0.6, 1)
 
-	LabelUser = display.newText({text="usuario",x=display.contentWidth/2,y=display.contentHeight/2 - 23})
-	LabelUser:setFillColor(0,1,0)
+	logoTipo = display.newImage( "logotipo.png", display.contentWidth/2, 35)
+    grupoCena:insert( logoTipo )
+
+	LabelUser = display.newText({text="usuario",x=display.contentWidth/2,y=display.contentHeight/2 - 95})
+	LabelUser:setFillColor(0,0,0)
+	LabelUser.size = 20
 	grupoCena:insert(LabelUser)
 
-	LabelPassword = display.newText({text="senha",x=display.contentWidth/2,y=display.contentHeight/2 + 25})
-	LabelPassword:setFillColor(0,1,0)
-
+	LabelPassword = display.newText({text="senha",x=display.contentWidth/2,y=display.contentHeight/2 - 39})
+	LabelPassword:setFillColor(0,0,0)
+	LabelPassword.size = 20
 	grupoCena:insert(LabelPassword)
 
 	Buttonlogin = widget.newButton( 
 		{
 		label="Login", 
 		x = display.contentWidth/2 -49, 
-		y = display.contentHeight/2 + 90,
+		y = display.contentHeight/2 + 25,
 		width = 48,
 		height = 40,
-		onPress = touchOnButtonLogin, 
+		onRelease = touchOnButtonLogin, 
 		shape = "roundedRect"
 		}
 	)
@@ -42,11 +46,11 @@ function scene:create(event)
 		{
 		label="Cadastre-se",
 		x = display.contentWidth/2 + 26,
-		y = display.contentHeight/2 + 90,
+		y = display.contentHeight/2 + 25,
 		width = 96,
 		height = 40,
 		shape = "roundedRect",
-		onPress = registrarUsuario
+		onRelease = registrarUsuario
 		}
 	)
 	grupoCena:insert(ButtonSingIn)
@@ -54,7 +58,11 @@ end
 
 function erroEfetuarLogin(codigo) -- mostra a mensagem de erro ao efetuar login
 	if codigo == 305 then
-		alert = native.showAlert("erro","usuario ou senha incorretos. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+		alert = native.showAlert("erro","usuario ou senha incorretos.", {"ok"} )
+	elseif codigo == 309 then
+		alert = native.showAlert("erro","O usuario nao existe", {"ok"} )
+	else
+		alert = native.showAlert("erro","erro inesperado.Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 	end
 end
 
@@ -69,14 +77,14 @@ end
 
 function touchOnButtonLogin(event) -- toque no botao de login/ manda a requisicao para o web service
 	
-	if event.phase == "began" then
+	if event.phase == "ended" then
 		web:recoverUserWS(TxtUserName.text,TxtPassword.text)
 	end
 end
 
 function  registrarUsuario(event) -- toque no botao sing in 
 	-- vai para a pagina de cadastro
-	if event.phase == "began" then
+	if event.phase == "ended" then
 		composer.gotoScene("CadastrarUsuario")
 	end
 end
@@ -84,8 +92,8 @@ end
 function scene:show(event) 
 
 	if event.phase == "did" then
-		TxtUserName = native.newTextField(display.contentWidth/2, display.contentHeight/2, 150, 25 )
-		TxtPassword = native.newTextField(display.contentWidth/2, display.contentHeight/2 + 50, 150, 25 )
+		TxtUserName = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 70, 150, 25 )
+		TxtPassword = native.newTextField(display.contentWidth/2, display.contentHeight/2 - 15, 150, 25 )
 		TxtPassword.isSecure = true
 	end
 end

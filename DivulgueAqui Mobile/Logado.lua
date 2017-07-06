@@ -91,7 +91,7 @@ function scene:create(event)
 
 	grupoCena = self.view 
 
-	bemVindo = display.newText({text="Bem-Vindo : " .. nomeFicticio ,x=display.contentWidth/2 - 95,y=display.contentHeight/2 - 210})
+	bemVindo = display.newText({text="Bem-Vindo : " .. nomeFicticio ,x=display.contentWidth/2,y=display.contentHeight/2 - 210})
     bemVindo:setFillColor( 0,0,0 )
     bemVindo.isEditable = true
     bemVindo.size = 16
@@ -104,11 +104,11 @@ function scene:create(event)
 		{
 		label="Perfil", 
 		x = display.contentWidth/2 * 0.50, 
-		y = display.contentHeight,-- / 1.05,--/2 * 2.10
+		y = display.contentHeight - 12.5,-- / 1.05,--/2 * 2.10
 		width = 150,
 		height = 40, 
 		shape = "roundedRect" , 
-		fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, 
+		--fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, 
 		onPress = visualizarPerfil 
 		} 
 	)
@@ -118,11 +118,11 @@ function scene:create(event)
 		{
 		label="relatar problema", 
 		x = display.contentWidth/2 * 1.50, 
-		y = display.contentHeight,-- * 0.99, 
+		y = display.contentHeight - 12.5,-- * 0.99, 
 		width = 150,
 		height = 40, 
 		shape = "roundedRect", 
-		fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, 
+		--fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, 
 		onPress = realizarPublicacao}
 	)
 

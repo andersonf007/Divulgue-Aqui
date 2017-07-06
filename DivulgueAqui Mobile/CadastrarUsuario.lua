@@ -49,9 +49,9 @@ function scene:create(event)
 		label="Cadastrar", 
 		x = display.contentWidth/2,
 		y = display.contentHeight/2 + 35, 
-		fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
-        strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
-        strokeWidth = 4,
+		--fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
+        --strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
+        --strokeWidth = 4,
         shape = "roundedRect",
 		onRelease = salvarUsuario
 		}
@@ -73,13 +73,15 @@ function ValidateSave(response) -- validar salvamento
 		TxtSenha.text = ""
 		txtUsuario.text = ""
 		alert = native.showAlert("informacao","usuario cadastrado com sucesso!", {"ok"} )
-		composer.gotoScene("login")
+		composer.gotoScene("Login")
 	elseif response == 302 then
 		alert = native.showAlert("erro","nome de usuario ja existe", {"ok"} )
 	else
-		alert = native.showAlert("erro","não foi possivel se cadastrar, verifique a sua conexão com a internet. já pode existir o nome de Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+		alert = native.showAlert("erro","não foi possivel se cadastrar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 	end
 end
+
+
 
 function salvarUsuario(event)
 	--print("entrou no botao salvar")

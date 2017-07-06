@@ -16,7 +16,7 @@ local function retornoDoRestParaReceberInformacoesDoUsuario( event )
     if not event.isError then
         local response = json.decode( event.response )
        -- print(response)
-        if response == 305 then
+        if response == 305 or response == 309 then
         	erroEfetuarLogin(response) -- chama o metodo do login para mostrar a mensagem de arro
        	else
         ReceivesUserInformation(response.id,response.nome,response.email,response.senha,response.usuario) -- manda as informacoes do usuario para a tela de login

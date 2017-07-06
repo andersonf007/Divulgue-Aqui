@@ -53,5 +53,17 @@ public class TesteUsuario {
         excecao.expect(IllegalArgumentException.class);
         new Usuario(1L,"izaquias", "izaquias@gmail.com", "","");
     }
+    
+    @Test
+    public void naoPermitirCriarUsuarioComNomeFicticioNulo(){
+        excecao.expect(IllegalArgumentException.class);
+        new Usuario(1L,"izaquias", "izaquias@gmail.com", "123",null);
+    }
+    
+    @Test
+    public void naoPermitirCriarUsuarioComNomeFicticioVazio(){
+        excecao.expect(IllegalArgumentException.class);
+        new Usuario(1L,"izaquias", "izaquias@gmail.com", "123","");
+    }
    
 }

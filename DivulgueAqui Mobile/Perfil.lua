@@ -50,8 +50,6 @@ function scene:create(event)
 		x = display.contentWidth/2 + 5,
 		y = display.contentHeight/2 - 50,
 		onRelease = updateUser,
-		fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
-        strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
         strokeWidth = 4,
         shape = "roundedRect" 
 		
