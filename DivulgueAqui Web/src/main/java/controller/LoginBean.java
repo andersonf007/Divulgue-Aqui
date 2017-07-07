@@ -23,7 +23,8 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "LoginBean")
 @SessionScoped
 
-public class LoginBean implements Serializable{
+public class LoginBean {
+    //implements Serializable
     private static final long serialVersionUID = -1174008149968491704L;
 
 

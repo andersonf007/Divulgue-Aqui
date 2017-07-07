@@ -157,18 +157,19 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>, Serializable{
     }
     
     public long contarStatusProblemaPendente(){
-        String hql = "SELECT COUNT(p) FROM Publicacao p WHERE p.status='PENDENTE'";
+        String hql = "SELECT COUNT(*) FROM Publicacao  WHERE status='RESOLVENDO'";
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         //List<Publicacao> problemas;
-        int valores = 0;
+        //int valores;
         try {
             Query quantidade = manager.createQuery(hql);
-              valores = (Integer) quantidade.getResultList().size() + 1;
+           return  (Long)quantidade.getSingleResult();
+//valores = (Integer) quantidade.getResultList().get(valores);
         } catch (Exception e) {
            //problemas = new ArrayList();
         }
         
-        return valores;
+        return 0;
     }
     
     //Com @NamedQuerie vide entidade publicacao!

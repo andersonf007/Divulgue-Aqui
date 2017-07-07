@@ -20,7 +20,7 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-    //@Ignore 
+    @Ignore 
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
@@ -45,7 +45,7 @@ public class TestePublicacaoDao {
         }
         
     }
-    //@Ignore
+    @Ignore
     @Test
     public void verificarAtualizacaoPublicacaoDB(){
         Publicacao publicacao;
@@ -66,7 +66,7 @@ public class TestePublicacaoDao {
         }
         
     }
-    //@Ignore
+    @Ignore
     @Test
     public void verificarExclusaoPublicacaoDB(){
         Publicacao publicacao;
@@ -82,7 +82,7 @@ public class TestePublicacaoDao {
         }
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void listarTodasPublicacoesBD(){
        PublicacaoDao dao = new PublicacaoDao();
@@ -96,7 +96,7 @@ public class TestePublicacaoDao {
            System.out.println("------------------------");
        }
     }
-    //@Ignore
+    @Ignore
     @Test
     public void buscarPublicacaoPorId(){
         PublicacaoDao dao = new PublicacaoDao();
@@ -126,11 +126,11 @@ public class TestePublicacaoDao {
     }
     
     
-//    @Test
-//    public void buscarProblemasPorStatusPendente(){
-//        PublicacaoDao dao = new PublicacaoDao();
-//        long quantidade = dao.contarStatusProblemaPendente();
-//        System.out.println("Número de Status pendente: " + quantidade);
-//
-//    }
+    @Test
+    public void buscarProblemasPorStatusPendente(){
+        PublicacaoDao dao = new PublicacaoDao();
+        long quantidade = dao.contarStatusProblemaPendente();
+        System.out.println("Número de Status pendente: " + quantidade);
+
+    }
 }
