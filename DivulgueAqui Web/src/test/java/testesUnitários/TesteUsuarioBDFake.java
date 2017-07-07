@@ -36,25 +36,25 @@ public class TesteUsuarioBDFake {
          usuFake.inserir(u);
          Assert.assertEquals("Izaquias",u.getNome());
     }
+    
+    @Test
+    public void testarAtualizacaoUsuarioDBFake(){
+        UsuariosBDFake usuFake = new UsuariosBDFake();
+        
+        u = usuFake.recuperar(1L);
+        u.setNome("izaquias");
+        u.setEmail("izaquias@hotmail.com");
+        u.setSenha("007");
+        u.setUsuario("izaquias");
+        usuFake.alterar(u);
+//        Assert.assertEquals("izaquias@hotmail.com" , u.getEmail());
+        
+    }
 //    
-//    @Test
-//    public void testarAtualizacaoUsuarioDBFake(){
-//        UsuariosBDFake usuFake = new UsuariosBDFake();
-//        
-//        u = usuFake.recuperar(1L);
-//        u.setNome("izaquias");
-//        u.setEmail("izaquias@hotmail.com");
-//        u.setSenha("007");
-//        u.setUsuario("izaquias");
-//        usuFake.alterar(u);
-////        Assert.assertEquals("izaquias@hotmail.com" , u.getEmail());
-//        
-//    }
-////    
-//    @Test
-//    public void deveLancarErroAoTentarCadastrarUsuarioComNomeNull(){
-//        
-//    }
-//        
+    @Test
+    public void deveLancarErroAoTentarCadastrarUsuarioComNomeNull(){
+        
+    }
+        
     
 }

@@ -22,9 +22,9 @@ public class TesteOrgaoDao {
         Orgao orgao = new Orgao();
         OrgaoDao dao = new OrgaoDao();
         
-        orgao.setNome("Prefeitura");
-        orgao.setEmail("prefeitura@gmail.com");
-        orgao.setSenha("1020");
+        orgao.setNome("Forum");
+        orgao.setEmail("forum@gmail.com");
+        orgao.setSenha("1024");
         
         try {
              dao.inserir(orgao);
@@ -41,10 +41,10 @@ public class TesteOrgaoDao {
     public void verificarAtualizacaoOrgaoDB(){
         Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
-        orgao = dao.recuperar(1L);
+        orgao = dao.recuperar(4L);
         orgao.setNome("Prefeitura");
         orgao.setEmail("Prefeitura@gmail.com");
-        orgao.setSenha("9094");
+        orgao.setSenha("9894");
         
         try {
             
@@ -62,7 +62,7 @@ public class TesteOrgaoDao {
         Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
         
-        orgao = dao.recuperar(1L);
+        orgao = dao.recuperar(5L);
         
         try {
              dao.remover(orgao);
@@ -90,7 +90,7 @@ public class TesteOrgaoDao {
         Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
         
-        orgao = dao.recuperar(3L);
+        orgao = dao.recuperar(4L);
         
         System.out.println("Id:" + orgao.getId());
         System.out.println("Nome:" + orgao.getNome());

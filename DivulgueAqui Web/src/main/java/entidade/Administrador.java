@@ -29,6 +29,15 @@ public class Administrador implements Serializable{
     }
 
     public Administrador(Long id, String nome, String email, String senha) {
+        if(nome == null || nome.isEmpty()){
+            throw new IllegalArgumentException("O nome do administrador deve ser preenchido!");
+        }
+        if(email == null || email.isEmpty()){
+            throw new IllegalArgumentException("o e-mail do administrador deve ser preenchido!");
+        }
+        if(senha == null || senha.isEmpty()){
+            throw new IllegalArgumentException("A senha do administrador deve ser preenchida!");
+        }
         this.id = id;
         this.nome = nome;
         this.email = email;

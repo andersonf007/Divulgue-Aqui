@@ -3,8 +3,12 @@
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="testesUnitários.TestePessoa" time="0.036" tests="4" errors="0" skipped="0" failures="0">
 =======
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
+<testsuite tests="8" failures="0" name="testesUnit\u00E1rios.TesteUsuario" time="0.016" errors="0" skipped="0">
+=======
 <testsuite tests="6" failures="0" name="testesUnit\u00E1rios.TesteUsuario" time="0.766" errors="0" skipped="0">
 >>>>>>> b1d711d09155353b986083a23bde5cb484b158af:DivulgueAqui Web/target/surefire-reports/TEST-testesUnit/u00E1rios.TesteUsuario.xml
+>>>>>>> 4ebfe220887f06fad74f46899a1f2ad5098b490d
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -19,10 +23,10 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="test" value="testesUnitários.TesteUsuario"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\Izaquias\Documents\ReclameGaranhuns\Divulgue-Aqui\DivulgueAqui Web"/>
     <property name="java.runtime.version" value="1.8.0_77-b03"/>
+    <property name="netbeans.deploy" value="true"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_77\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
@@ -31,6 +35,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
+    <property name="netbeans.deploy.debugmode" value="true"/>
     <property name="os.name" value="Windows 8.1"/>
     <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.0.2\java\maven\bin\m2.conf"/>
@@ -54,7 +59,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_77\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=testesUnitários.TesteUsuario -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dnetbeans.deploy.debugmode=true -Dnetbeans.deploy=true -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 package"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -71,6 +76,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+<<<<<<< HEAD
+  <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioNomeVazio" time="0"/>
+=======
 <<<<<<< HEAD:DivulgueAqui Web/target/surefire-reports/TEST-testesUnitários.TestePessoa.xml
   <testcase name="naoPermitirCriarPessoaNomeComNulo" classname="testesUnitários.TestePessoa" time="0.032"/>
   <testcase name="naoPermitirCriarPessoaComEnderecoNulo" classname="testesUnitários.TestePessoa" time="0"/>
@@ -78,10 +86,13 @@
   <testcase name="naoPermitirCriarPessoaComEnderecoVazio" classname="testesUnitários.TestePessoa" time="0.001"/>
 =======
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioNomeVazio" time="0.125"/>
+>>>>>>> 4ebfe220887f06fad74f46899a1f2ad5098b490d
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioSenhaNula" time="0"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioEmailVazio" time="0"/>
+  <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioComNomeFicticioVazio" time="0"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioNomeNulo" time="0"/>
-  <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioEmailNulo" time="0.016"/>
+  <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioComNomeFicticioNulo" time="0"/>
+  <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioEmailNulo" time="0"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioSenhaVazia" time="0"/>
 >>>>>>> b1d711d09155353b986083a23bde5cb484b158af:DivulgueAqui Web/target/surefire-reports/TEST-testesUnit/u00E1rios.TesteUsuario.xml
 </testsuite>
