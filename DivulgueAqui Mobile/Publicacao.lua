@@ -25,7 +25,7 @@ function scene:create(event)
       rect:setFillColor( 3, 0.2, 0.5 )
       grupoCena:insert(rect)
       ]]
-      titulo = display.newText({text = "Problema", x=display.contentWidth/2, y=display.contentHeight/2 - 200, native.systemFont, 80})    
+      titulo = display.newText({text = "Problema", x=display.contentWidth/2, y=display.contentHeight/2 - 220, native.systemFont, 80})    
       titulo:setFillColor( 1,1,0)
       titulo.isEditable = true
       titulo.size = 30
@@ -33,15 +33,15 @@ function scene:create(event)
 
 
       campoDescricao = display.newText({text = "Descrição do problema", x=display.contentWidth/2, y=display.contentHeight/2 - 125, native.systemFont, 16})
-      campoDescricao:setFillColor(0,1,0)
+      campoDescricao:setFillColor(0,0,0)
       grupoCena:insert( campoDescricao )
       --[[
       campoCategoria = display.newText({text = "Categoria", x=display.contentWidth/2, y=display.contentHeight/2 - 170, native.systemFont, 16})
       campoCategoria:setFillColor(0,1,0)
       grupoCena:insert( campoCategoria )
       ]]
-      campoLocalidade = display.newText({text = "Local do problema", x=display.contentWidth/2,y=display.contentHeight/2 - 170, native.systemFont, 16})
-      campoLocalidade:setFillColor(0,1,0)
+      campoLocalidade = display.newText({text = "Local do problema", x=display.contentWidth/2,y=display.contentHeight/2 - 175, native.systemFont, 16})
+      campoLocalidade:setFillColor(0,0,0)
       grupoCena:insert( campoLocalidade )
       
       botaoPublicar = widget.newButton( 
@@ -49,7 +49,9 @@ function scene:create(event)
           label = "Publicar", 
           x = display.contentWidth/2,
           y = display.contentHeight/2 + 60, 
-          native.systemFont,20,
+          width = 150,
+          height = 40, 
+          shape = "roundedRect" , 
           onRelease = registrarPublicacao
           } 
       )
@@ -64,6 +66,7 @@ function retornoDoCodigoDeInsercaoDaPublicacao( codigo ) -- recebe o codigo que 
             textoDescricao.text = ""
             textoLocalidade.text = ""
             web:recoverPublicacaoIdWS(codigoUser)
+            alert = native.showAlert("informação","Publicado com sucesso!", {"ok"} )
             composer.gotoScene("Logado")
 
         else

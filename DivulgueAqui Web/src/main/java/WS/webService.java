@@ -100,6 +100,8 @@ public class webService {
                          return "301";
                      }
 
+                }else{
+                    return "302";
                 } 
 
          } catch (ParseException ex) {
@@ -146,13 +148,19 @@ public class webService {
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        u = dao.recuperarUsuarioPorNomeFicticio(usuario);
-        //u = dao.recuperarUsuarioNome(usuario);
         
-        if(u.getSenha().equals(Criptografia.encriptografar(senha))){
+        u = dao.recuperarUsuarioPorNomeFicticio(usuario);
+        
+        if (u != null){// verifica se o usuario existe no banco
+           
+            if(u.getSenha().equals(Criptografia.encriptografar(senha))){//verifica se a senha esta correta
             return g.toJson(u);
-        }else{
+            }else{
             return "305";
+            }
+            
+        }else{
+            return "309";
         }
     }
     

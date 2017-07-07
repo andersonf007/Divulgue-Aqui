@@ -21,10 +21,6 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
 
     }
 
-    public void validarUsuarioNoBanco() { // confirma se existe ou nao usuario no banco.
-        
-    }
-    
     @Override
     public void inserir(Usuario u) {
         
@@ -33,7 +29,6 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         UsuarioDao.manager.getTransaction().begin();
 
         try {
-
             UsuarioDao.manager.persist(u);
             UsuarioDao.manager.getTransaction().commit();
             System.out.println("Usuário salvo com sucesso!");
@@ -146,7 +141,8 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         return u;
     }   
-    public boolean verificarUsuarioPorNomeFicticio(String nomeDeUsuario){//verifica se o nome de usuario ja existe no banco de dador
+    public boolean verificarUsuarioPorNomeFicticio(String nomeDeUsuario){
+    //verifica se o nome de usuario ja existe no banco de dador
         Usuario u = null;
 
         String hql = "from Usuario o where nomeFicticio=:nomeUsuario";

@@ -20,7 +20,7 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-    @Ignore 
+   @Ignore 
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
@@ -41,11 +41,12 @@ public class TestePublicacaoDao {
             dao.inserir(publicacao);
             System.out.println("Publicação salva com sucesso!");
         } catch (Exception e) {
-            fail("Erro ao tentar salvar a publicação!");
+            fail("Erro ao tentar salvar a publicação!" + e);
         }
         
     }
-    @Ignore
+  
+   @Ignore
     @Test
     public void verificarAtualizacaoPublicacaoDB(){
         Publicacao publicacao;
@@ -62,11 +63,12 @@ public class TestePublicacaoDao {
             dao.alterar(publicacao);
             System.out.println("Publicação altereda com sucesso!");
         } catch (Exception e) {
-            fail("Erro ao tentar alterar a publicação!");
+            fail("Erro ao tentar alterar a publicação!" + e);
         }
         
     }
-    @Ignore
+  
+  // @Ignore
     @Test
     public void verificarExclusaoPublicacaoDB(){
         Publicacao publicacao;
@@ -78,12 +80,12 @@ public class TestePublicacaoDao {
             dao.remover(publicacao);
             System.out.println("Publicação excluida com sucesso!");
         } catch (Exception e) {
-            fail("Erro ao tentar excluida a publicação!");
+            fail("Erro ao tentar excluida a publicação!"+e);
         }
     }
     
-    @Ignore
-    @Test
+   @Ignore
+   @Test
     public void listarTodasPublicacoesBD(){
        PublicacaoDao dao = new PublicacaoDao();
        
@@ -96,11 +98,13 @@ public class TestePublicacaoDao {
            System.out.println("------------------------");
        }
     }
-    @Ignore
+   
+   @Ignore
     @Test
     public void buscarPublicacaoPorId(){
         PublicacaoDao dao = new PublicacaoDao();
         
+
         Publicacao p =  dao.recuperar(2L);
         
         System.out.println("Categoria:" + p.getCategoria());
@@ -110,11 +114,12 @@ public class TestePublicacaoDao {
         System.out.println("Status:" + p.getStatus());
         
     }
+  
     @Ignore
     @Test
     public void buscarPublicacaoPorStatus(){
         PublicacaoDao dao = new PublicacaoDao();
-        List<Publicacao> publicacoes = dao.contaStatusPublicacao("PENDENTE");
+        List<Publicacao> publicacoes = dao.contaStatusPublicacao("Pendente");
         
         for (Publicacao p : publicacoes) {
            

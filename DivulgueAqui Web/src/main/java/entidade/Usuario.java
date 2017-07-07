@@ -26,7 +26,7 @@ public class Usuario implements Serializable{
     private Long id;
     @Column(length = 50, nullable = false)
     private String nome;
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(length = 100, nullable = false, unique = true)
     private String email;
     @Column(length = 50, nullable = false)
     private String senha;
@@ -50,6 +50,9 @@ public class Usuario implements Serializable{
         }
         if(senha == null || senha.isEmpty()){
             throw new IllegalArgumentException("A senha do usuário deve ser informada corretamente!");
+        }
+        if(usuario == null || usuario.isEmpty()){
+            throw new IllegalArgumentException("O nome ficticio do usuário deve ser informada corretamente!");
         }
         this.id = id;
         this.nome = nome;
