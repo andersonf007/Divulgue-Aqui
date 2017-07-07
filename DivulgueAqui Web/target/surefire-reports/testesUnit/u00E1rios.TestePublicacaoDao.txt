@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: testesUnit\u00E1rios.TestePublicacaoDao
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 7, Time elapsed: 6.234 sec
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 7, Time elapsed: 17.895 sec

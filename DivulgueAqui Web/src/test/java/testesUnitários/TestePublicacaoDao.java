@@ -137,15 +137,29 @@ public class TestePublicacaoDao {
     @Test
     public void buscarProblemasPorStatusAnalizando(){
         PublicacaoDao dao = new PublicacaoDao();
-        long quantidade1 = dao.contarStatusProblemaAnalizando();
-        System.out.println("Número de Status analizando: " + quantidade1);
+        long quantidade = dao.contarStatusProblemaAnalizando();
+        System.out.println("Número de Status analizando: " + quantidade);
         
     }
     
     @Test
     public void buscarProblemasPorStatusResolvendo(){
         PublicacaoDao dao = new PublicacaoDao();
-        long quantidade2 = dao.contarStatusProblemaResolvendo();
-        System.out.println("Número de Status Resolvendo: " + quantidade2);
+        long quantidade = dao.contarStatusProblemaResolvendo();
+        System.out.println("Número de Status Resolvendo: " + quantidade);
     }
+    
+    @Test
+    public void buscarProblemasPorStatusResolvido(){
+        PublicacaoDao dao = new PublicacaoDao();
+        long quantidade = dao.contarStatusProblemaResolvido();
+        System.out.println("Número de Status Resolvido: " + quantidade);
+    }
+    @Test
+    public void buscarProblemasPorStatusIgonaro(){
+        PublicacaoDao dao = new PublicacaoDao();
+        long quantidade = dao.contarStatusProblemaIgnorado();
+        System.out.println("Número de Status Resolvido: " + quantidade);
+    }
+    
 }

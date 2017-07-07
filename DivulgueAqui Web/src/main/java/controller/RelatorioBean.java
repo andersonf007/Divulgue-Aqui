@@ -40,6 +40,8 @@ public class RelatorioBean implements Serializable{
         pendente = daoPublicacao.contarStatusProblemaPendente();
         analizando = daoPublicacao.contarStatusProblemaAnalizando();
         resolvendo = daoPublicacao.contarStatusProblemaResolvendo();
+        resolvido = daoPublicacao.contarStatusProblemaResolvido();
+        ignorado = daoPublicacao.contarStatusProblemaIgnorado();
     }
 
     
@@ -50,12 +52,14 @@ public class RelatorioBean implements Serializable{
                 graficoPizzaPublicacoes.set("Pendente", pendente);
                 graficoPizzaPublicacoes.set("Analizando", analizando);
                 graficoPizzaPublicacoes.set("Resolvendo", resolvendo);
+                graficoPizzaPublicacoes.set("Resolvido", resolvido);
+                graficoPizzaPublicacoes.set("Ignorado", ignorado);
             }
         
             graficoPizzaPublicacoes.setTitle("Estado do Poblema");
             graficoPizzaPublicacoes.setLegendPosition("w");
             graficoPizzaPublicacoes.setShowDataLabels(true);
-            graficoPizzaPublicacoes.setSeriesColors("E7E658,1a85ba,66cc66");
+            graficoPizzaPublicacoes.setSeriesColors("E7E658,1a85ba,66cc66,fff00,DCDCDC");
             graficoPizzaPublicacoes.setDiameter(230);
             graficoPizzaPublicacoes.setDataFormat("percent");
             return graficoPizzaPublicacoes;
