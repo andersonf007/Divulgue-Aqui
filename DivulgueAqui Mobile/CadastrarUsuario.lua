@@ -48,21 +48,13 @@ function scene:create(event)
 	
 		label="Cadastrar", 
 		x = display.contentWidth/2,
-		y = display.contentHeight/2 + 35, 
-		--fillColor = { default={0.1,0.2,0.5,1}, over={1,0.1,0.7,4} },
-        --strokeColor = { default={0.1,0.2,0.5,1}, over={0.8,0.8,1,1} },
-        --strokeWidth = 4,
+		y = display.contentHeight/2 + 35,
         shape = "roundedRect",
 		onRelease = salvarUsuario
 		}
 	)
 
 	grupoCena:insert(ButtonCadastrar)  
-	--[[
-	voltar = display.newImage( "botao-voltar.png", display.contentWidth/2 - 100, display.contentHeight/2 + 120)
-    grupoCena:insert( voltar )
-
-    voltar:addEventListener("touch",voltar)]]
 end
 
 function ValidateSave(response) -- validar salvamento
@@ -90,30 +82,45 @@ function salvarUsuario(event)
 
 		if  TxtNome.text ~= "" and TxtEmail.text ~= "" and  TxtSenha.text ~= "" and txtUsuario.text ~= "" then
 
-			if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
-				
-				if TxtNome.text ~= "" then
+			if TxtNome.text ~= " " and TxtNome.text ~= "  " and TxtNome.text ~= "   " and TxtNome.text ~= "    " then 
 
-					if TxtSenha.text ~= "" then
+				if TxtSenha.text ~= " " and TxtSenha.text ~= "  " and TxtSenha.text ~= "   " and TxtSenha.text ~= "    " then
 
-						if txtUsuario.text ~= "" then
+					if txtUsuario.text ~= " " and txtUsuario.text ~= "  " and txtUsuario.text ~= "   " and txtUsuario.text ~= "    " then
 
-							 web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text, txtUsuario.text)
+						if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
 							
+							if TxtNome.text ~= "" then
+
+								if TxtSenha.text ~= "" then
+
+									if txtUsuario.text ~= "" then
+
+										 web:RegisterUserWS(TxtNome.text, TxtEmail.text, TxtSenha.text, txtUsuario.text)
+										
+									else
+										alert = native.showAlert("Não foi possível cadastrar","Nome de usuario invalido", {"ok"} )
+									end
+								else
+									alert = native.showAlert("Não foi possível cadastrar","Senha invalido", {"ok"} )
+								end
+							else
+								alert = native.showAlert("Não foi possível cadastrar","Nome invalido", {"ok"} )
+							end
 						else
-							alert = native.showAlert("não foi possivel Cadastrar","nome de usuario invalido", {"ok"} )
+						   alert = native.showAlert("Não foi possível cadastrar","Email invalido", {"ok"} )
 						end
 					else
-						alert = native.showAlert("não foi possivel Cadastrar","senha invalido", {"ok"} )
+						alert = native.showAlert("Não foi possível cadastrar","Caracteres do usuario invalidos", {"ok"} )
 					end
 				else
-					alert = native.showAlert("não foi possivel Cadastrar","nome invalido", {"ok"} )
+					alert = native.showAlert("Não foi possível cadastrar","Caracteres do senha invalidos", {"ok"} )
 				end
 			else
-			   alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
+				alert = native.showAlert("Não foi possível cadastrar","Caracteres do nome invalidos", {"ok"} )
 			end
 		else
-			alert = native.showAlert("não foi possivel Cadastrar","todos os campos são obrigatorios", {"ok"} )
+			alert = native.showAlert("Não foi possível cadastrar","Todos os campos são obrigatorios", {"ok"} )
 		end
 	end
 end

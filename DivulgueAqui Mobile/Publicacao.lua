@@ -66,11 +66,11 @@ function retornoDoCodigoDeInsercaoDaPublicacao( codigo ) -- recebe o codigo que 
             textoDescricao.text = ""
             textoLocalidade.text = ""
             web:recoverPublicacaoIdWS(codigoUser)
-            alert = native.showAlert("informação","Publicado com sucesso!", {"ok"} )
+            alert = native.showAlert("Informação","Publicado com sucesso!", {"ok"} )
             composer.gotoScene("Logado")
 
         else
-          alert = native.showAlert("erro","Nao foi possivel publicar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+          alert = native.showAlert("Erro","Não foi possível publicar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
   
         end
 end
@@ -82,7 +82,7 @@ function registrarPublicacao( event )
         if textoLocalidade.text ~= "" and textoDescricao.text ~= "" then
         		web:RegisterPublicationWS(textoLocalidade.text,textoDescricao.text,codigoUser)
         else
-          alert = native.showAlert("erro","todos os campos são obrigatorios", {"ok"} )
+          alert = native.showAlert("Erro","Todos os campos são obrigatórios", {"ok"} )
         end
 	 end
 end

@@ -61,13 +61,13 @@ end
 function confirmacaoDeAtualizacaoDoUsuario(codigo)
 	
 		if codigo == 200 then
-			alert = native.showAlert("informação","usuario alterado com sucesso!", {"ok"} )
+			alert = native.showAlert("Informação","Usuario alterado com sucesso!", {"ok"} )
 			nome = TxtNome.text
 			emailUser = TxtEmail.text
 			web:recoverPublicacaoIdWS(codigoUser)
 			composer.gotoScene("Logado")
 		else
-			alert = native.showAlert("erro","não foi possivel alterar o usuario. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+			alert = native.showAlert("Erro","Não foi possível alterar o usuario. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 		end
 end
 
@@ -85,13 +85,13 @@ function updateUser(event)
 					web:recoverPublicacaoIdWS(codigoUser)
 					
 				else
-					alert = native.showAlert("não foi possivel Cadastrar","senha invalido", {"ok"} )
+					alert = native.showAlert("Não foi possível cadastrar","Senha invalida", {"ok"} )
 				end
 			else
-				alert = native.showAlert("não foi possivel Cadastrar","email invalido", {"ok"} )
+				alert = native.showAlert("Não foi possível cadastrar","Email invalido", {"ok"} )
 			end
 		else
-			alert = native.showAlert("não foi possivel Cadastrar","preencha o campo nome", {"ok"} )
+			alert = native.showAlert("Não foi possível cadastrar","Preencha o campo nome", {"ok"} )
 		end		
 	end
 end

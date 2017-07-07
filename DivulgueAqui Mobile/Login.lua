@@ -58,11 +58,11 @@ end
 
 function erroEfetuarLogin(codigo) -- mostra a mensagem de erro ao efetuar login
 	if codigo == 305 then
-		alert = native.showAlert("erro","usuario ou senha incorretos.", {"ok"} )
+		alert = native.showAlert("Erro","Usuario ou senha incorretos.", {"ok"} )
 	elseif codigo == 309 then
-		alert = native.showAlert("erro","O usuario nao existe", {"ok"} )
+		alert = native.showAlert("Erro","O usuario não existe", {"ok"} )
 	else
-		alert = native.showAlert("erro","erro inesperado.Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+		alert = native.showAlert("Erro","Erro inesperado. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 	end
 end
 
