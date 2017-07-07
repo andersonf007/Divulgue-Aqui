@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="testesUnit\u00E1rios.TesteUsuarioBDFake" time="0.004" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="testesUnit\u00E1rios.TesteAdminstrador" time="0.325" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -61,5 +61,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="testesUnit\u00E1rios.TesteUsuarioBDFake" name="testarCadastroUsuarioBDFake" time="0"/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdminstrador" name="naoPermitirCriarAdminComEmailVazio" time="0.295"/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdminstrador" name="naoPermitirCriarAdminComEmailNulo" time="0"/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdminstrador" name="naoPermitirCriarAdminComNomeNulo" time="0.001"/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdminstrador" name="naoPermitirCriarAdminComNomeVazio" time="0.008"/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdminstrador" name="naoPermitirCriarAdminComSenhaNula" time="0"/>
+  <testcase classname="testesUnit\u00E1rios.TesteAdminstrador" name="naoPermitirCriarAdminComSenhaVazia" time="0"/>
 </testsuite>
