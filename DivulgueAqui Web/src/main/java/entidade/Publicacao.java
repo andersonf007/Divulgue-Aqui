@@ -59,7 +59,7 @@ public class Publicacao implements Serializable {
     
     @Expose
     @Column(length = 10, nullable = true)
-    private String status;
+    private String status = "PENDENTE";
     
     //@Enumerated(EnumType.STRING)
     //private Status estado; 
@@ -91,8 +91,7 @@ public class Publicacao implements Serializable {
        
         this.categoria = categoria;
         this.localidade = localidade;
-        this.descricao = descricao;
-      //  this.usuarios = usuarios;//Ver se não dará complicações futuras! 
+        this.descricao = descricao; 
         this.data = data;
         this.status = status;
        

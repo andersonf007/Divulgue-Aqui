@@ -3,6 +3,7 @@ package testesUnitários;
 
 import dao.AdministradorDao;
 import entidade.Administrador;
+import hibernate.Criptografia;
 import static org.junit.Assert.fail;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -14,16 +15,16 @@ import org.junit.Test;
 
 
 public class TesteAdministradorDao {
-    @Ignore
+    //@Ignore
     @Test
     public void vericarInsercaoAdminBD(){
         Administrador admin = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         
-        admin.setNome("mestre");
-        admin.setEmail("mestre@gmail.com");
-        admin.setSenha("1000");
-        
+        admin.setNome("super");
+        admin.setEmail("super@gmail.com");
+        admin.setSenha("1020");
+        admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
         try {
             dao.inserir(admin);
             System.out.println("Admin salvo com sucesso!");
@@ -31,19 +32,19 @@ public class TesteAdministradorDao {
             fail("Erro ao tentar salvar o admin!");
         }
     }
-    //nao funciona
-    @Ignore//Aqui também funcionou!
+    
+    //@Ignore
     @Test
     public void vericarAtualizacaoAdminBD(){
         Administrador admin;
         AdministradorDao dao = new AdministradorDao();
         
-        admin = dao.recuperar(3L);
+        admin = dao.recuperar(4L);
         
         admin.setNome("extreme");
         admin.setEmail("extreme@gmail.com");
         admin.setSenha("321");
-        //tentar fazer com a senha criptografada!
+        admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
         try {
             dao.alterar(admin);
             System.out.println("Admin atualizado com sucesso!");
@@ -52,13 +53,13 @@ public class TesteAdministradorDao {
         }
     }
     
-    @Ignore
+    //@Ignore
     @Test
     public void vericarExclusaoAdminBD(){
         Administrador admin;
         AdministradorDao dao = new AdministradorDao();
         
-        admin = dao.recuperar(3L);
+        admin = dao.recuperar(2L);
         
         try {
             dao.remover(admin);
@@ -67,7 +68,7 @@ public class TesteAdministradorDao {
             fail("Erro ao tentar excluir o admin!");
         }
     }
-    @Ignore
+    //@Ignore
     @Test
     public void listarTodosAdminBD(){
         
@@ -80,14 +81,14 @@ public class TesteAdministradorDao {
             System.out.println("-----------------------------");
         }
     }
-    //nao funciona
-    @Ignore//aqui funcionou perfeitamente
+    
+    //@Ignore
     @Test
     public void buscarAdminPorId(){
         AdministradorDao dao = new AdministradorDao();
         Administrador admin;
         
-        admin = dao.recuperar(2L);
+        admin = dao.recuperar(1L);
         
         System.out.println("Id:" + admin.getId());
         System.out.println("Nome:" + admin.getNome());

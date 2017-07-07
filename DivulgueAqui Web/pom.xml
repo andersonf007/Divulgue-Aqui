@@ -166,14 +166,6 @@
             <version>2.1.7</version>
         </dependency>
 
-   
-        <!--<dependency>
-            <groupId>org.primefaces.extensions</groupId>
-            <artifactId>all-themes</artifactId>
-            <version>1.0.8</version>
-        </dependency>-->
-        
-        
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
@@ -234,26 +226,15 @@
             <artifactId>jaxrs-ri</artifactId>
             <version>2.13</version>
         </dependency>
-    
+       
     </dependencies>
-
+    
     <build>
         <plugins>
-            <!--Adicionei esse plugin para que o travis execute os testes!-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
-                <configuration>
-                    <parallel>methods</parallel>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
-                </configuration>
-            </plugin>
-            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>

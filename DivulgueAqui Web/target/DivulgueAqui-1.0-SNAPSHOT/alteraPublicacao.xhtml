@@ -4,20 +4,25 @@
        xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
-        <title>Dados da Publicação</title>
+        <title>Dados do problema</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
         
     </h:head>
     <h:body>
-        
+<!--        <c:if test="#{LoginBean.verificarAdminLogado() == null}">
+            <script>
+                location.href = "fazerLogin.xhtml";
+            </script>
+        </c:if>-->
         <ui:include src="menuOrgao.xhtml"/>
         
         <h:form id="alteraPublicacao">
             <p:growl id="gro14" life="5000"/>
-            <p:fieldset legend="Atualizar Status da Publicação">
+            <p:fieldset legend="Responder do Problema">
                 <p:panelGrid columns="2">     
                     <p:outputLabel for="id" value="Id"/>
                     <h:outputText id="id" value="#{publicacaoBean.publicacao.id}"/>
@@ -38,8 +43,7 @@
                     <p:outputLabel for="status" value="Status:" />
                     <p:selectOneMenu id="status" value="#{publicacaoBean.publicacao.status}" style="width:125px">
                         <f:selectItem itemLabel="Selecione" itemValue="" />
-                        <f:selectItem itemLabel="PENDENTE" itemValue="PENDENTE" />
-                        <f:selectItem itemLabel="VISTO" itemValue="VISTO" />
+                        <f:selectItem itemLabel="ANALIZANDO" itemValue="ANALIZANDO" />
                         <f:selectItem itemLabel="RESOLVENDO" itemValue="RESOLVENDO" />
                         <f:selectItem itemLabel="RESOLVIDO" itemValue="RESOLVIDO" />
                         <f:selectItem itemLabel="IGNORADO" itemValue="IGNORADO" />
@@ -47,7 +51,7 @@
                     
                 </p:panelGrid>
                 
-                <p:commandButton value="Alterar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                <p:commandButton value="Responder" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
                 <p:commandButton value="Cancelar" action="apresentaPublicacao.xhtml" immediate="false"/>
                 
             </p:fieldset>
@@ -56,7 +60,7 @@
                 <f:facet name="herder">
                     Atenção!!!
                 </f:facet>
-                <p:outputLabel value="Realmente quer alterar essa Publicação?"/>
+                <p:outputLabel value="Realmente quer responder essa problema?"/>
                 
                 <f:facet name="footer">
                     <p:commandButton value="Sim" action="#{publicacaoBean.atualizar()}" style="color: green" update="alteraPublicacao" oncomplete="PF('WidDial').hide()"/>

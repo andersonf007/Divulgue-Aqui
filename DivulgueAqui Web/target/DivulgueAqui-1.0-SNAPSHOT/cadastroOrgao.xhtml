@@ -6,14 +6,14 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Cadastro Orgão</title>
+        <title>Orgão</title>
     </h:head>
     
     <h:body>    
         <ui:include src="menuOrgao.xhtml"/>
            <h:form id="cadOrgao">
               <p:growl id="gro6" life="5000"/>
-               <p:fieldset legend="Cadastro Orgão">   
+               <p:fieldset legend="Registrar Orgão">   
                    <p:panelGrid columns="2">
                    
                    <p:outputLabel for="nome" value="Nome"/>
@@ -30,7 +30,7 @@
                    <p:outputLabel for="senha" value="Senha"/>
                    <p:inputText id="senha" value="#{orgaoBean.orgao.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
                    
-                   <p:commandButton value="Cadastrar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
+                   <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
                    <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
                    
                    <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDial">
@@ -39,7 +39,7 @@
                         Atenção!!!
                        </f:facet>
                      
-                       <h:outputText value="Deseja realmente cadastrar esse Orgão?"/><br/>
+                       <h:outputText value="Deseja realmente registrar esse Orgão?"/><br/>
                        
                        <f:facet name="footer">
                            

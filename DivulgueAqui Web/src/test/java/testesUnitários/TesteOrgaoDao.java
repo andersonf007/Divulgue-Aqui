@@ -15,16 +15,16 @@ import org.junit.Test;
 
 public class TesteOrgaoDao {
 
-    @Ignore 
+    //@Ignore 
     @Test
     public void verificarInsercaoOrgaoDB(){
 
         Orgao orgao = new Orgao();
         OrgaoDao dao = new OrgaoDao();
         
-        orgao.setNome("Forum");
-        orgao.setEmail("forum@gmail.com");
-        orgao.setSenha("1010");
+        orgao.setNome("Prefeitura");
+        orgao.setEmail("prefeitura@gmail.com");
+        orgao.setSenha("1020");
         
         try {
              dao.inserir(orgao);
@@ -36,16 +36,15 @@ public class TesteOrgaoDao {
            
     }
     
-    //nao funciona
-    @Ignore// Também funcionou!
+    //@Ignore
     @Test
     public void verificarAtualizacaoOrgaoDB(){
         Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
-        orgao = dao.recuperar(6L);
-        orgao.setNome("Forum");
-        orgao.setEmail("forum@gmail.com");
-        orgao.setSenha("9090");
+        orgao = dao.recuperar(1L);
+        orgao.setNome("Prefeitura");
+        orgao.setEmail("Prefeitura@gmail.com");
+        orgao.setSenha("9094");
         
         try {
             
@@ -57,13 +56,13 @@ public class TesteOrgaoDao {
         
     }
     
-    @Ignore
+    //@Ignore
     @Test
     public void verificarExclusaoOrgaoDB(){
         Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
         
-        orgao = dao.recuperar(3L);
+        orgao = dao.recuperar(1L);
         
         try {
              dao.remover(orgao);
@@ -72,7 +71,7 @@ public class TesteOrgaoDao {
             Assert.fail("Erro ao tentar excluir o orgão");
         }
     }
-    @Ignore
+    //@Ignore
     @Test
     public void listarTodosOrgaosBD(){
         OrgaoDao dao = new OrgaoDao();
@@ -84,14 +83,14 @@ public class TesteOrgaoDao {
             
         }
     }
-    //nao funciona
-    @Ignore//Funcionou também
+    
+    //@Ignore
     @Test
     public void verificarBuscaOrgaoDB(){
         Orgao orgao;
         OrgaoDao dao = new OrgaoDao();
         
-        orgao = dao.recuperar(6L);
+        orgao = dao.recuperar(3L);
         
         System.out.println("Id:" + orgao.getId());
         System.out.println("Nome:" + orgao.getNome());

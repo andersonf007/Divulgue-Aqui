@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Cadastro Publicação</title>
+        <title>Problema</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
@@ -15,31 +15,33 @@
         <h:form id="cadPublicacao">
             
             <p:growl id="gro8" life="5000"/>
-            <p:fieldset legend="Casdastro Publicação">
+            <p:fieldset legend="Relatar Problema">
                 <p:panelGrid columns="2">
-                    <p:outputLabel for="categoria" value="Categoria"/>
-                    <p:inputText id="categoria" value="#{publicacaoBean.publicacao.categoria}"/>
                     
                     <p:outputLabel for="descricao" value="Descrição"/>
-                    <p:inputText id="descricao" value="#{publicacaoBean.publicacao.descricao}" required="true" requiredMessage="A descrição é obrigatória!"/>
+                    <p:inputTextarea id="descricao"  autoResize="false" maxlength="200" value="#{publicacaoBean.publicacao.descricao}" required="true"  requiredMessage="A descrição é obrigatória!"/>
                     
                     <p:outputLabel for="localidade" value="Localidade"/>
                     <p:inputText id="localidade" value="#{publicacaoBean.publicacao.localidade}" required="true" requiredMessage="O local é obrigatório!"/>
                     
-                    <p:outputLabel for="usuario" value="Usuário"/>
-                    <p:selectOneMenu id="usuario" value="#{publicacaoBean.usuario.id}" filter="true" filterMatchMode="startsWith" style="width:125px" required="true" requiredMessage="O Status é obrigatório!">
-                        <f:selectItem itemLabel="Selecione" itemValue="" />
-                        <f:selectItems value="#{usuarioBean.listarTodos()}"  var="atributo" itemValue="#{atributo.id}" itemLabel="#{atributo.nome}"/>
-                    </p:selectOneMenu>
-                    
-                    <p:outputLabel for="status" value="Status"/>
-                    <p:selectOneMenu id="status" value="#{publicacaoBean.publicacao.status}" style="width:125px" required="true" requiredMessage="O Status é obrigatório!">
-                        <f:selectItem itemLabel="Selecione" itemValue="" />
-                        <f:selectItem itemLabel="PENDENTE" itemValue="PENDENTE" />
-                    </p:selectOneMenu>
-                    
-                    <p:commandButton value="Cadastrar"  action="#{publicacaoBean.salvar()}" icon="ui-icon-star" update="cadPublicacao"/>
+                    <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
                     <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
+                   
+                    <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDial">
+                    
+                       <f:facet name="header">
+                        Atenção!!!
+                       </f:facet>
+                     
+                       <h:outputText value="Deseja realmente relatar esse problema?"/><br/>
+                       
+                       <f:facet name="footer">
+                            <p:commandButton value="Sim"  action="#{publicacaoBean.salvar()}" update="cadPublicacao"/>
+                            <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 50%"/>                            
+                       </f:facet>
+                       
+                    </p:dialog>
+                
                 </p:panelGrid>
             </p:fieldset>
         </h:form>

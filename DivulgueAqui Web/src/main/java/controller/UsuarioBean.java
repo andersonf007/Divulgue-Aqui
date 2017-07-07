@@ -3,6 +3,8 @@ package controller;
 
 import dao.UsuarioDao;
 import entidade.Usuario;
+import hibernate.Criptografia;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -17,7 +19,9 @@ import javax.faces.context.FacesContext;
 
 @SessionScoped
 @ManagedBean(name = "usuarioBean")
-public class UsuarioBean implements Controller{
+public class UsuarioBean implements Controller, Serializable{
+    private static final long serialVersionUID = -6707698940390690698L;
+    
     
     private UsuarioDao dao;
     private Usuario usuario; 
@@ -32,7 +36,8 @@ public class UsuarioBean implements Controller{
     }
     
     @Override
-    public String salvar() {
+    public String salvar() {//Fazer validação no  Dao para freiar quando houver resgistro a ser duplicado no BD!
+        usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         dao.inserir(usuario);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + " foi cadastrado com sucesso!"));
         usuario = new Usuario();
@@ -41,17 +46,20 @@ public class UsuarioBean implements Controller{
 
     @Override
     public String atualizar() {
-        dao.alterar(usuario);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + usuario.getNome() + "dodos foram atualizados com sucesso!"));
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        //u.setSenha(Criptografia.encriptografar(u.getSenha()));//Ao colocar o usuário não consegue mais acessar, pois está criptografando novamente a senha!
+        dao.alterar(u);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + u.getNome() + "dodos foram atualizados com sucesso!"));
         usuario = new Usuario();
-        return "index.xhtml";//?faces-redirect=true    
+        return "visualizaUsuario.xhtml";//?faces-redirect=true    
     }
 
     @Override
-    public String deletar() {
-        dao.remover(usuario);
+    public String deletar() {//Validar: mandar mensagem para o usuário caso ele tenha publicações! 
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        dao.remover(u);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados do Usuario foram removidos com sucesso!"));
-        return "index.xhtml";//?faces-redirect=true        
+        return "menu.xhtml";//?faces-redirect=true//fazerLogin.xhtml        
     }
 
     @Override

@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Orgãos da Rede</title>
+        <title>Orgãos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
@@ -15,7 +15,7 @@
             <p:growl id="gro12" life="5000"/>
             <p:dataTable id="tabela" var="atributo" value="#{orgaoBean.listarTodos()}" paginator="true" rows="10" rowKey="#{atributo.id}" selectionMode="single">
                <f:facet name="header">
-                    Orgãos Cadastrados
+                    Orgãos Registrados
                 </f:facet>
                 <p:column headerText="Id" filterBy="#{atributo.id}">
                     <h:outputText value="#{atributo.id}"/>

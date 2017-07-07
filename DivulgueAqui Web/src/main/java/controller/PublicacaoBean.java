@@ -40,9 +40,11 @@ public class PublicacaoBean implements Controller, Serializable {
     }
 
     @Override
-    public String salvar() {
-        usuario = daoUsuario.recuperar(usuario.getId());
+    public String salvar() {//fazer validação pelo model
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        usuario = daoUsuario.recuperar(u.getId());
         publicacao.setUsuario(usuario);
+        //publicacao.getStatus();
         dao.inserir(publicacao);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação salva com sucesso!"));
        
@@ -64,7 +66,7 @@ public class PublicacaoBean implements Controller, Serializable {
     @Override
     public String deletar() {
         dao.remover(publicacao);
-        //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação foi removida com sucesso!"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação foi removida com sucesso!"));
         return "apresentaPublicacao.xhtml";//?faces-redirect=true
     }
 
@@ -77,7 +79,11 @@ public class PublicacaoBean implements Controller, Serializable {
     public List<Publicacao> listarTodos() {
         return dao.recuperarTodos();
     }
-
+    
+    public List publicacaoUsuario(Long id){
+        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
+        return dao.consultarPorUsuario(u.getId());
+    }
     public PublicacaoDao getDao() {
         return dao;
     }

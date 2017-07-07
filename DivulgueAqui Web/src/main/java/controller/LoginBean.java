@@ -7,6 +7,7 @@ import dao.OrgaoDao;
 import dao.UsuarioDao;
 import entidade.Orgao;
 import entidade.Usuario;
+import hibernate.Criptografia;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -22,7 +23,8 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "LoginBean")
 @SessionScoped
 
-public class LoginBean implements Serializable{
+public class LoginBean {
+    //implements Serializable
     private static final long serialVersionUID = -1174008149968491704L;
 
 
@@ -54,7 +56,7 @@ public class LoginBean implements Serializable{
         
         String redireciona = "";
         
-         Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, senha);
+         Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, Criptografia.encriptografar(senha));
          
         if (a != null) {
         
@@ -67,14 +69,8 @@ public class LoginBean implements Serializable{
         }
         
         else{ 
-            
-//        Orgao o = daoOrgao.recuperarOrgaoUsuarioSenha(nome, senha);
-//        
-//        if(o != null){
-//           this.setOrgaoLogado(o);
-//            redireciona = "menuAdmim.xhtml?faces-redirect=true";
-//        }
-        Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, senha);
+   
+        Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, Criptografia.encriptografar(senha));
         if(u != null){
             this.setUsuarioLogado(u);
             FacesContext.getCurrentInstance().addMessage

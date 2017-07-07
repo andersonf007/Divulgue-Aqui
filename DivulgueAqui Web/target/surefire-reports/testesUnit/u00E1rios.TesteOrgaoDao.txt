@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: testesUnit\u00E1rios.TesteOrgaoDao
+-------------------------------------------------------------------------------
+<<<<<<< HEAD:DivulgueAqui Web/target/surefire-reports/testesUnitÃ¡rios.TesteWebServiceUsuario.txt
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.468 sec - in testesUnitários.TesteWebServiceUsuario
+=======
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 12.006 sec
+>>>>>>> b1d711d09155353b986083a23bde5cb484b158af:DivulgueAqui Web/target/surefire-reports/testesUnit/u00E1rios.TesteOrgaoDao.txt

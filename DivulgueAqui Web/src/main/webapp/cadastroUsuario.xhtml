@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Cadastro Usuário</title>
+        <title>Usuário</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
@@ -14,7 +14,7 @@
         
         <h:form id="cadUsuario">
         <p:growl id="gro7" life="5000"/>
-            <p:fieldset legend="Cadastro Usuário">
+            <p:fieldset legend="Registrar Usuário">
                 <p:panelGrid columns="2">    
                     <p:outputLabel for="nome" value="Nome"/>
                     <p:inputText id="nome" value="#{usuarioBean.usuario.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
@@ -28,14 +28,31 @@
                     </p:inputText>
                     
                     <p:outputLabel for="senha" value="Senha"/>
-                    <p:inputText id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
+                    <p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
                     
-                    <p:outputLabel for="apelido" value="Apelido"/>
+                    <p:outputLabel for="apelido" value="Usuario"/>
                     <p:inputText id="apelido" value="#{usuarioBean.usuario.usuario}"/>
                     
-                    <p:commandButton value="Cadastrar" action="#{usuarioBean.salvar()}" icon="ui-icon-star"/>
+                    <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
                     <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
 
+                    <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDial">
+
+
+                        <f:facet name="header">
+                            Atenção!!!
+                        </f:facet>
+
+                        <h:outputText value="Deseja realmente registrar esses dados?"/><br/>
+
+                        <f:facet name="footer">
+
+                            <p:commandButton value="Sim" style="color: green" action="#{usuarioBean.salvar()}" update="cadUsuario"/>
+                            <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 50%; color: red"/>
+                        </f:facet>
+
+                    </p:dialog>
+                    
                 </p:panelGrid>
             </p:fieldset>
         </h:form>

@@ -2,6 +2,8 @@ package controller;
 
 import dao.AdministradorDao;
 import entidade.Administrador;
+import hibernate.Criptografia;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -15,12 +17,16 @@ import javax.faces.context.FacesContext;
  */
 @SessionScoped
 @ManagedBean(name="administradorBean")
-public class AdministradorBean implements Controller{
+public class AdministradorBean implements Controller, Serializable{
+    private static final long serialVersionUID = -6254703512368138279L;
+    
 
     private Administrador administrador;
     private AdministradorDao dao;
+    //private Criptografia criptografia;
 
     public AdministradorBean() {
+    
     }
     @PostConstruct
     public void iniciar(){
@@ -31,7 +37,8 @@ public class AdministradorBean implements Controller{
     @Override
     public String salvar() {
         //ver como vai ficar a criptografia aqui!
-        
+        administrador.setSenha(Criptografia.encriptografar(administrador.getSenha()));
+        System.out.println("Criptografando senha!!!");
         dao.inserir(administrador);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Adminitrador " + administrador.getNome() + " foi cadastrado com sucesso!"));
         this.administrador = new Administrador();
@@ -40,17 +47,20 @@ public class AdministradorBean implements Controller{
 
     @Override
     public String atualizar() {
-         dao.alterar(administrador);
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + administrador.getNome() + " dados atualizados com sucesso!"));
+         Administrador a = (Administrador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AdminLogado");
+         //administrador.setSenha(Criptografia.encriptografar(administrador.getSenha()));
+         dao.alterar(a);
+         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Administador " + a.getNome() + " dados atualizados com sucesso!"));
          this.administrador = new Administrador();
          return "menuOrgao.xhtml";
     }
 
     @Override
     public String deletar() {
-        dao.remover(administrador);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + administrador.getNome() + " dados removidos com sucesso!"));
-        return "menuOrgao.xhtml";
+        Administrador a = (Administrador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AdminLogado");
+        dao.remover(a);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Conta de adminstrador excluída com sucesso!"));
+        return "index.xhtml";
     }
 
     @Override
@@ -78,5 +88,5 @@ public class AdministradorBean implements Controller{
     public void setDao(AdministradorDao dao) {
         this.dao = dao;
     }
-    
+
 }

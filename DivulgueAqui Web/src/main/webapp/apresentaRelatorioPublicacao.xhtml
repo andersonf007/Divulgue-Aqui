@@ -9,8 +9,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
+        <ui:include src="menuOrgao.xhtml"/>
         <h:form id="relatorioGrafico">
-            <p:chart type="pie" model="#{relatorioGrafico.graficoPizzaPublicacoes}" style="width:400px;height:300px"/>
+            <p:chart type="pie" model="#{relatorioGrafico.getGraficoPizzaPublicacao()}" style="width:400px;height:300px"/>
         </h:form>
     </h:body>
 </html>
