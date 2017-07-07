@@ -29,20 +29,16 @@
                     <h:outputText value="#{atributo.id}"/>
                 </p:column>
                 
-                <p:column headerText="Categoria" filterBy="#{atributo.categoria}">
-                    <h:outputText value="#{atributo.categoria}"/>
-                </p:column>
-                
                 <p:column headerText="Descrição" filterBy="#{atributo.descricao}">
                     <h:outputText value="#{atributo.descricao}"/>
                 </p:column>
                 
-                <p:column headerText="Data" filterBy="#{atributo.data}">
-                    <h:outputText value="#{atributo.data}"/>
-                </p:column>
-                
                 <p:column headerText="Localidade" filterBy="#{atributo.localidade}">
                     <h:outputText value="#{atributo.localidade}"/>
+                </p:column>
+                
+                <p:column headerText="Data" filterBy="#{atributo.data}">
+                    <h:outputText value="#{atributo.data}"/>
                 </p:column>
                 
                 <p:column headerText="Status" filterBy="#{atributo.status}">
@@ -55,7 +51,7 @@
                         <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
                     </p:commandButton>
                     
-                    <p:commandButton icon='ui-icon-pencil' action="alteraPublicacao.xhtml" title="alterar"  oncomplete="PF('widDialVisualiza').show()">
+                    <p:commandButton icon='ui-icon-pencil' action="alteraPublicacao.xhtml" title="alterar"  oncomplete="PF('widDialAltera').show()">
                         <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
                     </p:commandButton> 
                     

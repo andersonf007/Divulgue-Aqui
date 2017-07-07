@@ -24,7 +24,7 @@ public final class UsuariosBDFake implements DaoGenerico<Usuario>{
     public void alterar(Usuario usuario) {
         for (Usuario u : usuarios) {
             if(Objects.equals(u.getId(), usuario.getId())){
-                u = usuario;
+                 usuario = u;
             }
         }
     }

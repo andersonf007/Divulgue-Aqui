@@ -28,9 +28,9 @@
                     </p:inputText>
                     
                     <p:outputLabel for="senha" value="Senha"/>
-                    <p:inputText id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
+                    <p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
                     
-                    <p:outputLabel for="apelido" value="Apelido"/>
+                    <p:outputLabel for="apelido" value="Usuario"/>
                     <p:inputText id="apelido" value="#{usuarioBean.usuario.usuario}"/>
                     
                     <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>

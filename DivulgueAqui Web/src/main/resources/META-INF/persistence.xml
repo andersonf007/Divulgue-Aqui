@@ -18,7 +18,6 @@
       <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.hbm2ddl.auto" value="update"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
-      
     </properties>
   </persistence-unit>
 </persistence>

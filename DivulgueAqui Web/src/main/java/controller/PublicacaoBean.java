@@ -44,6 +44,7 @@ public class PublicacaoBean implements Controller, Serializable {
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
         usuario = daoUsuario.recuperar(u.getId());
         publicacao.setUsuario(usuario);
+        //publicacao.getStatus();
         dao.inserir(publicacao);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação salva com sucesso!"));
        

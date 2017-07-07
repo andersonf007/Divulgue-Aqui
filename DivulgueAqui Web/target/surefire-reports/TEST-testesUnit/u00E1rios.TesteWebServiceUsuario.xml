@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteWebServiceUsuario" time="0" errors="0" skipped="5">
+<testsuite tests="5" failures="0" name="testesUnit\u00E1rios.TesteWebServiceUsuario" time="0.018" errors="0" skipped="5">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -62,19 +62,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="inserirUsuario" time="0.047">
+  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="inserirUsuario" time="0.203">
     <skipped/>
   </testcase>
-  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="recuperarUsuarioPorNomeFicticio" time="0.047">
+  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="recuperarUsuarioPorNomeFicticio" time="0.203">
     <skipped/>
   </testcase>
-  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="deletarUsuario" time="0.047">
+  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="deletarUsuario" time="0.203">
     <skipped/>
   </testcase>
-  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="atualizarUsuario" time="0.047">
+  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="atualizarUsuario" time="0.203">
     <skipped/>
   </testcase>
-  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="recuperarUsuarioPorId" time="0.047">
+  <testcase classname="testesUnit\u00E1rios.TesteWebServiceUsuario" name="recuperarUsuarioPorId" time="0.203">
     <skipped/>
   </testcase>
 </testsuite>

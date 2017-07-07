@@ -68,13 +68,7 @@ public class LoginBean implements Serializable{
         }
         
         else{ 
-            
-//        Orgao o = daoOrgao.recuperarOrgaoUsuarioSenha(nome, senha);
-//        
-//        if(o != null){
-//           this.setOrgaoLogado(o);
-//            redireciona = "menuAdmim.xhtml?faces-redirect=true";
-//        }
+   
         Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, Criptografia.encriptografar(senha));
         if(u != null){
             this.setUsuarioLogado(u);

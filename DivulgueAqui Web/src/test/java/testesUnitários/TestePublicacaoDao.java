@@ -20,21 +20,21 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-    @Ignore 
+    //@Ignore 
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
         PublicacaoDao dao = new PublicacaoDao();
         
         UsuarioDao usuDao = new UsuarioDao(); 
-        Usuario usuario = usuDao.recuperar(1L);
+        Usuario usuario = usuDao.recuperar(4L);
         
         Date data = Date.from(Instant.now());
-        publicacao.setCategoria("Segurança");
-        publicacao.setDescricao("Aumento de furtos");
-        publicacao.setLocalidade("Vila do Quartel");
+        publicacao.setCategoria("Educação");
+        publicacao.setDescricao("Professores desreipeitados");
+        publicacao.setLocalidade("Manuel chel");
         publicacao.setData(data);
-        publicacao.setStatus("Pendente");
+        publicacao.setStatus("PENDENTE");
         publicacao.setUsuario(usuario);
         
         try {
@@ -45,20 +45,18 @@ public class TestePublicacaoDao {
         }
         
     }
-    @Ignore
+    //@Ignore
     @Test
     public void verificarAtualizacaoPublicacaoDB(){
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-         publicacao  =  dao.recuperar(8L);
+         publicacao  =  dao.recuperar(3L);
         
         publicacao.setCategoria("Saneamento");
         publicacao.setDescricao("Descaso social");
         publicacao.setLocalidade("Garanhuns");
-        publicacao.setStatus("Pendente");
-        //Date data = Date.from(Instant.now());
-        //publicacao.setData(data);
+        publicacao.setStatus("PENDENTE");
         
         try {
             dao.alterar(publicacao);
@@ -68,13 +66,13 @@ public class TestePublicacaoDao {
         }
         
     }
-    @Ignore
+    //@Ignore
     @Test
     public void verificarExclusaoPublicacaoDB(){
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao  =  dao.recuperar(2L);
+        publicacao  =  dao.recuperar(4L);
         
         try {
             dao.remover(publicacao);
@@ -84,7 +82,7 @@ public class TestePublicacaoDao {
         }
     }
     
-    @Ignore
+    //@Ignore
     @Test
     public void listarTodasPublicacoesBD(){
        PublicacaoDao dao = new PublicacaoDao();
@@ -98,12 +96,12 @@ public class TestePublicacaoDao {
            System.out.println("------------------------");
        }
     }
-    @Ignore
+    //@Ignore
     @Test
     public void buscarPublicacaoPorId(){
         PublicacaoDao dao = new PublicacaoDao();
         
-        Publicacao p =  dao.recuperar(9L);
+        Publicacao p =  dao.recuperar(2L);
         
         System.out.println("Categoria:" + p.getCategoria());
         System.out.println("Descrição:" + p.getDescricao());
@@ -126,4 +124,13 @@ public class TestePublicacaoDao {
                    
         }
     }
+    
+    
+//    @Test
+//    public void buscarProblemasPorStatusPendente(){
+//        PublicacaoDao dao = new PublicacaoDao();
+//        long quantidade = dao.contarStatusProblemaPendente();
+//        System.out.println("Número de Status pendente: " + quantidade);
+//
+//    }
 }

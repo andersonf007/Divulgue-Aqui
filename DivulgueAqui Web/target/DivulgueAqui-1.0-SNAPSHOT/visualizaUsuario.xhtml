@@ -21,12 +21,12 @@
                     <h:outputText value="E-mail: "/>
                     <h:outputText id="email" value="#{UsuarioLogado.email}"/>
                     
-                    <h:outputText value="Apelido: "/>
+                    <h:outputText value="Usuario: "/>
                     <h:outputText id="apelido" value="#{UsuarioLogado.usuario}"/>
                 </p:panelGrid>
                 
                 <p:panel>
-                    <p:commandButton icon="ui-icon-pencil" oncomplete="location.href='alteraAluno.xhtml'" title="Alterar"/> 
+                    <p:commandButton icon="ui-icon-pencil" oncomplete="location.href='alteraUsuario.xhtml'" title="Alterar"/> 
                     <p:commandButton icon="ui-icon-trash" oncomplete="PF('widDialdelete').show()" title="Deletar"/>    
                 </p:panel>
             </p:fieldset>

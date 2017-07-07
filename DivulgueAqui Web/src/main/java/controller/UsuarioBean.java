@@ -47,7 +47,7 @@ public class UsuarioBean implements Controller, Serializable{
     @Override
     public String atualizar() {
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
-        u.setSenha(Criptografia.encriptografar(u.getSenha()));
+        //u.setSenha(Criptografia.encriptografar(u.getSenha()));//Ao colocar o usuário não consegue mais acessar, pois está criptografando novamente a senha!
         dao.alterar(u);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + u.getNome() + "dodos foram atualizados com sucesso!"));
         usuario = new Usuario();

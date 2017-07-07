@@ -14,22 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
-    <!--Plugin do repositorio do Maven Central-->
-    <pluginRepositories>
-		<pluginRepository>
-			<id>central</id>
-			<name>Maven Plugin Repository</name>
-			<url>http://repo1.maven.org/maven2</url>
-			<layout>default</layout>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<releases>
-				<updatePolicy>never</updatePolicy>
-			</releases>
-		</pluginRepository>
-	</pluginRepositories>
-    
     
     <dependencies>
                 
@@ -242,28 +226,9 @@
             <artifactId>jaxrs-ri</artifactId>
             <version>2.13</version>
         </dependency>
-        <!--Dependências do selenium-->
-<!--        <dependency>			
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>htmlunit-driver</artifactId>
-            <version>2.23.2</version>
-        </dependency>-->
+       
     </dependencies>
+    
     <build>
         <plugins>
             <plugin>
@@ -313,19 +278,13 @@
             </plugin>
         </plugins>
     </build>
-    <repositories>
     <!-- REPOSITÓRIO PRIMEFACES -->
+    <repositories>
         <repository>
             <id>prime-repo</id>
             <name>PrimeFaces Maven Repository</name>
             <url>http://repository.primefaces.org</url>
             <layout>default</layout>
         </repository>
-     <!--REPOSITÓRIO DO MAVEN CENTRAL-->     
-<!--        <repository>
-            <id>central</id>
-            <name>Maven Central Repository</name>
-            <url>http://repo1.maven.org/maven2</url>
-        </repository> --> 
     </repositories>
 </project>
