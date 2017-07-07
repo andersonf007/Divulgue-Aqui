@@ -70,13 +70,13 @@ public class TestePublicacaoDao {
         
     }
   
-  // @Ignore
+   @Ignore
     @Test
     public void verificarExclusaoPublicacaoDB(){
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao  =  dao.recuperar((long)15);
+        publicacao  =  dao.recuperar(14L);
         
         try {
             dao.remover(publicacao);

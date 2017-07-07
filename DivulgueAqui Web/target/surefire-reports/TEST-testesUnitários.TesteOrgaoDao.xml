@@ -30,7 +30,7 @@
     <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.2\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_131\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\starcode\apache-maven-3.5.0\\bin;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Users\ander\AppData\Local\Microsoft\WindowsApps;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_131\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\starcode\apache-maven-3.5.0\\bin;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Users\ander\AppData\Local\Microsoft\WindowsApps;C:\adb;C:\Users\ander\AppData\Local\Microsoft\WindowsApps;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -65,16 +65,16 @@
   <testcase name="verificarExclusaoOrgaoDB" classname="testesUnitários.TesteOrgaoDao" time="0">
     <skipped/>
   </testcase>
-  <testcase name="listarTodosOrgaosBD" classname="testesUnitários.TesteOrgaoDao" time="0">
+  <testcase name="verificarAtualizacaoOrgaoDB" classname="testesUnitários.TesteOrgaoDao" time="0">
     <skipped/>
   </testcase>
-  <testcase name="verificarBuscaOrgaoDB" classname="testesUnitários.TesteOrgaoDao" time="0">
+  <testcase name="listarTodosOrgaosBD" classname="testesUnitários.TesteOrgaoDao" time="0">
     <skipped/>
   </testcase>
   <testcase name="verificarInsercaoOrgaoDB" classname="testesUnitários.TesteOrgaoDao" time="0">
     <skipped/>
   </testcase>
-  <testcase name="verificarAtualizacaoOrgaoDB" classname="testesUnitários.TesteOrgaoDao" time="0">
+  <testcase name="verificarBuscaOrgaoDB" classname="testesUnitários.TesteOrgaoDao" time="0">
     <skipped/>
   </testcase>
 </testsuite>

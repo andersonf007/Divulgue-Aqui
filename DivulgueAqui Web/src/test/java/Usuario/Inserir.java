@@ -22,9 +22,9 @@ public class Inserir {
     
     public static void main(String[] args) {
         
-        String nome = "Roberta";
-        String usuario = "bfafafaeta";
-        String email = "roafasberta@gmail.com";
+        String nome = "Santos";
+        String usuario = "eta";
+        String email = "Maria@outlook.com.br";
         String senha = "123";
           
         JSONObject jsonObject = new JSONObject();

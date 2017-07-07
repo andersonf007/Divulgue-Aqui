@@ -107,7 +107,7 @@ public class webService {
          } catch (ParseException ex) {
              Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
          }
-         return "301";
+         return null;
   
     }
     
@@ -215,12 +215,6 @@ public class webService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("usuario/delete")
     public String deletarUsuario(@QueryParam("id") Integer json){
-      
-        PublicacaoDao daopb = new PublicacaoDao();
-        Publicacao pb = new Publicacao();
-       
-        pb.setId((long)json);
-        daopb.remover(pb);
         
         UsuarioDao dao = new UsuarioDao();
         Usuario u = new Usuario();
@@ -374,12 +368,9 @@ public class webService {
             pb.setStatus("Pendente");
             pb.setUsuario(u);
             
-            try{
+          
                 dao.inserir(pb);
-                return "204";
-            }catch(Exception e){
-                System.out.println("WS.webService.insertPublicacao()" + e);
-            }
+           
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -412,11 +403,17 @@ public class webService {
             
             p = dao.recuperar(codigo);
             
-            //p.setCategoria(categoria);
+            p.setCategoria("");
             p.setDescricao(descricao);
             p.setLocalidade(localidade);
+            
+            try{
             dao.alterar(p);
-           
+            return "200";
+            }catch(Exception e){
+                System.out.println("WS.webService.updatePublicacao()" + e);
+            }
+            
         } catch (ParseException ex) {
             Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -480,8 +477,9 @@ public class webService {
         Publicacao pb = new Publicacao();
        
         pb.setId((long)json);
+        
         dao.remover(pb);
-  
+    
         return null;
     }
 }

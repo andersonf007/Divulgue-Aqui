@@ -14,6 +14,7 @@ import org.junit.Test;
 
 
 public class TesteUsuarioDao {
+    
     @Ignore
     @Test
     public void verificarInsercaoUsuarioDB(){
@@ -23,7 +24,7 @@ public class TesteUsuarioDao {
         usuario.setNome("Adonaia");
         usuario.setEmail("adonaia@gmail.com");
         usuario.setSenha("2424");
-        usuario.setUsuario("adonaia");
+        usuario.setUsuario("adonmaia");
         
         try {
             dao.inserir(usuario);
@@ -32,13 +33,14 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar salvar");
         }
     }
+   
     @Ignore
     @Test
     public void verificarAtualizacaoUsuarioDB(){
         Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
        
-        usuario = dao.recuperar(2L);
+        usuario = dao.recuperar(30L);
         usuario.setNome("Carl Jonhson");
         usuario.setEmail("cj@gmail.com");
         usuario.setSenha("gta");
@@ -50,13 +52,14 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar alterar o usuário!");
         }
     }
+  
     @Ignore
     @Test
     public void verificarExclusaoUsuarioDB(){
         Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
         
-        usuario = dao.recuperar(3L);
+        usuario = dao.recuperar(29L);
         
         try {
             dao.remover(usuario);
@@ -79,19 +82,21 @@ public class TesteUsuarioDao {
            System.out.println("---------------------------");
        }
     }
+    
     @Ignore
     @Test
     public void buscarUsuarioBDPorId(){
         UsuarioDao dao = new UsuarioDao();
         Usuario usuario;
         
-        usuario = dao.recuperar(6L);
+        usuario = dao.recuperar(2L);
         System.out.println("Id:" + usuario.getId());
         System.out.println("Nome:" + usuario.getNome());
         System.out.println("E-mail:" + usuario.getEmail());
         System.out.println("Senha:" + usuario.getSenha());
         System.out.println("Ficticio:" + usuario.getUsuario());
     }
+    
     @Ignore
     @Test
     public void buscarUsuarioBDPorNome(){

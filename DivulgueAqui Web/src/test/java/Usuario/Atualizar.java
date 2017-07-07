@@ -16,17 +16,17 @@ import org.json.simple.JSONObject;
 
 /**
  *
- * @author ander
+// * @author ander
  */
 public class Atualizar {
     
     public static void main(String[] args) {
         
-        String nome = "Anderson";
-        String email = "felipe@gmail.com.br";
+        String nome = "Anderhfgson";
+        String email = "fghfffelipe@gmail.com.br";
         String senha = "123";
         //String usuario = "muka";
-        long codigo = 27;
+        long codigo = 29;
           
         JSONObject jsonObject = new JSONObject();
 

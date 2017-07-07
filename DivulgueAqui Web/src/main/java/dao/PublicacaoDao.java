@@ -65,12 +65,13 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>, Serializable{
 
     @Override
     public void remover(Publicacao pb) {
+        Publicacao pb2 = null;
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         PublicacaoDao.manager.getTransaction().begin();
         
         try {
-            pb = PublicacaoDao.manager.find(Publicacao.class, pb.getId());
-            PublicacaoDao.manager.remove(pb);
+            pb2 = PublicacaoDao.manager.find(Publicacao.class, pb.getId());
+            PublicacaoDao.manager.remove(pb2);
             PublicacaoDao.manager.getTransaction().commit();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação foi removida com sucesso!"));
             System.out.println("Publicação deletada com sucesso!");

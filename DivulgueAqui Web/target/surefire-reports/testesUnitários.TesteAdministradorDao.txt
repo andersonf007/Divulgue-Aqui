@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: testesUnitários.TesteAdministradorDao
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.187 sec - in testesUnitários.TesteAdministradorDao
-=======
 Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.053 sec - in testesUnitários.TesteAdministradorDao
->>>>>>> a1e042ba4ce2b1151006dcb5d3b08bac153b3cc3

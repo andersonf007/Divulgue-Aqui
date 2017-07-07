@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: testesUnitários.TesteWebServicePublicacao
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0 sec - in testesUnitários.TesteWebServicePublicacao
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 0.177 sec <<< FAILURE! - in testesUnitários.TesteWebServicePublicacao
+deletarPublicacao(testesUnitários.TesteWebServicePublicacao)  Time elapsed: 0.153 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<204> but was:<500>
+	at testesUnitários.TesteWebServicePublicacao.deletarPublicacao(TesteWebServicePublicacao.java:163)
+
