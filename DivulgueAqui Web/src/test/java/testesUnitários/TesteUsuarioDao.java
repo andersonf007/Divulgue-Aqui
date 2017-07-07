@@ -17,7 +17,7 @@ import org.junit.Test;
 
 public class TesteUsuarioDao {
     
-    @Test
+@Test
     public void verificarInsercaoUsuarioDB(){
         Usuario usuario = new Usuario();
         UsuarioDao dao = new UsuarioDao();
@@ -36,7 +36,7 @@ public class TesteUsuarioDao {
         }
     }
     
-    @Test
+@Test
     public void verificarAtualizacaoUsuarioDB(){
         Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
@@ -54,12 +54,11 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar alterar o usuário!");
         }
     }
-    
     @Test
     public void verificarExclusaoUsuarioDB(){
         Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
-        
+
         usuario = dao.recuperar(6L);
         
         try {
@@ -69,7 +68,6 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar excluir o usuário!");
         }
     }
-    
     
     @Test
     public void listarTodosUsuariosBD(){
@@ -83,20 +81,19 @@ public class TesteUsuarioDao {
            System.out.println("---------------------------");
        }
     }
-    
     @Test
     public void buscarUsuarioBDPorId(){
         UsuarioDao dao = new UsuarioDao();
         Usuario usuario;
         
         usuario = dao.recuperar(4L);
+
         System.out.println("Id:" + usuario.getId());
         System.out.println("Nome:" + usuario.getNome());
         System.out.println("E-mail:" + usuario.getEmail());
         System.out.println("Senha:" + usuario.getSenha());
         System.out.println("Ficticio:" + usuario.getUsuario());
     }
-   
     @Test
     public void buscarUsuarioBDPorNome(){
         UsuarioDao dao = new UsuarioDao();

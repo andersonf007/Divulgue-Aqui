@@ -1,5 +1,14 @@
+<<<<<<< HEAD:DivulgueAqui Web/target/surefire-reports/TEST-testesUnitários.TestePessoa.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="testesUnitários.TestePessoa" time="0.036" tests="4" errors="0" skipped="0" failures="0">
+=======
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="8" failures="0" name="testesUnit\u00E1rios.TesteUsuario" time="0.016" errors="0" skipped="0">
+=======
+<testsuite tests="6" failures="0" name="testesUnit\u00E1rios.TesteUsuario" time="0.766" errors="0" skipped="0">
+>>>>>>> b1d711d09155353b986083a23bde5cb484b158af:DivulgueAqui Web/target/surefire-reports/TEST-testesUnit/u00E1rios.TesteUsuario.xml
+>>>>>>> 4ebfe220887f06fad74f46899a1f2ad5098b490d
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -31,7 +40,11 @@
     <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.0.2\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
+<<<<<<< HEAD:DivulgueAqui Web/target/surefire-reports/TEST-testesUnitários.TestePessoa.xml
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_131\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\starcode\apache-maven-3.5.0\\bin;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Users\ander\AppData\Local\Microsoft\WindowsApps;C:\adb;C:\Users\ander\AppData\Local\Microsoft\WindowsApps;."/>
+=======
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_77\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Users\Izaquias\Documents\Programas\Eclipse\eclipse\jre\bin\javaw.exe;C:\Program Files\Java\jdk1.8.0_77\bin;%MAVEN%\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Apache Software Foundation\apache-maven-3.3.9\repositorio\bin;C:\Users\Izaquias\Documents\Programas\Eclipse\eclipse\jre\bin\javaw.exe;."/>
+>>>>>>> b1d711d09155353b986083a23bde5cb484b158af:DivulgueAqui Web/target/surefire-reports/TEST-testesUnit/u00E1rios.TesteUsuario.xml
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -63,7 +76,17 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioNomeVazio" time="0"/>
+=======
+<<<<<<< HEAD:DivulgueAqui Web/target/surefire-reports/TEST-testesUnitários.TestePessoa.xml
+  <testcase name="naoPermitirCriarPessoaNomeComNulo" classname="testesUnitários.TestePessoa" time="0.032"/>
+  <testcase name="naoPermitirCriarPessoaComEnderecoNulo" classname="testesUnitários.TestePessoa" time="0"/>
+  <testcase name="naoPermitirCriarPessoaNomeVazio" classname="testesUnitários.TestePessoa" time="0.002"/>
+  <testcase name="naoPermitirCriarPessoaComEnderecoVazio" classname="testesUnitários.TestePessoa" time="0.001"/>
+=======
+  <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioNomeVazio" time="0.125"/>
+>>>>>>> 4ebfe220887f06fad74f46899a1f2ad5098b490d
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioSenhaNula" time="0"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioEmailVazio" time="0"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioComNomeFicticioVazio" time="0"/>
@@ -71,4 +94,5 @@
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioComNomeFicticioNulo" time="0"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioEmailNulo" time="0"/>
   <testcase classname="testesUnit\u00E1rios.TesteUsuario" name="naoPermitirCriarUsuarioSenhaVazia" time="0"/>
+>>>>>>> b1d711d09155353b986083a23bde5cb484b158af:DivulgueAqui Web/target/surefire-reports/TEST-testesUnit/u00E1rios.TesteUsuario.xml
 </testsuite>

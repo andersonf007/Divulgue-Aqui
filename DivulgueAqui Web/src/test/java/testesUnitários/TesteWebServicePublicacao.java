@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package testesUnitários;
 
 import com.google.gson.Gson;
+import dao.PublicacaoDao;
+import entidade.Publicacao;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -34,27 +32,28 @@ public class TesteWebServicePublicacao {
     
     @Ignore
     @Test
-    public void inserirPublicacao(){
+    public void inserirPublicacao() throws MalformedURLException, IOException{
         int code = 0;
-        String localidade = "interior do estado";
-        String descricao = "123456789012345678901234";
-        String categoria = "infra Estrutura";
-        long idUsuario = 2;
+        
+        PublicacaoDao dao = new PublicacaoDao();
+        Publicacao pb = null;
+            
+        String localidade = "br 2122";
+        String descricao = "selvagen na estrada";
+        long idUsuario = 1;
         
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
-        jsonObject.put("categoria",categoria);
         jsonObject.put("localidade", localidade);
         jsonObject.put("descricao", descricao);
         jsonObject.put("codigo", idUsuario);    
-        jsonObject.put("categoria", categoria); 
            
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);
 
         URL url;
-        try {
+        
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/inserir");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -67,34 +66,29 @@ public class TesteWebServicePublicacao {
             os.flush();
 
             code = connection.getResponseCode();
-            System.out.println(code + " - " + Json);
 
             os.close();
             connection.disconnect();
 
-            } catch (MalformedURLException ex) {
-                JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest ( salvar cliente)\n" + ex);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
-            }
-        
+            pb = dao.recuperar((long)14);
+            
         assertEquals(204,code);
+        assertEquals(pb.getDescricao(),descricao);
+        assertEquals(pb.getLocalidade(),localidade);
     }
     
     @Ignore
     @Test
-    public void atualizarPublicacao(){
+    public void atualizarPublicacao() throws MalformedURLException, IOException{
         
         int code = 0;
-        String descricao = "nevasca";
-        String localidade = "nunca";
-        String categoria = "mobilidade";
-        long codigo = 3;//codigo da publicacao
+        String descricao = "nevasca gigante";
+        String localidade = "nunca menos";
+        long codigo = 11;//codigo da publicacao
           
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
-        jsonObject.put("categoria", categoria);
         jsonObject.put("descricao", descricao);
         jsonObject.put("localidade", localidade);
         jsonObject.put("codigo", codigo);
@@ -103,7 +97,7 @@ public class TesteWebServicePublicacao {
         String Json = gson.toJson(jsonObject);
 
         URL url;
-        try {
+        
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/update");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -116,28 +110,21 @@ public class TesteWebServicePublicacao {
             os.flush();
 
             code = connection.getResponseCode();
-            System.out.println(code + " - " + Json);
-
+            
             os.close();
             connection.disconnect();
-
-            } catch (MalformedURLException ex) {
-                JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest ( salvar cliente)\n" + ex);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( salvar cliente) \n" + ex);
-            }
         
-        assertEquals(204,code);
+        assertEquals(200,code);
     }
     
     @Ignore
     @Test
-    public void recuperarPublicacoesPorIdDoUsuario(){
+    public void recuperarPublicacoesPorIdDoUsuario() throws MalformedURLException, IOException{
         int code = 0;
        
         long codigo = 2; // id do usuario
             URL url;
-        try {
+        
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="+codigo);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -146,25 +133,18 @@ public class TesteWebServicePublicacao {
             connection.setRequestMethod("GET");
           
             code = connection.getResponseCode();
-            System.out.println(code);
-     
-        } catch (MalformedURLException ex) {
-            JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest ( recuperar usuario)\n" + ex);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( Recuperar usuario) \n" + ex);
-        }
-        
+       
         assertEquals(200,code);
     }
     
     @Ignore
     @Test 
-    public void deletarPublicacao(){
+    public void deletarPublicacao() throws MalformedURLException, IOException{
         int code = 0;
         URL url;
          
-         Integer codigo = 2;   
-        try {
+         Integer codigo = 6;   
+      
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/delete?id="+codigo);//codigo
         
 
@@ -174,15 +154,7 @@ public class TesteWebServicePublicacao {
             connection.setRequestMethod("DELETE");
           
             code = connection.getResponseCode();
-            System.out.println(code);
-
-        } catch (MalformedURLException ex) {
-            JOptionPane.showMessageDialog(null, "erro de URLException conexao ao rest (deletar usuario)\n" + ex);
-        } catch (ProtocolException ex) {
-            JOptionPane.showMessageDialog(null, "erro de ProtocolException conexao ao rest (deletar usuario) \n" + ex);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "erro de IOException conexao ao rest ( deletar usuario ) \n" + ex);
-        }
+    
         assertEquals(204,code);
     }
 }

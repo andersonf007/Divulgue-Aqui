@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: testesUnitários.TestePublicacaoDao
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 1, Errors: 0, Skipped: 5, Time elapsed: 3.243 sec <<< FAILURE! - in testesUnitários.TestePublicacaoDao
-verificarExclusaoPublicacaoDB(testesUnitários.TestePublicacaoDao)  Time elapsed: 3.238 sec  <<< FAILURE!
-java.lang.AssertionError: Erro ao tentar excluida a publicação!org.hibernate.TransactionException: Cannot rollback transaction in current status [COMMITTED]
-	at testesUnitários.TestePublicacaoDao.verificarExclusaoPublicacaoDB(TestePublicacaoDao.java:85)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 0.002 sec - in testesUnitários.TestePublicacaoDao

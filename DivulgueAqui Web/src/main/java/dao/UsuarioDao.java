@@ -70,11 +70,12 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
 
     @Override
     public void remover(Usuario u) {
+        Usuario u2 = null;
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         UsuarioDao.manager.getTransaction().begin();
         try {
-            u = UsuarioDao.manager.find(Usuario.class, u.getId());
-            UsuarioDao.manager.remove(u);
+            u2 = UsuarioDao.manager.find(Usuario.class, u.getId());
+            UsuarioDao.manager.remove(u2);
             UsuarioDao.manager.getTransaction().commit();
             System.out.println("Usuário removido com sucesso!");
         } catch (Exception e) {
@@ -141,8 +142,9 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         
         return u;
     }   
+    
     public boolean verificarUsuarioPorNomeFicticio(String nomeDeUsuario){
-    //verifica se o nome de usuario ja existe no banco de dador
+    //verifica se o nome de usuario ja existe no banco de dados
         Usuario u = null;
 
         String hql = "from Usuario o where nomeFicticio=:nomeUsuario";
