@@ -157,16 +157,48 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>, Serializable{
     }
     
     public long contarStatusProblemaPendente(){
-        String hql = "SELECT COUNT(*) FROM Publicacao  WHERE status='RESOLVENDO'";
+        String hql = "SELECT COUNT(*) FROM Publicacao  WHERE status='PENDENTE'";
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
-        //List<Publicacao> problemas;
-        //int valores;
+       
         try {
             Query quantidade = manager.createQuery(hql);
            return  (Long)quantidade.getSingleResult();
-//valores = (Integer) quantidade.getResultList().get(valores);
         } catch (Exception e) {
-           //problemas = new ArrayList();
+            System.out.println(e.getMessage());
+        }finally{
+            System.out.println("Fim da sessão!");
+        }
+        
+        return 0;
+    }
+    
+    public long contarStatusProblemaAnalizando(){
+        String hql = "SELECT COUNT(*) FROM Publicacao  WHERE status='ANALIZANDO'";
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+       
+        try {
+            Query quantidade = manager.createQuery(hql);
+           return  (Long)quantidade.getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }finally{
+            System.out.println("Fim da sessão!");
+        }
+        
+        return 0;
+    }
+    
+    public long contarStatusProblemaResolvendo(){
+        String hql = "SELECT COUNT(*) FROM Publicacao  WHERE status='RESOLVENDO'";
+        manager = HibernateUtil.getInstance().getFactory().createEntityManager();
+       
+        try {
+            Query quantidade = manager.createQuery(hql);
+           return  (Long)quantidade.getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }finally{
+            System.out.println("Fim da sessão!");
         }
         
         return 0;

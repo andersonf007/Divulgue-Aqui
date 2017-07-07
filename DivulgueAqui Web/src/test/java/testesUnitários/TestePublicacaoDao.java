@@ -125,12 +125,27 @@ public class TestePublicacaoDao {
         }
     }
     
-    
+    //@Ignore
     @Test
     public void buscarProblemasPorStatusPendente(){
         PublicacaoDao dao = new PublicacaoDao();
         long quantidade = dao.contarStatusProblemaPendente();
         System.out.println("Número de Status pendente: " + quantidade);
 
+    }
+    @Ignore
+    @Test
+    public void buscarProblemasPorStatusAnalizando(){
+        PublicacaoDao dao = new PublicacaoDao();
+        long quantidade1 = dao.contarStatusProblemaAnalizando();
+        System.out.println("Número de Status analizando: " + quantidade1);
+        
+    }
+    
+    @Test
+    public void buscarProblemasPorStatusResolvendo(){
+        PublicacaoDao dao = new PublicacaoDao();
+        long quantidade2 = dao.contarStatusProblemaResolvendo();
+        System.out.println("Número de Status Resolvendo: " + quantidade2);
     }
 }
