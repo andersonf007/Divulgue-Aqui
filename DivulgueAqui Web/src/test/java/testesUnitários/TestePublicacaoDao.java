@@ -20,7 +20,7 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-   @Ignore 
+    
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
@@ -30,8 +30,8 @@ public class TestePublicacaoDao {
         Usuario usuario = usuDao.recuperar(4L);
         
         Date data = Date.from(Instant.now());
-        publicacao.setCategoria("Educação");
-        publicacao.setDescricao("Professores desreipeitados");
+        publicacao.setCategoria("Segurança");
+        publicacao.setDescricao("Professores violentos");
         publicacao.setLocalidade("Manuel chel");
         publicacao.setData(data);
         publicacao.setStatus("PENDENTE");
@@ -46,7 +46,7 @@ public class TestePublicacaoDao {
         
     }
   
-   @Ignore
+   
     @Test
     public void verificarAtualizacaoPublicacaoDB(){
         Publicacao publicacao;
@@ -68,13 +68,13 @@ public class TestePublicacaoDao {
         
     }
   
-  // @Ignore
+  
     @Test
     public void verificarExclusaoPublicacaoDB(){
         Publicacao publicacao;
         PublicacaoDao dao = new PublicacaoDao();
         
-        publicacao  =  dao.recuperar(4L);
+        publicacao  =  dao.recuperar(6L);
         
         try {
             dao.remover(publicacao);
@@ -84,7 +84,7 @@ public class TestePublicacaoDao {
         }
     }
     
-   @Ignore
+   //@Ignore
    @Test
     public void listarTodasPublicacoesBD(){
        PublicacaoDao dao = new PublicacaoDao();
@@ -99,7 +99,7 @@ public class TestePublicacaoDao {
        }
     }
    
-   @Ignore
+   //@Ignore
     @Test
     public void buscarPublicacaoPorId(){
         PublicacaoDao dao = new PublicacaoDao();
@@ -115,7 +115,7 @@ public class TestePublicacaoDao {
         
     }
   
-    @Ignore
+    //@Ignore
     @Test
     public void buscarPublicacaoPorStatus(){
         PublicacaoDao dao = new PublicacaoDao();

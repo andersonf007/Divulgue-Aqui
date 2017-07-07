@@ -3,6 +3,7 @@ package testesUnitários;
 import dao.UsuarioDao;
 import entidade.Usuario;
 import hibernate.Criptografia;
+import org.junit.Assert;
 import static org.junit.Assert.fail;
 
 import org.junit.Ignore;
@@ -15,16 +16,16 @@ import org.junit.Test;
 
 
 public class TesteUsuarioDao {
-    //@Ignore
+    
     @Test
     public void verificarInsercaoUsuarioDB(){
         Usuario usuario = new Usuario();
         UsuarioDao dao = new UsuarioDao();
         
-        usuario.setNome("Dracula");
-        usuario.setEmail("dracula@gmail.com");
-        usuario.setSenha("2048");
-        usuario.setUsuario("dracula");
+        usuario.setNome("Michael Jackson");
+        usuario.setEmail("jackson@gmail.com");
+        usuario.setSenha("2448");
+        usuario.setUsuario("michael");
         usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         
         try {
@@ -34,7 +35,7 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar salvar");
         }
     }
-    //@Ignore
+    
     @Test
     public void verificarAtualizacaoUsuarioDB(){
         Usuario usuario;
@@ -53,13 +54,13 @@ public class TesteUsuarioDao {
             fail("Erro ao tentar alterar o usuário!");
         }
     }
-    //@Ignore
+    
     @Test
     public void verificarExclusaoUsuarioDB(){
         Usuario usuario;
         UsuarioDao dao = new UsuarioDao();
         
-        usuario = dao.recuperar(1L);
+        usuario = dao.recuperar(6L);
         
         try {
             dao.remover(usuario);
@@ -69,7 +70,7 @@ public class TesteUsuarioDao {
         }
     }
     
-    //@Ignore
+    
     @Test
     public void listarTodosUsuariosBD(){
        UsuarioDao dao = new UsuarioDao();
@@ -82,7 +83,7 @@ public class TesteUsuarioDao {
            System.out.println("---------------------------");
        }
     }
-    //@Ignore
+    
     @Test
     public void buscarUsuarioBDPorId(){
         UsuarioDao dao = new UsuarioDao();
@@ -95,7 +96,7 @@ public class TesteUsuarioDao {
         System.out.println("Senha:" + usuario.getSenha());
         System.out.println("Ficticio:" + usuario.getUsuario());
     }
-    //@Ignore
+   
     @Test
     public void buscarUsuarioBDPorNome(){
         UsuarioDao dao = new UsuarioDao();
@@ -108,27 +109,29 @@ public class TesteUsuarioDao {
         System.out.println("Senha:" + usuario.getSenha()); 
         System.out.println("Ficticio:" + usuario.getUsuario());    
     }
-//    
+    
 //    @Test
 //    public void fazerLoginUsuario(){
+//         String usuario = "izaquias"; 
+//         String senha = "izaquias21";
 //         UsuarioDao dao = new UsuarioDao();
 //         
-//         Usuario usuario = dao.recuperar(3L);
-//         
-//         //Usuario u;
+//         Usuario u = dao.recuperar(3L);
 //         
 //         
+//         Assert.assertEquals(usuario, u.getUsuario());
+//         Assert.assertEquals(senha,Criptografia.encriptografar(u.getSenha()));
 //         //usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
-//        try {
-//            Usuario  u = dao.buscarUsuarioPorNomeSenha(usuario.getUsuario(),usuario.getSenha());
-//            System.out.println("Usuario: " + u.getUsuario());
-//            System.out.println("Senha: " + u.getSenha());
-//            System.out.println("Logou no sistema!");   
-//        } catch (Exception e) {
-//          System.out.println("Não logou no sistema!");
-//        }
+////        try {
+////            
+////            System.out.println("Usuario: " + u.getUsuario());
+////            System.out.println("Senha: " + u.getSenha());
+////            System.out.println("Logou no sistema!");   
+////        } catch (Exception e) {
+////          System.out.println("Não logou no sistema!");
+////        }
 //         
 //}
-//    }
+//  
     
 }

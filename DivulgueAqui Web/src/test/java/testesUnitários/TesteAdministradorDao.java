@@ -15,15 +15,15 @@ import org.junit.Test;
 
 
 public class TesteAdministradorDao {
-    //@Ignore
+    
     @Test
     public void vericarInsercaoAdminBD(){
         Administrador admin = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         
-        admin.setNome("super");
-        admin.setEmail("super@gmail.com");
-        admin.setSenha("1020");
+        admin.setNome("mehor");
+        admin.setEmail("mehor@gmail.com");
+        admin.setSenha("1520");
         admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
         try {
             dao.inserir(admin);
@@ -33,16 +33,16 @@ public class TesteAdministradorDao {
         }
     }
     
-    //@Ignore
+    
     @Test
     public void vericarAtualizacaoAdminBD(){
         Administrador admin;
         AdministradorDao dao = new AdministradorDao();
         
-        admin = dao.recuperar(4L);
+        admin = dao.recuperar(7L);
         
-        admin.setNome("extreme");
-        admin.setEmail("extreme@gmail.com");
+        admin.setNome("extreme2");
+        admin.setEmail("extreme2@gmail.com");
         admin.setSenha("321");
         admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
         try {
@@ -53,13 +53,13 @@ public class TesteAdministradorDao {
         }
     }
     
-    //@Ignore
+    
     @Test
     public void vericarExclusaoAdminBD(){
         Administrador admin;
         AdministradorDao dao = new AdministradorDao();
         
-        admin = dao.recuperar(2L);
+        admin = dao.recuperar(4L);
         
         try {
             dao.remover(admin);
@@ -68,7 +68,7 @@ public class TesteAdministradorDao {
             fail("Erro ao tentar excluir o admin!");
         }
     }
-    //@Ignore
+    
     @Test
     public void listarTodosAdminBD(){
         
@@ -82,13 +82,13 @@ public class TesteAdministradorDao {
         }
     }
     
-    //@Ignore
+    
     @Test
     public void buscarAdminPorId(){
         AdministradorDao dao = new AdministradorDao();
         Administrador admin;
         
-        admin = dao.recuperar(1L);
+        admin = dao.recuperar(7L);
         
         System.out.println("Id:" + admin.getId());
         System.out.println("Nome:" + admin.getNome());
