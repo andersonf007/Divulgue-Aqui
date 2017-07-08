@@ -1,4 +1,4 @@
-package testesUnitários;
+package testesUnitarios;
 
 import Fake.UsuariosBDFake;
 import entidade.Usuario;

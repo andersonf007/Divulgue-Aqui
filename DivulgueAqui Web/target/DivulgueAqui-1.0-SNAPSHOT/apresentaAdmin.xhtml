@@ -31,19 +31,12 @@
                 </p:column>
                 
                 
-                <p:column headerText="Operações" style="width: 13%">
+                <p:column headerText="Operação" style="width: 10%">
                      <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualiza').show()"
                          update=':vizualizarAdmin:dialVisualiza' title="visualizar">
                          <f:setPropertyActionListener value="#{atributo}" target="#{administradorBean.administrador}"/>                
                      </p:commandButton>
                     
-                    <p:commandButton icon='ui-icon-pencil' action="alteraAdmin.xhtml" title="alterar"  oncomplete="PF('widDialVisualiza').show()">
-                        <f:setPropertyActionListener value="#{atributo}" target="#{administradorBean.administrador}"/>
-                    </p:commandButton> 
-                    
-                    <p:commandButton icon='ui-icon-closethick' oncomplete="PF('widDialDeleta').show()" title="deletar">
-                        <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
-                    </p:commandButton>
                 </p:column>
             </p:dataTable>
             
@@ -59,9 +52,6 @@
                     <h:outputText value="E-mail"/>
                     <h:outputText value="#{administradorBean.administrador.email}"/>
                     
-                    
-                    <h:outputText value="Senha"/>
-                    <h:outputText value="#{administradorBean.administrador.senha}"/>
                 </p:panelGrid>
             </p:dialog>
             

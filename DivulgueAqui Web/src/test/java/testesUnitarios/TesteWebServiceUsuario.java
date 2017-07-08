@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testesUnitários;
+package testesUnitarios;
 
 import com.google.gson.Gson;
 import dao.UsuarioDao;

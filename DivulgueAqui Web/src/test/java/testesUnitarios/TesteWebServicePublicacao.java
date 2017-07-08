@@ -1,4 +1,4 @@
-package testesUnitários;
+package testesUnitarios;
 
 import com.google.gson.Gson;
 import dao.PublicacaoDao;

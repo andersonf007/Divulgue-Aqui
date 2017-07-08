@@ -1,9 +1,12 @@
  
-package testesUnitários;
+package testesUnitarios.DAO;
 
 import dao.AdministradorDao;
 import entidade.Administrador;
 import hibernate.Criptografia;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.Assert;
 import static org.junit.Assert.fail;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -25,12 +28,9 @@ public class TesteAdministradorDao {
         admin.setEmail("mehor@gmail.com");
         admin.setSenha("1520");
         admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
-        try {
-            dao.inserir(admin);
-            System.out.println("Admin salvo com sucesso!");
-        } catch (Exception e) {
-            fail("Erro ao tentar salvar o admin!");
-        }
+        
+        dao.inserir(admin);
+        
     }
     
     
@@ -45,12 +45,12 @@ public class TesteAdministradorDao {
         admin.setEmail("extreme2@gmail.com");
         admin.setSenha("321");
         admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
-        try {
-            dao.alterar(admin);
-            System.out.println("Admin atualizado com sucesso!");
-        } catch (Exception e) {
-            fail("Erro ao tentar atualizar o admin!");
-        }
+        
+        dao.alterar(admin);
+        
+        admin = dao.recuperar(7L); 
+        Assert.assertEquals("extreme2", admin.getNome());
+        
     }
     
     
@@ -61,25 +61,17 @@ public class TesteAdministradorDao {
         
         admin = dao.recuperar(4L);
         
-        try {
-            dao.remover(admin);
-            System.out.println("Admin exclido com sucesso!");
-        } catch (Exception e) {
-            fail("Erro ao tentar excluir o admin!");
-        }
+        dao.remover(admin);
+        
     }
     
     @Test
     public void listarTodosAdminBD(){
         
         AdministradorDao dao = new AdministradorDao();
+        List<Administrador> administradores = dao.recuperarTodos(); 
+        Assert.assertEquals("master", administradores.get(1).getNome());
         
-        for(Administrador a: dao.recuperarTodos()){
-            System.out.println("Nome:" + a.getNome());
-            System.out.println("E-mail:" + a.getEmail());
-            System.out.println("Senha:" + a.getSenha());
-            System.out.println("-----------------------------");
-        }
     }
     
     
@@ -88,11 +80,8 @@ public class TesteAdministradorDao {
         AdministradorDao dao = new AdministradorDao();
         Administrador admin;
         
-        admin = dao.recuperar(7L);
+        admin = dao.recuperar(10L);
         
-        System.out.println("Id:" + admin.getId());
-        System.out.println("Nome:" + admin.getNome());
-        System.out.println("E-mail:" + admin.getEmail());
-        System.out.println("Senha:" + admin.getSenha());
+        Assert.assertEquals("mehor", admin.getNome());
     }
 }

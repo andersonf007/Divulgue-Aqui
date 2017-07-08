@@ -1,4 +1,4 @@
- package testesUnitários;
+ package testesUnitarios.modelo;
 
 import entidade.Administrador;
 import org.junit.Rule;

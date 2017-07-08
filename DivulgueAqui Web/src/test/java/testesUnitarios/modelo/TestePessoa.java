@@ -1,4 +1,4 @@
-package testesUnitários;
+package testesUnitarios.modelo;
 
 import entidade.Pessoa;
 import org.junit.Rule;

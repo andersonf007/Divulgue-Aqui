@@ -1,4 +1,4 @@
-package testesUnitários;
+package testesUnitarios.modelo;
 
 import entidade.Publicacao;
 import java.time.Instant;

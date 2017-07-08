@@ -1,5 +1,5 @@
 
-package testesUnitários;
+package testesUnitarios.DAO;
 
 import dao.PublicacaoDao;
 import dao.UsuarioDao;
@@ -8,7 +8,7 @@ import entidade.Usuario;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
-import static org.junit.Assert.fail;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-
+    @Ignore
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
@@ -37,12 +37,8 @@ public class TestePublicacaoDao {
         publicacao.setStatus("PENDENTE");
         publicacao.setUsuario(usuario);
         
-        try {
-            dao.inserir(publicacao);
-            System.out.println("Publicação salva com sucesso!");
-        } catch (Exception e) {
-            fail("Erro ao tentar salvar a publicação!" + e);
-        }
+        dao.inserir(publicacao);
+        
         
     }
   
@@ -53,20 +49,19 @@ public class TestePublicacaoDao {
         
          publicacao  =  dao.recuperar(3L);
         
-        publicacao.setCategoria("Saneamento");
+        publicacao.setCategoria("Saúde");
         publicacao.setDescricao("Descaso social");
         publicacao.setLocalidade("Garanhuns");
         publicacao.setStatus("PENDENTE");
         
-        try {
-            dao.alterar(publicacao);
-            System.out.println("Publicação altereda com sucesso!");
-        } catch (Exception e) {
-            fail("Erro ao tentar alterar a publicação!" + e);
-        }
+        dao.alterar(publicacao);
+        
+        publicacao  =  dao.recuperar(3L);
+        Assert.assertEquals("Saúde", publicacao.getCategoria());
+        
         
     }
-  
+    @Ignore
     @Test
     public void verificarExclusaoPublicacaoDB(){
         Publicacao publicacao;
@@ -74,26 +69,15 @@ public class TestePublicacaoDao {
         
         publicacao  =  dao.recuperar(6L);
 
-        try {
             dao.remover(publicacao);
-            System.out.println("Publicação excluida com sucesso!");
-        } catch (Exception e) {
-            fail("Erro ao tentar excluida a publicação!"+e);
-        }
+        
     }
     
    @Test
     public void listarTodasPublicacoesBD(){
        PublicacaoDao dao = new PublicacaoDao();
-       
-       for(Publicacao p: dao.recuperarTodos()){
-           System.out.println("Categoria" + p.getCategoria());
-           System.out.println("Descrição" + p.getDescricao());
-           System.out.println("Localidade" + p.getLocalidade());
-           System.out.println("Data" + p.getData());
-           System.out.println("Status" + p.getStatus());
-           System.out.println("------------------------");
-       }
+       List<Publicacao> publicacoes = dao.recuperarTodos();
+       Assert.assertEquals("Saneamento", publicacoes.get(1).getCategoria());
     }
    
     @Test
@@ -102,12 +86,7 @@ public class TestePublicacaoDao {
         
 
         Publicacao p =  dao.recuperar(2L);
-        
-        System.out.println("Categoria:" + p.getCategoria());
-        System.out.println("Descrição:" + p.getDescricao());
-        System.out.println("Localidade:" + p.getLocalidade());
-        System.out.println("Data:" + p.getData());
-        System.out.println("Status:" + p.getStatus());
+        Assert.assertEquals("Saneamento",p.getCategoria());
         
     }
   
@@ -115,14 +94,8 @@ public class TestePublicacaoDao {
     public void buscarPublicacaoPorStatus(){
         PublicacaoDao dao = new PublicacaoDao();
         List<Publicacao> publicacoes = dao.contaStatusPublicacao("PENDENTE");
+        Assert.assertEquals("PENDENTE", publicacoes.get(3).getStatus());
         
-        for (Publicacao p : publicacoes) {
-           
-               
-            System.out.println("ID da Consulta:" + p.getId());
-            System.out.println("Status da Consulta:" + p.getStatus());
-                   
-        }
     }
     
     //@Ignore
@@ -130,6 +103,7 @@ public class TestePublicacaoDao {
     public void buscarProblemasPorStatusPendente(){
         PublicacaoDao dao = new PublicacaoDao();
         long quantidade = dao.contarStatusProblemaPendente();
+        Assert.assertEquals(7, quantidade);
         System.out.println("Número de Status pendente: " + quantidade);
 
     }
@@ -139,6 +113,7 @@ public class TestePublicacaoDao {
     public void buscarProblemasPorStatusAnalizando(){
         PublicacaoDao dao = new PublicacaoDao();
         long quantidade = dao.contarStatusProblemaAnalizando();
+        Assert.assertEquals(1, quantidade);
         System.out.println("Número de Status analizando: " + quantidade);
         
     }
@@ -148,6 +123,8 @@ public class TestePublicacaoDao {
     public void buscarProblemasPorStatusResolvendo(){
         PublicacaoDao dao = new PublicacaoDao();
         long quantidade = dao.contarStatusProblemaResolvendo();
+        Assert.assertEquals(1, quantidade);
+        
         System.out.println("Número de Status Resolvendo: " + quantidade);
     }
     
@@ -156,6 +133,8 @@ public class TestePublicacaoDao {
     public void buscarProblemasPorStatusResolvido(){
         PublicacaoDao dao = new PublicacaoDao();
         long quantidade = dao.contarStatusProblemaResolvido();
+        Assert.assertEquals(0, quantidade);
+        
         System.out.println("Número de Status Resolvido: " + quantidade);
     }
     
@@ -164,6 +143,8 @@ public class TestePublicacaoDao {
     public void buscarProblemasPorStatusIgonaro(){
         PublicacaoDao dao = new PublicacaoDao();
         long quantidade = dao.contarStatusProblemaIgnorado();
+        Assert.assertEquals(0, quantidade);
+        
         System.out.println("Número de Status Resolvido: " + quantidade);
     }
     
