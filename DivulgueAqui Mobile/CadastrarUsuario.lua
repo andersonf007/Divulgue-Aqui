@@ -11,6 +11,7 @@ local TxtNome
 local TxtEmail
 local TxtSenha
 local ButtonCadastrar 
+local botaoLocked
 
 function scene:create(event)
 
@@ -55,6 +56,18 @@ function scene:create(event)
 	)
 
 	grupoCena:insert(ButtonCadastrar)  
+
+	botaoLocked = widget.newButton( -- mostra e oculta a senha
+        {
+            width = 20,
+            height = 20,
+            x = display.contentWidth/2 + 115,
+            y = display.contentHeight/2 - 29,
+            defaultFile = "cadeado.png",
+            onEvent = mostrarSenha
+        }
+    )
+    grupoCena:insert(botaoLocked)
 end
 
 function ValidateSave(response) -- validar salvamento
@@ -82,15 +95,15 @@ function salvarUsuario(event)
 
 		if  TxtNome.text ~= "" and TxtEmail.text ~= "" and  TxtSenha.text ~= "" and txtUsuario.text ~= "" then
 
-			if TxtNome.text ~= " " and TxtNome.text ~= "  " and TxtNome.text ~= "   " and TxtNome.text ~= "    " then 
+			if TxtNome.text ~= " " and TxtNome.text ~= "  " and TxtNome.text ~= "   " and TxtNome.text ~= "    " and TxtNome.text ~= "     " and TxtNome.text ~= "      " then 
 
-				if TxtSenha.text ~= " " and TxtSenha.text ~= "  " and TxtSenha.text ~= "   " and TxtSenha.text ~= "    " then
+				if TxtSenha.text ~= " " and TxtSenha.text ~= "  " and TxtSenha.text ~= "   " and TxtSenha.text ~= "    " and TxtSenha.text ~= "     " and TxtSenha.text ~= "      " then
 
-					if txtUsuario.text ~= " " and txtUsuario.text ~= "  " and txtUsuario.text ~= "   " and txtUsuario.text ~= "    " then
+					if txtUsuario.text ~= " " and txtUsuario.text ~= "  " and txtUsuario.text ~= "   " and txtUsuario.text ~= "    " and txtUsuario.text ~= "     " and txtUsuario.text ~= "      " then
 
 						if ( email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
 							
-							if TxtNome.text ~= "" then
+							if TxtNome.text ~= "" then -- aqui esta repetitivo pois antes estava fazendo a 
 
 								if TxtSenha.text ~= "" then
 
@@ -123,6 +136,25 @@ function salvarUsuario(event)
 			alert = native.showAlert("Não foi possível cadastrar","Todos os campos são obrigatorios", {"ok"} )
 		end
 	end
+end
+
+function mostrarSenha( event ) -- mostra a senha do usuario
+    if event.phase == "began" then
+    --[[    if TxtSenha ~="" then
+            if TxtSenha.isSecure == false then
+                TxtSenha.isSecure = true
+            else
+                TxtSenha.isSecure = false
+           end
+        end]]
+            TxtSenha.isSecure = false
+            tempo = timer.performWithDelay(1500,ocultarSenha)
+    end
+end
+
+function ocultarSenha() -- oculta a senha do usuario
+	TxtSenha.isSecure = true
+	timer.pause( tempo )
 end
 
 function scene:show(event)
