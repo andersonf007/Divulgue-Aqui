@@ -6,6 +6,8 @@
 package TesteUsuario;
 
 import com.google.gson.Gson;
+import dao.UsuarioDao;
+import entidade.Usuario;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -26,10 +28,10 @@ public class TesteUsuarioAlterar {
     @Test
     public void atualizarUsuario() throws MalformedURLException, IOException{
         int code = 0;
-        String nome = "ivone";
-        String email = "ivone@gmail.com.br";
+        String nome = "sonia";
+        String email = "sonia@gmail.com.br";
         String senha = "123";
-        long codigo = 29;
+        long codigo = 30;
           
         JSONObject jsonObject = new JSONObject();
 
@@ -59,7 +61,14 @@ public class TesteUsuarioAlterar {
 
             os.close();
             connection.disconnect();
+            
+            UsuarioDao dao = new UsuarioDao();
+            Usuario u = null;
+
+            u = dao.recuperarUsuarioNome(nome);
 
         assertEquals(200,code);
+        assertEquals(nome,u.getNome());
+        assertEquals(email,u.getEmail());
     }
 }

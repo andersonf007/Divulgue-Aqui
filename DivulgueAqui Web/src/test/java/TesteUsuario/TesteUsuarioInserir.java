@@ -23,16 +23,16 @@ import org.junit.Test;
  * @author ander
  */
 public class TesteUsuarioInserir {
-    
+
     //@Ignore
     @Test
-    public void inserirUsuario() throws MalformedURLException, IOException{
+    public void inserirUsuario() throws MalformedURLException, IOException {
         int code = 0;
         String nome = "pessoa";
         String email = "p1234@gmail.com";
         String nomeFicticio = "p1234";
         String senha = "123";
-          
+
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
@@ -40,39 +40,38 @@ public class TesteUsuarioInserir {
         jsonObject.put("email", email);
         jsonObject.put("senha", senha);
         jsonObject.put("usuario", nomeFicticio);
-           
+
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);
 
         URL url;
-      
-            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir");
 
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
+        url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir");
 
-            OutputStream os = connection.getOutputStream();
-            os.write(Json.getBytes("UTF-8"));
-            os.flush();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoOutput(true);
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
 
-            code = connection.getResponseCode();
-            
-            os.close();
-            connection.disconnect();
-            
-             UsuarioDao dao = new UsuarioDao();
-            Usuario u = null;
-        
-            u = dao.recuperarUsuarioPorNomeFicticio(nomeFicticio);
-            
-        assertEquals(200,code);
-        assertEquals(u.getEmail(),email);
-        assertEquals(u.getNome(),nome);
-        assertEquals(u.getUsuario(),nomeFicticio);
-        
-        
+        OutputStream os = connection.getOutputStream();
+        os.write(Json.getBytes("UTF-8"));
+        os.flush();
+
+        code = connection.getResponseCode();
+
+        os.close();
+        connection.disconnect();
+
+        UsuarioDao dao = new UsuarioDao();
+        Usuario u = null;
+
+        u = dao.recuperarUsuarioPorNomeFicticio(nomeFicticio);
+
+        assertEquals(200, code);
+        assertEquals(email, u.getEmail());
+        assertEquals(nome, u.getNome());
+        assertEquals(nomeFicticio, u.getUsuario());
+
     }
-    
+
 }

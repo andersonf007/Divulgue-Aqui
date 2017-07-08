@@ -64,11 +64,11 @@ public class TestePublicacaoInserir {
             os.close();
             connection.disconnect();
 
-            pb = dao.recuperar((long)18);
+            pb = dao.recuperar((long)19);
             
         assertEquals(204,code);
-        assertEquals(pb.getDescricao(),descricao);
-        assertEquals(pb.getLocalidade(),localidade);
+        assertEquals(descricao,pb.getDescricao());
+        assertEquals(localidade,pb.getLocalidade());
     }
     
 }

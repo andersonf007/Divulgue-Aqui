@@ -6,6 +6,8 @@
 package TestePubicacao;
 
 import com.google.gson.Gson;
+import dao.PublicacaoDao;
+import entidade.Publicacao;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -28,9 +30,9 @@ public class TestePublicacaoAtualizar {
     public void atualizarPublicacao() throws MalformedURLException, IOException{
         
         int code = 0;
-        String descricao = "nevasca gigante";
-        String localidade = "nunca menos";
-        long codigo = 14;//codigo da publicacao
+        String descricao = "seu escuro";
+        String localidade = "interior";
+        long codigo = 15;//codigo da publicacao
           
         JSONObject jsonObject = new JSONObject();
 
@@ -59,8 +61,15 @@ public class TestePublicacaoAtualizar {
             
             os.close();
             connection.disconnect();
+            
+            PublicacaoDao dao = new PublicacaoDao();
+            Publicacao pb = null;
+        
+            pb = dao.recuperar((long)15);
         
         assertEquals(200,code);
+        assertEquals(descricao,pb.getDescricao());
+        assertEquals(localidade,pb.getLocalidade());
     }
     
 }

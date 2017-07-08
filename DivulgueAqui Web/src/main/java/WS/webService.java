@@ -365,7 +365,7 @@ public class webService {
             pb.setLocalidade(localidade);
             pb.setDescricao(descricao);
             //pb.setCategoria(categoria);
-            pb.setStatus("Pendente");
+            pb.setStatus("PENDENTE");
             pb.setUsuario(u);
             
           
