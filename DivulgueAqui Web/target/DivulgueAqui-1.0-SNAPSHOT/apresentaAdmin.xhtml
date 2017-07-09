@@ -18,10 +18,6 @@
                     Todos Administradores
                 </f:facet>     
                 
-                <p:column headerText="Id" filterBy="#{atributo.id}">
-                    <h:outputText value="#{atributo.id}"/>
-                </p:column>
-                
                 <p:column headerText="Nome" filterBy="#{atributo.nome}">
                     <h:outputText value="#{atributo.nome}"/>
                 </p:column>
@@ -30,46 +26,8 @@
                     <h:outputText value="#{atributo.email}"/>
                 </p:column>
                 
-                
-                <p:column headerText="Operações" style="width: 13%">
-                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualiza').show()"
-                         update=':vizualizarAdmin:dialVisualiza' title="visualizar">
-                         <f:setPropertyActionListener value="#{atributo}" target="#{administradorBean.administrador}"/>                
-                     </p:commandButton>
-                    
-                    <p:commandButton icon='ui-icon-pencil' action="alteraAdmin.xhtml" title="alterar"  oncomplete="PF('widDialVisualiza').show()">
-                        <f:setPropertyActionListener value="#{atributo}" target="#{administradorBean.administrador}"/>
-                    </p:commandButton> 
-                    
-                    <p:commandButton icon='ui-icon-closethick' oncomplete="PF('widDialDeleta').show()" title="deletar">
-                        <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
-                    </p:commandButton>
-                </p:column>
             </p:dataTable>
-            
-            <p:dialog id="dialVisualiza" visible="false" resizable="false" modal="true" widgetVar="widDialVisualiza">
-                <p:panelGrid columns="2">
-                    <h:outputText value="Id"/>
-                    <h:outputText value="#{administradorBean.administrador.id}"/>
-                    
-                    <h:outputText value="Nome"/>
-                    <h:outputText value="#{administradorBean.administrador.nome}"/>
-                    
-                    
-                    <h:outputText value="E-mail"/>
-                    <h:outputText value="#{administradorBean.administrador.email}"/>
-                    
-                    
-                    <h:outputText value="Senha"/>
-                    <h:outputText value="#{administradorBean.administrador.senha}"/>
-                </p:panelGrid>
-            </p:dialog>
-            
-            <p:confirmDialog message="Deseja realmente deletar esse Administrador?" visible="false" id="dialDeleta" widgetVar="widDialDeleta">
-                <p:commandButton id="butao" value="sim"  action="#{administradorBean.deletar()}" update=':vizualizarAdmin:tabela'
-                                  style="left: 15%; color: green"  oncomplete="PF('widDialDeleta').hide()" />
-                 <p:commandButton value="não" style="position: relative; left: 50%; color: red" oncomplete="PF('widDialDeleta').hide()" />
-            </p:confirmDialog>
+           
         </h:form>
     </h:body>
 </html>

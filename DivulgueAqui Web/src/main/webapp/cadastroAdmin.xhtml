@@ -13,7 +13,7 @@
         <ui:include src="menuOrgao.xhtml"/>
         <h:form id="cadAdmin">
              <p:growl id="gro9" life="5000"/>
-            <p:fieldset legend="Registrar Adiministrador">
+            <p:fieldset legend="Registrar Administrador">
                 <p:panelGrid columns="2">
                     <p:outputLabel for="nome" value="Nome"/>
                     <p:inputText id="nome" value="#{administradorBean.administrador.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
@@ -27,9 +27,9 @@
                     </p:inputText>
 
                     <p:outputLabel for="senha" value="Senha"/>
-                    <p:inputText id="senha" value="#{administradorBean.administrador.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
+                    <p:password id="senha" value="#{administradorBean.administrador.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
 
-                    <p:commandButton value="Cadastrar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
+                    <p:commandButton value="Registrar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
                     <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
 
                     <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDial">

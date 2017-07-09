@@ -8,7 +8,6 @@ import dao.UsuarioDao;
 import entidade.Orgao;
 import entidade.Usuario;
 import hibernate.Criptografia;
-import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -24,7 +23,7 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 
 public class LoginBean {
-    //implements Serializable
+    
     private static final long serialVersionUID = -1174008149968491704L;
 
 
@@ -93,16 +92,6 @@ public class LoginBean {
 
     }
     
-    private void setOrgaoLogado(Orgao o){
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("OrgaoLogado",o);
-    }
-    
-    public boolean VerificaOrgaoLogado(){
-        Orgao o = (Orgao) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("OrgaoLogado");
-        return o != null;
-    }
-
-
     private void setAdminLogado(Administrador a){
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("AdminLogado", a);
     }
@@ -120,6 +109,14 @@ public class LoginBean {
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
         return u != null;    
     } 
+    private void setOrgaoLogado(Orgao o){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("OrgaoLogado",o);
+    }
+    
+    public boolean VerificaOrgaoLogado(){
+        Orgao o = (Orgao) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("OrgaoLogado");
+        return o != null;
+    }
     
     public Administrador getAdmin() {
         return admin;

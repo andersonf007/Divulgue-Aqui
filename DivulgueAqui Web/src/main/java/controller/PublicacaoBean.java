@@ -24,7 +24,7 @@ public class PublicacaoBean implements Controller, Serializable {
     private static final long serialVersionUID = 1L;
 
     private Publicacao publicacao;
-    private PublicacaoDao dao;
+    private PublicacaoDao daoPublicacao;
     private Usuario usuario;
     private UsuarioDao daoUsuario;
 
@@ -33,63 +33,60 @@ public class PublicacaoBean implements Controller, Serializable {
 
     @PostConstruct
     public void inicializar() {
-        dao = new PublicacaoDao();
+        daoPublicacao = new PublicacaoDao();
         daoUsuario = new UsuarioDao();
         publicacao = new Publicacao();
         usuario = new Usuario();
     }
 
     @Override
-    public String salvar() {//fazer validação pelo model
+    public String salvar() {
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
         usuario = daoUsuario.recuperar(u.getId());
         publicacao.setUsuario(usuario);
-        //publicacao.getStatus();
-        dao.inserir(publicacao);
+        
+        daoPublicacao.inserir(publicacao);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação salva com sucesso!"));
        
-        //FacesContext.getCurrentInstance().getExternalContext().getFlash().put(null, new FacesMessage("Publicação salva com sucesso!"));
-        //FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
-
         publicacao = new Publicacao();
-        return "menuUsuario.xhtml";//?faces-redirect=true
+        return "menuUsuario.xhtml";
     }
 
     @Override
     public String atualizar() {
-        dao.alterar(publicacao);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O status da publicação foi mudado para  " + publicacao.getStatus() + " com sucesso!"));
+        daoPublicacao.alterar(publicacao);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O status da publicação foi mudado para  " + publicacao.getStatus() + ", com sucesso!"));
         publicacao = new Publicacao();
-        return "apresentaPublicacao.xhtml";//?faces-redirect=true
+        return "apresentaPublicacao.xhtml";
     }
 
     @Override
     public String deletar() {
-        dao.remover(publicacao);
+        daoPublicacao.remover(publicacao);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação foi removida com sucesso!"));
         return "apresentaPublicacao.xhtml";//?faces-redirect=true
     }
 
     @Override
     public Publicacao buscar(Long id) {
-        return dao.recuperar(id);
+        return daoPublicacao.recuperar(id);
     }
 
     @Override
     public List<Publicacao> listarTodos() {
-        return dao.recuperarTodos();
+        return daoPublicacao.recuperarTodos();
     }
     
     public List publicacaoUsuario(Long id){
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
-        return dao.consultarPorUsuario(u.getId());
+        return daoPublicacao.consultarPorUsuario(u.getId());
     }
-    public PublicacaoDao getDao() {
-        return dao;
+    public PublicacaoDao getDaoPublicacao() {
+        return daoPublicacao;
     }
 
-    public void setDao(PublicacaoDao dao) {
-        this.dao = dao;
+    public void setDaoPublicacao(PublicacaoDao daoPublicacao) {
+        this.daoPublicacao = daoPublicacao;
     }
 
     public Publicacao getPublicacao() {

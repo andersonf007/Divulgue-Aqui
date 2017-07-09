@@ -23,7 +23,6 @@ public class AdministradorBean implements Controller, Serializable{
 
     private Administrador administrador;
     private AdministradorDao dao;
-    //private Criptografia criptografia;
 
     public AdministradorBean() {
     
@@ -36,11 +35,11 @@ public class AdministradorBean implements Controller, Serializable{
     
     @Override
     public String salvar() {
-        //ver como vai ficar a criptografia aqui!
+        
         administrador.setSenha(Criptografia.encriptografar(administrador.getSenha()));
-        System.out.println("Criptografando senha!!!");
         dao.inserir(administrador);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Adminitrador " + administrador.getNome() + " foi cadastrado com sucesso!"));
+        
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Administrador " + administrador.getNome() + " foi registrado com sucesso!"));
         this.administrador = new Administrador();
         return "menuOrgao.xhtml";
     }
@@ -48,9 +47,9 @@ public class AdministradorBean implements Controller, Serializable{
     @Override
     public String atualizar() {
          Administrador a = (Administrador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AdminLogado");
-         //administrador.setSenha(Criptografia.encriptografar(administrador.getSenha()));
+        
          dao.alterar(a);
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Administador " + a.getNome() + " dados atualizados com sucesso!"));
+         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Administador " + a.getNome() + " atualizou seus registros com sucesso!"));
          this.administrador = new Administrador();
          return "menuOrgao.xhtml";
     }
@@ -59,6 +58,7 @@ public class AdministradorBean implements Controller, Serializable{
     public String deletar() {
         Administrador a = (Administrador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AdminLogado");
         dao.remover(a);
+        
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Conta de adminstrador excluída com sucesso!"));
         return "index.xhtml";
     }
