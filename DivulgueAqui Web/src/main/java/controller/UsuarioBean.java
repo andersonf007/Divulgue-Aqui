@@ -36,7 +36,7 @@ public class UsuarioBean implements Controller, Serializable{
     }
     
     @Override
-    public String salvar() {//Fazer validação no  Dao para freiar quando houver resgistro a ser duplicado no BD!
+    public String salvar() {
         usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         dao.inserir(usuario);
         
@@ -48,7 +48,6 @@ public class UsuarioBean implements Controller, Serializable{
     @Override
     public String atualizar() {
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
-        //u.setSenha(Criptografia.encriptografar(u.getSenha()));//Ao colocar o usuário não consegue mais acessar, pois está criptografando novamente a senha!
         dao.alterar(u);
         
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário " + u.getNome() + "seus registros foram atualizados com sucesso!"));
@@ -57,7 +56,7 @@ public class UsuarioBean implements Controller, Serializable{
     }
 
     @Override
-    public String deletar() {//Validar: mandar mensagem para o usuário caso ele tenha publicações! 
+    public String deletar() { 
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
         dao.remover(u);
         

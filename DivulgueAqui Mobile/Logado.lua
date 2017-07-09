@@ -11,13 +11,6 @@ local tableView
 local tabelaDaPublicacao
 local grupoCena
 local bemVindo
--- integracao continua / treves/ ap veiou e treves
--- um ambiente de execucao cria uma maquina virtual mas proxima do que vc precisa uma maquina praticamente igual
--- a um ambiente de producao mais nao é um ambiente de producao
--- ambiente de omologacao
--- o cliente usa o amiente de producao e nao de omologacao
--- almetar a chance de nao dar erros no ambiente de producao
---web:recoverPublicacaoIdWS(codigoUser)
 
 local function onRowRender( event )-- metodo para preencher o tableView
 		--Set up the localized variables to be passed via the event table

@@ -9,6 +9,8 @@ local TxtUserName
 local TxtPassword
 local Buttonlogin
 local ButtonSingIn
+local botaoLocked
+local tempo
 
 function scene:create(event)
 	
@@ -54,22 +56,34 @@ function scene:create(event)
 		}
 	)
 	grupoCena:insert(ButtonSingIn)
+
+	botaoLocked = widget.newButton( -- mostra e oculta a senha
+        {
+            width = 20,
+            height = 20,
+            x = display.contentWidth/2 + 90,
+            y = display.contentHeight/2 - 15,
+            defaultFile = "cadeado.png",
+            onEvent = mostrarSenha
+        }
+    )
+    grupoCena:insert(botaoLocked)
 end
 
 function erroEfetuarLogin(codigo) -- mostra a mensagem de erro ao efetuar login
 	if codigo == 305 then
-		alert = native.showAlert("erro","usuario ou senha incorretos.", {"ok"} )
+		alert = native.showAlert("Erro","Usuario ou senha incorretos.", {"ok"} )
 	elseif codigo == 309 then
-		alert = native.showAlert("erro","O usuario nao existe", {"ok"} )
+		alert = native.showAlert("Erro","O usuario não existe", {"ok"} )
 	else
-		alert = native.showAlert("erro","erro inesperado.Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+		alert = native.showAlert("Erro","Erro inesperado. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 	end
 end
 
 function ReceivesUserInformation(codigo,nome,email,senha,usuario) -- recebe as informacoes do usuario que veio do web service e faz a validacao para o usuario poder fazer login 
 
 	if TxtUserName.text == usuario then
-		web:storeInformation(codigo,nome,email,senha,usuario)-- armazena as informacoes do usuario em variaves globais que esta no webservice para poder recuperar em outras telas
+		web:storeInformation(codigo,nome,email,TxtPassword.text,usuario)-- armazena as informacoes do usuario em variaves globais que esta no webservice para poder recuperar em outras telas
 		web:recoverPublicacaoIdWS(codigo)
 		composer.gotoScene("Logado")
 	end
@@ -87,6 +101,25 @@ function  registrarUsuario(event) -- toque no botao sing in
 	if event.phase == "ended" then
 		composer.gotoScene("CadastrarUsuario")
 	end
+end
+
+function mostrarSenha( event )
+    if event.phase == "began" then
+    --[[    if TxtPassword ~="" then
+            if TxtPassword.isSecure == false then
+                TxtPassword.isSecure = true
+            else
+                TxtPassword.isSecure = false
+           end
+        end]]
+            TxtPassword.isSecure = false
+            tempo = timer.performWithDelay(1500,ocultarSenha)
+    end
+end
+
+function ocultarSenha()
+	TxtPassword.isSecure = true
+	timer.pause( tempo )
 end
 
 function scene:show(event) 
