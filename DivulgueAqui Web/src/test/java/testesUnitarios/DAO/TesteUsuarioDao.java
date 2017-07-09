@@ -42,15 +42,15 @@ public class TesteUsuarioDao {
         usuario.setNome("Carl");
         usuario.setEmail("cj@gmail.com");
         usuario.setSenha("gtasa");
-        usuario.setUsuario("carlos");
+        usuario.setUsuario("carl");
         usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         
         dao.alterar(usuario);
         
         usuario = dao.recuperar(4L);
-        Assert.assertEquals("carlos", usuario.getUsuario());
+        Assert.assertEquals("carl", usuario.getUsuario());
     }
-    
+    @Ignore
     @Test
     public void verificarExclusaoUsuarioDB(){
         Usuario usuario;

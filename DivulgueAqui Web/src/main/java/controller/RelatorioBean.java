@@ -1,11 +1,8 @@
 package controller;
 
 import dao.PublicacaoDao;
-import dao.UsuarioDao;
 import entidade.Publicacao;
-import entidade.Usuario;
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;

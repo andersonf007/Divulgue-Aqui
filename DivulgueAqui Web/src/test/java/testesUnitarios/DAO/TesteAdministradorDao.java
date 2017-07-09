@@ -24,9 +24,9 @@ public class TesteAdministradorDao {
         Administrador admin = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         
-        admin.setNome("mehor");
-        admin.setEmail("mehor@gmail.com");
-        admin.setSenha("1520");
+        admin.setNome("admin");
+        admin.setEmail("admin@gmail.com");
+        admin.setSenha("5520");
         admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
         
         dao.inserir(admin);
@@ -53,7 +53,7 @@ public class TesteAdministradorDao {
         
     }
     
-    
+    @Ignore
     @Test
     public void vericarExclusaoAdminBD(){
         Administrador admin;

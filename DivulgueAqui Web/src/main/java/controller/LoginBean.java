@@ -93,16 +93,6 @@ public class LoginBean {
 
     }
     
-    private void setOrgaoLogado(Orgao o){
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("OrgaoLogado",o);
-    }
-    
-    public boolean VerificaOrgaoLogado(){
-        Orgao o = (Orgao) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("OrgaoLogado");
-        return o != null;
-    }
-
-
     private void setAdminLogado(Administrador a){
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("AdminLogado", a);
     }
@@ -120,6 +110,14 @@ public class LoginBean {
         Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
         return u != null;    
     } 
+    private void setOrgaoLogado(Orgao o){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("OrgaoLogado",o);
+    }
+    
+    public boolean VerificaOrgaoLogado(){
+        Orgao o = (Orgao) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("OrgaoLogado");
+        return o != null;
+    }
     
     public Administrador getAdmin() {
         return admin;

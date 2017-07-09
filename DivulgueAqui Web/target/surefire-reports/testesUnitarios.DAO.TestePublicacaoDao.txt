@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: testesUnitarios.DAO.TestePublicacaoDao
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 7.962 sec

@@ -23,9 +23,9 @@ public class TesteOrgaoDao {
         Orgao orgao = new Orgao();
         OrgaoDao dao = new OrgaoDao();
         
-        orgao.setNome("Forum2");
-        orgao.setEmail("forum2@gmail.com");
-        orgao.setSenha("1024");
+        orgao.setNome("Celpe");
+        orgao.setEmail("Celpe@gmail.com");
+        orgao.setSenha("0024");
         
         dao.inserir(orgao);
         
@@ -47,7 +47,7 @@ public class TesteOrgaoDao {
         Assert.assertEquals("Forum", orgao.getNome());
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void verificarExclusaoOrgaoDB(){
         Orgao orgao;
@@ -77,10 +77,7 @@ public class TesteOrgaoDao {
         
         orgao = dao.recuperar(6L);
         Assert.assertEquals("Forum", orgao.getNome());
-//        System.out.println("Id:" + orgao.getId());
-//        System.out.println("Nome:" + orgao.getNome());
-//        System.out.println("Senha:" + orgao.getSenha());
-//        
+      
     }
     
 }

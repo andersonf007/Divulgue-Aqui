@@ -20,7 +20,7 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-    @Ignore
+    
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
@@ -31,14 +31,16 @@ public class TestePublicacaoDao {
         
         Date data = Date.from(Instant.now());
         publicacao.setCategoria("Segurança");
-        publicacao.setDescricao("Professores violentos");
-        publicacao.setLocalidade("Manuel chel");
+        publicacao.setDescricao("Aumento de Furtos!");
+        publicacao.setLocalidade("Centro");
         publicacao.setData(data);
         publicacao.setStatus("PENDENTE");
         publicacao.setUsuario(usuario);
         
         dao.inserir(publicacao);
         
+        List<Publicacao> problemas = dao.recuperarTodos();
+        Assert.assertEquals("Centro", problemas.get(problemas.size()-1).getLocalidade());
         
     }
   
@@ -98,7 +100,7 @@ public class TestePublicacaoDao {
         
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void buscarProblemasPorStatusPendente(){
         PublicacaoDao dao = new PublicacaoDao();
@@ -133,7 +135,7 @@ public class TestePublicacaoDao {
     public void buscarProblemasPorStatusResolvido(){
         PublicacaoDao dao = new PublicacaoDao();
         long quantidade = dao.contarStatusProblemaResolvido();
-        Assert.assertEquals(0, quantidade);
+        Assert.assertEquals(1, quantidade);
         
         System.out.println("Número de Status Resolvido: " + quantidade);
     }
