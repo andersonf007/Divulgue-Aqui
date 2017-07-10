@@ -45,7 +45,7 @@ public class OrgaoBean implements Controller {
     public String atualizar() {
         Orgao o = (Orgao) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("OrgaoLogado");
         dao.alterar(o);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi atualizado com sucesso!"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + o.getNome() + " foi atualizado com sucesso!"));
         orgao = new Orgao();
         return "menuOrgao.xhtml";
     }
