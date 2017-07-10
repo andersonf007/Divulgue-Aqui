@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="testesUnitarios.modelo.TestePessoa" time="0.016" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="testesUnitarios.modelo.TestePessoa" time="0.031" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
@@ -64,6 +64,6 @@
   </properties>
   <testcase classname="testesUnitarios.modelo.TestePessoa" name="naoPermitirCriarPessoaNomeComNulo" time="0"/>
   <testcase classname="testesUnitarios.modelo.TestePessoa" name="naoPermitirCriarPessoaComEnderecoNulo" time="0"/>
-  <testcase classname="testesUnitarios.modelo.TestePessoa" name="naoPermitirCriarPessoaNomeVazio" time="0.016"/>
+  <testcase classname="testesUnitarios.modelo.TestePessoa" name="naoPermitirCriarPessoaNomeVazio" time="0.01"/>
   <testcase classname="testesUnitarios.modelo.TestePessoa" name="naoPermitirCriarPessoaComEnderecoVazio" time="0"/>
 </testsuite>
