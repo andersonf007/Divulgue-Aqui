@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: testesUnit\u00E1rios.TesteWebServicePublicacao
+-------------------------------------------------------------------------------
+<<<<<<< HEAD
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0 sec
+=======
+<<<<<<< HEAD:DivulgueAqui Web/target/surefire-reports/testesUnitÃ¡rios.TesteWebServicePublicacao.txt
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 0.177 sec <<< FAILURE! - in testesUnitários.TesteWebServicePublicacao
+deletarPublicacao(testesUnitários.TesteWebServicePublicacao)  Time elapsed: 0.153 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<204> but was:<500>
+	at testesUnitários.TesteWebServicePublicacao.deletarPublicacao(TesteWebServicePublicacao.java:163)
+
+=======
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0.016 sec
+>>>>>>> b1d711d09155353b986083a23bde5cb484b158af:DivulgueAqui Web/target/surefire-reports/testesUnit/u00E1rios.TesteWebServicePublicacao.txt
+>>>>>>> 4ebfe220887f06fad74f46899a1f2ad5098b490d

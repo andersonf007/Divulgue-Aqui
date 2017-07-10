@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Tela de perfil de #{OrgaoLogado.nome}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:include src="menuOrgao.xhtml"/>
+            <p:growl id="gro19" life="5000"/>
+        <h:form id="visualizaOrgao">
+            <p:fieldset legend="Dados do orgão">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Nome: "/>
+                    <h:outputText id="nome" value="#{OrgaoLogado.nome}"/>
+                    
+                    <h:outputText value="E-mail: "/>
+                    <h:outputText id="email" value="#{OrgaoLogado.email}"/>
+                </p:panelGrid>
+                <p:panel>
+                    <p:commandButton icon="ui-icon-pencil" oncomplete="location.href='alteraOrgao.xhtml'" title="Alterar"/> 
+                </p:panel>
+            </p:fieldset> 
+        </h:form>
+    </h:body>
+</html>
