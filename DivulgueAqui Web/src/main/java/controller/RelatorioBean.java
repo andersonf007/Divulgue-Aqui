@@ -55,7 +55,7 @@ public class RelatorioBean implements Serializable{
                 graficoPizzaPublicacoes.set("Ignorado", ignorado);
             }
         
-            graficoPizzaPublicacoes.setTitle("Estado do Poblema");
+            graficoPizzaPublicacoes.setTitle("Quadro dos Poblemas por Status");
             graficoPizzaPublicacoes.setLegendPosition("w");
             graficoPizzaPublicacoes.setShowDataLabels(true);
             graficoPizzaPublicacoes.setSeriesColors("E7E658,1a85ba,66cc66,fff00,DCDCDC");

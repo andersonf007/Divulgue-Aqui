@@ -18,11 +18,11 @@
             <p:fieldset legend="Relatar Problema">
                 <p:panelGrid columns="2">
                     
-                    <p:outputLabel for="descricao" value="Descrição"/>
-                    <p:inputTextarea id="descricao"  autoResize="false" maxlength="200" value="#{publicacaoBean.publicacao.descricao}" required="true"  requiredMessage="A descrição é obrigatória!"/>
-                    
                     <p:outputLabel for="localidade" value="Localidade"/>
                     <p:inputText id="localidade" value="#{publicacaoBean.publicacao.localidade}" required="true" requiredMessage="O local é obrigatório!"/>
+                    
+                    <p:outputLabel for="descricao" value="Descrição"/>
+                    <p:inputTextarea id="descricao"  autoResize="false" maxlength="200" value="#{publicacaoBean.publicacao.descricao}" required="true"  requiredMessage="A descrição é obrigatória!"/>
                     
                     <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
                     <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
