@@ -20,22 +20,22 @@
                     
                     <h:outputText value="Nome:"/>
                     <p:inputText id="email" value="#{AdminLogado.email}"/>
+                    <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                    <p:commandButton value="Cancelar" action="visualizaAdmin.xhtml?faces-redirect=true" immediate="false"/>
+                    <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
+                        <center> <f:facet name="herder"> 
+                                Atenção!!!
+                            </f:facet>
+                        </center>    
+                        <p:outputLabel value="Realmente quer mudarar dados do seu perfil?"/>
+
+                        <f:facet name="footer">
+                            <p:commandButton value="Sim" action="#{administradorBean.atualizar()}" style="position: relative; left: 10%" update="alteraPerfilAdmin" oncomplete="PF('WidDial').hide()"/>
+                            <p:commandButton value="Não" style="position: relative; left: 55%" oncomplete="PF('WidDial').hide()"/>
+                        </f:facet>
+                    </p:dialog>
                 </p:panelGrid>
-                <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
-                <p:commandButton value="Cancelar" action="visualizaUsuario.xhtml" immediate="false"/>
             </p:fieldset>
-            <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
-                <center> <f:facet name="herder"> 
-                    Atenção!!!
-                </f:facet>
-                </center>    
-                <p:outputLabel value="Realmente quer mudarar dados do seu perfil?"/>
-                
-                <f:facet name="footer">
-                    <p:commandButton value="Sim" action="#{administradorBean.atualizar()}" style="color: green" update="alteraPerfilAdmin" oncomplete="PF('WidDial').hide()"/>
-                    <p:commandButton value="Não" style="position: relative; left: 50%; color: red" oncomplete="PF('WidDial').hide()"/>
-                </f:facet>
-            </p:dialog>
 
         </h:form>
     </h:body>

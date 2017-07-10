@@ -27,21 +27,9 @@
                 
                 <p:panel>
                     <p:commandButton icon="ui-icon-pencil" oncomplete="location.href='alteraUsuario.xhtml'" title="Alterar"/> 
-                    <p:commandButton icon="ui-icon-trash" oncomplete="PF('widDialdelete').show()" title="Deletar"/>    
                 </p:panel>
             </p:fieldset>
             
-            <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDialdelete">
-                <f:facet name="header">
-                    Atenção!!!
-                </f:facet>
-
-                <h:outputText value="Deseja deletar sua conta?"/><br/>
-                <f:facet name="footer">
-                    <p:commandButton value="sim" action="#{usuarioBean.deletar()}"/>
-                    <p:commandButton style="position: relative; left: 40%" value="não" oncomplete="PF('widDial').hide()" update="visualizaUsu"/>
-                </f:facet>
-            </p:dialog>
         </h:form>
     </h:body>
 </html>

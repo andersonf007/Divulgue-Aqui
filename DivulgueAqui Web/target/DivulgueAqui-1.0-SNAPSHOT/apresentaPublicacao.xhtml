@@ -25,10 +25,6 @@
                     Posts Enviados
                 </f:facet>
                 
-                <p:column headerText="Id" filterBy="#{atributo.id}">
-                    <h:outputText value="#{atributo.id}"/>
-                </p:column>
-                
                 <p:column headerText="Descrição" filterBy="#{atributo.descricao}">
                     <h:outputText value="#{atributo.descricao}"/>
                 </p:column>
@@ -45,7 +41,8 @@
                     <h:outputText value="#{atributo.status}"/>
                 </p:column>
                 
-                <p:column headerText="Operações" style="width: 13%">
+                <p:column headerText="Operações" style="width: 9%">
+                    <center>
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualiza').show()"
                         update=':visualizarPublicacao:dialVisualiza' title="visualizar">
                         <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
@@ -54,17 +51,12 @@
                     <p:commandButton icon='ui-icon-pencil' action="alteraPublicacao.xhtml" title="alterar"  oncomplete="PF('widDialAltera').show()">
                         <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
                     </p:commandButton> 
-                    
-                    <p:commandButton icon='ui-icon-closethick' oncomplete="PF('widDialDeleta').show()" title="deletar">
-                        <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
-                    </p:commandButton>
+                    </center>
                 </p:column>
             </p:dataTable>
             
             <p:dialog id="dialVisualiza" visible="false" resizable="false" modal="true" widgetVar="widDialVisualiza">
                 <p:panelGrid columns="2">
-                    <h:outputText value="Id"/>
-                    <h:outputText value="#{publicacaoBean.publicacao.id}"/>
                     
                     <h:outputText value="Categoria"/>
                     <h:outputText value="#{publicacaoBean.publicacao.categoria}"/>
@@ -83,11 +75,6 @@
                 </p:panelGrid>
             </p:dialog>
             
-            <p:confirmDialog message="Deseja realmente deletar esse problema?" visible="false" id="dialDeleta" widgetVar="widDialDeleta">
-                <p:commandButton id="butao" value="sim"  action="#{publicacaoBean.deletar()}" update=':visualizarPublicacao:tabela'
-                                  style="left: 15%"  oncomplete="PF('widDialDeleta').hide()" />
-                 <p:commandButton value="não" style="position: relative; left: 50%" oncomplete="PF('widDialDeleta').hide()" />
-            </p:confirmDialog>
         </h:form> 
     </h:body>
 </html>
