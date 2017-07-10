@@ -56,15 +56,6 @@ public class UsuarioBean implements Controller, Serializable{
     }
 
     @Override
-    public String deletar() { 
-        Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("UsuarioLogado");
-        dao.remover(u);
-        
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Registros do Usuário foram removidos com sucesso!"));
-        return "menu.xhtml";        
-    }
-
-    @Override
     public Usuario buscar(Long id) {
         return dao.recuperar(id);
     }

@@ -68,12 +68,6 @@ public class PessoaBean implements Controller{
     }
 
     @Override
-    public String deletar() {
-        dao.remover(pessoa);    
-        return "index.xhtml";
-    }
-
-    @Override
     public Pessoa buscar(Long id) {
        return dao.recuperar(id);
     }

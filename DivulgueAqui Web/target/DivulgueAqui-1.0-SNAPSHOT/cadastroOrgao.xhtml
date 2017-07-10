@@ -10,7 +10,7 @@
     </h:head>
     
     <h:body>    
-        <ui:include src="menuOrgao.xhtml"/>
+        <ui:include src="menuAdmin.xhtml"/>
            <h:form id="cadOrgao">
               <p:growl id="gro6" life="5000"/>
                <p:fieldset legend="Registrar Orgão">   
@@ -28,7 +28,7 @@
                    </p:inputText>
                     
                    <p:outputLabel for="senha" value="Senha"/>
-                   <p:inputText id="senha" value="#{orgaoBean.orgao.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
+                   <p:password id="senha" value="#{orgaoBean.orgao.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
                    
                    <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
                    <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>

@@ -41,7 +41,7 @@ public class AdministradorBean implements Controller, Serializable{
         
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Administrador " + administrador.getNome() + " foi registrado com sucesso!"));
         this.administrador = new Administrador();
-        return "menuOrgao.xhtml";
+        return "menuAdmin.xhtml";
     }
 
     @Override
@@ -51,16 +51,7 @@ public class AdministradorBean implements Controller, Serializable{
          dao.alterar(a);
          FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Administador " + a.getNome() + " atualizou seus registros com sucesso!"));
          this.administrador = new Administrador();
-         return "menuOrgao.xhtml";
-    }
-
-    @Override
-    public String deletar() {
-        Administrador a = (Administrador) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AdminLogado");
-        dao.remover(a);
-        
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Conta de adminstrador excluída com sucesso!"));
-        return "index.xhtml";
+         return "menuAdmin.xhtml";
     }
 
     @Override
