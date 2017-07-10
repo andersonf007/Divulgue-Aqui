@@ -63,17 +63,6 @@ public class TestePublicacaoDao {
         
         
     }
-    @Ignore
-    @Test
-    public void verificarExclusaoPublicacaoDB(){
-        Publicacao publicacao;
-        PublicacaoDao dao = new PublicacaoDao();
-        
-        publicacao  =  dao.recuperar(6L);
-
-            dao.remover(publicacao);
-        
-    }
     
    @Test
     public void listarTodasPublicacoesBD(){
@@ -145,7 +134,7 @@ public class TestePublicacaoDao {
     public void buscarProblemasPorStatusIgonaro(){
         PublicacaoDao dao = new PublicacaoDao();
         long quantidade = dao.contarStatusProblemaIgnorado();
-        Assert.assertEquals(0, quantidade);
+        Assert.assertEquals(1, quantidade);
         
         System.out.println("Número de Status Resolvido: " + quantidade);
     }

@@ -23,13 +23,16 @@ public class TesteUsuarioDao {
         Usuario usuario = new Usuario();
         UsuarioDao dao = new UsuarioDao();
         
-        usuario.setNome("Michael Jackson");
-        usuario.setEmail("jackson@gmail.com");
+        usuario.setNome("Anderson");
+        usuario.setEmail("anderson@gmail.com");
         usuario.setSenha("2448");
-        usuario.setUsuario("michael");
+        usuario.setUsuario("seabra");
         usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         
         dao.inserir(usuario);
+        
+        List<Usuario> usuarios = dao.recuperarTodos();
+        Assert.assertEquals("Anderson", usuarios.get(usuarios.size()-1).getNome());
             
     }
     
@@ -49,17 +52,6 @@ public class TesteUsuarioDao {
         
         usuario = dao.recuperar(4L);
         Assert.assertEquals("carl", usuario.getUsuario());
-    }
-    @Ignore
-    @Test
-    public void verificarExclusaoUsuarioDB(){
-        Usuario usuario;
-        UsuarioDao dao = new UsuarioDao();
-
-        usuario = dao.recuperar(6L);
-        
-        dao.remover(usuario);
-        
     }
     
     @Test

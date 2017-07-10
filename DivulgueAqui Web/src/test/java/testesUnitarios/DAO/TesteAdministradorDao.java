@@ -31,6 +31,9 @@ public class TesteAdministradorDao {
         
         dao.inserir(admin);
         
+        List<Administrador> administradores = dao.recuperarTodos(); 
+        Assert.assertEquals("novo", administradores.get(administradores.size() -1).getNome());
+        
     }
     
     
@@ -50,18 +53,6 @@ public class TesteAdministradorDao {
         
         admin = dao.recuperar(7L); 
         Assert.assertEquals("extreme2", admin.getNome());
-        
-    }
-    
-    @Ignore
-    @Test
-    public void vericarExclusaoAdminBD(){
-        Administrador admin;
-        AdministradorDao dao = new AdministradorDao();
-        
-        admin = dao.recuperar(4L);
-        
-        dao.remover(admin);
         
     }
     
