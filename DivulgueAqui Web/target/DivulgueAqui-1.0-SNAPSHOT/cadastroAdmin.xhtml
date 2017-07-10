@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <ui:include src="menuOrgao.xhtml"/>
+        <ui:include src="menuAdmin.xhtml"/>
         <h:form id="cadAdmin">
              <p:growl id="gro9" life="5000"/>
             <p:fieldset legend="Registrar Administrador">
@@ -43,7 +43,7 @@
 
                         <f:facet name="footer">
 
-                            <p:commandButton value="Sim" action="#{administradorBean.salvar()}" update="cadAdmin"/>
+                            <p:commandButton value="Sim" action="#{administradorBean.salvar()}" style="position: relative; left: 15%" update="cadAdmin"/>
                             <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 50%"/>
                         </f:facet>
 

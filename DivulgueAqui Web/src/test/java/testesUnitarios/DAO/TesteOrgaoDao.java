@@ -3,6 +3,7 @@ package testesUnitarios.DAO;
 
 import dao.OrgaoDao;
 import entidade.Orgao;
+import hibernate.Criptografia;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -27,8 +28,12 @@ public class TesteOrgaoDao {
         orgao.setEmail("Celpe@gmail.com");
         orgao.setSenha("0024");
         
+        orgao.setSenha(Criptografia.encriptografar(orgao.getSenha()));
+        
         dao.inserir(orgao);
         
+        List<Orgao> orgaos = dao.recuperarTodos();
+        Assert.assertEquals("Celpe", orgaos.get(orgaos.size()-1).getNome());
     }
     
     //@Ignore
@@ -47,17 +52,6 @@ public class TesteOrgaoDao {
         Assert.assertEquals("Forum", orgao.getNome());
     }
     
-    @Ignore
-    @Test
-    public void verificarExclusaoOrgaoDB(){
-        Orgao orgao;
-        OrgaoDao dao = new OrgaoDao();
-        
-        orgao = dao.recuperar(7L);
-        
-        dao.remover(orgao);
-        
-    }
     //@Ignore
     @Test
     public void listarTodosOrgaosBD(){

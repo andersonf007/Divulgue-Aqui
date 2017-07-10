@@ -6,34 +6,31 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Dados do perfil do Usuário</title>
+        <title>#{OrgaoLogado.nome}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <ui:include src="menuUsuario.xhtml"/>
-        <h:form id="alteraUsuario">
-            <p:growl id="gro17" life="5000"/>
-            <p:fieldset legend="Atualizar Perfil">
+        <ui:include src="menuOrgao.xhtml"/>
+        <h:form id="alteraOrgao">
+            <p:fieldset legend="Atualizar Dados">
                 <p:panelGrid columns="2">
                     <h:outputText value="Nome:"/>
-                    <p:inputText id="nome" value="#{UsuarioLogado.nome}"/>
+                    <p:inputText id="nome" value="#{OrgaoLogado.nome}"/>
                     
                     <h:outputText value="E-mail:"/>
-                    <p:inputText id="email" value="#{UsuarioLogado.email}"/>
+                    <p:inputText id="email" value="#{OrgaoLogado.email}"/>
                     
-                    <h:outputText value="Usuario:"/>
-                    <p:inputText id="usuario" value="#{UsuarioLogado.usuario}"/>
-                <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
-                <p:commandButton value="Cancelar" action="visualizaUsuario.xhtml?faces-redirect=true" immediate="false"/>
-                
-                <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
+                    <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                    <p:commandButton value="Cancelar" action="visualizaOrgao.xhtml?faces-redirect=true" immediate="false"/>
+                    
+                    <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
                     <f:facet name="herder">
                         Atenção!!!
                     </f:facet>
                     <p:outputLabel value="Realmente quer atualizar seu perfil?"/>
 
                     <f:facet name="footer">
-                        <p:commandButton value="Sim" action="#{usuarioBean.atualizar()}" style="position: relative; left: 10%" update="alteraUsuario" oncomplete="PF('WidDial').hide()"/>
+                        <p:commandButton value="Sim" action="#{orgaoBean.atualizar()}" style="position: relative; left: 10%" update="alteraOrgao" oncomplete="PF('WidDial').hide()"/>
                         <p:commandButton value="Não" style="position: relative; left: 45%" oncomplete="PF('WidDial').hide()"/>
                     </f:facet>
                 </p:dialog>

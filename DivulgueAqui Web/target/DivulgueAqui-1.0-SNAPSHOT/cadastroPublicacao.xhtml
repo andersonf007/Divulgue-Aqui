@@ -36,7 +36,7 @@
                        <h:outputText value="Deseja realmente relatar esse problema?"/><br/>
                        
                        <f:facet name="footer">
-                            <p:commandButton value="Sim"  action="#{publicacaoBean.salvar()}" update="cadPublicacao"/>
+                           <p:commandButton value="Sim"  action="#{publicacaoBean.salvar()}" style="position: relative; left: 10%" update="cadPublicacao"/>
                             <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 50%"/>                            
                        </f:facet>
                        

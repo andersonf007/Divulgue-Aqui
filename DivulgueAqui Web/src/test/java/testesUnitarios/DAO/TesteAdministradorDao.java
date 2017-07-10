@@ -19,8 +19,6 @@ import org.junit.Test;
 
 public class TesteAdministradorDao {
     
-    
-    @Ignore
     @Test
     public void vericarInsercaoAdminBD(){
         Administrador admin = new Administrador();
@@ -33,9 +31,11 @@ public class TesteAdministradorDao {
         
         dao.inserir(admin);
         
+        List<Administrador> administradores = dao.recuperarTodos(); 
+        Assert.assertEquals("novo", administradores.get(administradores.size() -1).getNome());
+        
     }
     
-    @Ignore
     @Test
     public void vericarAtualizacaoAdminBD(){
         Administrador admin;
@@ -55,19 +55,6 @@ public class TesteAdministradorDao {
         
     }
     
-    @Ignore
-    @Test
-    public void vericarExclusaoAdminBD(){
-        Administrador admin;
-        AdministradorDao dao = new AdministradorDao();
-        
-        admin = dao.recuperar(4L);
-        
-        dao.remover(admin);
-        
-    }
-    
-    @Ignore
     @Test
     public void listarTodosAdminBD(){
         
@@ -77,7 +64,6 @@ public class TesteAdministradorDao {
         
     }
     
-    @Ignore
     @Test
     public void buscarAdminPorId(){
         AdministradorDao dao = new AdministradorDao();

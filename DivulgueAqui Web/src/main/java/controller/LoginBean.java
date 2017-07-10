@@ -53,7 +53,7 @@ public class LoginBean {
     public String fazerLogin() {
 
         
-        String redireciona = "";
+        String redireciona;
         
          Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, Criptografia.encriptografar(senha));
          
@@ -62,33 +62,39 @@ public class LoginBean {
             this.setAdminLogado(a);
                  
                 FacesContext.getCurrentInstance().addMessage
-                (null, new FacesMessage("O administrador " + a.getNome() + " logado com sucesso!"));
-                 redireciona = "menuOrgao.xhtml";//?faces-redirect=true
+                (null, new FacesMessage("O administrador " + a.getNome() + " logou com sucesso!"));
+                return redireciona = "menuAdmin.xhtml";
         
         }
-        
-        else{ 
    
         Usuario u = daoUsuario.buscarUsuarioPorNomeSenha(nome, Criptografia.encriptografar(senha));
         if(u != null){
             this.setUsuarioLogado(u);
             FacesContext.getCurrentInstance().addMessage
-                (null, new FacesMessage("O usuario " + u.getNome() + " logado com sucesso!"));
-            redireciona = "menuUsuario.xhtml";//
+                (null, new FacesMessage("O usuario " + u.getNome() + " logou com sucesso!"));
+           return redireciona = "menuUsuario.xhtml";
         } 
-            
-         else {
+        
+        Orgao o = daoOrgao.recuperarOrgaoUsuarioSenha(nome, Criptografia.encriptografar(senha));
+        if (o != null) {
+            this.setOrgaoLogado(o);
+            FacesContext.getCurrentInstance().addMessage
+                (null, new FacesMessage("Orgão " + o.getNome() + " logou com sucesso!"));
+            return redireciona = "menuOrgao.xhtml";
+        }
+  
+         if(a == null && u == null && o == null){
+             
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no Login", "Nome ou senha invalidos"));
-            }
-        }
-        return redireciona;
+         }   
+        return redireciona = "";
     }
     
     public String fazerLogout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 
-        return "fazerLogin.xhtml?faces-redirect=true";
+        return "index.xhtml?faces-redirect=true";
 
     }
     

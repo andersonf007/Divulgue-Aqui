@@ -2,18 +2,19 @@ package controller;
 
 import dao.OrgaoDao;
 import entidade.Orgao;
+import hibernate.Criptografia;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Izaquias
  */
-@ViewScoped
+@SessionScoped
 
 @ManagedBean(name = "orgaoBean")
 public class OrgaoBean implements Controller {
@@ -32,24 +33,20 @@ public class OrgaoBean implements Controller {
 
     @Override
     public String salvar() {
+        orgao.setSenha(Criptografia.encriptografar(orgao.getSenha()));
         dao.inserir(orgao);
+        
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi cadastrado com sucesso!"));
         orgao = new Orgao();
-        return "menuOrgao.xhtml";
+        return "menuAdmin.xhtml";
     }
 
     @Override
     public String atualizar() {
-        dao.alterar(orgao);
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi atualizado com sucesso!"));
+        Orgao o = (Orgao) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("OrgaoLogado");
+        dao.alterar(o);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + o.getNome() + " foi atualizado com sucesso!"));
         orgao = new Orgao();
-        return "menuOrgao.xhtml";
-    }
-
-    @Override
-    public String deletar() {
-        dao.remover(orgao);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi removido com sucesso!"));
         return "menuOrgao.xhtml";
     }
 

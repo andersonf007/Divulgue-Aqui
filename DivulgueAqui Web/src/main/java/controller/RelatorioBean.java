@@ -6,6 +6,8 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import org.primefaces.model.chart.BarChartModel;
+import org.primefaces.model.chart.BarChartSeries;
 import org.primefaces.model.chart.PieChartModel;
 
 /**
@@ -63,4 +65,19 @@ public class RelatorioBean implements Serializable{
         
     }
     
+    public BarChartModel getGraficoBarrasPublicacao() {
+        BarChartModel model = new BarChartModel();
+        BarChartSeries barra = new BarChartSeries();
+        if(publicacao != null){
+            barra.setLabel("Problemas");
+            barra.set("Pendente", pendente);
+            barra.set("Analizando", analizando);
+            barra.set("Resolvendo", resolvendo);
+            barra.set("Resolvido", resolvido);
+            barra.set("Ignorado", ignorado);
+        }
+        
+        model.addSeries(barra);
+        return model;
+    }
 }

@@ -222,7 +222,7 @@ public class PublicacaoDao implements DaoGenerico<Publicacao>, Serializable{
     }
     
     public long contarStatusProblemaIgnorado(){
-        String hql = "SELECT COUNT(*) FROM Publicacao  WHERE status='IGONRADO'";
+        String hql = "SELECT COUNT(*) FROM Publicacao  WHERE status='IGNORADO'";
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
        
         try {

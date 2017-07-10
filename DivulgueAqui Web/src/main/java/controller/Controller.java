@@ -10,7 +10,6 @@ import java.util.List;
 public interface Controller {
     public String salvar();
     public String atualizar();
-    public String deletar();
     public Object buscar(Long chave);
     public List listarTodos();
 }

@@ -17,16 +17,13 @@
                <f:facet name="header">
                     Orgãos Registrados
                 </f:facet>
-                <p:column headerText="Id" filterBy="#{atributo.id}">
-                    <h:outputText value="#{atributo.id}"/>
-                </p:column>
                 
                 <p:column headerText="Nome" filterBy="#{atributo.nome}">
                     <h:outputText value="#{atributo.nome}"/>
                 </p:column>
                 
-                <p:column headerText="Senha" filterBy="#{atributo.senha}">
-                    <h:outputText value="#{atributo.senha}"/>
+                <p:column headerText="Senha" filterBy="#{atributo.email}">
+                    <h:outputText value="#{atributo.email}"/>
                 </p:column>
             </p:dataTable>
         </h:form>

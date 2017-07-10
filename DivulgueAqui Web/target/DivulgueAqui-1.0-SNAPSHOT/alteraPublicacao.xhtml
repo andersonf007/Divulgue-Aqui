@@ -18,7 +18,7 @@
                 location.href = "fazerLogin.xhtml";
             </script>
         </c:if>-->
-        <ui:include src="menuOrgao.xhtml"/>
+        <ui:include src="menuAdmin.xhtml"/>
         
         <h:form id="alteraPublicacao">
             <p:growl id="gro14" life="5000"/>
@@ -49,24 +49,24 @@
                         <f:selectItem itemLabel="IGNORADO" itemValue="IGNORADO" />
                     </p:selectOneMenu>
                     
+                    <p:commandButton value="Responder" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                    <p:commandButton value="Cancelar" action="apresentaPublicacao.xhtml" immediate="false"/>
+
+                    <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
+                        <f:facet name="herder">
+                            Atenção!!!
+                        </f:facet>
+                        <p:outputLabel value="Realmente quer responder essa problema?"/>
+
+                        <f:facet name="footer">
+                            <p:commandButton value="Sim" action="#{publicacaoBean.atualizar()}" style="position: relative; left: 10%" update="alteraPublicacao" oncomplete="PF('WidDial').hide()"/>
+                            <p:commandButton value="Não" style="position: relative; left: 45%" oncomplete="PF('WidDial').hide()"/>
+                        </f:facet>
+                    </p:dialog>
                 </p:panelGrid>
-                
-                <p:commandButton value="Responder" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
-                <p:commandButton value="Cancelar" action="apresentaPublicacao.xhtml" immediate="false"/>
                 
             </p:fieldset>
             
-            <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
-                <f:facet name="herder">
-                    Atenção!!!
-                </f:facet>
-                <p:outputLabel value="Realmente quer responder essa problema?"/>
-                
-                <f:facet name="footer">
-                    <p:commandButton value="Sim" action="#{publicacaoBean.atualizar()}" style="color: green" update="alteraPublicacao" oncomplete="PF('WidDial').hide()"/>
-                    <p:commandButton value="Não" style="position: relative; left: 50%; color: red" oncomplete="PF('WidDial').hide()"/>
-                </f:facet>
-            </p:dialog>
 
         </h:form>
     </h:body>

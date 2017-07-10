@@ -61,13 +61,6 @@ public class PublicacaoBean implements Controller, Serializable {
     }
 
     @Override
-    public String deletar() {
-        daoPublicacao.remover(publicacao);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Publicação foi removida com sucesso!"));
-        return "apresentaPublicacao.xhtml";//?faces-redirect=true
-    }
-
-    @Override
     public Publicacao buscar(Long id) {
         return daoPublicacao.recuperar(id);
     }
