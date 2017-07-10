@@ -49,9 +49,8 @@ function scene:create(event)
           label = "Publicar", 
           x = display.contentWidth/2,
           y = display.contentHeight/2 + 60, 
-          width = 150,
-          height = 40, 
-          shape = "roundedRect" , 
+        strokeWidth = 4,
+        shape = "roundedRect" ,
           onRelease = registrarPublicacao
           } 
       )

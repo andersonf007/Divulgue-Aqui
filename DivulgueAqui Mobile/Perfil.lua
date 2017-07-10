@@ -52,7 +52,7 @@ function scene:create(event)
 	ButtonSave =  widget.newButton( 
 
 		{
-		label="Save",
+		label="Salvar",
 		x = display.contentWidth/2,
 		y = display.contentHeight/2 + 40,
 		onRelease = updateUser,

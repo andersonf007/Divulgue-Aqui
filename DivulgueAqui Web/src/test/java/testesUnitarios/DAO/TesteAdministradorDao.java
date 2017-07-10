@@ -19,6 +19,8 @@ import org.junit.Test;
 
 public class TesteAdministradorDao {
     
+    
+    @Ignore
     @Test
     public void vericarInsercaoAdminBD(){
         Administrador admin = new Administrador();
@@ -26,14 +28,14 @@ public class TesteAdministradorDao {
         
         admin.setNome("admin");
         admin.setEmail("admin@gmail.com");
-        admin.setSenha("5520");
+        admin.setSenha("1234");
         admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
         
         dao.inserir(admin);
         
     }
     
-    
+    @Ignore
     @Test
     public void vericarAtualizacaoAdminBD(){
         Administrador admin;
@@ -65,6 +67,7 @@ public class TesteAdministradorDao {
         
     }
     
+    @Ignore
     @Test
     public void listarTodosAdminBD(){
         
@@ -74,7 +77,7 @@ public class TesteAdministradorDao {
         
     }
     
-    
+    @Ignore
     @Test
     public void buscarAdminPorId(){
         AdministradorDao dao = new AdministradorDao();

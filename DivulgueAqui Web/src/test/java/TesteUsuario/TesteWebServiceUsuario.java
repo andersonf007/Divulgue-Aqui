@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testesUnitarios;
+package TesteUsuario;
 
 import com.google.gson.Gson;
 import dao.UsuarioDao;
@@ -43,33 +43,41 @@ public class TesteWebServiceUsuario {
         String nomeFicticio = "p12";
         String senha = "123";
           
-        JSONObject jsonObject = new JSONObject();
+        JSONObject jsonObject = new JSONObject();//instancia um objeto json
 
         //Armazena dados em um Objeto JSON
-        jsonObject.put("nome", nome);
+        jsonObject.put("nome", nome);//Um objeto que mapeia chaves para valores
         jsonObject.put("email", email);
         jsonObject.put("senha", senha);
         jsonObject.put("usuario", nomeFicticio);
            
-        Gson gson = new Gson();
+        Gson gson = new Gson(); 
+//Gson é usado primeiro construindo uma instância Gson para que possa reutilizá-las livremente em vários tópicos.
         String Json = gson.toJson(jsonObject);
+        //Este método serializa o objeto especificado em sua representação Json equivalente.
+        //representar o estado de um objeto como uma sequência de bytes
+        //sendo possivel salvar o objeto em um arquivo de dados
 
         URL url;
       
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir");
-
+            //HttpURLConnection é usada para fazer uma única solicitação
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-
+            connection.setDoOutput(true);//Uma conexão de URL pode ser usada e ele estando true siginifica saida
+            connection.setRequestMethod("POST");//Defina o método para a solicitação de URL
+            connection.setRequestProperty("Content-Type", "application/json");//Define a propriedade de solicitação geral
+                                           //O Content-Type é cabeçalho da entidade é usado para indicar o tipo
+            
+            // representa um fluxo de saída de byte
             OutputStream os = connection.getOutputStream();
+                                         //obtém o fluxo de saída do subprocesso.   
             os.write(Json.getBytes("UTF-8"));
             os.flush();
 
             code = connection.getResponseCode();
             
             os.close();
+            //disconnect Indica que outros pedidos para o servidor são improváveis ​​no futuro próximo
             connection.disconnect();
             
              UsuarioDao dao = new UsuarioDao();
