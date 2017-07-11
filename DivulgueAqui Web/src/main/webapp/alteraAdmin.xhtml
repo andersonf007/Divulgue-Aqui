@@ -19,8 +19,12 @@
                         <h:outputText value="Nome:"/>
                         <p:inputText id="nome" value="#{AdminLogado.nome}"/>
 
+                        <h:outputText value="Usuário:"/>
+                        <p:inputText id="apelido" value="#{AdminLogado.usuario}"
+                        
                         <h:outputText value="Nome:"/>
                         <p:inputText id="email" value="#{AdminLogado.email}"/>
+                        
                         <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
                         <p:commandButton value="Cancelar" action="visualizaAdmin.xhtml?faces-redirect=true" immediate="false"/>
                         <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">

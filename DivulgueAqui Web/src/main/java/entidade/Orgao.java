@@ -31,7 +31,7 @@ public class Orgao implements Serializable {
     @Column(length = 50, nullable = false)
     private String senha;
     @Expose
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = false, unique = true)
     private String email;
     
     @Column(name="nomeUsuario",length = 50, nullable = false, unique = true)

@@ -19,6 +19,9 @@
                         <h:outputText value="Nome:"/>
                         <p:inputText id="nome" value="#{OrgaoLogado.nome}"/>
 
+                        <h:outputText value="Usário:"/>
+                        <p:inputText id="apelido" value="#{OrgaoLogado.usuario}"/>
+                        
                         <h:outputText value="E-mail:"/>
                         <p:inputText id="email" value="#{OrgaoLogado.email}"/>
 
@@ -26,9 +29,12 @@
                         <p:commandButton value="Cancelar" action="visualizaOrgao.xhtml?faces-redirect=true" immediate="false"/>
 
                         <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
+                            <center>
                             <f:facet name="herder">
                                 Atenção!!!
                             </f:facet>
+                                
+                            </center>
                             <p:outputLabel value="Realmente quer atualizar seu perfil?"/>
 
                             <f:facet name="footer">
