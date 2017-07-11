@@ -19,10 +19,10 @@ function scene:create(event)
 
 	display.setDefault("background", 0.3, 0.6, 1)
     
-    local titulo = display.newText({text="Formulário",x=display.contentWidth/2,y=display.contentHeight/2 - 230})
+    local titulo = display.newText({text="Formulário de cadastro",x=display.contentWidth/2,y=display.contentHeight/2 - 230})
     titulo:setFillColor( 1,1,0 )
     titulo.isEditable = true
-    titulo.size = 30
+    titulo.size = 25
     grupoCena:insert(titulo)
 
 	LabelNome = display.newText({text="Nome",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 200})
@@ -48,14 +48,32 @@ function scene:create(event)
 		{
 	
 		label="Cadastrar", 
-		x = display.contentWidth/2,
-		y = display.contentHeight/2 + 35,
+		x = display.contentWidth/2 + 26,
+		y = display.contentHeight/2 + 25,
+		width = 96,
+		height = 40,
         shape = "roundedRect",
 		onRelease = salvarUsuario
 		}
 	)
 
 	grupoCena:insert(ButtonCadastrar)  
+
+	ButtonVoltar =  widget.newButton( 
+	
+		{
+	
+		label="voltar", 
+		x = display.contentWidth/2 - 52, 
+		y = display.contentHeight/2 + 25,
+		width = 55,
+		height = 40,
+        shape = "roundedRect",
+		onRelease = voltarTela
+		}
+	)
+
+	grupoCena:insert(ButtonVoltar)  
 
 	botaoLocked = widget.newButton( -- mostra e oculta a senha
         {
@@ -70,6 +88,17 @@ function scene:create(event)
     grupoCena:insert(botaoLocked)
 end
 
+function voltarTela(event)
+	
+	if event.phase == "ended" then
+		TxtNome.text = ""
+		TxtEmail.text = ""
+		txtUsuario.text = ""
+		TxtSenha.text = ""
+		composer.gotoScene("Login")
+	end
+end
+
 function ValidateSave(response) -- validar salvamento
 
 	if response == 200 then
@@ -77,16 +106,14 @@ function ValidateSave(response) -- validar salvamento
 		TxtEmail.text = ""
 		TxtSenha.text = ""
 		txtUsuario.text = ""
-		alert = native.showAlert("informacao","usuario cadastrado com sucesso!", {"ok"} )
+		alert = native.showAlert("Informacao","usuario cadastrado com sucesso!", {"ok"} )
 		composer.gotoScene("Login")
 	elseif response == 302 then
-		alert = native.showAlert("erro","nome de usuario ja existe", {"ok"} )
+		alert = native.showAlert("Erro","nome de usuario ja existe", {"ok"} )
 	else
-		alert = native.showAlert("erro","não foi possivel se cadastrar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+		alert = native.showAlert("Erro","não foi possivel se cadastrar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
 	end
 end
-
-
 
 function salvarUsuario(event)
 	--print("entrou no botao salvar")
@@ -140,13 +167,6 @@ end
 
 function mostrarSenha( event ) -- mostra a senha do usuario
     if event.phase == "began" then
-    --[[    if TxtSenha ~="" then
-            if TxtSenha.isSecure == false then
-                TxtSenha.isSecure = true
-            else
-                TxtSenha.isSecure = false
-           end
-        end]]
             TxtSenha.isSecure = false
             tempo = timer.performWithDelay(1500,ocultarSenha)
     end

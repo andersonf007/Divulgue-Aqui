@@ -68,7 +68,7 @@ local function retornoDoRestParaCadastroDoUsuario( event )
        -- print(response)
        print( "codigo de retorno para dadastro do usuario: " .. event.response )
     else
-        print( "Error" )
+        print( "Error" .. response)
     end
     return
 end
@@ -101,7 +101,7 @@ function webService:RegisterUserWS(nome,email,senha,usuario) -- registrar usuari
 
 			params.body = jsonUsuario
 
-		network.request( "http://192.168.1.105:8084/DivulgueAqui/webresources/webService/usuario/inserir", "POST", retornoDoRestParaCadastroDoUsuario, params )
+		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir", "POST", retornoDoRestParaCadastroDoUsuario, params )
 end
 
 --////////////////////////////////////RECUPERAR USUARIO POR NOME ////////////////////////////////////////////////////////////////////
@@ -121,7 +121,7 @@ function webService:recoverUserWS(usuario,senha) -- recuperar usuario por nome
 
 	params.body = jsonUsuario
 
-	network.request( "http://192.168.1.105:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="..jsonUsuario, "GET", retornoDoRestParaReceberInformacoesDoUsuario, params )
+	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="..jsonUsuario, "GET", retornoDoRestParaReceberInformacoesDoUsuario, params )
 end
 
 --////////////////////////////////////RECUPERAR USUARIO POR ID //////////////////////////////////////////////////////////////////////
@@ -141,7 +141,7 @@ function webService:recoverUserIdWS(id) -- recuperar usuario por id
 
 	params.body = jsonUsuario
 
-	network.request( "http://192.168.1.105:8084/DivulgueAqui/webresources/webService/usuario/recuperarPorId?id="..id, "GET", retornoRestParaFazerSegundaAlteracaoDoUsuario, params )
+	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperarPorId?id="..id, "GET", retornoRestParaFazerSegundaAlteracaoDoUsuario, params )
 end
 
 --/////////////////////////////////////ATUALIZAR USUARIO/////////////////////////////////////////////////////////////////////////////
@@ -161,7 +161,7 @@ function webService:updateUserWS(codigo,nome,email,senha) -- atualizar usuario
 
 			params.body = jsonUsuario
 
-		network.request( "http://192.168.1.105:8084/DivulgueAqui/webresources/webService/usuario/update", "PUT", retornoRestParaConfirmarAlteracaoDoUsuario, params )
+		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/usuario/update", "PUT", retornoRestParaConfirmarAlteracaoDoUsuario, params )
 end
 
 --///////////////////////////////////REGISTRAR PUBLICACAO////////////////////////////////////////////////////////////////////////////
@@ -181,7 +181,7 @@ function webService:RegisterPublicationWS(localidade,descricao,codigo) -- regist
 
 			params.body = jsonFeed
 
-		network.request( "http://192.168.1.105:8084/DivulgueAqui/webresources/webService/pb/inserir", "POST", retornoDeConfirmacaoDeInsercaoDaPublicacao, params )
+		network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/pb/inserir", "POST", retornoDeConfirmacaoDeInsercaoDaPublicacao, params )
 end
 
 --//////////////////////////////RECUPERAR PUBLICACAO/////////////////////////////////////////////////////////////////////////////////
@@ -201,7 +201,7 @@ function webService:recoverPublicacaoIdWS(id) -- recuperar usuario por id
 
 	params.body = jsonPublicacao
 
-	network.request( "http://192.168.1.105:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="..id, "GET", retornoDoRestParaReceberInformacoesDaPublicacao, params )
+	network.request( "http://localhost:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="..id, "GET", retornoDoRestParaReceberInformacoesDaPublicacao, params )
 end
 
 return webService
