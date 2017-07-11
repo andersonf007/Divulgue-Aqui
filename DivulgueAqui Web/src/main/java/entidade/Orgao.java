@@ -34,6 +34,9 @@ public class Orgao implements Serializable {
     @Column(length = 50, nullable = false)
     private String email;
     
+//    @Column(name="nomeUsuario",length = 50, nullable = false, unique = true)
+//     private String usuario;
+    
     @OneToMany(fetch = FetchType.EAGER)//(cascade = CascadeType.MERGE)
     private Collection<Publicacao> publicacao = new ArrayList<>();
 

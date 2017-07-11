@@ -119,7 +119,7 @@ public class LoginBean {
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("OrgaoLogado",o);
     }
     
-    public boolean VerificarOrgaoLogado(){
+    public boolean verificarOrgaoLogado(){
         Orgao o = (Orgao) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("OrgaoLogado");
         return o != null;
     }

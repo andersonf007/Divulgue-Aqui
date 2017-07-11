@@ -23,6 +23,9 @@ public class Administrador implements Serializable{
   private String email;
   @Column(length = 50, nullable = false)
   private String senha;
+  
+//  @Column(name="nomeUsuario",length = 50, nullable = false, unique = true)
+//  private String usuario;
 
     public Administrador() {
         

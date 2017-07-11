@@ -3,9 +3,12 @@ package controller;
 
 import dao.UsuarioDao;
 import entidade.Usuario;
+import excecao.TransacaoException;
 import hibernate.Criptografia;
 import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -38,11 +41,17 @@ public class UsuarioBean implements Controller, Serializable{
     @Override
     public String salvar() {
         usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
-        dao.inserir(usuario);
+        try {
+            dao.inserir(usuario);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(usuario.getNome() + " foi registrado com sucesso!"));
+            usuario = new Usuario();
+            return "menu.xhtml";
+        } catch (TransacaoException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro "+ " Nome de usuário ou e-mail já existe!!"));
+            Logger.getLogger(UsuarioBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(usuario.getNome() + " foi registrado com sucesso!"));
-        usuario = new Usuario();
-        return "menu.xhtml";
+        return "";
     }
 
     @Override

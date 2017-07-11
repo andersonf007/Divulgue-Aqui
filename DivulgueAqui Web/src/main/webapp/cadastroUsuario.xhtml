@@ -28,7 +28,7 @@
                     </p:inputText>
                     
                     <p:outputLabel for="apelido" value="Usuario"/>
-                    <p:inputText id="apelido" value="#{usuarioBean.usuario.usuario}"/>
+                    <p:inputText id="apelido" value="#{usuarioBean.usuario.usuario}" required="true" requiredMessage="O nome de usário é obrigatório!"/>
                     
                     <p:outputLabel for="senha" value="Senha"/>
                     <p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="A senha é obrigatório!"/>

@@ -2,6 +2,7 @@ package dao;
 
 import hibernate.HibernateUtil;
 import entidade.Usuario;
+import excecao.TransacaoException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -22,7 +23,7 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
     }
 
     @Override
-    public void inserir(Usuario u) {
+    public void inserir(Usuario u) throws TransacaoException {
         
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
 
@@ -36,8 +37,8 @@ public class UsuarioDao implements DaoGenerico<Usuario> {
         }catch (Exception operation) {
 
             UsuarioDao.manager.getTransaction().rollback();
-            System.out.println("Operação cancelada");
             System.out.println(operation.getMessage());
+            throw new TransacaoException(TransacaoException.NAOCADASTROU);
             
 
         }finally {
