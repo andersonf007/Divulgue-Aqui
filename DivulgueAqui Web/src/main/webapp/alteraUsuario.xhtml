@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Dados do perfil do Usuário</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,33 +13,35 @@
     <h:body>
         <ui:include src="menuUsuario.xhtml"/>
         <h:form id="alteraUsuario">
-            <p:growl id="gro17" life="5000"/>
-            <p:fieldset legend="Atualizar Perfil">
-                <p:panelGrid columns="2">
-                    <h:outputText value="Nome:"/>
-                    <p:inputText id="nome" value="#{UsuarioLogado.nome}"/>
-                    
-                    <h:outputText value="E-mail:"/>
-                    <p:inputText id="email" value="#{UsuarioLogado.email}"/>
-                    
-                    <h:outputText value="Usuario:"/>
-                    <p:inputText id="usuario" value="#{UsuarioLogado.usuario}"/>
-                <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
-                <p:commandButton value="Cancelar" action="visualizaUsuario.xhtml?faces-redirect=true" immediate="false"/>
-                
-                <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
-                    <f:facet name="herder">
-                        Atenção!!!
-                    </f:facet>
-                    <p:outputLabel value="Realmente quer atualizar seu perfil?"/>
+            <c:if test="#{LoginBean.verificarUsuarioLogado()}">
+                <p:growl id="gro17" life="5000"/>
+                <p:fieldset legend="Atualizar Perfil">
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Nome:"/>
+                        <p:inputText id="nome" value="#{UsuarioLogado.nome}"/>
 
-                    <f:facet name="footer">
-                        <p:commandButton value="Sim" action="#{usuarioBean.atualizar()}" style="position: relative; left: 10%" update="alteraUsuario" oncomplete="PF('WidDial').hide()"/>
-                        <p:commandButton value="Não" style="position: relative; left: 45%" oncomplete="PF('WidDial').hide()"/>
-                    </f:facet>
-                </p:dialog>
-                </p:panelGrid>
-            </p:fieldset>
+                        <h:outputText value="E-mail:"/>
+                        <p:inputText id="email" value="#{UsuarioLogado.email}"/>
+
+                        <h:outputText value="Usuario:"/>
+                        <p:inputText id="usuario" value="#{UsuarioLogado.usuario}"/>
+                        <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                        <p:commandButton value="Cancelar" action="visualizaUsuario.xhtml?faces-redirect=true" immediate="false"/>
+
+                        <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
+                            <f:facet name="herder">
+                                Atenção!!!
+                            </f:facet>
+                            <p:outputLabel value="Realmente quer atualizar seu perfil?"/>
+
+                            <f:facet name="footer">
+                                <p:commandButton value="Sim" action="#{usuarioBean.atualizar()}" style="position: relative; left: 10%" update="alteraUsuario" oncomplete="PF('WidDial').hide()"/>
+                                <p:commandButton value="Não" style="position: relative; left: 45%" oncomplete="PF('WidDial').hide()"/>
+                            </f:facet>
+                        </p:dialog>
+                    </p:panelGrid>
+                </p:fieldset>
+            </c:if>
         </h:form>
     </h:body>
 </html>

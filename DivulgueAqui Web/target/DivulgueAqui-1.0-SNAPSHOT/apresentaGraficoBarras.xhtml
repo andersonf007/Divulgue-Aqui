@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Gráfico de Barras</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,7 +12,9 @@
     <h:body>
         <ui:include src="menuOrgao.xhtml"/>
         <h:form id="graficoBarras">
-            <p:chart type="bar" model="#{relatorioGrafico.getGraficoBarrasPublicacao()}" style="height:300px"/>
+            <c:if test="#{LoginBean.verificarOrgaoLogado()}">
+                <p:chart type="bar" model="#{relatorioGrafico.getGraficoBarrasPublicacao()}" style="height:300px"/>
+            </c:if>
         </h:form>
     </h:body>
 </html>
