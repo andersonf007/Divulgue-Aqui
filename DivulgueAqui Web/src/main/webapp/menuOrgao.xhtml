@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Entidade Responsável</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+<!--        <c:if test="#{LoginBean.admin == null}">
+            <script>
+                location.href = "fazerLogin.xhtml";
+            </script>
+        </c:if>-->
+        <p:growl id="gro5" life="5000"/>
+        <h:form id="menuOrgao">
+
+            <p:menubar>
+                <p:menuitem value="" url="index.xhtml"/>
+                
+                <p:submenu label="Orgão">
+                    <p:menuitem value="Perfil" url="visualizaOrgao.xhtml"/>
+                </p:submenu>
+                
+                <p:submenu label="Problema" >
+                    <p:menuitem value="Todos Relatos" url="apresentaPublicacaoOrgao.xhtml"/>
+                    <p:menuitem value="Gráfico" url="apresentaGraficoBarras.xhtml"/>                
+                </p:submenu>
+
+                <f:facet name="options" >
+                    <p:outputLabel value="Orgão: #{OrgaoLogado.nome}!"/>
+                </f:facet>
+
+                <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}" icon="ui-icon-extlink"/>
+
+            </p:menubar>
+
+            <p:separator/>
+        </h:form>
+    </h:body>
+</html>

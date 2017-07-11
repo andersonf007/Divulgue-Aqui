@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Administrador</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+           <p:growl id="gro4" life="5000"/>
+            <h:form id="menuAdmim">
+
+                <p:menubar>
+                <p:menuitem value="" url="index.xhtml"/>
+                
+                <p:submenu label="Administrador">
+                    <p:menuitem value="Registrar" url="cadastroAdmin.xhtml"/>
+                    <p:menuitem value="Perfil" url="visualizaAdmin.xhtml"/>
+                    <p:menuitem value="Registrados" url="apresentaAdmin.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Orgão">
+                    <p:menuitem value="Registrar" url="cadastroOrgao.xhtml"/>
+                    <p:menuitem value="Registrados" url="apresentaOrgao.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Usuários">
+                    <p:menuitem value="Registrados" url="apresentaUsuario.xhtml"/>
+                </p:submenu>
+
+                <p:submenu label="Problema" >
+                    <p:menuitem value="Todos Relatos" url="apresentaPublicacao.xhtml"/>
+                    <p:menuitem value="Gráfico" url="apresentaRelatorioPublicacao.xhtml"/>                
+                </p:submenu>
+
+
+                    <f:facet name="options" >
+                    <p:outputLabel value="Bem Vindo(a), #{AdminLogado.nome}!"/>
+                    </f:facet>
+
+                    <p:menuitem value="Sair" action="#{LoginBean.fazerLogout()}"/>
+                    
+                </p:menubar>
+                <p:separator/>
+            </h:form>
+    </h:body>
+</html>

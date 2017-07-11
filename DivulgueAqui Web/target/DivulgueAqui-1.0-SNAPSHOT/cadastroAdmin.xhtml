@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Administrador</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:include src="menuAdmin.xhtml"/>
+        <h:form id="cadAdmin">
+             <p:growl id="gro9" life="5000"/>
+            <p:fieldset legend="Registrar Administrador">
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="nome" value="Nome"/>
+                    <p:inputText id="nome" value="#{administradorBean.administrador.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
+
+                    <p:outputLabel for="email" value="E-mail"/>
+                    <p:inputText id="email" value="#{administradorBean.administrador.email}" required="true" requiredMessage="O e-mail é obrigatório!"
+                                 validatorMessage="Formato de e-mail inválido! Exemplo correto: nome@domain.com">
+                       <f:validateRegex 
+                         pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+
+                    </p:inputText>
+
+                    <p:outputLabel for="senha" value="Senha"/>
+                    <p:password id="senha" value="#{administradorBean.administrador.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
+
+                    <p:commandButton value="Registrar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
+                    <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
+
+                    <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDial">
+
+
+                        <f:facet name="header">
+                            Atenção!!!
+                        </f:facet>
+
+                        <h:outputText value="Deseja realmente registrar esse administrador?"/><br/>
+
+                        <f:facet name="footer">
+
+                            <p:commandButton value="Sim" action="#{administradorBean.salvar()}" style="position: relative; left: 15%" update="cadAdmin"/>
+                            <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 50%"/>
+                        </f:facet>
+
+                    </p:dialog>
+                </p:panelGrid>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+</html>
