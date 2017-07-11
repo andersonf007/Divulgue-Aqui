@@ -2,9 +2,12 @@ package controller;
 
 import dao.AdministradorDao;
 import entidade.Administrador;
+import excecao.TransacaoException;
 import hibernate.Criptografia;
 import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -37,11 +40,17 @@ public class AdministradorBean implements Controller, Serializable{
     public String salvar() {
         
         administrador.setSenha(Criptografia.encriptografar(administrador.getSenha()));
-        dao.inserir(administrador);
+        try {
+            dao.inserir(administrador);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Administrador " + administrador.getNome() + " foi registrado com sucesso!"));
+            this.administrador = new Administrador();
+            return "menuAdmin.xhtml";
+        } catch (TransacaoException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro "+ " Nome de usuário ou e-mail já existe!!"));
+            Logger.getLogger(AdministradorBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Administrador " + administrador.getNome() + " foi registrado com sucesso!"));
-        this.administrador = new Administrador();
-        return "menuAdmin.xhtml";
+        return "";
     }
 
     @Override
