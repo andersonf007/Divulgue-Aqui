@@ -3,31 +3,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Tela de perfil de #{AdminLogado.nome}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
         <ui:include src="menuAdmin.xhtml"/>
-        
+
         <h:form id="visualizaAdmin">
-            <p:growl id="gro18" life="5000"/>
+            <c:if test="#{LoginBean.verificarAdminLogado()}">
+                <p:growl id="gro18" life="5000"/>
                 <p:fieldset legend="Dados do administrador">
                     <p:panelGrid columns="2">
                         <h:outputText value="Nome: "/>
                         <h:outputText id="nome" value="#{AdminLogado.nome}"/>
-                    
+
                         <h:outputText value="E-mail: "/>
                         <h:outputText id="email" value="#{AdminLogado.email}"/>
-                        
+
                         <h:outputText value="Usuario: "/>
                         <h:outputText id="usuario" value="#{AdminLogado.nome}"/>
                     </p:panelGrid>
                     <p:panel>
-                    <p:commandButton icon="ui-icon-pencil" oncomplete="location.href='alteraAdmin.xhtml'" title="Alterar"/> 
+                        <p:commandButton icon="ui-icon-pencil" oncomplete="location.href='alteraAdmin.xhtml'" title="Alterar"/> 
                     </p:panel>
                 </p:fieldset>
-            </h:form>
+            </c:if>
+        </h:form>
     </h:body>
 </html>

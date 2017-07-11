@@ -2,8 +2,11 @@ package controller;
 
 import dao.OrgaoDao;
 import entidade.Orgao;
+import excecao.TransacaoException;
 import hibernate.Criptografia;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -34,11 +37,17 @@ public class OrgaoBean implements Controller {
     @Override
     public String salvar() {
         orgao.setSenha(Criptografia.encriptografar(orgao.getSenha()));
-        dao.inserir(orgao);
+        try {
+            dao.inserir(orgao);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi cadastrado com sucesso!"));
+            orgao = new Orgao();
+            return "menuAdmin.xhtml";
+        } catch (TransacaoException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro "+ " Nome de usuário ou e-mail já existe!!"));
+            Logger.getLogger(OrgaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Orgao " + orgao.getNome() + " foi cadastrado com sucesso!"));
-        orgao = new Orgao();
-        return "menuAdmin.xhtml";
+        return "";
     }
 
     @Override

@@ -13,30 +13,37 @@
     <h:body>
         <ui:include src="menuAdmin.xhtml"/>
         <h:form id="alteraPerfilAdmin">
-            <p:fieldset legend="Atualizar dados">
-                <p:panelGrid columns="2">
-                    <h:outputText value="Nome:"/>
-                    <p:inputText id="nome" value="#{AdminLogado.nome}"/>
-                    
-                    <h:outputText value="Nome:"/>
-                    <p:inputText id="email" value="#{AdminLogado.email}"/>
-                    <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
-                    <p:commandButton value="Cancelar" action="visualizaAdmin.xhtml?faces-redirect=true" immediate="false"/>
-                    <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
-                        <center> <f:facet name="herder"> 
-                                Atenção!!!
+
+            <c:if test="#{LoginBean.verificarAdminLogado()}">
+                <p:fieldset legend="Atualizar dados">
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Nome:"/>
+                        <p:inputText id="nome" value="#{AdminLogado.nome}"/>
+
+                        <h:outputText value="Usuário:"/>
+                        <p:inputText id="apelido" value="#{AdminLogado.usuario}"/>
+                        
+                        <h:outputText value="Nome:"/>
+                        <p:inputText id="email" value="#{AdminLogado.email}"/>
+                        
+                        <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                        <p:commandButton value="Cancelar" action="visualizaAdmin.xhtml?faces-redirect=true" immediate="false"/>
+                        <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
+                            <center> <f:facet name="herder"> 
+                                    Atenção!!!
+                                </f:facet>
+                            </center>    
+                            <p:outputLabel value="Realmente quer mudarar dados do seu perfil?"/>
+
+                            <f:facet name="footer">
+                                <p:commandButton value="Sim" action="#{administradorBean.atualizar()}" style="position: relative; left: 10%" update="alteraPerfilAdmin" oncomplete="PF('WidDial').hide()"/>
+                                <p:commandButton value="Não" style="position: relative; left: 55%" oncomplete="PF('WidDial').hide()"/>
                             </f:facet>
-                        </center>    
-                        <p:outputLabel value="Realmente quer mudarar dados do seu perfil?"/>
+                        </p:dialog>
+                    </p:panelGrid>
+                </p:fieldset>
 
-                        <f:facet name="footer">
-                            <p:commandButton value="Sim" action="#{administradorBean.atualizar()}" style="position: relative; left: 10%" update="alteraPerfilAdmin" oncomplete="PF('WidDial').hide()"/>
-                            <p:commandButton value="Não" style="position: relative; left: 55%" oncomplete="PF('WidDial').hide()"/>
-                        </f:facet>
-                    </p:dialog>
-                </p:panelGrid>
-            </p:fieldset>
-
+            </c:if>
         </h:form>
     </h:body>
 </html>

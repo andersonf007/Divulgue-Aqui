@@ -1,5 +1,5 @@
 
-package excecoes;
+package excecao;
 
 /**
  *

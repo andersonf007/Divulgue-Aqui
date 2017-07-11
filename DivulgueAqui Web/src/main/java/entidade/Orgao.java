@@ -31,16 +31,18 @@ public class Orgao implements Serializable {
     @Column(length = 50, nullable = false)
     private String senha;
     @Expose
-    @Column(length = 50, nullable = false)
+  @Column(length = 50, nullable = false, unique = true)
     private String email;
     
+    @Column(name="nomeUsuario",length = 50, nullable = false, unique = true)
+    private String usuario;
+
     @OneToMany(fetch = FetchType.EAGER)//(cascade = CascadeType.MERGE)
     private Collection<Publicacao> publicacao = new ArrayList<>();
 
     public Orgao() {
     }
-
-    public Orgao(String nome, String senha,String email, Collection<Publicacao> publicacao) {
+    public Orgao(String nome, String senha,String email, String usuario, Collection<Publicacao> publicacao) {
         if (nome == null || nome.isEmpty()) {
             throw new IllegalArgumentException("Informe o nome do orgão responsável!");
         }
@@ -58,6 +60,7 @@ public class Orgao implements Serializable {
         this.senha = senha;
         this.email = email;
         this.publicacao = publicacao;
+        this.usuario = usuario;
     }
 
     public long getId() {
@@ -100,4 +103,11 @@ public class Orgao implements Serializable {
         this.publicacao = publicacao;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 }

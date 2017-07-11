@@ -28,11 +28,11 @@ public class TesteUsuarioAlterar {
     @Test
     public void atualizarUsuario() throws MalformedURLException, IOException{
         int code = 0;
-        String nome = "sonia";
-        String email = "sonia@gmail.com.br";
-        String senha = "123";
-        long codigo = 30;
-          
+        String nome = "sonia23";
+        String email = "sonia23@gmail.com.br";
+        String senha = "1232";
+        long codigo = 37;
+        
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON

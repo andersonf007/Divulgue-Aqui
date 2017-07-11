@@ -68,7 +68,11 @@ local function retornoDoRestParaCadastroDoUsuario( event )
        -- print(response)
        print( "codigo de retorno para dadastro do usuario: " .. event.response )
     else
+<<<<<<< HEAD
         print( "Error" )
+=======
+        print( "Error" .. response)
+>>>>>>> mavenWeb
     end
     return
 end

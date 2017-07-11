@@ -10,9 +10,14 @@ local LabelTelefone
 local LabelSenha
 local TxtNome
 local TxtEmail
+<<<<<<< HEAD
 local TxtTelefone
 local TxtSenhaNova
 local sTxtSenhaAntiga
+=======
+local TxtSenhaNova
+local TxtSenhaAntiga
+>>>>>>> mavenWeb
 local ButtonSave 
 local ButtonLogout
 local botaoLocked
@@ -53,8 +58,15 @@ function scene:create(event)
 
 		{
 		label="Salvar",
+<<<<<<< HEAD
 		x = display.contentWidth/2,
 		y = display.contentHeight/2 + 40,
+=======
+		x = display.contentWidth/2 + 26,
+		y = display.contentHeight/2 + 25,
+		width = 96,
+		height = 40,
+>>>>>>> mavenWeb
 		onRelease = updateUser,
         strokeWidth = 4,
         shape = "roundedRect" 
@@ -63,6 +75,25 @@ function scene:create(event)
 	)
 	grupoCena:insert(ButtonSave)
 
+<<<<<<< HEAD
+=======
+	ButtonVoltar =  widget.newButton( 
+	
+		{
+	
+		label="voltar", 
+		x = display.contentWidth/2 - 52, 
+		y = display.contentHeight/2 + 25,
+		width = 55,
+		height = 40,
+        shape = "roundedRect",
+		onRelease = voltarTela
+		}
+	)
+
+	grupoCena:insert(ButtonVoltar)  
+
+>>>>>>> mavenWeb
 	botaoLocked2 = widget.newButton( -- mostra e oculta a senha
         {
             width = 20,
@@ -88,6 +119,20 @@ function scene:create(event)
     grupoCena:insert(botaoLocked)
 end
 
+<<<<<<< HEAD
+=======
+function voltarTela(event)
+	
+	if event.phase == "ended" then
+		TxtNome.text = ""
+		TxtEmail.text = ""
+		TxtSenhaNova.text = ""
+		TxtSenhaAntiga.text = ""  
+		composer.gotoScene("Logado")
+	end
+end
+
+>>>>>>> mavenWeb
 function confirmacaoDeAtualizacaoDoUsuario(codigo)
 	
 		if codigo == 200 then

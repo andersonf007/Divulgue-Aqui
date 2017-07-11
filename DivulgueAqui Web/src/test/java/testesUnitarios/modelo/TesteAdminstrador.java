@@ -19,31 +19,38 @@ public class TesteAdminstrador {
     @Test
     public void naoPermitirCriarAdminComNomeNulo(){
         excecao.expect(IllegalArgumentException.class);
-        new Administrador(1L, null, "root@gmail.com", "0123");
+
+        new Administrador(1L, null, "root@gmail.com", "0123", "meuNome");
+
     }
     @Test
     public void naoPermitirCriarAdminComNomeVazio(){
         excecao.expect(IllegalArgumentException.class);
-        new Administrador(1L, "", "root@gmail.com", "0123");
+
+        new Administrador(1L, "", "root@gmail.com", "0123", "meuNome");
+
     }
     @Test
     public void naoPermitirCriarAdminComEmailNulo(){
         excecao.expect(IllegalArgumentException.class);
-        new Administrador(1L, "root", null, "0123");
+        new Administrador(1L, "root", null, "0123", "meuNome");
     }
     @Test
     public void naoPermitirCriarAdminComEmailVazio(){
         excecao.expect(IllegalArgumentException.class);
-        new Administrador(1L, "root", "", "0123");
+        new Administrador(1L, "root", "", "0123", "meuNome");
+
     }
     @Test
     public void naoPermitirCriarAdminComSenhaNula(){
         excecao.expect(IllegalArgumentException.class);
-        new Administrador(1L, "root", "roo@gmail.com", null);
+        new Administrador(1L, "root", "roo@gmail.com", "", "meuNome");
+
     }
     @Test
     public void naoPermitirCriarAdminComSenhaVazia(){
         excecao.expect(IllegalArgumentException.class);
-        new Administrador(1L, "root", "roo@gmail.com", "");
+        new Administrador(1L, "root", "roo@gmail.com", "", "meuNome");
+
     }
 }

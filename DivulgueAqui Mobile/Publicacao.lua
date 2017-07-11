@@ -47,15 +47,53 @@ function scene:create(event)
       botaoPublicar = widget.newButton( 
           {
           label = "Publicar", 
+<<<<<<< HEAD
           x = display.contentWidth/2,
           y = display.contentHeight/2 + 60, 
         strokeWidth = 4,
         shape = "roundedRect" ,
+=======
+          x = display.contentWidth/2 + 26,
+          y = display.contentHeight/2 + 25,
+          width = 96,
+          height = 40,
+          strokeWidth = 4,
+          shape = "roundedRect" ,
+>>>>>>> mavenWeb
           onRelease = registrarPublicacao
           } 
       )
       
+<<<<<<< HEAD
       grupoCena:insert( botaoPublicar )      
+=======
+      grupoCena:insert( botaoPublicar )   
+
+      ButtonVoltar =  widget.newButton( 
+      
+        {
+      
+        label="voltar", 
+        x = display.contentWidth/2 - 52, 
+        y = display.contentHeight/2 + 25,
+        width = 55,
+        height = 40,
+        shape = "roundedRect",
+        onRelease = voltarTela
+        }
+      )   
+
+      grupoCena:insert(ButtonVoltar)  
+end
+
+function voltarTela(event)
+  
+  if event.phase == "ended" then
+    textoLocalidade.text = ""
+    textoDescricao.text = ""
+    composer.gotoScene("Logado")
+  end
+>>>>>>> mavenWeb
 end
 
 function retornoDoCodigoDeInsercaoDaPublicacao( codigo ) -- recebe o codigo que vem do web service para saber se inseriu no banco com sucesso

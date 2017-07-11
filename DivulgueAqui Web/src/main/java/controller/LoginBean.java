@@ -29,7 +29,6 @@ public class LoginBean {
 
     private String nome;
     private String senha;
-    private String email;
     private Administrador admin;
     private AdministradorDao daoAdmin;
     private Usuario usuario;
@@ -55,8 +54,8 @@ public class LoginBean {
         
         String redireciona;
         
-         Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, Criptografia.encriptografar(senha));
-         
+         Administrador a = daoAdmin.buscarAdminPorUsuarioSenha(nome, Criptografia.encriptografar(senha));
+      
         if (a != null) {
         
             this.setAdminLogado(a);
@@ -119,7 +118,7 @@ public class LoginBean {
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("OrgaoLogado",o);
     }
     
-    public boolean VerificaOrgaoLogado(){
+    public boolean verificarOrgaoLogado(){
         Orgao o = (Orgao) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("OrgaoLogado");
         return o != null;
     }
@@ -186,14 +185,6 @@ public class LoginBean {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 }

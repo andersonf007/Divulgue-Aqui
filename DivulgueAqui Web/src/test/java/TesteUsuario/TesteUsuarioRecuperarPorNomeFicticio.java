@@ -78,7 +78,8 @@ public class TesteUsuarioRecuperarPorNomeFicticio {
             
         assertEquals(200, code);
         assertEquals("Roberta Maria Silva Santos", nome);
-        assertEquals("robertaMaria@outlook.com.br", email);
+        assertEquals("robertaMaria@outlook.com", email);
+
         assertEquals("beta", nomeFicticio);
     }
 
