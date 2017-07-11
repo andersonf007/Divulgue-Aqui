@@ -27,7 +27,10 @@
                                 pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
 
                         </p:inputText>
-
+                        
+                        <p:outputLabel for="apelido" value="Usuário"/>
+                        <p:inputText id="apelido" value="#{administradorBean.administrador.usuario}" required="true" requiredMessage="O nome de usuário é obrigatório!"/>
+                        
                         <p:outputLabel for="senha" value="Senha"/>
                         <p:password id="senha" value="#{administradorBean.administrador.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
 
@@ -36,10 +39,12 @@
 
                         <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDial">
 
-
+                            <center>
+                                
                             <f:facet name="header">
                                 Atenção!!!
                             </f:facet>
+                            </center>
 
                             <h:outputText value="Deseja realmente registrar esse administrador?"/><br/>
 

@@ -19,6 +19,7 @@ public class MainCriptografia {
         
         adm.setNome("master");
         adm.setEmail("master@gmail.com");
+        adm.setUsuario("master");
         adm.setSenha("123");
         adm.setSenha(Criptografia.encriptografar(adm.getSenha()));//Efetua a criptografia!
         
