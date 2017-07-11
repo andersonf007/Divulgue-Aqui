@@ -2,6 +2,7 @@
 package testesUnitarios.DAO;
 import dao.UsuarioDao;
 import entidade.Usuario;
+import excecao.TransacaoException;
 import hibernate.Criptografia;
 import java.util.List;
 import org.junit.Assert;
@@ -19,7 +20,7 @@ import org.junit.Test;
 public class TesteUsuarioDao {
     
    @Test
-    public void verificarInsercaoUsuarioDB(){
+    public void verificarInsercaoUsuarioDB() throws TransacaoException{
         Usuario usuario = new Usuario();
         UsuarioDao dao = new UsuarioDao();
         

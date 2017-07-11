@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>#{OrgaoLogado.nome}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,30 +13,38 @@
     <h:body>
         <ui:include src="menuOrgao.xhtml"/>
         <h:form id="alteraOrgao">
-            <p:fieldset legend="Atualizar Dados">
-                <p:panelGrid columns="2">
-                    <h:outputText value="Nome:"/>
-                    <p:inputText id="nome" value="#{OrgaoLogado.nome}"/>
-                    
-                    <h:outputText value="E-mail:"/>
-                    <p:inputText id="email" value="#{OrgaoLogado.email}"/>
-                    
-                    <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
-                    <p:commandButton value="Cancelar" action="visualizaOrgao.xhtml?faces-redirect=true" immediate="false"/>
-                    
-                    <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
-                    <f:facet name="herder">
-                        Atenção!!!
-                    </f:facet>
-                    <p:outputLabel value="Realmente quer atualizar seu perfil?"/>
+            <c:if test="#{LoginBean.verificarOrgaoLogado()}">
+                <p:fieldset legend="Atualizar Dados">
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Nome:"/>
+                        <p:inputText id="nome" value="#{OrgaoLogado.nome}"/>
 
-                    <f:facet name="footer">
-                        <p:commandButton value="Sim" action="#{orgaoBean.atualizar()}" style="position: relative; left: 10%" update="alteraOrgao" oncomplete="PF('WidDial').hide()"/>
-                        <p:commandButton value="Não" style="position: relative; left: 45%" oncomplete="PF('WidDial').hide()"/>
-                    </f:facet>
-                </p:dialog>
-                </p:panelGrid>
+                        <h:outputText value="Usário:"/>
+                        <p:inputText id="apelido" value="#{OrgaoLogado.usuario}"/>
+                        
+                        <h:outputText value="E-mail:"/>
+                        <p:inputText id="email" value="#{OrgaoLogado.email}"/>
+
+                        <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()" />
+                        <p:commandButton value="Cancelar" action="visualizaOrgao.xhtml?faces-redirect=true" immediate="false"/>
+
+                        <p:dialog id="dial" modal="true" resizable="false"  visible="false" widgetVar="widDial">
+                            <center>
+                            <f:facet name="herder">
+                                Atenção!!!
+                            </f:facet>
+                                
+                            </center>
+                            <p:outputLabel value="Realmente quer atualizar seu perfil?"/>
+
+                            <f:facet name="footer">
+                                <p:commandButton value="Sim" action="#{orgaoBean.atualizar()}" style="position: relative; left: 10%" update="alteraOrgao" oncomplete="PF('WidDial').hide()"/>
+                                <p:commandButton value="Não" style="position: relative; left: 45%" oncomplete="PF('WidDial').hide()"/>
+                            </f:facet>
+                        </p:dialog>
+                    </p:panelGrid>
             </p:fieldset>
+            </c:if>
         </h:form>
     </h:body>
 </html>

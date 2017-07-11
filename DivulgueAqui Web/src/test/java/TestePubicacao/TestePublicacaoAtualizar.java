@@ -32,8 +32,9 @@ public class TestePublicacaoAtualizar {
         int code = 0;
         String descricao = "seu claro";
         String localidade = "interior";
-        long codigo = 28;//codigo da publicacao
-          
+
+        long codigo = 27;//codigo da publicacao
+
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
@@ -64,9 +65,9 @@ public class TestePublicacaoAtualizar {
             
             PublicacaoDao dao = new PublicacaoDao();
             Publicacao pb = null;
-
-            pb = dao.recuperar((long)28);
-
+        
+            pb = dao.recuperar((long)27);
+        
         assertEquals(200,code);
         assertEquals(descricao,pb.getDescricao());
         assertEquals(localidade,pb.getLocalidade());

@@ -4,46 +4,47 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Problema</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
         <ui:include src="menuUsuario.xhtml"/>
-        
         <h:form id="cadPublicacao">
-            
-            <p:growl id="gro8" life="5000"/>
-            <p:fieldset legend="Relatar Problema">
-                <p:panelGrid columns="2">
-                    
-                    <p:outputLabel for="localidade" value="Localidade"/>
-                    <p:inputText id="localidade" value="#{publicacaoBean.publicacao.localidade}" required="true" requiredMessage="O local é obrigatório!"/>
-                    
-                    <p:outputLabel for="descricao" value="Descrição"/>
-                    <p:inputTextarea id="descricao"  autoResize="false" maxlength="200" value="#{publicacaoBean.publicacao.descricao}" required="true"  requiredMessage="A descrição é obrigatória!"/>
-                    
-                    <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
-                    <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
-                   
-                    <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDial">
-                    
-                       <f:facet name="header">
-                        Atenção!!!
-                       </f:facet>
-                     
-                       <h:outputText value="Deseja realmente relatar esse problema?"/><br/>
-                       
-                       <f:facet name="footer">
-                           <p:commandButton value="Sim"  action="#{publicacaoBean.salvar()}" style="position: relative; left: 10%" update="cadPublicacao"/>
-                            <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 50%"/>                            
-                       </f:facet>
-                       
-                    </p:dialog>
-                
-                </p:panelGrid>
-            </p:fieldset>
+            <c:if test="#{LoginBean.verificarUsuarioLogado()}">
+                <p:growl id="gro8" life="5000"/>
+                <p:fieldset legend="Relatar Problema">
+                    <p:panelGrid columns="2">
+
+                        <p:outputLabel for="localidade" value="Localidade"/>
+                        <p:inputText id="localidade" value="#{publicacaoBean.publicacao.localidade}" required="true" requiredMessage="O local é obrigatório!"/>
+
+                        <p:outputLabel for="descricao" value="Descrição"/>
+                        <p:inputTextarea id="descricao"  autoResize="false" maxlength="200" value="#{publicacaoBean.publicacao.descricao}" required="true"  requiredMessage="A descrição é obrigatória!"/>
+
+                        <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
+                        <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>
+
+                        <p:dialog id="dial" resizable="false" modal="true" visible="false" widgetVar="widDial">
+
+                            <f:facet name="header">
+                                Atenção!!!
+                            </f:facet>
+
+                            <h:outputText value="Deseja realmente relatar esse problema?"/><br/>
+
+                            <f:facet name="footer">
+                                <p:commandButton value="Sim"  action="#{publicacaoBean.salvar()}" style="position: relative; left: 10%" update="cadPublicacao"/>
+                                <p:commandButton value="Não" oncomplete="PF('widDial').hide()" style="position: relative; left: 50%"/>                            
+                            </f:facet>
+
+                        </p:dialog>
+
+                    </p:panelGrid>
+                </p:fieldset>
+            </c:if>
         </h:form>
     </h:body>
 </html>

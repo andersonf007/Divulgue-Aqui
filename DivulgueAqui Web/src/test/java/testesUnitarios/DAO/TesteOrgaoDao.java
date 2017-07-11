@@ -3,6 +3,7 @@ package testesUnitarios.DAO;
 
 import dao.OrgaoDao;
 import entidade.Orgao;
+import excecao.TransacaoException;
 import hibernate.Criptografia;
 import java.util.List;
 import org.junit.Assert;
@@ -19,7 +20,7 @@ public class TesteOrgaoDao {
 
      
     @Test
-    public void verificarInsercaoOrgaoDB(){
+    public void verificarInsercaoOrgaoDB() throws TransacaoException{
 
         Orgao orgao = new Orgao();
         OrgaoDao dao = new OrgaoDao();

@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Orgãos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,20 +13,22 @@
     <h:body>
         <ui:include src="menuAdmin.xhtml"/>
         <h:form id="visualizarOrgao">
-            <p:growl id="gro12" life="5000"/>
-            <p:dataTable id="tabela" var="atributo" value="#{orgaoBean.listarTodos()}" paginator="true" rows="10" rowKey="#{atributo.id}" selectionMode="single">
-               <f:facet name="header">
-                    Orgãos Registrados
-                </f:facet>
-                
-                <p:column headerText="Nome" filterBy="#{atributo.nome}">
-                    <h:outputText value="#{atributo.nome}"/>
-                </p:column>
-                
-                <p:column headerText="Senha" filterBy="#{atributo.email}">
-                    <h:outputText value="#{atributo.email}"/>
-                </p:column>
-            </p:dataTable>
+            <c:if test="#{LoginBean.verificarAdminLogado()}">
+                <p:growl id="gro12" life="5000"/>
+                <p:dataTable id="tabela" var="atributo" value="#{orgaoBean.listarTodos()}" paginator="true" rows="10" rowKey="#{atributo.id}" selectionMode="single">
+                    <f:facet name="header">
+                        Orgãos Registrados
+                    </f:facet>
+
+                    <p:column headerText="Nome" filterBy="#{atributo.nome}">
+                        <h:outputText value="#{atributo.nome}"/>
+                    </p:column>
+
+                    <p:column headerText="Senha" filterBy="#{atributo.email}">
+                        <h:outputText value="#{atributo.email}"/>
+                    </p:column>
+                </p:dataTable>
+            </c:if>
         </h:form>
     </h:body>
 </html>

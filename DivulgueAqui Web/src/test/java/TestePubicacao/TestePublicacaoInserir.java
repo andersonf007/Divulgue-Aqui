@@ -64,7 +64,7 @@ public class TestePublicacaoInserir {
             os.close();
             connection.disconnect();
 
-            pb = dao.recuperar((long)45);
+            pb = dao.recuperar((long)44);
             
         assertEquals(200,code);
         assertEquals(descricao,pb.getDescricao());

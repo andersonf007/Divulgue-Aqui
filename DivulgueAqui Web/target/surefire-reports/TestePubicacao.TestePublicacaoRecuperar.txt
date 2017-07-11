@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: TestePubicacao.TestePublicacaoRecuperar
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec
+=======
+<<<<<<< HEAD
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+>>>>>>> mavenWeb
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b

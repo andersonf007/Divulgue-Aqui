@@ -2,6 +2,7 @@
 package dao;
 
 import entidade.Administrador;
+import excecao.TransacaoException;
 import hibernate.HibernateUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -23,7 +24,7 @@ public class AdministradorDao implements DaoGenerico<Administrador>{
     }
 
     @Override
-    public void inserir(Administrador a) {
+    public void inserir(Administrador a) throws TransacaoException  {
         
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
@@ -36,8 +37,8 @@ public class AdministradorDao implements DaoGenerico<Administrador>{
             System.out.println("Admin salvo com sucesso!");
         } catch (Exception e) {
             AdministradorDao.manager.getTransaction().rollback();
-            System.out.println("Não foi possível salvar o admin!");
             System.out.println(e.getMessage());
+             throw new TransacaoException(TransacaoException.NAOCADASTROU);
         }finally{
             AdministradorDao.manager.close();
             System.out.println("Fim da sessão!");
@@ -128,14 +129,14 @@ public class AdministradorDao implements DaoGenerico<Administrador>{
         return null;
     }
     
-    public Administrador buscarAdminPorNomeSenha(String nome, String senha){
-        String hql = "from Administrador a where nome=:nomeAdmin and senha=:senhaAdmin";
+    public Administrador buscarAdminPorUsuarioSenha(String usuario, String senha){
+        String hql = "from Administrador a where nomeUsuario=:usuarioAdmin and senha=:senhaAdmin";
         Administrador a = null;
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
         try {
             Query query = manager.createQuery(hql);
-            a = (Administrador) query.setParameter("nomeAdmin", nome).setParameter("senhaAdmin", senha).getSingleResult();
+            a = (Administrador) query.setParameter("usuarioAdmin", usuario).setParameter("senhaAdmin", senha).getSingleResult();
             System.out.println("Admin Logou no sistema!");
         } catch (Exception e) {
             System.out.println("Dados incorretos, admin não logou no sistema!");

@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: TesteUsuario.TesteUsuarioInserir
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 sec
+=======
+<<<<<<< HEAD
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.885 sec
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 sec
+>>>>>>> mavenWeb
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b

@@ -19,30 +19,29 @@
                 width: 28%
             }
             .grid-login {
-                background-color: #DCDCDC;//#DCDCDC
+                background-color: #DCDCDC;
                 border-color: #DCDCDC;
-               
+
             }
-           
+
         </style>
     </h:head>
     <h:body>
         <ui:include src="menu.xhtml"/>
-        
-         <p:growl id="gro3" life="5000"/>
-         
-         <div id="login-dialog">
-             
-             <h:form id="fazerLogin">
-                 
-                  <p:messages showDetail="true"/>
-                  
-                  <p:fieldset legend="Login">
-                      
-                      <h:panelGrid columns="2" styleClass="grid-login" >
-                          
-                          <h:outputText value="Usuário: " style="color: black"/>
-                          <p:inputText id="login" value="#{LoginBean.nome}" required="true"/>
+        <p:growl id="gro3" life="5000"/>
+
+        <div id="login-dialog">
+
+            <h:form id="fazerLogin">
+
+                <p:messages showDetail="true"/>
+
+                <p:fieldset legend="Login">
+
+                    <h:panelGrid columns="2" styleClass="grid-login" >
+
+                        <h:outputText value="Usuário: " style="color: black"/>
+                        <p:inputText id="login" value="#{LoginBean.nome}" required="true"/>
 
                         <h:outputText value="Senha: " style="color: black"/>
                         <p:password id="senha" value="#{LoginBean.senha}" required="true"/>
@@ -50,16 +49,14 @@
 
                         <center>
                             <p:commandButton value="Fazer Login" action="#{LoginBean.fazerLogin()}" update="fazerLogin" />
-                       </center>
-                          
-                      </h:panelGrid>
-                      
-                  </p:fieldset>
-             </h:form>
-             
-         </div>
-        
-        
+                        </center>
+
+                    </h:panelGrid>
+
+                </p:fieldset>
+            </h:form>
+
+        </div>
     </h:body>
 </html>
 

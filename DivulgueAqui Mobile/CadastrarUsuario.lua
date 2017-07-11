@@ -19,11 +19,24 @@ function scene:create(event)
 
 	display.setDefault("background", 0.3, 0.6, 1)
     
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+    local titulo = display.newText({text="Formulário",x=display.contentWidth/2,y=display.contentHeight/2 - 230})
+    titulo:setFillColor( 1,1,0 )
+    titulo.isEditable = true
+    titulo.size = 30
+=======
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
     local titulo = display.newText({text="Formulário de cadastro",x=display.contentWidth/2,y=display.contentHeight/2 - 230})
     titulo:setFillColor( 1,1,0 )
     titulo.isEditable = true
     titulo.size = 25
+<<<<<<< HEAD
+=======
+>>>>>>> mavenWeb
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
     grupoCena:insert(titulo)
 
 	LabelNome = display.newText({text="Nome",x=display.contentWidth/2 + 5,y=display.contentHeight/2 - 200})
@@ -49,10 +62,21 @@ function scene:create(event)
 		{
 	
 		label="Cadastrar", 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+		x = display.contentWidth/2,
+		y = display.contentHeight/2 + 35,
+=======
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 		x = display.contentWidth/2 + 26,
 		y = display.contentHeight/2 + 25,
 		width = 96,
 		height = 40,
+<<<<<<< HEAD
+=======
+>>>>>>> mavenWeb
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
         shape = "roundedRect",
 		onRelease = salvarUsuario
 		}
@@ -60,6 +84,11 @@ function scene:create(event)
 
 	grupoCena:insert(ButtonCadastrar)  
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 	ButtonVoltar =  widget.newButton( 
 	
 		{
@@ -76,6 +105,10 @@ function scene:create(event)
 
 	grupoCena:insert(ButtonVoltar)  
 
+<<<<<<< HEAD
+=======
+>>>>>>> mavenWeb
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 	botaoLocked = widget.newButton( -- mostra e oculta a senha
         {
             width = 20,
@@ -89,6 +122,11 @@ function scene:create(event)
     grupoCena:insert(botaoLocked)
 end
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 function voltarTela(event)
 	
 	if event.phase == "ended" then
@@ -100,6 +138,10 @@ function voltarTela(event)
 	end
 end
 
+<<<<<<< HEAD
+=======
+>>>>>>> mavenWeb
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 function ValidateSave(response) -- validar salvamento
 
 	if response == 200 then
@@ -107,7 +149,24 @@ function ValidateSave(response) -- validar salvamento
 		TxtEmail.text = ""
 		TxtSenha.text = ""
 		txtUsuario.text = ""
+<<<<<<< HEAD
 		alert = native.showAlert("Informacao","Usuario cadastrado com sucesso!", {"ok"} )
+=======
+<<<<<<< HEAD
+		alert = native.showAlert("informacao","usuario cadastrado com sucesso!", {"ok"} )
+		composer.gotoScene("Login")
+	elseif response == 302 then
+		alert = native.showAlert("erro","nome de usuario ja existe", {"ok"} )
+	else
+		alert = native.showAlert("erro","não foi possivel se cadastrar, verifique a sua conexão com a internet. Se o problema persistir entre em contato conosco em suporte.divulgueaqui@gmail.com", {"ok"} )
+	end
+end
+
+
+
+=======
+		alert = native.showAlert("Informacao","usuario cadastrado com sucesso!", {"ok"} )
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 		composer.gotoScene("Login")
 	elseif response == 302 then
 		alert = native.showAlert("Erro","Nome de usuario ja existe", {"ok"} )
@@ -116,6 +175,10 @@ function ValidateSave(response) -- validar salvamento
 	end
 end
 
+<<<<<<< HEAD
+=======
+>>>>>>> mavenWeb
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 function salvarUsuario(event)
 	--print("entrou no botao salvar")
 	if event.phase == "ended" then
@@ -168,8 +231,23 @@ end
 
 function mostrarSenha( event ) -- mostra a senha do usuario
     if event.phase == "began" then
+<<<<<<< HEAD
         TxtSenha.isSecure = false
         tempo = timer.performWithDelay(1500,ocultarSenha)
+=======
+<<<<<<< HEAD
+    --[[    if TxtSenha ~="" then
+            if TxtSenha.isSecure == false then
+                TxtSenha.isSecure = true
+            else
+                TxtSenha.isSecure = false
+           end
+        end]]
+=======
+>>>>>>> mavenWeb
+            TxtSenha.isSecure = false
+            tempo = timer.performWithDelay(1500,ocultarSenha)
+>>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
     end
 end
 

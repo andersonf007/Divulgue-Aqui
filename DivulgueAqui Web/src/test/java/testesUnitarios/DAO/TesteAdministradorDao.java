@@ -3,12 +3,10 @@ package testesUnitarios.DAO;
 
 import dao.AdministradorDao;
 import entidade.Administrador;
+import excecao.TransacaoException;
 import hibernate.Criptografia;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
-import static org.junit.Assert.fail;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -20,7 +18,7 @@ import org.junit.Test;
 public class TesteAdministradorDao {
     
     @Test
-    public void vericarInsercaoAdminBD(){
+    public void vericarInsercaoAdminBD() throws TransacaoException{
         Administrador admin = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         

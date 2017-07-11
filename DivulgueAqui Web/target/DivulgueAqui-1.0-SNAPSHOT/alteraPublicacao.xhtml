@@ -13,14 +13,11 @@
         
     </h:head>
     <h:body>
-<!--        <c:if test="#{LoginBean.verificarAdminLogado() == null}">
-            <script>
-                location.href = "fazerLogin.xhtml";
-            </script>
-        </c:if>-->
         <ui:include src="menuAdmin.xhtml"/>
         
         <h:form id="alteraPublicacao">
+            <c:if test="#{LoginBean.verificarAdminLogado()}">
+                
             <p:growl id="gro14" life="5000"/>
             <p:fieldset legend="Responder do Problema">
                 <p:panelGrid columns="2">     
@@ -67,6 +64,7 @@
                 
             </p:fieldset>
             
+        </c:if>
 
         </h:form>
     </h:body>

@@ -11,70 +11,68 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <c:if test="#{LoginBean.admin == null}">
-            <script>
-                location.href = "fazerLogin.xhtml";
-            </script>
-        </c:if>
+
         <ui:include src="menuAdmin.xhtml"/>
         <h:form id="visualizarPublicacao">
-            <p:growl id="gro11" life="5000"/>
+            <c:if test="#{LoginBean.verificarAdminLogado()}">
+                <p:growl id="gro11" life="5000"/>
 
-            <p:dataTable id="tabela" var="atributo" value="#{publicacaoBean.listarTodos()}" rows="10" paginator="true" rowKey="#{atributo.id}" selectionMode="single">
-                <f:facet name="header">
-                    Problemas Relatados
-                </f:facet>
-                
-                <p:column headerText="Descrição" filterBy="#{atributo.descricao}">
-                    <h:outputText value="#{atributo.descricao}"/>
-                </p:column>
-                
-                <p:column headerText="Localidade" filterBy="#{atributo.localidade}">
-                    <h:outputText value="#{atributo.localidade}"/>
-                </p:column>
-                
-                <p:column headerText="Data" filterBy="#{atributo.data}">
-                    <h:outputText value="#{atributo.data}"/>
-                </p:column>
-                
-                <p:column headerText="Status" filterBy="#{atributo.status}">
-                    <h:outputText value="#{atributo.status}"/>
-                </p:column>
-                
-                <p:column headerText="Operações" style="width: 9%">
-                    <center>
-                    <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualiza').show()"
-                        update=':visualizarPublicacao:dialVisualiza' title="visualizar">
-                        <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
-                    </p:commandButton>
-                    
-                    <p:commandButton icon='ui-icon-pencil' action="alteraPublicacao.xhtml" title="alterar"  oncomplete="PF('widDialAltera').show()">
-                        <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
-                    </p:commandButton> 
-                    </center>
-                </p:column>
-            </p:dataTable>
-            
-            <p:dialog id="dialVisualiza" visible="false" resizable="false" modal="true" widgetVar="widDialVisualiza">
-                <p:panelGrid columns="2">
-                    
-                    <h:outputText value="Categoria"/>
-                    <h:outputText value="#{publicacaoBean.publicacao.categoria}"/>
-                    
-                    <h:outputText value="Descrição"/>
-                    <h:outputText value="#{publicacaoBean.publicacao.descricao}"/>
-                    
-                    <h:outputText value="Localidade"/>
-                    <h:outputText value="#{publicacaoBean.publicacao.localidade}"/>
-                    
-                    <h:outputText value="Data"/>
-                    <h:outputText value="#{publicacaoBean.publicacao.data}"/>
-                    
-                    <h:outputText value="Status"/>
-                    <h:outputText value="#{publicacaoBean.publicacao.status}"/>
-                </p:panelGrid>
-            </p:dialog>
-            
+                <p:dataTable id="tabela" var="atributo" value="#{publicacaoBean.listarTodos()}" rows="10" paginator="true" rowKey="#{atributo.id}" selectionMode="single">
+                    <f:facet name="header">
+                        Problemas Relatados
+                    </f:facet>
+
+                    <p:column headerText="Descrição" filterBy="#{atributo.descricao}">
+                        <h:outputText value="#{atributo.descricao}"/>
+                    </p:column>
+
+                    <p:column headerText="Localidade" filterBy="#{atributo.localidade}">
+                        <h:outputText value="#{atributo.localidade}"/>
+                    </p:column>
+
+                    <p:column headerText="Data" filterBy="#{atributo.data}">
+                        <h:outputText value="#{atributo.data}"/>
+                    </p:column>
+
+                    <p:column headerText="Status" filterBy="#{atributo.status}">
+                        <h:outputText value="#{atributo.status}"/>
+                    </p:column>
+
+                    <p:column headerText="Operações" style="width: 9%">
+                        <center>
+                            <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualiza').show()"
+                                             update=':visualizarPublicacao:dialVisualiza' title="visualizar">
+                                <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
+                            </p:commandButton>
+
+                            <p:commandButton icon='ui-icon-pencil' action="alteraPublicacao.xhtml" title="alterar"  oncomplete="PF('widDialAltera').show()">
+                                <f:setPropertyActionListener value="#{atributo}" target="#{publicacaoBean.publicacao}"/>
+                            </p:commandButton> 
+                        </center>
+                    </p:column>
+                </p:dataTable>
+
+                <p:dialog id="dialVisualiza" visible="false" resizable="false" modal="true" widgetVar="widDialVisualiza">
+                    <p:panelGrid columns="2">
+
+                        <h:outputText value="Categoria"/>
+                        <h:outputText value="#{publicacaoBean.publicacao.categoria}"/>
+
+                        <h:outputText value="Descrição"/>
+                        <h:outputText value="#{publicacaoBean.publicacao.descricao}"/>
+
+                        <h:outputText value="Localidade"/>
+                        <h:outputText value="#{publicacaoBean.publicacao.localidade}"/>
+
+                        <h:outputText value="Data"/>
+                        <h:outputText value="#{publicacaoBean.publicacao.data}"/>
+
+                        <h:outputText value="Status"/>
+                        <h:outputText value="#{publicacaoBean.publicacao.status}"/>
+                    </p:panelGrid>
+                </p:dialog>
+
+            </c:if>
         </h:form> 
     </h:body>
 </html>

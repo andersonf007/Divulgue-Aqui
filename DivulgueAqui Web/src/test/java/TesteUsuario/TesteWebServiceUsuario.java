@@ -54,7 +54,6 @@ public class TesteWebServiceUsuario {
         Gson gson = new Gson(); 
 
         String Json = gson.toJson(jsonObject);
-       
         URL url;
       
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/inserir");
@@ -66,7 +65,6 @@ public class TesteWebServiceUsuario {
             
             
             OutputStream os = connection.getOutputStream();
-                                           
             os.write(Json.getBytes("UTF-8"));
             os.flush();
 

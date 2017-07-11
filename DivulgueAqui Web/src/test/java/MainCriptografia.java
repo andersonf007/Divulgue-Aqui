@@ -1,8 +1,8 @@
 
 import dao.AdministradorDao;
-import dao.UsuarioDao;
 import entidade.Administrador;
-import entidade.Usuario;
+import excecao.TransacaoException;
+
 import hibernate.Criptografia;
 
 
@@ -12,13 +12,14 @@ import hibernate.Criptografia;
  */
 public class MainCriptografia {
 
-    public static void main(String[]args){
+    public static void main(String[]args) throws TransacaoException{
         
         Administrador adm = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         
         adm.setNome("master");
         adm.setEmail("master@gmail.com");
+        adm.setUsuario("master");
         adm.setSenha("123");
         adm.setSenha(Criptografia.encriptografar(adm.getSenha()));//Efetua a criptografia!
         
