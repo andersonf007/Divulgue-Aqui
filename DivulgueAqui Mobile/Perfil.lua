@@ -10,19 +10,12 @@ local LabelTelefone
 local LabelSenha
 local TxtNome
 local TxtEmail
-<<<<<<< HEAD
+
 local TxtSenhaNova
 local TxtSenhaAntiga
-=======
-<<<<<<< HEAD
-local TxtTelefone
-local TxtSenhaNova
-local sTxtSenhaAntiga
-=======
+
 local TxtSenhaNova
 local TxtSenhaAntiga
->>>>>>> mavenWeb
->>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 local ButtonSave 
 local ButtonLogout
 local botaoLocked
@@ -63,21 +56,10 @@ function scene:create(event)
 
 		{
 		label="Salvar",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-		x = display.contentWidth/2,
-		y = display.contentHeight/2 + 40,
-=======
->>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
-		x = display.contentWidth/2 + 26,
+		x = display.contentWidth/2 + 29,
 		y = display.contentHeight/2 + 25,
 		width = 96,
 		height = 40,
-<<<<<<< HEAD
-=======
->>>>>>> mavenWeb
->>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 		onRelease = updateUser,
         strokeWidth = 4,
         shape = "roundedRect" 
@@ -86,17 +68,12 @@ function scene:create(event)
 	)
 	grupoCena:insert(ButtonSave)
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 	ButtonVoltar =  widget.newButton( 
 	
 		{
 	
 		label="voltar", 
-		x = display.contentWidth/2 - 52, 
+		x = display.contentWidth/2 - 50, 
 		y = display.contentHeight/2 + 25,
 		width = 55,
 		height = 40,
@@ -107,10 +84,6 @@ function scene:create(event)
 
 	grupoCena:insert(ButtonVoltar)  
 
-<<<<<<< HEAD
-=======
->>>>>>> mavenWeb
->>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 	botaoLocked2 = widget.newButton( -- mostra e oculta a senha
         {
             width = 20,
@@ -136,11 +109,6 @@ function scene:create(event)
     grupoCena:insert(botaoLocked)
 end
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 function voltarTela(event)
 	
 	if event.phase == "ended" then
@@ -152,11 +120,6 @@ function voltarTela(event)
 		composer.gotoScene("Logado")
 	end
 end
-
-<<<<<<< HEAD
-=======
->>>>>>> mavenWeb
->>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
 function confirmacaoDeAtualizacaoDoUsuario(codigo)
 	
 		if codigo == 200 then

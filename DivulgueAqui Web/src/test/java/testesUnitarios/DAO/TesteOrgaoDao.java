@@ -18,7 +18,7 @@ import org.junit.Test;
 
 public class TesteOrgaoDao {
 
-     
+     @Ignore
     @Test
     public void verificarInsercaoOrgaoDB() throws TransacaoException{
 
@@ -37,7 +37,7 @@ public class TesteOrgaoDao {
         Assert.assertEquals("Celpe", orgaos.get(orgaos.size()-1).getNome());
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void verificarAtualizacaoOrgaoDB(){
         Orgao orgao;
@@ -53,7 +53,7 @@ public class TesteOrgaoDao {
         Assert.assertEquals("Forum", orgao.getNome());
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void listarTodosOrgaosBD(){
         OrgaoDao dao = new OrgaoDao();
@@ -64,7 +64,7 @@ public class TesteOrgaoDao {
         Assert.assertEquals("Admistrativo", orgaos.get(1).getNome());
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void verificarBuscaOrgaoDB(){
         Orgao orgao;

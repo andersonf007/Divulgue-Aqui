@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestePubicacao.TestePublicacaoAtualizar
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.662 sec
-=======
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.271 sec
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.357 sec
->>>>>>> mavenWeb
->>>>>>> cf82cc93b2aba3aeeac47572a0553f4546943f5b
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.816 sec

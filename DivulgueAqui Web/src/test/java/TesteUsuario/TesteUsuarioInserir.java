@@ -30,8 +30,8 @@ public class TesteUsuarioInserir {
         int code = 0;
         String nome = "pessoa";
 
-        String email = "p1234567@gmail.com";
-        String nomeFicticio = "p1234567";
+        String email = "pessoa2@gmail.com";
+        String nomeFicticio = "p2";
         String senha = "123";
 
         JSONObject jsonObject = new JSONObject();//instancia um objeto json

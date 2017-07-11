@@ -12,6 +12,7 @@ public abstract class Orgao_ {
 	public static volatile CollectionAttribute<Orgao, Publicacao> publicacao;
 	public static volatile SingularAttribute<Orgao, String> senha;
 	public static volatile SingularAttribute<Orgao, String> nome;
+	public static volatile SingularAttribute<Orgao, String> usuario;
 	public static volatile SingularAttribute<Orgao, Long> id;
 	public static volatile SingularAttribute<Orgao, String> email;
 

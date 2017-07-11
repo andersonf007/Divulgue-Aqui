@@ -19,6 +19,7 @@ import org.junit.Test;
 
 public class TesteUsuarioDao {
     
+    @Ignore
    @Test
     public void verificarInsercaoUsuarioDB() throws TransacaoException{
         Usuario usuario = new Usuario();
@@ -36,7 +37,7 @@ public class TesteUsuarioDao {
         Assert.assertEquals("quinha", usuarios.get(usuarios.size()-1).getNome());
             
     }
-    
+    @Ignore
     @Test
     public void verificarAtualizacaoUsuarioDB(){
         Usuario usuario;
@@ -54,7 +55,7 @@ public class TesteUsuarioDao {
         usuario = dao.recuperar(4L);
         Assert.assertEquals("carl", usuario.getUsuario());
     }
-    
+    @Ignore
     @Test
     public void listarTodosUsuariosBD(){
        UsuarioDao dao = new UsuarioDao();
@@ -63,6 +64,7 @@ public class TesteUsuarioDao {
        Assert.assertEquals("izaquias", usuarios.get(0).getNome());
        Assert.assertEquals("Carl", usuarios.get(1).getNome());
     }
+    @Ignore
     @Test
     public void buscarUsuarioBDPorId(){
         UsuarioDao dao = new UsuarioDao();
@@ -72,6 +74,7 @@ public class TesteUsuarioDao {
         
         Assert.assertEquals("izaquias", usuario.getNome());
     }
+    @Ignore
     @Test
     public void buscarUsuarioBDPorNome(){
         UsuarioDao dao = new UsuarioDao();

@@ -24,7 +24,7 @@ public class TestePublicacaoRecuperar {
     public void recuperarPublicacoesPorIdDoUsuario() throws MalformedURLException, IOException{
         int code = 0;
        
-        long codigo = 2; // id do usuario
+        long codigo = 3; // id do usuario
             URL url;
         
             url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/pb/listaTodasPorIdUsuario?id="+codigo);

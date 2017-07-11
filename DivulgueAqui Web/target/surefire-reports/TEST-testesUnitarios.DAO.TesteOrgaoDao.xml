@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="1" name="testesUnitarios.DAO.TesteOrgaoDao" time="0.294" errors="2" skipped="0">
+<testsuite tests="4" failures="0" name="testesUnitarios.DAO.TesteOrgaoDao" time="0.006" errors="0" skipped="4">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
@@ -14,7 +14,6 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="test" value="testesUnitarios.DAO.TesteAdministradorDao,testesUnitarios.DAO.TesteOrgaoDao,testesUnitarios.DAO.TestePublicacaoDao,testesUnitarios.DAO.TesteUsuarioDao"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\ander\Documents\IFPE 2017.1\Divulgue-Aqui\DivulgueAqui Web"/>
     <property name="java.runtime.version" value="1.8.0_131-b11"/>
@@ -45,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_131\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=testesUnitarios.DAO.TesteAdministradorDao,testesUnitarios.DAO.TesteOrgaoDao,testesUnitarios.DAO.TestePublicacaoDao,testesUnitarios.DAO.TesteUsuarioDao -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -62,219 +61,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="testesUnitarios.DAO.TesteOrgaoDao" name="verificarAtualizacaoOrgaoDB" time="0">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at testesUnitarios.DAO.TesteOrgaoDao.verificarAtualizacaoOrgaoDB(TesteOrgaoDao.java:45)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
-	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
-	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-</error>
-    <system-out>Hibernate: 
-    select
-        orgao0_.id as id1_1_0_,
-        orgao0_.email as email2_1_0_,
-        orgao0_.nome as nome3_1_0_,
-        orgao0_.senha as senha4_1_0_,
-        publicacao1_.Orgao_id as Orgao_id1_2_1_,
-        publicacao2_.id as publicac2_2_1_,
-        publicacao2_.id as id1_4_2_,
-        publicacao2_.categoria as categori2_4_2_,
-        publicacao2_.data as data3_4_2_,
-        publicacao2_.descricao as descrica4_4_2_,
-        publicacao2_.localidade as localida5_4_2_,
-        publicacao2_.status as status6_4_2_,
-        publicacao2_.idUsuario as idUsuari7_4_2_,
-        usuario3_.id as id1_5_3_,
-        usuario3_.email as email2_5_3_,
-        usuario3_.nome as nome3_5_3_,
-        usuario3_.senha as senha4_5_3_,
-        usuario3_.nomeFicticio as nomeFict5_5_3_ 
-    from
-        Orgao orgao0_ 
-    left outer join
-        Orgao_Publicacao publicacao1_ 
-            on orgao0_.id=publicacao1_.Orgao_id 
-    left outer join
-        Publicacao publicacao2_ 
-            on publicacao1_.publicacao_id=publicacao2_.id 
-    left outer join
-        Usuario usuario3_ 
-            on publicacao2_.idUsuario=usuario3_.id 
-    where
-        orgao0_.id=?
-Encontrado com sucesso!
-Fim da sessão!
-</system-out>
+  <testcase classname="testesUnitarios.DAO.TesteOrgaoDao" name="verificarAtualizacaoOrgaoDB" time="0.132">
+    <skipped/>
   </testcase>
-  <testcase classname="testesUnitarios.DAO.TesteOrgaoDao" name="listarTodosOrgaosBD" time="0">
-    <failure message="expected:&lt;[Forum]&gt; but was:&lt;[prefeitura]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Forum]&gt; but was:&lt;[prefeitura]&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at testesUnitarios.DAO.TesteOrgaoDao.listarTodosOrgaosBD(TesteOrgaoDao.java:62)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
-	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
-	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-</failure>
-    <system-out>Hibernate: 
-    select
-        orgao0_.id as id1_1_,
-        orgao0_.email as email2_1_,
-        orgao0_.nome as nome3_1_,
-        orgao0_.senha as senha4_1_ 
-    from
-        Orgao orgao0_
-Hibernate: 
-    select
-        publicacao0_.Orgao_id as Orgao_id1_2_0_,
-        publicacao0_.publicacao_id as publicac2_2_0_,
-        publicacao1_.id as id1_4_1_,
-        publicacao1_.categoria as categori2_4_1_,
-        publicacao1_.data as data3_4_1_,
-        publicacao1_.descricao as descrica4_4_1_,
-        publicacao1_.localidade as localida5_4_1_,
-        publicacao1_.status as status6_4_1_,
-        publicacao1_.idUsuario as idUsuari7_4_1_,
-        usuario2_.id as id1_5_2_,
-        usuario2_.email as email2_5_2_,
-        usuario2_.nome as nome3_5_2_,
-        usuario2_.senha as senha4_5_2_,
-        usuario2_.nomeFicticio as nomeFict5_5_2_ 
-    from
-        Orgao_Publicacao publicacao0_ 
-    inner join
-        Publicacao publicacao1_ 
-            on publicacao0_.publicacao_id=publicacao1_.id 
-    left outer join
-        Usuario usuario2_ 
-            on publicacao1_.idUsuario=usuario2_.id 
-    where
-        publicacao0_.Orgao_id=?
-Fim da sessão!!
-</system-out>
-    <system-err>Tue Jul 11 15:02:08 BRT 2017 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-</system-err>
+  <testcase classname="testesUnitarios.DAO.TesteOrgaoDao" name="listarTodosOrgaosBD" time="0.132">
+    <skipped/>
   </testcase>
-  <testcase classname="testesUnitarios.DAO.TesteOrgaoDao" name="verificarInsercaoOrgaoDB" time="0.182"/>
-  <testcase classname="testesUnitarios.DAO.TesteOrgaoDao" name="verificarBuscaOrgaoDB" time="0.003">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at testesUnitarios.DAO.TesteOrgaoDao.verificarBuscaOrgaoDB(TesteOrgaoDao.java:73)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
-	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
-	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-</error>
-    <system-out>Hibernate: 
-    select
-        orgao0_.id as id1_1_0_,
-        orgao0_.email as email2_1_0_,
-        orgao0_.nome as nome3_1_0_,
-        orgao0_.senha as senha4_1_0_,
-        publicacao1_.Orgao_id as Orgao_id1_2_1_,
-        publicacao2_.id as publicac2_2_1_,
-        publicacao2_.id as id1_4_2_,
-        publicacao2_.categoria as categori2_4_2_,
-        publicacao2_.data as data3_4_2_,
-        publicacao2_.descricao as descrica4_4_2_,
-        publicacao2_.localidade as localida5_4_2_,
-        publicacao2_.status as status6_4_2_,
-        publicacao2_.idUsuario as idUsuari7_4_2_,
-        usuario3_.id as id1_5_3_,
-        usuario3_.email as email2_5_3_,
-        usuario3_.nome as nome3_5_3_,
-        usuario3_.senha as senha4_5_3_,
-        usuario3_.nomeFicticio as nomeFict5_5_3_ 
-    from
-        Orgao orgao0_ 
-    left outer join
-        Orgao_Publicacao publicacao1_ 
-            on orgao0_.id=publicacao1_.Orgao_id 
-    left outer join
-        Publicacao publicacao2_ 
-            on publicacao1_.publicacao_id=publicacao2_.id 
-    left outer join
-        Usuario usuario3_ 
-            on publicacao2_.idUsuario=usuario3_.id 
-    where
-        orgao0_.id=?
-Encontrado com sucesso!
-Fim da sessão!
-</system-out>
+  <testcase classname="testesUnitarios.DAO.TesteOrgaoDao" name="verificarInsercaoOrgaoDB" time="0.132">
+    <skipped/>
+  </testcase>
+  <testcase classname="testesUnitarios.DAO.TesteOrgaoDao" name="verificarBuscaOrgaoDB" time="0.132">
+    <skipped/>
   </testcase>
 </testsuite>

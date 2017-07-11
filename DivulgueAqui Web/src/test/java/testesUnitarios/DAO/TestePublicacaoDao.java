@@ -20,7 +20,7 @@ import org.junit.Test;
 
 public class TestePublicacaoDao {
     
-    
+    @Ignore
     @Test 
     public void verificarInsercaoPublicacaoDB(){
         Publicacao publicacao = new Publicacao();
@@ -43,7 +43,7 @@ public class TestePublicacaoDao {
         Assert.assertEquals("Centro", problemas.get(problemas.size()-1).getLocalidade());
         
     }
-  
+  @Ignore
     @Test
     public void verificarAtualizacaoPublicacaoDB(){
         Publicacao publicacao;
@@ -63,14 +63,14 @@ public class TestePublicacaoDao {
         
         
     }
-    
+    @Ignore
    @Test
     public void listarTodasPublicacoesBD(){
        PublicacaoDao dao = new PublicacaoDao();
        List<Publicacao> publicacoes = dao.recuperarTodos();
        Assert.assertEquals("Saneamento", publicacoes.get(1).getCategoria());
     }
-   
+   @Ignore
     @Test
     public void buscarPublicacaoPorId(){
         PublicacaoDao dao = new PublicacaoDao();
@@ -80,7 +80,7 @@ public class TestePublicacaoDao {
         Assert.assertEquals("Saneamento",p.getCategoria());
         
     }
-  
+  @Ignore
     @Test
     public void buscarPublicacaoPorStatus(){
         PublicacaoDao dao = new PublicacaoDao();
@@ -99,7 +99,7 @@ public class TestePublicacaoDao {
 
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void buscarProblemasPorStatusAnalizando(){
         PublicacaoDao dao = new PublicacaoDao();
@@ -109,7 +109,7 @@ public class TestePublicacaoDao {
         
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void buscarProblemasPorStatusResolvendo(){
         PublicacaoDao dao = new PublicacaoDao();
@@ -119,7 +119,7 @@ public class TestePublicacaoDao {
         System.out.println("Número de Status Resolvendo: " + quantidade);
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void buscarProblemasPorStatusResolvido(){
         PublicacaoDao dao = new PublicacaoDao();
@@ -129,7 +129,7 @@ public class TestePublicacaoDao {
         System.out.println("Número de Status Resolvido: " + quantidade);
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void buscarProblemasPorStatusIgonaro(){
         PublicacaoDao dao = new PublicacaoDao();

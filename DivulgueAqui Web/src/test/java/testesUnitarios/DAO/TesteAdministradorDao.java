@@ -7,6 +7,7 @@ import excecao.TransacaoException;
 import hibernate.Criptografia;
 import java.util.List;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -16,7 +17,7 @@ import org.junit.Test;
 
 
 public class TesteAdministradorDao {
-    
+    @Ignore
     @Test
     public void vericarInsercaoAdminBD() throws TransacaoException{
         Administrador admin = new Administrador();
@@ -33,7 +34,7 @@ public class TesteAdministradorDao {
         Assert.assertEquals("novo", administradores.get(administradores.size() -1).getNome());
         
     }
-    
+    @Ignore
     @Test
     public void vericarAtualizacaoAdminBD(){
         Administrador admin;
@@ -52,7 +53,7 @@ public class TesteAdministradorDao {
         Assert.assertEquals("extreme2", admin.getNome());
         
     }
-    
+    @Ignore
     @Test
     public void listarTodosAdminBD(){
         
@@ -61,7 +62,7 @@ public class TesteAdministradorDao {
         Assert.assertEquals("master", administradores.get(1).getNome());
         
     }
-    
+    @Ignore
     @Test
     public void buscarAdminPorId(){
         AdministradorDao dao = new AdministradorDao();
