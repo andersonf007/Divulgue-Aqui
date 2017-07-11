@@ -1,8 +1,7 @@
 
 import dao.AdministradorDao;
-import dao.UsuarioDao;
 import entidade.Administrador;
-import entidade.Usuario;
+import excecao.TransacaoException;
 import hibernate.Criptografia;
 
 
@@ -12,7 +11,7 @@ import hibernate.Criptografia;
  */
 public class MainCriptografia {
 
-    public static void main(String[]args){
+    public static void main(String[]args) throws TransacaoException{
         
         Administrador adm = new Administrador();
         AdministradorDao dao = new AdministradorDao();

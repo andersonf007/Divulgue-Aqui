@@ -29,7 +29,6 @@ public class LoginBean {
 
     private String nome;
     private String senha;
-    private String email;
     private Administrador admin;
     private AdministradorDao daoAdmin;
     private Usuario usuario;
@@ -55,7 +54,7 @@ public class LoginBean {
         
         String redireciona;
         
-         Administrador a = daoAdmin.buscarAdminPorNomeSenha(nome, Criptografia.encriptografar(senha));
+         Administrador a = daoAdmin.buscarAdminPorUsuarioSenha(nome, Criptografia.encriptografar(senha));
          
         if (a != null) {
         
@@ -186,14 +185,6 @@ public class LoginBean {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 }

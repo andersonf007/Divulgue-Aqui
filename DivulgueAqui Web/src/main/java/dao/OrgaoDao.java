@@ -116,14 +116,14 @@ public class OrgaoDao implements DaoGenerico<Orgao> {
         return null;
     }
     
-    public Orgao recuperarOrgaoUsuarioSenha(String nome, String senha){
-        String hql = "from Orgao o where nome=:nomeOrgao and senha=:senhaOrgao";//como tá no bd!
+    public Orgao recuperarOrgaoUsuarioSenha(String usuario, String senha){
+        String hql = "from Orgao o where nomeUsuario=:usuarioOrgao and senha=:senhaOrgao";//como tá no bd!
         Orgao o = null;
          manager = HibernateUtil.getInstance().getFactory().createEntityManager();
          
          try {
             Query query = manager.createQuery(hql);
-            o = (Orgao) query.setParameter("nomeOrgao", nome).setParameter("senhaOrgao", senha).getSingleResult();//como tá na classe!
+            o = (Orgao) query.setParameter("usuarioOrgao", usuario).setParameter("senhaOrgao", senha).getSingleResult();//como tá na classe!
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

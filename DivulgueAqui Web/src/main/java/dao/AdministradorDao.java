@@ -129,14 +129,14 @@ public class AdministradorDao implements DaoGenerico<Administrador>{
         return null;
     }
     
-    public Administrador buscarAdminPorNomeSenha(String nome, String senha){
-        String hql = "from Administrador a where nome=:nomeAdmin and senha=:senhaAdmin";
+    public Administrador buscarAdminPorUsuarioSenha(String usuario, String senha){
+        String hql = "from Administrador a where nomeUsuario=:usuarioAdmin and senha=:senhaAdmin";
         Administrador a = null;
         manager = HibernateUtil.getInstance().getFactory().createEntityManager();
         
         try {
             Query query = manager.createQuery(hql);
-            a = (Administrador) query.setParameter("nomeAdmin", nome).setParameter("senhaAdmin", senha).getSingleResult();
+            a = (Administrador) query.setParameter("usuarioAdmin", usuario).setParameter("senhaAdmin", senha).getSingleResult();
             System.out.println("Admin Logou no sistema!");
         } catch (Exception e) {
             System.out.println("Dados incorretos, admin não logou no sistema!");
