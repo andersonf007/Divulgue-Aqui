@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: testesUnitarios.DAO.TesteAdministradorDao
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 4.799 sec
-=======
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.386 sec
->>>>>>> 9786a77b4ac66eaeb6c5d91e14b96987f8cb75c6
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.033 sec

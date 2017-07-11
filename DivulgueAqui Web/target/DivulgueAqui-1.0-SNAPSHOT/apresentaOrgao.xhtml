@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <ui:include src="menuOrgao.xhtml"/>
+        <ui:include src="menuAdmin.xhtml"/>
         <h:form id="visualizarOrgao">
             <p:growl id="gro12" life="5000"/>
             <p:dataTable id="tabela" var="atributo" value="#{orgaoBean.listarTodos()}" paginator="true" rows="10" rowKey="#{atributo.id}" selectionMode="single">

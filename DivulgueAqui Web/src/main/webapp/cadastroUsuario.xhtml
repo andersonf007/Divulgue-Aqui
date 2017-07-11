@@ -27,11 +27,11 @@
 
                     </p:inputText>
                     
-                    <p:outputLabel for="senha" value="Senha"/>
-                    <p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
-                    
                     <p:outputLabel for="apelido" value="Usuario"/>
                     <p:inputText id="apelido" value="#{usuarioBean.usuario.usuario}"/>
+                    
+                    <p:outputLabel for="senha" value="Senha"/>
+                    <p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="A senha é obrigatório!"/>
                     
                     <p:commandButton value="Salvar" icon="ui-icon-star" oncomplete="PF('widDial').show()"/>
                     <p:commandButton value="Limpar Campos" icon="ui-icon-star" title="Limpa todos os campos preenchidos!" type="reset"/>

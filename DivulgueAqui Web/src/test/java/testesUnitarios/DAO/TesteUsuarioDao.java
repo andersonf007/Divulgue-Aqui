@@ -23,16 +23,16 @@ public class TesteUsuarioDao {
         Usuario usuario = new Usuario();
         UsuarioDao dao = new UsuarioDao();
         
-        usuario.setNome("Anderson");
-        usuario.setEmail("anderson@gmail.com");
-        usuario.setSenha("2448");
-        usuario.setUsuario("seabra");
+        usuario.setNome("quinha");
+        usuario.setEmail("quinha@gmail.com");
+        usuario.setSenha("eu");
+        usuario.setUsuario("quinha");
         usuario.setSenha(Criptografia.encriptografar(usuario.getSenha()));
         
         dao.inserir(usuario);
         
         List<Usuario> usuarios = dao.recuperarTodos();
-        Assert.assertEquals("Anderson", usuarios.get(usuarios.size()-1).getNome());
+        Assert.assertEquals("quinha", usuarios.get(usuarios.size()-1).getNome());
             
     }
     
