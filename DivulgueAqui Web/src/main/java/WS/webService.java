@@ -23,6 +23,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import entidade.Usuario;
+import excecao.TransacaoException;
 import hibernate.Criptografia;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -230,7 +231,7 @@ public class webService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("orgao/inserir")
-    public String insertOrgao(String json) {
+    public String insertOrgao(String json) throws TransacaoException {
 
         OrgaoDao dao = new OrgaoDao();
         Orgao o = new Orgao();
@@ -240,15 +241,17 @@ public class webService {
 
         String nome;
         String senha;
+        String usuario;
 
         try {
             jsonObject = (JSONObject) parser.parse(json);
 
             nome = (String) jsonObject.get("nome");
             senha = (String) jsonObject.get("senha");
-
+            usuario = (String) jsonObject.get("usuario");
             o.setNome(nome);
             o.setSenha(senha);
+            o.setUsuario(usuario);
             dao.inserir(o);
 
         } catch (ParseException ex) {
