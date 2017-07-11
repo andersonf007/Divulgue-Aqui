@@ -33,8 +33,8 @@ public class TestePublicacaoInserir {
         Publicacao pb = null;
             
         String localidade = "br 22";
-        String descricao = "selvagens nas estrada";
-        long idUsuario = 1;
+        String descricao = "animais vivos na estrada";
+        long idUsuario = 3;
         
         JSONObject jsonObject = new JSONObject();
 
@@ -64,9 +64,9 @@ public class TestePublicacaoInserir {
             os.close();
             connection.disconnect();
 
-            pb = dao.recuperar((long)19);
+            pb = dao.recuperar((long)44);
             
-        assertEquals(204,code);
+        assertEquals(200,code);
         assertEquals(descricao,pb.getDescricao());
         assertEquals(localidade,pb.getLocalidade());
     }

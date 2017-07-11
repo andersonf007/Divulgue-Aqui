@@ -10,9 +10,8 @@ local LabelTelefone
 local LabelSenha
 local TxtNome
 local TxtEmail
-local TxtTelefone
 local TxtSenhaNova
-local sTxtSenhaAntiga
+local TxtSenhaAntiga
 local ButtonSave 
 local ButtonLogout
 local botaoLocked
@@ -53,8 +52,10 @@ function scene:create(event)
 
 		{
 		label="Salvar",
-		x = display.contentWidth/2,
-		y = display.contentHeight/2 + 40,
+		x = display.contentWidth/2 + 26,
+		y = display.contentHeight/2 + 25,
+		width = 96,
+		height = 40,
 		onRelease = updateUser,
         strokeWidth = 4,
         shape = "roundedRect" 
@@ -62,6 +63,22 @@ function scene:create(event)
 		}
 	)
 	grupoCena:insert(ButtonSave)
+
+	ButtonVoltar =  widget.newButton( 
+	
+		{
+	
+		label="voltar", 
+		x = display.contentWidth/2 - 52, 
+		y = display.contentHeight/2 + 25,
+		width = 55,
+		height = 40,
+        shape = "roundedRect",
+		onRelease = voltarTela
+		}
+	)
+
+	grupoCena:insert(ButtonVoltar)  
 
 	botaoLocked2 = widget.newButton( -- mostra e oculta a senha
         {
@@ -86,6 +103,17 @@ function scene:create(event)
         }
     )
     grupoCena:insert(botaoLocked)
+end
+
+function voltarTela(event)
+	
+	if event.phase == "ended" then
+		TxtNome.text = ""
+		TxtEmail.text = ""
+		TxtSenhaNova.text = ""
+		TxtSenhaAntiga.text = ""  
+		composer.gotoScene("Logado")
+	end
 end
 
 function confirmacaoDeAtualizacaoDoUsuario(codigo)
