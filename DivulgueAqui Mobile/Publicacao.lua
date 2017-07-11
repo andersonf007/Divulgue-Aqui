@@ -81,6 +81,7 @@ function voltarTela(event)
   if event.phase == "ended" then
     textoLocalidade.text = ""
     textoDescricao.text = ""
+    web:recoverPublicacaoIdWS(codigoUser)
     composer.gotoScene("Logado")
   end
 

@@ -112,6 +112,7 @@ function voltarTela(event)
 		TxtEmail.text = ""
 		TxtSenhaNova.text = ""
 		TxtSenhaAntiga.text = ""  
+		web:recoverPublicacaoIdWS(codigoUser)
 		composer.gotoScene("Logado")
 	end
 end

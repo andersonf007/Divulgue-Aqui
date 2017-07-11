@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestePubicacao.TestePublicacaoInserir
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.337 sec
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.176 sec
->>>>>>> mavenWeb
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 sec

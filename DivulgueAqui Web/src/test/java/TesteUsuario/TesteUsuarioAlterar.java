@@ -29,10 +29,10 @@ public class TesteUsuarioAlterar {
     public void atualizarUsuario() throws MalformedURLException, IOException{
         int code = 0;
 
-        String nome = "sonia23";
-        String email = "sonia23@gmail.com.br";
+        String nome = "siovio";
+        String email = "siovio@gmail.com.br";
         String senha = "1232";
-        long codigo = 37;
+        long codigo = 40;
           
         JSONObject jsonObject = new JSONObject();
 

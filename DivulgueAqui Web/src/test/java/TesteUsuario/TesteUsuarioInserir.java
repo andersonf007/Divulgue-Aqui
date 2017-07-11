@@ -29,8 +29,8 @@ public class TesteUsuarioInserir {
     public void inserirUsuario() throws MalformedURLException, IOException {
         int code = 0;
         String nome = "pessoa";
-        String email = "p1234567@gmail.com";
-        String nomeFicticio = "p1234567";
+        String email = "p12345678@gmail.com";
+        String nomeFicticio = "p12345678";
         String senha = "123";
 
         JSONObject jsonObject = new JSONObject();//instancia um objeto json
