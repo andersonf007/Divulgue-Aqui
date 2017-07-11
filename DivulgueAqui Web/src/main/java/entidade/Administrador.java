@@ -24,14 +24,14 @@ public class Administrador implements Serializable{
   @Column(length = 50, nullable = false)
   private String senha;
   
-//  @Column(name="nomeUsuario",length = 50, nullable = false, unique = true)
-//  private String usuario;
+  @Column(name="nomeUsuario",length = 50, nullable = false, unique = true)
+  private String usuario;
 
     public Administrador() {
         
     }
 
-    public Administrador(Long id, String nome, String email, String senha) {
+    public Administrador(Long id, String nome, String email, String senha, String usuario) {
         if(nome == null || nome.isEmpty()){
             throw new IllegalArgumentException("O nome do administrador deve ser preenchido!");
         }
@@ -45,6 +45,7 @@ public class Administrador implements Serializable{
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.usuario = usuario;
     }
     
     public Long getId() {
@@ -79,4 +80,12 @@ public class Administrador implements Serializable{
         this.senha = senha;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
 }
