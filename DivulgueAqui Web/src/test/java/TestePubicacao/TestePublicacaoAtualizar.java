@@ -30,9 +30,9 @@ public class TestePublicacaoAtualizar {
     public void atualizarPublicacao() throws MalformedURLException, IOException{
         
         int code = 0;
-        String descricao = "seu escuro";
+        String descricao = "seu claro";
         String localidade = "interior";
-        long codigo = 15;//codigo da publicacao
+        long codigo = 27;//codigo da publicacao
           
         JSONObject jsonObject = new JSONObject();
 
@@ -64,9 +64,9 @@ public class TestePublicacaoAtualizar {
             
             PublicacaoDao dao = new PublicacaoDao();
             Publicacao pb = null;
-        
-            pb = dao.recuperar((long)15);
-        
+
+            pb = dao.recuperar((long)27);
+
         assertEquals(200,code);
         assertEquals(descricao,pb.getDescricao());
         assertEquals(localidade,pb.getLocalidade());

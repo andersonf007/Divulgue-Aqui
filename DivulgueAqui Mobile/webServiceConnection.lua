@@ -68,7 +68,9 @@ local function retornoDoRestParaCadastroDoUsuario( event )
        -- print(response)
        print( "codigo de retorno para dadastro do usuario: " .. event.response )
     else
-        print( "Error" )
+
+        print( "Error" .. response)
+
     end
     return
 end
