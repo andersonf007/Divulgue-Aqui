@@ -25,57 +25,57 @@ import org.junit.Test;
  * @author ander
  */
 public class TesteUsuarioRecuperarPorNomeFicticio {
-    
+
     //@Ignore
     @Test
-    public void recuperarUsuarioPorNomeFicticio() throws MalformedURLException, IOException, ParseException{
+    public void recuperarUsuarioPorNomeFicticio() throws MalformedURLException, IOException, ParseException {
         int code = 0;
-        
-        String nome = null ;
+
+        String nome = null;
         String email = null;
         String nomeFicticio = "beta";
         String senha = "123";
-        
+
         JSONObject jsonObject = new JSONObject();
 
         //Armazena dados em um Objeto JSON
         jsonObject.put("usuario", nomeFicticio);
         jsonObject.put("senha", senha);
-       
+
         Gson gson = new Gson();
         String Json = gson.toJson(jsonObject);
-       
-            URL url;
-        
-            url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome="+Json);
 
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.setDoOutput(true);
-            connection.setRequestMethod("GET");
-          
-            code = connection.getResponseCode();
+        URL url;
 
-            InputStream inputStrem = connection.getInputStream();
-            BufferedReader br =  new BufferedReader(new InputStreamReader(inputStrem));
-            
-            String a;
-            StringBuilder stringBuilder = new StringBuilder();
-            
-            while ((a  = br.readLine()) != null){
-             stringBuilder.append(a);
-            }
-            
-            connection.disconnect();
-            
-             JSONParser parser = new JSONParser();  
-      
-            jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
-            
-            nome = (String) jsonObject.get("nome");
-            email = (String) jsonObject.get("email");
-            nomeFicticio = (String) jsonObject.get("usuario");
-            
+        url = new URL("http://localhost:8084/DivulgueAqui/webresources/webService/usuario/recuperar/nome?nome=" + Json);
+
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoInput(true);
+        connection.setDoOutput(true);
+        connection.setRequestMethod("GET");
+
+        code = connection.getResponseCode();
+
+        InputStream inputStrem = connection.getInputStream();
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStrem));
+
+        String a;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while ((a = br.readLine()) != null) {
+            stringBuilder.append(a);
+        }
+
+        connection.disconnect();
+
+        JSONParser parser = new JSONParser();
+
+        jsonObject = (JSONObject) parser.parse(stringBuilder.toString());
+
+        nome = (String) jsonObject.get("nome");
+        email = (String) jsonObject.get("email");
+        nomeFicticio = (String) jsonObject.get("usuario");
+
         assertEquals(200, code);
         assertEquals("Roberta Maria Silva Santos", nome);
         assertEquals("robertaMaria@outlook.com", email);

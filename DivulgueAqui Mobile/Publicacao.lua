@@ -32,7 +32,7 @@ function scene:create(event)
       grupoCena:insert(titulo)
 
 
-      campoDescricao = display.newText({text = "Descrição do problema", x=display.contentWidth/2, y=display.contentHeight/2 - 125, native.systemFont, 16})
+      campoDescricao = display.newText({text = "Descrição", x=display.contentWidth/2, y=display.contentHeight/2 - 125, native.systemFont, 16})
       campoDescricao:setFillColor(0,0,0)
       grupoCena:insert( campoDescricao )
       --[[
@@ -40,15 +40,15 @@ function scene:create(event)
       campoCategoria:setFillColor(0,1,0)
       grupoCena:insert( campoCategoria )
       ]]
-      campoLocalidade = display.newText({text = "Local do problema", x=display.contentWidth/2,y=display.contentHeight/2 - 175, native.systemFont, 16})
+      campoLocalidade = display.newText({text = "Local", x=display.contentWidth/2,y=display.contentHeight/2 - 175, native.systemFont, 16})
       campoLocalidade:setFillColor(0,0,0)
       grupoCena:insert( campoLocalidade )
       
       botaoPublicar = widget.newButton( 
           {
           label = "Publicar", 
-    x = display.contentWidth/2 + 29,
-    y = display.contentHeight/2 + 25,
+          x = display.contentWidth/2 + 29,
+          y = display.contentHeight/2 + 25,
           width = 96,
           height = 40,
           strokeWidth = 4,
@@ -64,8 +64,8 @@ function scene:create(event)
         {
       
         label="voltar", 
-    x = display.contentWidth/2 - 50, 
-    y = display.contentHeight/2 + 25,
+        x = display.contentWidth/2 - 50, 
+        y = display.contentHeight/2 + 25,
         width = 55,
         height = 40,
         shape = "roundedRect",

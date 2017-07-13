@@ -69,7 +69,7 @@ local function onRowRender( event )-- metodo para preencher o tableView
 end
 
 function fazerLogout(event)
-	print("unhum")
+	
 	if event.phase == "began" then
 		codigoUser = ""
 		nomeFicticio = ""
@@ -118,7 +118,6 @@ function scene:create(event)
 		--fillColor = { default={1,1,0,1}, over={1,0.1,0.7,0.4}}, 
 		onPress = realizarPublicacao}
 	)
-
 	grupoCena:insert( ButtonPublicacao)
 
 	
@@ -163,13 +162,13 @@ function scene:show(event)
 		listener = scrollListener
 	}
 	grupoCena:insert( myList)
+
+	bemVindo.text = "Bem-Vindo : " .. nomeFicticio
 end
 
 function scene:hide(event)
-	--print("hide")
-	--print(myList)
 	if event.phase == "did" then
-		print("entrou")
+		print("hide logado")
 		display.remove(myList)
 	end
 end

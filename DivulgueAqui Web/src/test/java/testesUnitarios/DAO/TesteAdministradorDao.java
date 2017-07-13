@@ -17,21 +17,22 @@ import org.junit.Test;
 
 
 public class TesteAdministradorDao {
-    @Ignore
+    //@Ignore
     @Test
     public void vericarInsercaoAdminBD() throws TransacaoException{
         Administrador admin = new Administrador();
         AdministradorDao dao = new AdministradorDao();
         
-        admin.setNome("admin");
-        admin.setEmail("admin@gmail.com");
+        admin.setNome("adm2");
+        admin.setEmail("adm2@gmail.com");
         admin.setSenha("1234");
+        admin.setUsuario("adm2");
         admin.setSenha(Criptografia.encriptografar(admin.getSenha()));
         
         dao.inserir(admin);
         
         List<Administrador> administradores = dao.recuperarTodos(); 
-        Assert.assertEquals("novo", administradores.get(administradores.size() -1).getNome());
+        Assert.assertEquals("adm2", administradores.get(administradores.size() -1).getNome());
         
     }
     @Ignore

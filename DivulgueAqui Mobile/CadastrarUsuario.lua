@@ -12,6 +12,7 @@ local TxtEmail
 local TxtSenha
 local ButtonCadastrar 
 local botaoLocked
+local validacaoBotaoTempo = true
 
 function scene:create(event)
 
@@ -167,15 +168,18 @@ end
 
 function mostrarSenha( event ) -- mostra a senha do usuario
     if event.phase == "began" then
-
+    	if validacaoBotaoTempo == true then
             TxtSenha.isSecure = false
-            tempo = timer.performWithDelay(1500,ocultarSenha)
+            tempoCadastro = timer.performWithDelay(1500,ocultarSenha)
+            validacaoBotaoTempo = false
+        end
     end
 end
 
 function ocultarSenha() -- oculta a senha do usuario
 	TxtSenha.isSecure = true
-	timer.pause( tempo )
+	timer.pause( tempoCadastro )
+	validacaoBotaoTempo = true
 end
 
 function scene:show(event)

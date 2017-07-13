@@ -11,6 +11,7 @@ local Buttonlogin
 local ButtonSingIn
 local botaoLocked
 local tempo
+local validacaoBotaoTempo = true
 
 function scene:create(event)
 	
@@ -105,21 +106,18 @@ end
 
 function mostrarSenha( event )
     if event.phase == "began" then
-    --[[    if TxtPassword ~="" then
-            if TxtPassword.isSecure == false then
-                TxtPassword.isSecure = true
-            else
-                TxtPassword.isSecure = false
-           end
-        end]]
+    	if validacaoBotaoTempo == true then
             TxtPassword.isSecure = false
-            tempo = timer.performWithDelay(1500,ocultarSenha)
+            tempoLogin = timer.performWithDelay(1500,ocultarSenha)
+            validacaoBotaoTempo = false
+        end
     end
 end
 
 function ocultarSenha()
 	TxtPassword.isSecure = true
-	timer.pause( tempo )
+	timer.pause( tempoLogin )
+	validacaoBotaoTempo = true
 end
 
 function scene:show(event) 

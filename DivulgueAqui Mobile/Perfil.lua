@@ -10,15 +10,15 @@ local LabelTelefone
 local LabelSenha
 local TxtNome
 local TxtEmail
-
 local TxtSenhaNova
 local TxtSenhaAntiga
-
 local TxtSenhaNova
 local TxtSenhaAntiga
 local ButtonSave 
 local ButtonLogout
 local botaoLocked
+local validacaoBotaoTempo1 = true
+local validacaoBotaoTempo2 = true
 
 function scene:create(event)
 
@@ -176,26 +176,34 @@ end
 
 function mostrarSenha( event ) -- mostra a senha do usuario
     if event.phase == "began" then
+    	if validacaoBotaoTempo1 == true then
         TxtSenhaNova.isSecure = false
         tempo = timer.performWithDelay(1500,ocultarSenha)
+    	validacaoBotaoTempo1 = false
+    	end
     end
 end
 
 function ocultarSenha() -- oculta a senha do usuario
 	TxtSenhaNova.isSecure = true
 	timer.pause( tempo )
+	validacaoBotaoTempo1 = true
 end
 
 function mostrarSenha2( event ) -- mostra a senha do usuario
     if event.phase == "began" then
+    	if validacaoBotaoTempo2 == true then
         TxtSenhaAntiga.isSecure = false
         tempo2 = timer.performWithDelay(1500,ocultarSenha2)
+        validacaoBotaoTempo2 = false
+    	end
     end
 end
 
 function ocultarSenha2() -- oculta a senha do usuario
 	TxtSenhaAntiga.isSecure = true
 	timer.pause( tempo2 )
+	validacaoBotaoTempo2 = true
 end
 
 function scene:show(event)
